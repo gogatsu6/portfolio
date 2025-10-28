@@ -33,12 +33,20 @@
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <!--============= password =============-->
     <script>
-        const password = prompt("パスワードを入力してください：");
-        if (password === "0000") {
-            document.body.style.display = "block";
-        } else {
-            document.body.innerHTML = "<h2 style='text-align:center;margin-top:20vh;'>アクセスできません。</h2>";
-        }
+        // 最初は本文を非表示
+        document.addEventListener("DOMContentLoaded", () => {
+            document.body.style.display = "none";
+
+            const password = prompt("パスワードを入力してください：");
+            if (password === "0000") {
+                // 正しいパスワード → 表示
+                document.body.style.display = "block";
+            } else {
+                // 間違い or キャンセル → 非表示メッセージのみ
+                document.body.innerHTML = "<h2 style='text-align:center;margin-top:20vh;'>アクセスできません。</h2>";
+                document.body.style.display = "block";
+            }
+        });
     </script>
 
 </head>
