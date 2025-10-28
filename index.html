@@ -31,17 +31,19 @@
 
     <!--============= Favicon =============-->
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-</head>
-
-<body id="top">
-
+    <!--============= password =============-->
     <script>
         const password = prompt("パスワードを入力してください：");
-        if (password !== "0000") {
+        if (password === "0000") {
+            document.body.style.display = "block";
+        } else {
             document.body.innerHTML = "<h2 style='text-align:center;margin-top:20vh;'>アクセスできません。</h2>";
         }
     </script>
 
+</head>
+
+<body id="top" style="display:none;">
     <!--============= Header =============-->
     <header id="header">
         <nav id="g-navi">
