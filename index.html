@@ -34,6 +34,14 @@
 </head>
 
 <body id="top">
+
+    <script>
+        const password = prompt("パスワードを入力してください：");
+        if (password !== "0000") {
+            document.body.innerHTML = "<h2 style='text-align:center;margin-top:20vh;'>アクセスできません。</h2>";
+        }
+    </script>
+
     <!--============= Header =============-->
     <header id="header">
         <nav id="g-navi">
