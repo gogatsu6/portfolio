@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="ポートフォリオ">
+    <meta name="description" content="このサイトは山本さつきのポートフォリオです。">
+    <title>TOP｜Yamamoto-Portfolio</title>
+
+    <!--============= Google Analytics ===============-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <!--============= Google Font ===============-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&family=Zen+Kaku+Gothic+New&display=swap"
+        rel="stylesheet">
+
+    <!--============= CSS ===============-->
+    <link rel="stylesheet" href="scss/destyle.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="scss/main.css">
+
+    <!--============= Favicon =============-->
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+</head>
+
+<body id="top">
+    <!--============= Header =============-->
+    <header id="header">
+        <nav id="g-navi">
+            <div class="mode-btn-area">
+                <button id="mode-toggle" class="mode-on">ON MODE</button>
+            </div>
+            <ul>
+                <li><a href="#area-1">work</a></li>
+                <li><a href="#area-2">profile</a></li>
+                <li><a href="#area-3">contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="openbtn"><span></span><span></span><span></span></div>
+
+
+    <main>
+        <!--============= Wrapper（全体） =============-->
+        <div id="wrapper" class="mode-on">
+            <button class="page-top"><span></span>
+                <p>PAGE TOP</p>
+            </button>
+
+            <!--============= Fixed-area（動画ON/OFF） =============-->
+            <section class="mode-area" id="fixed-area">
+                <video class="video-on" autoplay muted loop playsinline>
+                    <source src="video/on-video.mp4" type="video/mp4">
+                </video>
+
+                <video class="video-off" autoplay muted loop playsinline>
+                    <source src="video/on-video.mp4" type="video/mp4">
+                </video>
+            </section>
+
+            <!--============= Scroll-area（コンテンツ） =============-->
+            <div id="container">
+                <div class="innerWrap">
+                    <!-- === ONモード === -->
+                    <div class="on_screen">
+                        <section>
+                            <div class="title-container fadeUpTrigger">
+                                <h1 class="on-title">Yamamoto<br>Portfolio</h1>
+                                <div class="scroll-container fadeUp">
+                                    <a href="#" class="scroll-down">
+                                        <div class="circle-arrow"></div>
+                                        <p>Scroll Down</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!------------- greeting ------------->
+                        <section>
+                            <div class="greeting-container fadeUpTrigger">
+                                <div class="greeting-box">
+                                    <p>
+                                        日々、頭を悩ませ、心をふるわせ<br class="dp">
+                                        誰かの目にとまるものを作っています。<br><br>
+                                        見てくれた人の生活が<br class="dp">
+                                        豊かに、幸せにつながることを願って。<br>
+                                        その”縁”を届けられるような<br class="dp">
+                                        デザインを心がけています。
+                                    </p>
+                                    <div class="greeting-image fadeUpTrigger">
+                                        <ul>
+                                            <li><img src="img/pc-img.png" alt="PCイラスト"></li>
+                                            <li>
+                                                <p>&</p>
+                                            </li>
+                                            <li><img src="img/sp-img.png" alt="SPイラスト"></li>
+                                            <li>
+                                                <p>or</p>
+                                            </li>
+                                            <li><img src="img/pop-img.png" alt="POPイラスト"></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!------------- work ------------->
+                        <section id="area-1">
+                            <div class="work-container">
+                                <h2 class="fadeUpTrigger">work</h2>
+                                <div class="fadeUpTrigger">
+                                    <div class="work-item">
+                                        <div class="work-item-left">
+                                            <a href="#"><img src="img/work01.png" alt="美容クリニックの求人サイト"
+                                                    class="work-img"></a>
+                                        </div>
+                                        <div class="work-item-right">
+                                            <a href="#">
+                                                <h3>美容クリニックの求人サイト</h3>
+                                            </a>
+                                            <p class="work-item-text">
+                                                20・30代をメインターゲットにし、情報設計とクリニックの雰囲気が伝わるようにデザインしました。(TOPのみ)
+                                            </p>
+                                            <p class="more-link"><a href="#">もっと見る</a></p>
+                                        </div>
+                                    </div>
+                                    <div class="work-item">
+                                        <div class="work-item-left">
+                                            <a href="#"><img src="img/work02.png" alt="キャンペーンPOP" class="work-img"></a>
+                                        </div>
+                                        <div class="work-item-right">
+                                            <a href="#">
+                                                <h3>キャンペーンPOP</h3>
+                                            </a>
+                                            <p class="work-item-text">多い情報量・治療効果の違いなどをA4サイズにまとめ、遠くからでも見えるようにデザインしました。
+                                            </p>
+                                            <p class="more-link"><a href="#">もっと見る</a></p>
+                                        </div>
+                                    </div>
+                                    <button class="view-all"><a href="#">View All</a></button>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!------------- profile ------------->
+                        <section id="area-2">
+                            <div class="profile-container">
+                                <h2 class="fadeUpTrigger">profile</h2>
+                                <div class="profile-item fadeUpTrigger">
+                                    <div class="profile-item-left">
+                                        <img src="img/profile.jpg" alt="プロフィール写真">
+                                    </div>
+                                    <div class="profile-item-right">
+                                        <p class="profile-item-text">
+                                            1990年福島県生まれ。京都精華大学人文学部を卒業後、祇園のフレンチ懐石で接客、百貨店の販売、広告代理店で営業を経て、現在クリニックの広報でお仕事をさせて頂いています。
+                                            広告・販促・通販などのデザイン全般に携わり、企画・構成・文章・イラスト・デザイン・コーディングまで行っています。
+                                        </p>
+                                        <h4>できること</h4>
+                                        <h5>PC Skills</h5>
+                                        <p class="profile-item-skills_text">
+                                            Photoshop / Illustrator / Premiere Pro / After Effects / Figma / MicroOffice
+                                        </p>
+                                        <h5>Other Skills</h5>
+                                        <p class="profile-item-skills_text">
+                                            文章作成 / 構成・シナリオ設計 / イラスト作成 / コーディング(html,css,scss,Javascript,jQuery)
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!------------- contact ------------->
+                        <section id="area-3">
+                            <div class="contact-container">
+                                <h2 class="fadeUpTrigger">contact</h2>
+                                <p class="contact-message fadeUpTrigger">
+                                    当サイトをご覧いただき、ありがとうございます。<br>
+                                    ご質問やご相談など、お気軽にご連絡ください。
+                                </p>
+                                <form action="" method="post" class="fadeUpTrigger">
+                                    <label for="name">お名前</label>
+                                    <input type="text" id="name" name="name" placeholder="例｜山田 太郎" required>
+                                    <label for="email">メールアドレス</label>
+                                    <input type="email" id="email" name="email" placeholder="例｜0000000000@mail.com"
+                                        required>
+                                    <label for="message">お問い合わせ内容</label>
+                                    <textarea id="message" name="user-message" rows="8"
+                                        placeholder="例｜〇〇〇の内容について問い合わせたい。" required></textarea>
+                                    <button class="contact-button" type="submit">送信</button>
+                                </form>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- === OFFモード === -->
+                    <div class="off_screen" style="display: none;">
+                        <section>
+                            <div class="title-container fadeUpTrigger">
+                                <h1>Yamamoto<br>private</h1>
+                                <div class="title-item-img fadeUpTrigger">
+                                    <img src="img/hand-bule.png" alt="handイラスト" class="hand-img" id="hand">
+                                    <img src="img/Who are you_.png" alt="Who are you?" class="text-img" id="text">
+                                </div>
+                                <div class="scroll-container fadeUp">
+                                    <a href="#" class="scroll-down">
+                                        <div class="circle-arrow"></div>
+                                        <p>Scroll Down</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!------------- about ------------->
+                        <section id="about">
+                            <div class="about-container fadeUpTrigger">
+                                <h2>about</h2>
+                                <div class="about-item-01 fadeUpTrigger">
+                                    <div class="about-item-left">
+                                        <img src="img/profile_img01.png" alt="profileイラスト">
+                                    </div>
+                                    <div class="about-item-right">
+                                        <p>子どもの頃はイラスト描き一筋で、毎日毎日飽きずに絵を描いていました。好きなことにはとことん没頭するタイプです。<br>
+                                            その後、心を揺り動かされる「表現する」こと自体に可能性や奥深さを感じ、大学では舞台表現を専攻しました。<br>
+                                            絵から始まった【作ること・表現すること】は、私の人生のベースになっています。
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="about-item-02 fadeUpTrigger">
+                                    <div class="about-item-left">
+                                        <p>現在、2人の女の子のママとして、京都で仕事をしながら毎日大変ですが育児を楽しんでいます。<br>
+                                            「月が八宝菜みたいな雲に隠れてる」「たこさんウインナーの木(ザクロの木)」など娘が教えてくれる大発見を一緒にクスッと笑っています。
+                                        </p>
+                                    </div>
+                                    <div class="about-item-right">
+                                        <img src="img/profile_img02.png" alt="profileイラスト" class="about-img">
+                                    </div>
+                                </div>
+
+                                <div class="about-like-container fadeUpTrigger">
+                                    <p class="about-like-title">わたしのすきなもの</p>
+                                    <p class="about-like-text">
+                                        <span>宇多田ヒカル / 坂本真綾 / CLAMP / 小野不由美 / 三津田信三 / 安住紳一郎 / 土井半助 / ジェシーおいたん /
+                                            チキン南蛮 / 甘いもの / 紅茶</span>
+                                    </p>
+                                </div>
+
+                                <div class="about-img-container fadeUpTrigger">
+                                    <img src="img/about-img01.png" class="about-item-image" alt="profileイメージ">
+                                    <img src="img/about-img02.png" class="about-item-image" alt="profileイメージ">
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <footer id="footer">
+                    <small>&copy; Yamamoto Satsuki All Rights Reserved.</small>
+                </footer>
+            </div>
+        </div>
+    </main>
+
+
+
+    <!--============= script.js =============-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stickyfill/2.1.0/stickyfill.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/top.js"></script>
+
+</body>
+
+</html>

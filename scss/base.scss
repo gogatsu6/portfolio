@@ -1,0 +1,168 @@
+/* ==================================================
+  base.scss
+  サイト全体の基礎設定ファイル
+================================================== */
+
+/* -------------------------------------
+  1. 変数
+------------------------------------- */
+$font-main: 'Zen Kaku Gothic New', sans-serif;
+$font-sub: 'Baskervville', serif;
+
+/*---------- collar ----------*/
+
+$main-color: #E5E0DA;
+$accent-color: #3A374D;
+$text-color: #424040;
+$off-text-color: #fff;
+
+$on-background-color: #E5E0DA;
+$off-background-color: #7A788A; // #6a6783
+
+$on-link-button_background-color: #424040;
+$on-link-button_animation-color: #967e61;
+
+$off-link-button_background-color:#fff;
+$off-link-button_border-color: #3A374D;
+$off-link-button_animation-color: #5a576b;
+
+/* -------------------------------------
+  2. ブレークポイント
+------------------------------------- */
+$breakpoints: (
+  'sp': 767px,
+  'tb': 1024px,
+  'lp': 1300px,
+  'dp': 1920px
+);
+
+/* -------------------------------------
+  3. mixin
+------------------------------------- */
+// 最大幅（以下）
+@mixin respond-max($breakpoint) {
+  @media screen and (max-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+// 最小幅（以上）
+@mixin respond-min($breakpoint) {
+  @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+// フォントサイズ定義
+@mixin font-size-S {
+    font-size: clamp(1.2rem, calc(0.9rem + 0.625vw), 1.4rem);
+}
+@mixin font-size-M {
+    font-size: clamp(1.4rem, calc(1.2rem + 0.625vw), 1.6rem);
+}
+@mixin font-size-L {
+    font-size: clamp(1.8rem, calc(1.6rem + 0.625vw), 2.4rem);
+}
+@mixin font-size-title {
+    font-size: clamp(4.1rem, calc(3.7rem + 0.625vw), 5.6rem);
+}
+
+/* -------------------------------------
+  4. Reset & Base Style
+------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0 auto;
+  font-size: 62.5%; // 10px基準
+  letter-spacing: 1.2px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-main;
+  @include font-size-S;
+  background-color: $on-background-color;
+  color: $text-color;
+}
+
+main {
+  display: block;
+  width: 100%;
+}
+
+section {
+  scroll-margin-top: 60px;
+}
+
+/* -------------------------------------
+  5. 共通ユーティリティ
+------------------------------------- */
+
+// レイアウト中央寄せ
+.innerWrap {
+  width: 66.66%;
+  margin: 0 auto;
+
+  @include respond-max('sp') {
+    width: 90%;
+  }
+}
+
+// アニメーション用FadeUp
+.fadeUpTrigger {
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+.fadeUp {
+  animation-name: fadeUpAnime;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUpAnime {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// 改行
+
+  .sp {
+  display: none;
+}
+@include respond-max('sp') {
+  .sp {
+    display: block;
+  }
+}
+
+.tb {
+  display: none;
+}
+@include respond-max('tb') {
+  .tb {
+    display: block;
+  }
+}
+
+.dp {
+  display: none;
+}
+@include respond-max('dp') {
+  .dp {
+    display: block;
+  }
+}
