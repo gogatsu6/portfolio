@@ -1180,7 +1180,7 @@ footer.pos-left {
   pointer-events: none;
   transition: opacity 0.4s ease;
 }
-#work #header .panelactive #g-navi {
+#work #header.panelactive #g-navi {
   top: 0;
   left: 0;
   z-index: -1;
