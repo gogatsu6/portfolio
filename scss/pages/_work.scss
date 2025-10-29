@@ -42,6 +42,11 @@
 .openbtn {
   opacity: 1;
   pointer-events: auto;
+
+    @include respond-max('sp') {
+      top: 40px;
+  }
+
 }
 
   #g-navi {
