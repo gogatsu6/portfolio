@@ -1170,6 +1170,7 @@ footer.pos-left {
   _work.scss
 ================================================== */
 #work {
+  /* ハンバーガーが開いたら header 表示 */
   /* ---------------------------------------------
      ページ全体
   --------------------------------------------- */
@@ -1177,6 +1178,11 @@ footer.pos-left {
 #work #header {
   opacity: 0;
   pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+#work .openbtn.active ~ #header {
+  opacity: 1;
+  pointer-events: auto;
 }
 #work .openbtn {
   opacity: 1;
