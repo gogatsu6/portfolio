@@ -1180,6 +1180,19 @@ footer.pos-left {
   pointer-events: none;
   transition: opacity 0.4s ease;
 }
+#work #header .panelactive #g-navi {
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4sease;
+}
 #work .openbtn.active ~ #header {
   opacity: 1;
   pointer-events: auto;
@@ -1197,6 +1210,10 @@ footer.pos-left {
   height: 40vh;
   border-radius: 30px;
   margin-top: 2%;
+}
+#work #g-navi ul {
+  list-style: none;
+  display: block;
 }
 #work .work-wrapper {
   display: flex;
