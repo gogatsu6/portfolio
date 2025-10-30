@@ -76,7 +76,7 @@ $('.sort-btn li').on('click',function(){			//並び替えボタンをクリッ�
 //  work___ hamburger button (header表示制御付き)
 // =====================================================
 
-$(window).on('load', function () {
+$(function () {
   // headerを初期で非表示
   $('#header').addClass('dnone');
   // ハンバーガーを常時表示
@@ -87,12 +87,14 @@ $(window).on('load', function () {
 
   // --- ハンバーガー開閉 ---
   $('.openbtn').on('click', function () {
+    console.log("openbtn clicked"); // デバッグ
     $(this).toggleClass('active');
-    $('#header').toggleClass('panelactive'); // ← common.scssの構造に合わせて変更
+    $('#header').toggleClass('panelactive');
   });
 
   // --- メニューリンククリック時 ---
   $('#g-navi a').on('click', function () {
+    console.log("nav link clicked"); // デバッグ
     $('.openbtn').removeClass('active');
     $('#header').removeClass('panelactive');
   });
