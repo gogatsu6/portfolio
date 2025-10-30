@@ -71,3 +71,22 @@ $('.sort-btn li').on('click',function(){			//並び替えボタンをクリッ�
 	}
 });
 });
+
+// =====================================================
+//  work___ hamburger button (header表示制御付き)
+// =====================================================
+
+$(window).on('load', function () {
+  // 初期状態：headerを非表示
+  $('#header').addClass('dnone');
+  $('.openbtn').addClass('fadeDown');
+
+  // 念のため、共通JSで登録されたスクロールイベントを解除
+  $(window).off('scroll');
+
+  // openbtnクリック時
+  $('.openbtn').on('click', function () {
+    $(this).toggleClass('active');
+    $('#header').toggleClass('menu-open');
+  });
+});
