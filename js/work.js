@@ -81,12 +81,25 @@ $(window).on('load', function () {
   $('#header').addClass('dnone');
   $('.openbtn').addClass('fadeDown');
 
-  // 念のため、共通JSで登録されたスクロールイベントを解除
+  // 共通JSで登録されたスクロールイベントを解除
   $(window).off('scroll');
 
-  // openbtnクリック時
+  // openbtnクリック時（開閉＋アクティブ化）
   $('.openbtn').on('click', function () {
-    $(this).toggleClass('active');
+    $(this).toggleClass('active'); // ← active追加
     $('#header').toggleClass('menu-open');
+  });
+
+  // メニュー内リンククリック時
+  $('#g-navi a').on('click', function () {
+    // 閉じるアニメーションをすぐ実行
+    $('.openbtn').removeClass('active');
+    $('#header').removeClass('menu-open');
+
+    // headerが一瞬見えるのを防ぐため、即座にpointer-eventsを切る
+    $('#header').css({
+      opacity: 0,
+      pointerEvents: 'none',
+    });
   });
 });
