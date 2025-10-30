@@ -77,29 +77,23 @@ $('.sort-btn li').on('click',function(){			//並び替えボタンをクリッ�
 // =====================================================
 
 $(window).on('load', function () {
-  // 初期状態：headerを非表示
+  // headerを初期で非表示
   $('#header').addClass('dnone');
+  // ハンバーガーを常時表示
   $('.openbtn').addClass('fadeDown');
 
-  // 共通JSで登録されたスクロールイベントを解除
+  // 共通のスクロールイベントを解除
   $(window).off('scroll');
 
-  // openbtnクリック時（開閉＋アクティブ化）
+  // --- ハンバーガー開閉 ---
   $('.openbtn').on('click', function () {
-    $(this).toggleClass('active'); // ← active追加
-    $('#header').toggleClass('menu-open');
+    $(this).toggleClass('active');
+    $('#header').toggleClass('panelactive'); // ← common.scssの構造に合わせて変更
   });
 
-  // メニュー内リンククリック時
+  // --- メニューリンククリック時 ---
   $('#g-navi a').on('click', function () {
-    // 閉じるアニメーションをすぐ実行
     $('.openbtn').removeClass('active');
-    $('#header').removeClass('menu-open');
-
-    // headerが一瞬見えるのを防ぐため、即座にpointer-eventsを切る
-    $('#header').css({
-      opacity: 0,
-      pointerEvents: 'none',
-    });
+    $('#header').removeClass('panelactive');
   });
 });

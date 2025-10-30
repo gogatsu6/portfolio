@@ -7,20 +7,20 @@
 
 #work {
 
-// --------------------------------------------------
-// Header
-// --------------------------------------------------
+// // --------------------------------------------------
+// // Header
+// // --------------------------------------------------
 
-#header {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
+// #header {
+//   opacity: 0;
+//   pointer-events: none;
+//   transition: opacity 0.4s ease;
 
-  &.menu-open {
-  opacity: 1;
-  pointer-events: auto;
-}
-}
+//   &.menu-open {
+//   opacity: 1;
+//   pointer-events: auto;
+// }
+// }
 
 // /* ハンバーガーが開いたら header 表示 */
 // .openbtn.active ~ #header {
