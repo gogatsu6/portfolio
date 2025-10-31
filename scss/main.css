@@ -1245,7 +1245,7 @@ footer.pos-left {
 }
 @media screen and (max-width: 767px) {
   #work .work-wrapper .work-left {
-    align-items: center;
+    align-items: flex-start;
   }
 }
 #work .work-wrapper .work-left .work-left-gallery {
@@ -1276,11 +1276,35 @@ footer.pos-left {
     width: 100%;
   }
 }
+@media screen and (max-width: 767px) {
+  #work .work-wrapper .work-left .thumbnail-area {
+    width: 100%;
+    overflow-x: auto; /* 横スクロール許可 */
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; /* スワイプを滑らかに */
+    scrollbar-width: none; /* Firefox用 */
+    margin-top: 1rem;
+  }
+  #work .work-wrapper .work-left .thumbnail-area .thumbnail-area::-webkit-scrollbar {
+    display: none; /* Chrome/Safariでも非表示 */
+  }
+}
 #work .work-wrapper .work-left .thumbnail-area .thumb-list {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   transform: none;
+}
+@media screen and (max-width: 767px) {
+  #work .work-wrapper .work-left .thumbnail-area .thumb-list {
+    display: flex !important; /* flex強制 */
+    flex-wrap: nowrap !important; /* 改行禁止 */
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.8rem;
+    width: -moz-max-content;
+    width: max-content; /* 子要素ぶんだけ幅を持つ */
+  }
 }
 #work .work-wrapper .work-left .thumbnail-area .thumb-list li {
   margin: 5px;
@@ -1295,6 +1319,13 @@ footer.pos-left {
   opacity: 0.6;
   transition: all 0.3s ease;
 }
+@media screen and (max-width: 767px) {
+  #work .work-wrapper .work-left .thumbnail-area .thumb {
+    flex: 0 0 auto; /* 縮まないようにする */
+    width: 80px;
+    height: 80px;
+  }
+}
 #work .work-wrapper .work-left .thumbnail-area .thumb.active {
   opacity: 1;
   border-color: #424040;
@@ -1304,36 +1335,6 @@ footer.pos-left {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-}
-@media screen and (max-width: 767px) {
-  #work .work-wrapper .work-left .work-left {
-    align-items: flex-start; /* 左寄せにしてズレ防止 */
-  }
-  #work .work-wrapper .work-left .work-left .thumbnail-area {
-    width: 100%;
-    overflow-x: auto; /* 横スクロール許可 */
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch; /* スワイプを滑らかに */
-    scrollbar-width: none; /* Firefox用 */
-    margin-top: 1rem;
-  }
-  #work .work-wrapper .work-left .work-left .thumbnail-area::-webkit-scrollbar {
-    display: none; /* Chrome/Safariでも非表示 */
-  }
-  #work .work-wrapper .work-left .work-left .thumb-list {
-    display: flex !important; /* flex強制 */
-    flex-wrap: nowrap !important; /* 改行禁止 */
-    justify-content: flex-start;
-    align-items: center;
-    gap: 0.8rem;
-    width: -moz-max-content;
-    width: max-content; /* 子要素ぶんだけ幅を持つ */
-  }
-  #work .work-wrapper .work-left .work-left .thumb {
-    flex: 0 0 auto; /* 縮まないようにする */
-    width: 80px;
-    height: 80px;
-  }
 }
 #work .work-wrapper .sort-btn {
   display: flex;

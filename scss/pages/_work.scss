@@ -58,7 +58,8 @@
     align-items: flex-end;
 
       @include respond-max('sp') {
-    align-items: center;
+        align-items: flex-start;
+
     
   }
 
@@ -94,11 +95,35 @@
 }
 
     .thumbnail-area {
+
+    @include respond-max('sp') {
+      width: 100%;
+      overflow-x: auto; /* 横スクロール許可 */
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch; /* スワイプを滑らかに */
+      scrollbar-width: none; /* Firefox用 */
+      margin-top: 1rem;
+
+              .thumbnail-area::-webkit-scrollbar {
+      display: none; /* Chrome/Safariでも非表示 */
+    }
+    }
+
+
       .thumb-list {
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
         transform: none;
+
+            @include respond-max('sp') {
+      display: flex !important; /* flex強制 */
+      flex-wrap: nowrap !important; /* 改行禁止 */
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0.8rem;
+      width: max-content; /* 子要素ぶんだけ幅を持つ */
+    }
 
 li {  margin: 5px;}
       }
@@ -113,6 +138,12 @@ li {  margin: 5px;}
         opacity: 0.6;
         transition: all 0.3s ease;
 
+            @include respond-max('sp') {
+      flex: 0 0 auto; /* 縮まないようにする */
+      width: 80px;
+      height: 80px;
+    }
+
         &.active {
           opacity: 1;
           border-color: $text-color;
@@ -125,40 +156,6 @@ li {  margin: 5px;}
         }
       }
     }
-
-    @include respond-max('sp') {
-  .work-left {
-    align-items: flex-start; /* 左寄せにしてズレ防止 */
-
-    .thumbnail-area {
-      width: 100%;
-      overflow-x: auto; /* 横スクロール許可 */
-      overflow-y: hidden;
-      -webkit-overflow-scrolling: touch; /* スワイプを滑らかに */
-      scrollbar-width: none; /* Firefox用 */
-      margin-top: 1rem;
-    }
-
-    .thumbnail-area::-webkit-scrollbar {
-      display: none; /* Chrome/Safariでも非表示 */
-    }
-
-    .thumb-list {
-      display: flex !important; /* flex強制 */
-      flex-wrap: nowrap !important; /* 改行禁止 */
-      justify-content: flex-start;
-      align-items: center;
-      gap: 0.8rem;
-      width: max-content; /* 子要素ぶんだけ幅を持つ */
-    }
-
-    .thumb {
-      flex: 0 0 auto; /* 縮まないようにする */
-      width: 80px;
-      height: 80px;
-    }
-  }
-}
   }
 
 
