@@ -149,6 +149,10 @@
     height: 45px;
   }
 
+      @include respond-max('sp') {
+      top: 30px;
+    }
+
  span{
     display: inline-block;
     transition: all .4s;

@@ -448,22 +448,19 @@ section {
   text-align: right;
 }
 #top .view-all {
-  position: relative;
   font-size: clamp(1.4rem, 1.2rem + 0.625vw, 1.6rem);
   border: 1px solid #424040;
   border-radius: 30px;
   width: 180px;
   height: 60px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 50px;
   left: 50%;
   transform: translateX(-50%);
-}
-#top .view-all a {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translateY(-20%) translateX(-50%);
+  color: #424040;
+  text-decoration: none;
 }
 #top h4 {
   display: flex;

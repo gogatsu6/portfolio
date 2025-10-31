@@ -229,6 +229,11 @@ section {
   width: 45px;
   height: 45px;
 }
+@media screen and (max-width: 767px) {
+  .openbtn {
+    top: 30px;
+  }
+}
 .openbtn span {
   display: inline-block;
   transition: all 0.4s;
