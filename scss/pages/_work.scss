@@ -147,7 +147,6 @@
       @include respond-max('sp') {
         position: relative;
         overflow: hidden;
-        display: flex;
         align-items: center;
     
      &.muuri {

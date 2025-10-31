@@ -250,7 +250,6 @@ section {
   #work .work-wrapper .work-left .thumbnail-area {
     position: relative;
     overflow: hidden;
-    display: flex;
     align-items: center;
   }
   #work .work-wrapper .work-left .thumbnail-area.muuri {
