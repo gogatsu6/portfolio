@@ -1246,6 +1246,7 @@ footer.pos-left {
 @media screen and (max-width: 767px) {
   #work .work-wrapper .work-left {
     align-items: center;
+    width: 100%;
   }
 }
 #work .work-wrapper .work-left .work-left-gallery {
@@ -1284,6 +1285,19 @@ footer.pos-left {
 }
 #work .work-wrapper .work-left .thumbnail-area .thumb-list li {
   margin: 5px;
+}
+@media screen and (max-width: 767px) {
+  #work .work-wrapper .work-left .thumbnail-area .thumb-list {
+    flex-wrap: nowrap; /* 折り返しなし */
+    overflow-x: auto; /* 横スクロール有効 */
+    -webkit-overflow-scrolling: touch; /* スムーズスクロール */
+    gap: 0.8rem;
+    padding-bottom: 10px;
+    scrollbar-width: none; /* Firefox用：スクロールバー非表示 */
+  }
+  #work .work-wrapper .work-left .thumbnail-area .thumb-list::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge用：スクロールバー非表示 */
+  }
 }
 #work .work-wrapper .work-left .thumbnail-area .thumb {
   width: 80px;

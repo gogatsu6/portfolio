@@ -59,6 +59,7 @@
 
       @include respond-max('sp') {
     align-items: center;
+    width: 100%;
   }
 
 .work-left-gallery{
@@ -100,8 +101,22 @@
         transform: none;
 
 li {  margin: 5px;}
-      }
 
+
+ @include respond-max('sp') {
+        flex-wrap: nowrap; /* 折り返しなし */
+        overflow-x: auto; /* 横スクロール有効 */
+        -webkit-overflow-scrolling: touch; /* スムーズスクロール */
+        gap: 0.8rem;
+        padding-bottom: 10px;
+        scrollbar-width: none; /* Firefox用：スクロールバー非表示 */
+        
+        &::-webkit-scrollbar {
+          display: none; /* Chrome, Safari, Edge用：スクロールバー非表示 */
+        }
+      }
+      }
+      
       .thumb {
         width: 80px;
         height: 80px;
