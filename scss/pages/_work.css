@@ -115,9 +115,6 @@ section {
   /* ---------------------------------------------
      ページ全体
   --------------------------------------------- */
-  /* -------------------------------------
-     アニメーション
-  ------------------------------------- */
 }
 #work #header.dnone.panelactive #g-navi ul {
   padding-left: 0;
@@ -130,13 +127,10 @@ section {
   font-family: "Zen Kaku Gothic New", sans-serif;
   padding-top: 80px;
   /* -------------------------------------
-     gallery
+    gallery
   ------------------------------------- */
   /* -------------------------------------
-     sort button
-  ------------------------------------- */
-  /* -------------------------------------
-     description-area
+    description-area
   ------------------------------------- */
 }
 @media screen and (max-width: 767px) {
@@ -169,7 +163,7 @@ section {
   gap: 1.5rem;
   align-items: flex-end;
   /* -------------------------------------
-     thumbnail-area
+    thumbnail-area
   ------------------------------------- */
 }
 @media screen and (max-width: 767px) {
@@ -207,8 +201,9 @@ section {
 }
 #work .work-wrapper .work-left .thumbnail-area {
   /* ==============================
-     スマホ専用スライダー設定
+    スマホ専用スライダー設定
   ============================== */
+  /* --- スマホ 横並び設定 --- */
 }
 #work .work-wrapper .work-left .thumbnail-area .thumb-list {
   display: flex;
@@ -241,17 +236,37 @@ section {
 }
 @media screen and (max-width: 767px) {
   #work .work-wrapper .work-left .thumbnail-area {
+    width: 100%;
+    overflow-x: auto; /* 横スクロール許可 */
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch; /* スワイプを滑らかに */
+    scrollbar-width: none; /* Firefox用 */
+    margin-top: 1rem;
+  }
+  #work .work-wrapper .work-left .thumbnail-area .thumbnail-area::-webkit-scrollbar {
+    display: none; /* Chrome/Safariでも非表示 */
+  }
+}
+@media screen and (max-width: 767px) {
+  #work .work-wrapper .work-left .thumbnail-area {
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
-    width: 100%;
-    margin-top: 1rem;
+  }
+  #work .work-wrapper .work-left .thumbnail-area.muuri {
+    display: flex !important;
+    position: static !important;
+    transform: none !important;
+  }
+  #work .work-wrapper .work-left .thumbnail-area .item {
+    position: static !important;
+    transform: none !important;
+    flex: 0 0 auto !important;
   }
   #work .work-wrapper .work-left .thumbnail-area .thumb-list {
-    flex-wrap: nowrap !important;
-    justify-content: flex-start;
-    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
     gap: 0.8rem;
     overflow-x: auto;
     scroll-behavior: smooth;
@@ -265,89 +280,115 @@ section {
   #work .work-wrapper .work-left .thumbnail-area .thumb-list .thumb {
     flex: 0 0 auto;
   }
-  #work .work-wrapper .work-left .thumbnail-area .thumb-prev,
-  #work .work-wrapper .work-left .thumbnail-area .thumb-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.6);
-    border: none;
-    font-size: 1.8rem;
-    padding: 0.2rem 0.5rem;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    z-index: 10;
-  }
-  #work .work-wrapper .work-left .thumbnail-area .thumb-prev:hover,
-  #work .work-wrapper .work-left .thumbnail-area .thumb-next:hover {
-    background: rgba(255, 255, 255, 0.9);
-  }
-  #work .work-wrapper .work-left .thumbnail-area .thumb-prev {
-    left: 0.3rem;
-  }
-  #work .work-wrapper .work-left .thumbnail-area .thumb-next {
-    right: 0.3rem;
-  }
 }
-#work .work-wrapper .sort-btn {
+#work .work-wrapper .work-left .thumbnail-area .thumb-prev,
+#work .work-wrapper .work-left .thumbnail-area .thumb-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.6);
+  border: none;
+  font-size: 1.8rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  z-index: 10;
+}
+#work .work-wrapper .work-left .thumbnail-area .thumb-prev:hover,
+#work .work-wrapper .work-left .thumbnail-area .thumb-next:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+#work .work-wrapper .work-left .thumbnail-area .thumb-prev {
+  left: 0.3rem;
+}
+#work .work-wrapper .work-left .thumbnail-area .thumb-next {
+  right: 0.3rem;
+}
+#work .work-wrapper .work-left .sort-btn {
   display: flex;
   flex-wrap: nowrap;
   padding: 25px 0;
   justify-content: space-around;
 }
 @media screen and (max-width: 767px) {
-  #work .work-wrapper .sort-btn {
+  #work .work-wrapper .work-left .sort-btn {
     justify-content: space-between;
   }
-  #work .work-wrapper .sort-btn li {
+  #work .work-wrapper .work-left .sort-btn li {
     width: 48%;
     margin: 0 0 10px 0;
     text-align: center;
   }
 }
-#work .work-wrapper .sort-btn li {
+#work .work-wrapper .work-left .sort-btn li {
   list-style: none;
   width: 23%;
   height: 25px;
   text-align: center;
   cursor: pointer;
 }
-#work .work-wrapper .sort-btn li.active {
+#work .work-wrapper .work-left .sort-btn li.active {
   background: #424040;
   color: #fff;
+  cursor: pointer;
 }
-#work .work-wrapper .sort-btn li:nth-child(1)::after,
-#work .work-wrapper .sort-btn li:nth-child(2)::after,
-#work .work-wrapper .sort-btn li:nth-child(3)::after {
+#work .work-wrapper .work-left .sort-btn li:nth-child(1)::after,
+#work .work-wrapper .work-left .sort-btn li:nth-child(2)::after,
+#work .work-wrapper .work-left .sort-btn li:nth-child(3)::after {
   content: "";
   height: 25px;
   width: 0.5px;
   background-color: #424040;
   position: absolute;
 }
-#work .work-wrapper .sort-btn li:nth-child(1)::after {
+#work .work-wrapper .work-left .sort-btn li:nth-child(1)::after {
   transform: translateX(3.9vw);
 }
 @media screen and (max-width: 767px) {
-  #work .work-wrapper .sort-btn li:nth-child(1)::after {
+  #work .work-wrapper .work-left .sort-btn li:nth-child(1)::after {
     transform: translateX(9.7vw);
   }
 }
-#work .work-wrapper .sort-btn li:nth-child(2)::after {
+#work .work-wrapper .work-left .sort-btn li:nth-child(2)::after {
   transform: translateX(3.4vw);
 }
 @media screen and (max-width: 767px) {
-  #work .work-wrapper .sort-btn li:nth-child(2)::after {
+  #work .work-wrapper .work-left .sort-btn li:nth-child(2)::after {
     transform: translateX(8vw);
   }
 }
-#work .work-wrapper .sort-btn li:nth-child(3)::after {
+#work .work-wrapper .work-left .sort-btn li:nth-child(3)::after {
   transform: translateX(2.7vw);
 }
 @media screen and (max-width: 767px) {
-  #work .work-wrapper .sort-btn li:nth-child(3)::after {
+  #work .work-wrapper .work-left .sort-btn li:nth-child(3)::after {
     transform: translateX(6.3vw);
+  }
+}
+#work .work-wrapper .work-left .grid {
+  position: relative;
+}
+#work .work-wrapper .work-left .grid img {
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+#work .work-wrapper .work-left .item {
+  display: block;
+  position: absolute;
+  width: 33%;
+  z-index: 1;
+  list-style: none;
+}
+#work .work-wrapper .work-left .item-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+@media screen and (max-width: 767px) {
+  #work .work-wrapper .work-left .item {
+    width: 49.5%;
   }
 }
 #work .work-wrapper .work-right {
@@ -363,6 +404,36 @@ section {
 #work .work-wrapper .work-right .text-content.active {
   display: block;
   animation: fadeInText 0.6s ease forwards;
+}
+#work .work-wrapper .description_title {
+  display: flex;
+  border-bottom: 1px solid #424040;
+  justify-content: space-between;
+  align-items: center;
+}
+#work .work-wrapper .description_title h3 {
+  font-size: clamp(1.4rem, 1.2rem + 0.625vw, 1.6rem);
+  margin-bottom: 20px;
+  padding-left: 25px;
+}
+#work .work-wrapper .description_title a img {
+  width: 36px;
+  height: 36px;
+  margin-right: 25px;
+}
+#work .work-wrapper .description_container {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px dotted #424040;
+  padding: 10px 0;
+}
+#work .work-wrapper .description_container .description_sub-title {
+  text-align: center;
+  width: 28%;
+}
+#work .work-wrapper .description_container p {
+  width: 70%;
+  margin-right: 10px;
 }
 @keyframes fadeIn {
   from {
@@ -382,5 +453,15 @@ section {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@media screen and (max-width: 767px) {
+  #work .work-wrapper {
+    flex-direction: column;
+  }
+  #work .work-wrapper .work-left,
+  #work .work-wrapper .work-right {
+    width: 90%;
+    margin: 0 auto;
   }
 }
