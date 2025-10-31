@@ -1282,12 +1282,6 @@ footer.pos-left {
   gap: 1rem;
   transform: none;
 }
-@media screen and (max-width: 767px) {
-  #work .work-wrapper .work-left .thumbnail-area .thumb-list {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-  }
-}
 #work .work-wrapper .work-left .thumbnail-area .thumb-list li {
   margin: 5px;
 }

@@ -100,11 +100,6 @@
         gap: 1rem;
         transform: none;
 
-        @include respond-max('sp') {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-  }
-
 li {  margin: 5px;}
       }
 
