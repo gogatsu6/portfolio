@@ -464,8 +464,8 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
+  width: 180px;
+  height: 60px;
   color: #424040;
   text-decoration: none;
   transition: all 0.3s ease;
