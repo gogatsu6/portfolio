@@ -103,3 +103,28 @@ $(function () {
     $('#header').removeClass('panelactive');
   });
 });
+
+
+
+
+// =====================================================
+//  work___ thumbnail slider
+// =====================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+  const thumbList = document.querySelector(".thumb-list");
+  const prevBtn = document.querySelector(".thumb-prev");
+  const nextBtn = document.querySelector(".thumb-next");
+
+  if (thumbList && prevBtn && nextBtn) {
+    const scrollAmount = 120; // スクロール量調整
+
+    prevBtn.addEventListener("click", () => {
+      thumbList.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    });
+
+    nextBtn.addEventListener("click", () => {
+      thumbList.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    });
+  }
+});
