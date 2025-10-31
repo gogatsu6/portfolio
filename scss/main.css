@@ -1296,6 +1296,7 @@ footer.pos-left {
   width: 23%;
   height: 25px;
   text-align: center;
+  cursor: pointer;
 }
 #work .work-wrapper .sort-btn li.active {
   background: #424040;

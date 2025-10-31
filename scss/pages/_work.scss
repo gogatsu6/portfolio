@@ -133,7 +133,6 @@ li {  margin: 5px;}
             width:48%;
             margin:0 0 10px 0;
             text-align:center;
-            cursor: pointer;
           }
         }
 
@@ -142,6 +141,8 @@ li {  margin: 5px;}
     width: 23%;
     height: 25px;
     text-align: center;
+    cursor: pointer;
+
 
   &.active{
     background:$text-color;
