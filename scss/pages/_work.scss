@@ -7,69 +7,6 @@
 
 #work {
 
-// // --------------------------------------------------
-// // Header
-// // --------------------------------------------------
-
-// #header {
-//   opacity: 0;
-//   pointer-events: none;
-//   transition: opacity 0.4s ease;
-
-//   &.menu-open {
-//   opacity: 1;
-//   pointer-events: auto;
-// }
-// }
-
-// /* ハンバーガーが開いたら header 表示 */
-// .openbtn.active ~ #header {
-//   opacity: 1;
-//   pointer-events: auto;
-
-//     &.panelactive #g-navi {
-//     list-style: none;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     text-align: center;
-//     flex-direction: column;
-//     margin-left: -40px;
-//     padding: 30px 0;
-//    }
-
-// }
-
-// .openbtn {
-//   opacity: 1;
-//   pointer-events: auto;
-
-//     @include respond-max('sp') {
-//       top: 40px;
-//   }
-
-// }
-
-//   #g-navi {
-//     opacity: 1;
-//     z-index: 3;
-//     background: #eee;
-//     position: relative;
-//     width: 40vw;
-//     height: 40vh;
-//     border-radius: 30px;
-//     margin-top: 2%;
-
-//     ul {
-//           list-style: none;
-//            display: block;
-//     }
-// }
-
-
 /* ---------------------------------------------
    ページ全体
 --------------------------------------------- */
@@ -196,6 +133,7 @@ li {  margin: 5px;}
             width:48%;
             margin:0 0 10px 0;
             text-align:center;
+            cursor: pointer;
           }
         }
 
