@@ -274,6 +274,7 @@ section {
     -webkit-overflow-scrolling: touch;
     width: 100%;
     scrollbar-width: none;
+    padding-left: 0;
   }
   #work .work-wrapper .work-left .thumbnail-area .thumb-list::-webkit-scrollbar {
     display: none;
@@ -449,6 +450,11 @@ section {
   }
 }
 @media screen and (max-width: 767px) {
+  #work {
+    /* -------------------------------------
+       Muuri ALL 表示時の空白対策（追記）
+    ------------------------------------- */
+  }
   #work .grid {
     position: static !important;
     transform: none !important;
@@ -461,5 +467,17 @@ section {
   #work .grid .item-content {
     position: static !important;
     transform: none !important;
+  }
+  #work .grid {
+    height: auto !important; /* 強制的に高さリセット */
+  }
+  #work .grid .item {
+    top: auto !important;
+    left: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  #work .grid .item.muuri-item-hidden {
+    display: none !important;
   }
 }

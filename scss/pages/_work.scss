@@ -170,6 +170,7 @@
       -webkit-overflow-scrolling: touch;
       width: 100%;
       scrollbar-width: none;
+      padding-left: 0;
 
       &::-webkit-scrollbar {
         display: none;
@@ -402,6 +403,24 @@ a img {
   .grid .item-content {
     position: static !important;
     transform: none !important;
+  }
+
+  /* -------------------------------------
+     Muuri ALL 表示時の空白対策（追記）
+  ------------------------------------- */
+  .grid {
+    height: auto !important; /* 強制的に高さリセット */
+  }
+
+  .grid .item {
+    top: auto !important;
+    left: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .grid .item.muuri-item-hidden {
+    display: none !important;
   }
 }
 }
