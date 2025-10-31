@@ -90,8 +90,19 @@
     border-radius: 30px;
     margin-top: 2%;
 
+    @include respond-max('sp') {
+    width: 90vw;
+    height: 40vh;
+    transform: translateX(-50vw);
+  }
+
   ul{
 	display:block;
+
+      @include respond-max('sp') {
+        padding-left: 0;
+  }
+
 }
 
    li {

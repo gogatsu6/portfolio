@@ -181,8 +181,20 @@ section {
   border-radius: 30px;
   margin-top: 2%;
 }
+@media screen and (max-width: 767px) {
+  #header.dnone.panelactive #g-navi {
+    width: 90vw;
+    height: 40vh;
+    transform: translateX(-50vw);
+  }
+}
 #header.dnone.panelactive #g-navi ul {
   display: block;
+}
+@media screen and (max-width: 767px) {
+  #header.dnone.panelactive #g-navi ul {
+    padding-left: 0;
+  }
 }
 #header.dnone.panelactive #g-navi li {
   padding-left: 0;

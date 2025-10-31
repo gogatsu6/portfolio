@@ -7,6 +7,10 @@
 
 #work {
 
+  #header.dnone.panelactive #g-navi ul {
+    padding-left: 0;
+  }
+
 /* ---------------------------------------------
    ページ全体
 --------------------------------------------- */
@@ -18,6 +22,11 @@
   color: $text-color;
   font-family: $font-main;
   padding-top: 80px;
+
+        @include respond-max('sp') {
+          padding-top: 40px;
+  }
+
 
   .innerWrap-work {
     width: 75%;
@@ -161,9 +170,24 @@ li:nth-child(3)::after {
 
 }
 
-li:nth-child(1)::after {  transform: translateX(3.9vw);}
-li:nth-child(2)::after {  transform: translateX(3.4vw);}
-li:nth-child(3)::after {  transform: translateX(2.7vw);}
+li:nth-child(1)::after {
+  transform: translateX(3.9vw);
+          @include respond-max('sp') {
+              transform: translateX(9.7vw);
+  }
+}
+li:nth-child(2)::after {
+  transform: translateX(3.4vw);
+          @include respond-max('sp') {
+              transform: translateX(8vw);
+  }
+}
+li:nth-child(3)::after {
+  transform: translateX(2.7vw);
+          @include respond-max('sp') {
+              transform: translateX(6.3vw);
+  }
+}
 }
 
 .grid {  

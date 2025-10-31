@@ -116,6 +116,9 @@ section {
      ページ全体
   --------------------------------------------- */
 }
+#work #header.dnone.panelactive #g-navi ul {
+  padding-left: 0;
+}
 #work .work-wrapper {
   display: flex;
   gap: 4vw;
@@ -129,6 +132,11 @@ section {
   /* -------------------------------------
     description-area
   ------------------------------------- */
+}
+@media screen and (max-width: 767px) {
+  #work .work-wrapper {
+    padding-top: 40px;
+  }
 }
 #work .work-wrapper .innerWrap-work {
   width: 75%;
@@ -257,11 +265,26 @@ section {
 #work .work-wrapper .sort-btn li:nth-child(1)::after {
   transform: translateX(3.9vw);
 }
+@media screen and (max-width: 767px) {
+  #work .work-wrapper .sort-btn li:nth-child(1)::after {
+    transform: translateX(9.7vw);
+  }
+}
 #work .work-wrapper .sort-btn li:nth-child(2)::after {
   transform: translateX(3.4vw);
 }
+@media screen and (max-width: 767px) {
+  #work .work-wrapper .sort-btn li:nth-child(2)::after {
+    transform: translateX(8vw);
+  }
+}
 #work .work-wrapper .sort-btn li:nth-child(3)::after {
   transform: translateX(2.7vw);
+}
+@media screen and (max-width: 767px) {
+  #work .work-wrapper .sort-btn li:nth-child(3)::after {
+    transform: translateX(6.3vw);
+  }
 }
 #work .work-wrapper .grid {
   position: relative;
