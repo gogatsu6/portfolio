@@ -233,6 +233,7 @@
     text-align: center;
     cursor: pointer;
     position: relative;
+    padding-top: 0.5%;
 
   &.active{
     background:$text-color;
@@ -243,7 +244,7 @@
 &::after {
     content: "";
     position: absolute;
-    right: 0;
+    left: 105%;
     top: 50%;
     transform: translateY(-50%);
     height: 60%;
@@ -255,36 +256,6 @@
     display: none;
   }
 }
-
-// li:nth-child(1)::after,
-// li:nth-child(2)::after,
-// li:nth-child(3)::after {
-//   content: "";
-//   height: 25px;
-//   width: 0.5px;
-//   background-color: #424040;
-//   position: absolute;
-
-// }
-
-// li:nth-child(1)::after {
-//   transform: translateX(3.9vw);
-//           @include respond-max('sp') {
-//               transform: translateX(9.7vw);
-//   }
-// }
-// li:nth-child(2)::after {
-//   transform: translateX(3.4vw);
-//           @include respond-max('sp') {
-//               transform: translateX(8vw);
-//   }
-// }
-// li:nth-child(3)::after {
-//   transform: translateX(2.7vw);
-//           @include respond-max('sp') {
-//               transform: translateX(6.3vw);
-//   }
-// }
 }
 
 .grid {  
@@ -303,6 +274,8 @@
   width: 33%;
   z-index: 1;
 list-style:none;
+
+
 }
 
 .item-content {
@@ -411,5 +384,24 @@ a img {
     }
   }
 }
+/* -------------------------------------
+   Muuri 無効化（スマホ用リセット）
+------------------------------------- */
+@include respond-max('sp') {
+  .grid {
+    position: static !important;
+    transform: none !important;
+  }
 
+  .grid .item {
+    position: static !important;
+    transform: none !important;
+    flex: 0 0 auto !important;
+  }
+
+  .grid .item-content {
+    position: static !important;
+    transform: none !important;
+  }
+}
 }

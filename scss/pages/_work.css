@@ -115,6 +115,9 @@ section {
   /* ---------------------------------------------
      ページ全体
   --------------------------------------------- */
+  /* -------------------------------------
+     Muuri 無効化（スマホ用リセット）
+  ------------------------------------- */
 }
 #work #header.dnone.panelactive #g-navi ul {
   padding-left: 0;
@@ -326,6 +329,7 @@ section {
   text-align: center;
   cursor: pointer;
   position: relative;
+  padding-top: 0.5%;
 }
 #work .work-wrapper .work-left .sort-btn li.active {
   background: #424040;
@@ -335,7 +339,7 @@ section {
 #work .work-wrapper .work-left .sort-btn li::after {
   content: "";
   position: absolute;
-  right: 0;
+  left: 105%;
   top: 50%;
   transform: translateY(-50%);
   height: 60%;
@@ -442,5 +446,20 @@ section {
   #work .work-wrapper .work-right {
     width: 90%;
     margin: 0 auto;
+  }
+}
+@media screen and (max-width: 767px) {
+  #work .grid {
+    position: static !important;
+    transform: none !important;
+  }
+  #work .grid .item {
+    position: static !important;
+    transform: none !important;
+    flex: 0 0 auto !important;
+  }
+  #work .grid .item-content {
+    position: static !important;
+    transform: none !important;
   }
 }
