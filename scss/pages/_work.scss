@@ -97,7 +97,7 @@
 ------------------------------------- */
   .thumbnail-area {
 
-     .thumb-prev,
+  .thumb-prev,
   .thumb-next {
     display: none;
   }
@@ -187,6 +187,7 @@
   }
   
       // ＜ ＞ ボタン
+    @include respond-max('sp') {
     .thumb-prev,
     .thumb-next {
       display: block;
@@ -214,6 +215,7 @@
     .thumb-next {
       right: 0.3rem;
     }
+  }
   }
 
   // sort button
