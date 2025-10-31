@@ -25,6 +25,7 @@
 
   @include respond-max('sp') {
      padding-top: 40px;
+     padding-bottom: 40px;
   }
 
   .innerWrap-work {
@@ -219,6 +220,7 @@
 
   @include respond-max('sp') {
           justify-content: space-between;
+          padding: 0;
 
      li {
             width:48%;

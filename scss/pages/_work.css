@@ -139,6 +139,7 @@ section {
 @media screen and (max-width: 767px) {
   #work .work-wrapper {
     padding-top: 40px;
+    padding-bottom: 40px;
   }
 }
 #work .work-wrapper .innerWrap-work {
@@ -316,6 +317,7 @@ section {
 @media screen and (max-width: 767px) {
   #work .work-wrapper .work-left .sort-btn {
     justify-content: space-between;
+    padding: 0;
   }
   #work .work-wrapper .work-left .sort-btn li {
     width: 48%;
