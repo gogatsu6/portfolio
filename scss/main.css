@@ -1317,8 +1317,7 @@ footer.pos-left {
 @media screen and (max-width: 767px) {
   #work .work-wrapper .work-left .thumbnail-area {
     width: 100%;
-    overflow-x: auto; /* 横スクロール許可 */
-    overflow-y: hidden;
+    overflow: visible; /* 横スクロール許可 */
     -webkit-overflow-scrolling: touch; /* スワイプを滑らかに */
     scrollbar-width: none; /* Firefox用 */
     margin-top: 1rem;
@@ -1407,44 +1406,25 @@ footer.pos-left {
   height: 25px;
   text-align: center;
   cursor: pointer;
+  position: relative;
 }
 #work .work-wrapper .work-left .sort-btn li.active {
   background: #424040;
   color: #fff;
   cursor: pointer;
 }
-#work .work-wrapper .work-left .sort-btn li:nth-child(1)::after,
-#work .work-wrapper .work-left .sort-btn li:nth-child(2)::after,
-#work .work-wrapper .work-left .sort-btn li:nth-child(3)::after {
+#work .work-wrapper .work-left .sort-btn li::after {
   content: "";
-  height: 25px;
-  width: 0.5px;
-  background-color: #424040;
   position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 60%;
+  width: 1px;
+  background-color: #424040;
 }
-#work .work-wrapper .work-left .sort-btn li:nth-child(1)::after {
-  transform: translateX(3.9vw);
-}
-@media screen and (max-width: 767px) {
-  #work .work-wrapper .work-left .sort-btn li:nth-child(1)::after {
-    transform: translateX(9.7vw);
-  }
-}
-#work .work-wrapper .work-left .sort-btn li:nth-child(2)::after {
-  transform: translateX(3.4vw);
-}
-@media screen and (max-width: 767px) {
-  #work .work-wrapper .work-left .sort-btn li:nth-child(2)::after {
-    transform: translateX(8vw);
-  }
-}
-#work .work-wrapper .work-left .sort-btn li:nth-child(3)::after {
-  transform: translateX(2.7vw);
-}
-@media screen and (max-width: 767px) {
-  #work .work-wrapper .work-left .sort-btn li:nth-child(3)::after {
-    transform: translateX(6.3vw);
-  }
+#work .work-wrapper .work-left .sort-btn li:last-child::after {
+  display: none;
 }
 #work .work-wrapper .work-left .grid {
   position: relative;

@@ -132,8 +132,8 @@
 
   @include respond-max('sp') {
       width: 100%;
-      overflow-x: auto; /* 横スクロール許可 */
-      overflow-y: hidden;
+      overflow: visible; /* 横スクロール許可 */
+    //   overflow-y: hidden;
       -webkit-overflow-scrolling: touch; /* スワイプを滑らかに */
       scrollbar-width: none; /* Firefox用 */
       margin-top: 1rem;
@@ -233,42 +233,59 @@
     height: 25px;
     text-align: center;
     cursor: pointer;
+    position: relative;
 
   &.active{
     background:$text-color;
     color: #fff;
     cursor: pointer;
-}}
-
-li:nth-child(1)::after,
-li:nth-child(2)::after,
-li:nth-child(3)::after {
-  content: "";
-  height: 25px;
-  width: 0.5px;
-  background-color: #424040;
-  position: absolute;
-
 }
 
-li:nth-child(1)::after {
-  transform: translateX(3.9vw);
-          @include respond-max('sp') {
-              transform: translateX(9.7vw);
+&::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60%;
+    width: 1px;
+    background-color: #424040;
+  }
+
+  &:last-child::after {
+    display: none;
   }
 }
-li:nth-child(2)::after {
-  transform: translateX(3.4vw);
-          @include respond-max('sp') {
-              transform: translateX(8vw);
-  }
-}
-li:nth-child(3)::after {
-  transform: translateX(2.7vw);
-          @include respond-max('sp') {
-              transform: translateX(6.3vw);
-  }
-}
+
+// li:nth-child(1)::after,
+// li:nth-child(2)::after,
+// li:nth-child(3)::after {
+//   content: "";
+//   height: 25px;
+//   width: 0.5px;
+//   background-color: #424040;
+//   position: absolute;
+
+// }
+
+// li:nth-child(1)::after {
+//   transform: translateX(3.9vw);
+//           @include respond-max('sp') {
+//               transform: translateX(9.7vw);
+//   }
+// }
+// li:nth-child(2)::after {
+//   transform: translateX(3.4vw);
+//           @include respond-max('sp') {
+//               transform: translateX(8vw);
+//   }
+// }
+// li:nth-child(3)::after {
+//   transform: translateX(2.7vw);
+//           @include respond-max('sp') {
+//               transform: translateX(6.3vw);
+//   }
+// }
 }
 
 .grid {  
