@@ -1303,7 +1303,17 @@ footer.pos-left {
     align-items: center;
     gap: 0.8rem;
     width: -moz-max-content;
-    width: max-content; /* 子要素ぶんだけ幅を持つ */
+    width: max-content;
+  }
+  #work .work-wrapper .work-left .thumbnail-area .thumb-list.muuri {
+    display: flex !important;
+    position: static !important;
+    transform: none !important;
+  }
+  #work .work-wrapper .work-left .thumbnail-area .thumb-list .item {
+    position: static !important;
+    transform: none !important;
+    flex: 0 0 auto !important;
   }
 }
 #work .work-wrapper .work-left .thumbnail-area .thumb-list li {

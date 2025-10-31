@@ -122,7 +122,19 @@
       justify-content: flex-start;
       align-items: center;
       gap: 0.8rem;
-      width: max-content; /* 子要素ぶんだけ幅を持つ */
+      width: max-content;
+    
+     &.muuri {
+        display: flex !important;
+        position: static !important;
+        transform: none !important;
+      }
+
+      .item {
+        position: static !important;
+        transform: none !important;
+        flex: 0 0 auto !important;
+      }
     }
 
 li {  margin: 5px;}
