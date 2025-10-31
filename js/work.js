@@ -3,6 +3,37 @@ $(window).off('scroll');
 $('.openbtn').off('click');
 $('#g-navi a').off('click');
 
+// =====================================================
+//  work___ page_top button
+// =====================================================
+
+// work.js
+document.addEventListener("DOMContentLoaded", () => {
+  const thumbs = document.querySelectorAll(".thumb");
+  const images = document.querySelectorAll(".work-image");
+  const texts = document.querySelectorAll(".text-content");
+
+  thumbs.forEach((thumb) => {
+    thumb.addEventListener("click", () => {
+      const targetId = thumb.dataset.target;
+
+      // サムネイルのアクティブ切替
+      thumbs.forEach((t) => t.classList.remove("active"));
+      thumb.classList.add("active");
+
+      // メイン画像切替
+      images.forEach((img) => {
+        img.classList.toggle("active", img.id === targetId);
+      });
+
+      // テキスト切替
+      texts.forEach((text) => {
+        text.classList.toggle("active", text.dataset.id === targetId);
+      });
+    });
+  });
+});
+
 
 // =====================================================
 //  work___ sort button
@@ -72,35 +103,3 @@ $(function () {
     $('#header').removeClass('panelactive');
   });
 });
-
-// =====================================================
-//  work___ page_top button
-// =====================================================
-
-// work.js
-document.addEventListener("DOMContentLoaded", () => {
-  const thumbs = document.querySelectorAll(".thumb");
-  const images = document.querySelectorAll(".work-image");
-  const texts = document.querySelectorAll(".text-content");
-
-  thumbs.forEach((thumb) => {
-    thumb.addEventListener("click", () => {
-      const targetId = thumb.dataset.target;
-
-      // サムネイルのアクティブ切替
-      thumbs.forEach((t) => t.classList.remove("active"));
-      thumb.classList.add("active");
-
-      // メイン画像切替
-      images.forEach((img) => {
-        img.classList.toggle("active", img.id === targetId);
-      });
-
-      // テキスト切替
-      texts.forEach((text) => {
-        text.classList.toggle("active", text.dataset.id === targetId);
-      });
-    });
-  });
-});
-
