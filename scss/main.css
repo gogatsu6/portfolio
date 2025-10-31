@@ -1208,7 +1208,7 @@ footer.pos-left {
   background-color: #E5E0DA;
   color: #424040;
   font-family: "Zen Kaku Gothic New", sans-serif;
-  padding-top: 80px;
+  padding-top: 5vh;
   /* -------------------------------------
     gallery
   ------------------------------------- */
@@ -1289,6 +1289,10 @@ footer.pos-left {
   ============================== */
   /* --- スマホ 横並び設定 --- */
 }
+#work .work-wrapper .work-left .thumbnail-area .thumb-prev,
+#work .work-wrapper .work-left .thumbnail-area .thumb-next {
+  display: none;
+}
 #work .work-wrapper .work-left .thumbnail-area .thumb-list {
   display: flex;
   flex-wrap: wrap;
@@ -1366,6 +1370,7 @@ footer.pos-left {
 }
 #work .work-wrapper .work-left .thumbnail-area .thumb-prev,
 #work .work-wrapper .work-left .thumbnail-area .thumb-next {
+  display: block;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
