@@ -115,15 +115,6 @@ section {
   /* ---------------------------------------------
      ページ全体
   --------------------------------------------- */
-  /* -------------------------------------
-    gallery
-  ------------------------------------- */
-  /* ---------------------------------------------
-     sort button
-  --------------------------------------------- */
-  /* -------------------------------------
-    description-area
-  ------------------------------------- */
 }
 #work #header.dnone.panelactive #g-navi ul {
   padding-left: 0;
@@ -135,6 +126,12 @@ section {
   color: #424040;
   font-family: "Zen Kaku Gothic New", sans-serif;
   padding-top: 80px;
+  /* -------------------------------------
+    gallery
+  ------------------------------------- */
+  /* -------------------------------------
+    description-area
+  ------------------------------------- */
 }
 @media screen and (max-width: 767px) {
   #work .work-wrapper {
@@ -159,7 +156,7 @@ section {
   transform: translateX(50%);
   position: absolute;
 }
-#work .work-left {
+#work .work-wrapper .work-left {
   width: 55%;
   display: flex;
   flex-direction: column;
@@ -167,27 +164,27 @@ section {
   align-items: flex-end;
 }
 @media screen and (max-width: 767px) {
-  #work .work-left {
+  #work .work-wrapper .work-left {
     align-items: center;
     width: 100%;
   }
 }
-#work .work-left .work-left-gallery {
+#work .work-wrapper .work-left .work-left-gallery {
   margin-top: 65px;
 }
-#work .work-left .work-left-gallery .main-visual {
+#work .work-wrapper .work-left .work-left-gallery .main-visual {
   position: relative;
   width: 100%;
   overflow: hidden;
 }
-#work .work-left .work-left-gallery .main-visual .work-image {
+#work .work-wrapper .work-left .work-left-gallery .main-visual .work-image {
   display: none;
   animation: fadeIn 0.6s ease forwards;
 }
-#work .work-left .work-left-gallery .main-visual .work-image.active {
+#work .work-wrapper .work-left .work-left-gallery .main-visual .work-image.active {
   display: block;
 }
-#work .work-left .work-left-gallery .main-visual .work-image img {
+#work .work-wrapper .work-left .work-left-gallery .main-visual .work-image img {
   width: 40vw;
   height: auto;
   display: block;
@@ -196,21 +193,21 @@ section {
   aspect-ratio: 16/9;
 }
 @media screen and (max-width: 767px) {
-  #work .work-left .work-left-gallery .main-visual .work-image img {
+  #work .work-wrapper .work-left .work-left-gallery .main-visual .work-image img {
     width: 100%;
   }
 }
-#work .work-left .thumbnail-area .thumb-list {
+#work .work-wrapper .work-left .thumbnail-area .thumb-list {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   transform: none;
 }
-#work .work-left .thumbnail-area .thumb-list li {
+#work .work-wrapper .work-left .thumbnail-area .thumb-list li {
   margin: 5px;
 }
 @media screen and (max-width: 767px) {
-  #work .work-left .thumbnail-area .thumb-list {
+  #work .work-wrapper .work-left .thumbnail-area .thumb-list {
     flex-wrap: nowrap; /* 折り返しなし */
     overflow-x: auto; /* 横スクロール有効 */
     -webkit-overflow-scrolling: touch; /* スムーズスクロール */
@@ -218,11 +215,11 @@ section {
     padding-bottom: 10px;
     scrollbar-width: none; /* Firefox用：スクロールバー非表示 */
   }
-  #work .work-left .thumbnail-area .thumb-list::-webkit-scrollbar {
+  #work .work-wrapper .work-left .thumbnail-area .thumb-list::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Edge用：スクロールバー非表示 */
   }
 }
-#work .work-left .thumbnail-area .thumb {
+#work .work-wrapper .work-left .thumbnail-area .thumb {
   width: 80px;
   height: 80px;
   border: 1px solid transparent;
@@ -232,143 +229,143 @@ section {
   opacity: 0.6;
   transition: all 0.3s ease;
 }
-#work .work-left .thumbnail-area .thumb.active {
+#work .work-wrapper .work-left .thumbnail-area .thumb.active {
   opacity: 1;
   border-color: #424040;
 }
-#work .work-left .thumbnail-area .thumb img {
+#work .work-wrapper .work-left .thumbnail-area .thumb img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-#work .sort-btn {
+#work .work-wrapper .sort-btn {
   display: flex;
   flex-wrap: nowrap;
   padding: 25px 0;
   justify-content: space-around;
 }
 @media screen and (max-width: 767px) {
-  #work .sort-btn {
+  #work .work-wrapper .sort-btn {
     justify-content: space-between;
   }
-  #work .sort-btn li {
+  #work .work-wrapper .sort-btn li {
     width: 48%;
     margin: 0 0 10px 0;
     text-align: center;
   }
 }
-#work .sort-btn li {
+#work .work-wrapper .sort-btn li {
   list-style: none;
   width: 23%;
   height: 25px;
   text-align: center;
   cursor: pointer;
 }
-#work .sort-btn li.active {
+#work .work-wrapper .sort-btn li.active {
   background: #424040;
   color: #fff;
   cursor: pointer;
 }
-#work .sort-btn li:nth-child(1)::after,
-#work .sort-btn li:nth-child(2)::after,
-#work .sort-btn li:nth-child(3)::after {
+#work .work-wrapper .sort-btn li:nth-child(1)::after,
+#work .work-wrapper .sort-btn li:nth-child(2)::after,
+#work .work-wrapper .sort-btn li:nth-child(3)::after {
   content: "";
   height: 25px;
   width: 0.5px;
   background-color: #424040;
   position: absolute;
 }
-#work .sort-btn li:nth-child(1)::after {
+#work .work-wrapper .sort-btn li:nth-child(1)::after {
   transform: translateX(3.9vw);
 }
 @media screen and (max-width: 767px) {
-  #work .sort-btn li:nth-child(1)::after {
+  #work .work-wrapper .sort-btn li:nth-child(1)::after {
     transform: translateX(9.7vw);
   }
 }
-#work .sort-btn li:nth-child(2)::after {
+#work .work-wrapper .sort-btn li:nth-child(2)::after {
   transform: translateX(3.4vw);
 }
 @media screen and (max-width: 767px) {
-  #work .sort-btn li:nth-child(2)::after {
+  #work .work-wrapper .sort-btn li:nth-child(2)::after {
     transform: translateX(8vw);
   }
 }
-#work .sort-btn li:nth-child(3)::after {
+#work .work-wrapper .sort-btn li:nth-child(3)::after {
   transform: translateX(2.7vw);
 }
 @media screen and (max-width: 767px) {
-  #work .sort-btn li:nth-child(3)::after {
+  #work .work-wrapper .sort-btn li:nth-child(3)::after {
     transform: translateX(6.3vw);
   }
 }
-#work .grid {
+#work .work-wrapper .grid {
   position: relative;
 }
-#work .grid img {
+#work .work-wrapper .grid img {
   width: 100%;
   height: auto;
   vertical-align: bottom;
 }
-#work .item {
+#work .work-wrapper .item {
   display: block;
   position: absolute;
   width: 33%;
   z-index: 1;
   list-style: none;
 }
-#work .item-content {
+#work .work-wrapper .item-content {
   position: relative;
   width: 100%;
   height: 100%;
 }
 @media screen and (max-width: 767px) {
-  #work .item {
+  #work .work-wrapper .item {
     width: 49.5%;
   }
 }
-#work .work-right {
+#work .work-wrapper .work-right {
   width: 45%;
 }
-#work .work-right .text-content {
+#work .work-wrapper .work-right .text-content {
   display: none;
   line-height: 1.6;
   letter-spacing: 1.4px;
   max-height: 80vh;
   overflow-y: auto;
 }
-#work .work-right .text-content.active {
+#work .work-wrapper .work-right .text-content.active {
   display: block;
   animation: fadeInText 0.6s ease forwards;
 }
-#work .description_title {
+#work .work-wrapper .description_title {
   display: flex;
   border-bottom: 1px solid #424040;
   justify-content: space-between;
   align-items: center;
 }
-#work .description_title h3 {
+#work .work-wrapper .description_title h3 {
   font-size: clamp(1.4rem, 1.2rem + 0.625vw, 1.6rem);
   margin-bottom: 20px;
   padding-left: 25px;
 }
-#work .description_title a img {
+#work .work-wrapper .description_title a img {
   width: 36px;
   height: 36px;
   margin-right: 25px;
 }
-#work .description_container {
+#work .work-wrapper .description_container {
   display: flex;
   align-items: center;
   border-bottom: 1px dotted #424040;
   padding: 10px 0;
 }
-#work .description_container .description_sub-title {
+#work .work-wrapper .description_container .description_sub-title {
   text-align: center;
   width: 28%;
 }
-#work .description_container p {
+#work .work-wrapper .description_container p {
   width: 70%;
   margin-right: 10px;
 }
@@ -393,11 +390,11 @@ section {
   }
 }
 @media screen and (max-width: 767px) {
-  #work {
+  #work .work-wrapper {
     flex-direction: column;
   }
-  #work .work-left,
-  #work .work-right {
+  #work .work-wrapper .work-left,
+  #work .work-wrapper .work-right {
     width: 90%;
     margin: 0 auto;
   }
