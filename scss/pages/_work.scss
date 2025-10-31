@@ -125,7 +125,31 @@ li {  margin: 5px;}
         }
       }
     }
+
+@include respond-max('sp') {
+  .thumbnail-area {
+    overflow-x: auto; /* 横スクロール許可 */
+    -webkit-overflow-scrolling: touch; /* スワイプを滑らかに */
+    scrollbar-width: none; /* Firefoxでスクロールバー非表示 */
   }
+
+  .thumbnail-area::-webkit-scrollbar {
+    display: none; /* Chrome/Safariでも非表示 */
+  }
+
+  .thumb-list {
+    flex-wrap: nowrap; /* 横1列に並べる */
+    gap: 0.8rem;
+    width: max-content; /* 子要素ぶんだけ幅を持つ */
+  }
+
+  .thumb {
+    flex: 0 0 auto; /* 縮まないように */
+  }
+}
+
+  }
+
 
 
   // sort button
