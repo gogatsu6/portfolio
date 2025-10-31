@@ -94,18 +94,28 @@
 }
 
     .thumbnail-area {
+      width: 100%;
+  overflow: hidden;
+
       .thumb-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        transform: none;
-
-        @include respond-max('sp') {
+display: flex;
+    gap: 0.8rem;
     flex-wrap: nowrap;
-    overflow-x: auto;
-  }
+    overflow-x: auto; /* 横スクロールを有効に */
+    -webkit-overflow-scrolling: touch; /* スムーズなスワイプを有効に */
+    scrollbar-width: none; /* Firefoxでスクロールバーを隠す */
+    scroll-behavior: smooth; /* 慣性スクロールっぽく */
 
-li {  margin: 5px;}
+    &::-webkit-scrollbar {
+      display: none; /* Chrome, Safariでスクロールバーを隠す */
+    }
+
+    @include respond-max('sp') {
+      gap: 0.6rem;
+      padding: 0 10px;
+    }
+
+li {  flex: 0 0 auto;}
       }
 
       .thumb {
