@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const thumbList = document.querySelector(".thumb-list");
-  let thumbs = Array.from(document.querySelectorAll(".thumb"));
+  const thumbs = Array.from(document.querySelectorAll(".thumb"));
   const prevBtn = document.querySelector(".thumb-prev");
   const nextBtn = document.querySelector(".thumb-next");
   const dots = Array.from(document.querySelectorAll(".thumb-indicator span"));
@@ -144,81 +144,59 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!thumbList || thumbs.length === 0) return;
 
   const total = thumbs.length;
-  const scrollAmount = thumbs[0].offsetWidth + 10; // サムネイル幅＋隙間
+  const visibleCount = 3; // 一度に見せる枚数
+  const scrollAmount = thumbs[0].offsetWidth + 10; // サムネイル幅＋余白
   let currentIndex = 0;
-
-  // ===== クローンを作成（前後3つ） =====
-  const clonesBefore = thumbs.slice(-3).map(t => t.cloneNode(true));
-  const clonesAfter = thumbs.slice(0, 3).map(t => t.cloneNode(true));
-  clonesBefore.forEach(c => thumbList.prepend(c));
-  clonesAfter.forEach(c => thumbList.append(c));
-
-  // 再取得（クローンを含む）
-  thumbs = Array.from(document.querySelectorAll(".thumb"));
-
-  // ===== 初期位置を中央に調整 =====
-  const initialScroll = scrollAmount * 3;
-  thumbList.scrollLeft = initialScroll;
 
   // ===== 表示更新関数 =====
   function updateActive(index) {
-    // 実サムネのみactive制御
-    const realIndex = (index + total) % total;
-    dots.forEach((dot, i) => dot.classList.toggle("active", i === realIndex));
-
-    // .thumb のうち、実サムネ範囲のみチェック
-    thumbs.forEach((t, i) => {
-      if (i >= 3 && i < 3 + total) {
-        t.classList.toggle("active", i === realIndex + 3);
-      } else {
-        t.classList.remove("active");
-      }
+    // サムネイル active 更新
+    thumbs.forEach((thumb, i) => {
+      thumb.classList.toggle("active", i === index);
     });
+
+    // ドット更新（作品全体をドット数で分割）
+    const perDotRange = Math.ceil(total / dots.length);
+    const dotIndex = Math.floor(index / perDotRange);
+    dots.forEach((dot, i) => dot.classList.toggle("active", i === dotIndex));
   }
 
-  // ===== スクロール位置調整（無限ループ補正） =====
-  function checkLoop() {
-    const left = thumbList.scrollLeft;
-    const maxScroll = scrollAmount * (total + 3);
-    const minScroll = 0;
-
-    if (left >= maxScroll) {
-      thumbList.scrollLeft = initialScroll;
-    } else if (left <= minScroll) {
-      thumbList.scrollLeft = initialScroll + scrollAmount * (total - 1);
+  // ===== ループ付きスクロール =====
+  function scrollToIndex(index, smooth = true) {
+    // 端を超えたらループ
+    if (index < 0) {
+      index = total - 1;
+    } else if (index >= total) {
+      index = 0;
     }
+
+    currentIndex = index;
+    const left = scrollAmount * index;
+    thumbList.scrollTo({
+      left: left,
+      behavior: smooth ? "smooth" : "auto",
+    });
+
+    updateActive(index);
   }
 
-  // ===== イベント =====
+  // ===== ボタン操作 =====
   nextBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % total;
-    thumbList.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    updateActive(currentIndex);
-    setTimeout(checkLoop, 400);
+    scrollToIndex(currentIndex + 1);
   });
 
   prevBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + total) % total;
-    thumbList.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-    updateActive(currentIndex);
-    setTimeout(checkLoop, 400);
+    scrollToIndex(currentIndex - 1);
   });
 
-  // ===== クローンにもクリックイベントを付与 =====
+  // ===== サムネクリック =====
   thumbs.forEach((thumb, i) => {
     thumb.addEventListener("click", () => {
-      const realIndex = (i - 3 + total) % total;
-      currentIndex = realIndex;
-      updateActive(currentIndex);
-      thumbList.scrollTo({
-        left: initialScroll + scrollAmount * realIndex,
-        behavior: "smooth",
-      });
-
-      // ここでメイン画像・説明欄の切り替えを発火させる関数を呼ぶ（例：showMainImage(realIndex)）
+      scrollToIndex(i);
+      // ここでメイン画像・説明切替処理を呼ぶ（例：showMainImage(i)）
     });
   });
 
-  // ===== 初期表示 =====
+  // ===== 初期化 =====
   updateActive(currentIndex);
 });
