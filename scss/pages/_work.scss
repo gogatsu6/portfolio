@@ -139,19 +139,15 @@
 
   @include respond-max('sp') {
       width: 100%;
-      overflow: visible; /* 横スクロール許可 */
-    //   overflow-y: hidden;
-      -webkit-overflow-scrolling: touch; /* スワイプを滑らかに */
-      scrollbar-width: none; /* Firefox用 */
+      overflow: visible;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
       margin-top: 1rem;
 
       .thumbnail-area::-webkit-scrollbar {
-      display: none; /* Chrome/Safariでも非表示 */
-    }
+      display: none;
     }
 
-     /* --- スマホ 横並び設定 --- */
-      @include respond-max('sp') {
         position: relative;
         overflow: hidden;
         align-items: center;
@@ -180,14 +176,10 @@
       padding-left: 0;
 
       &::-webkit-scrollbar { display: none; }
-
       .thumb { flex: 0 0 auto; }
     }
-    
-  }
-  
-      // ＜ ＞ ボタン
-    @include respond-max('sp') {
+
+     /* --- スマホ ＜ ＞ ボタン --- */
     .thumb-prev,
     .thumb-next {
       display: block;
@@ -208,15 +200,40 @@
       }
     }
 
-    .thumb-prev {
-      left: 0.3rem;
-    }
+    .thumb-prev { left: 0.3rem; }
+    .thumb-next { right: 0.3rem; }
 
-    .thumb-next {
-      right: 0.3rem;
+
+     /* --- スマホ ドットの設定 --- */
+    .thumb-indicator {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 0.8rem;
+
+      span {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.2);
+        display: inline-block;
+        transition: background 0.3s ease, transform 0.3s ease;
+      }
+
+      span.active {
+        background: $text-color; /* 現在位置ドットの色 */
+        transform: scale(1.3);
+      }
     }
-  }
-  }
+}
+     /* --- スマホ以外は非表示 --- */
+    @include respond-min('tab') {
+      .thumb-indicator {
+        display: none;
+      }
+    }
+}
 
   // sort button
  .sort-btn{
@@ -384,7 +401,7 @@ a img {
     }
   }
 
-  @include respond-max(sp) {
+  @include respond-max('sp') {
     flex-direction: column;
 
     .work-left,

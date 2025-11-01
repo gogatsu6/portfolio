@@ -128,3 +128,38 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+
+// =====================================================
+//  work___ thumb-indicator_dots/loop
+// =====================================================
+
+const thumbs = document.querySelectorAll('.thumb');
+const prevBtn = document.querySelector('.thumb-prev');
+const nextBtn = document.querySelector('.thumb-next');
+const dots = document.querySelectorAll('.thumb-indicator span');
+
+let currentIndex = 0;
+const total = thumbs.length;
+
+function updateSlider(index) {
+  thumbs.forEach((thumb, i) => {
+    thumb.classList.toggle('active', i === index);
+  });
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === index);
+  });
+}
+
+prevBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + total) % total; // ←ループ対応
+  updateSlider(currentIndex);
+});
+
+nextBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % total; // ←ループ対応
+  updateSlider(currentIndex);
+});
+
+// 初期状態
+updateSlider(currentIndex);
