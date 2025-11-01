@@ -159,6 +159,15 @@ document.addEventListener("DOMContentLoaded", () => {
     dots.forEach((dot, i) => dot.classList.toggle("active", i === dotIndex));
   }
 
+  // ===== スクロールスナップ対応（スワイプ後のドット同期） =====
+  thumbList.addEventListener("scroll", () => {
+    const index = Math.round(thumbList.scrollLeft / (thumbs[0].offsetWidth + 10));
+    if (index !== currentIndex) {
+      currentIndex = index;
+      updateActive(index);
+    }
+  });
+
   // ===== スクロール関数（ループ対応） =====
   function scrollToIndex(index, smooth = true) {
     if (index < 0) {
