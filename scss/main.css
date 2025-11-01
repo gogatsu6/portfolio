@@ -1375,10 +1375,10 @@ footer.pos-left {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0);
     border: none;
-    font-size: 1.8rem;
-    padding: 0.2rem 0.5rem;
+    font-size: 4rem;
+    padding: 0.2rem 1rem;
     border-radius: 50%;
     cursor: pointer;
     transition: background 0.3s ease;
@@ -1386,7 +1386,7 @@ footer.pos-left {
   }
   #work .work-wrapper .work-left .thumbnail-area .thumb-prev:hover,
   #work .work-wrapper .work-left .thumbnail-area .thumb-next:hover {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0);
   }
   #work .work-wrapper .work-left .thumbnail-area .thumb-prev {
     left: 0.3rem;
