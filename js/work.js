@@ -136,64 +136,89 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const thumbList = document.querySelector(".thumb-list");
-  const thumbs = Array.from(document.querySelectorAll(".thumb"));
+  let thumbs = Array.from(document.querySelectorAll(".thumb"));
   const prevBtn = document.querySelector(".thumb-prev");
   const nextBtn = document.querySelector(".thumb-next");
-  const dots = document.querySelectorAll(".thumb-indicator span");
+  const dots = Array.from(document.querySelectorAll(".thumb-indicator span"));
 
-  if (!thumbList || !thumbs.length || !prevBtn || !nextBtn || !dots.length) return;
+  if (!thumbList || thumbs.length === 0) return;
 
-  const scrollAmount = 120;
   const total = thumbs.length;
+  const scrollAmount = thumbs[0].offsetWidth + 10; // サムネイル幅＋隙間
   let currentIndex = 0;
 
-  // ===== クローンを追加してループ再現 =====
-  const cloneBefore = thumbs.slice(-3).map(t => t.cloneNode(true));
-  const cloneAfter = thumbs.slice(0, 3).map(t => t.cloneNode(true));
-  cloneBefore.forEach(c => thumbList.prepend(c));
-  cloneAfter.forEach(c => thumbList.append(c));
+  // ===== クローンを作成（前後3つ） =====
+  const clonesBefore = thumbs.slice(-3).map(t => t.cloneNode(true));
+  const clonesAfter = thumbs.slice(0, 3).map(t => t.cloneNode(true));
+  clonesBefore.forEach(c => thumbList.prepend(c));
+  clonesAfter.forEach(c => thumbList.append(c));
 
-  // 初期スクロール位置を中央に
-  thumbList.scrollLeft = thumbList.scrollWidth / 3;
+  // 再取得（クローンを含む）
+  thumbs = Array.from(document.querySelectorAll(".thumb"));
+
+  // ===== 初期位置を中央に調整 =====
+  const initialScroll = scrollAmount * 3;
+  thumbList.scrollLeft = initialScroll;
 
   // ===== 表示更新関数 =====
-  function updateSlider(index) {
-    thumbs.forEach((thumb, i) => {
-      thumb.classList.toggle('active', i === index);
-    });
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
+  function updateActive(index) {
+    // 実サムネのみactive制御
+    const realIndex = (index + total) % total;
+    dots.forEach((dot, i) => dot.classList.toggle("active", i === realIndex));
+
+    // .thumb のうち、実サムネ範囲のみチェック
+    thumbs.forEach((t, i) => {
+      if (i >= 3 && i < 3 + total) {
+        t.classList.toggle("active", i === realIndex + 3);
+      } else {
+        t.classList.remove("active");
+      }
     });
   }
 
-  // ===== ループスクロール関数 =====
-  function handleLoop() {
+  // ===== スクロール位置調整（無限ループ補正） =====
+  function checkLoop() {
     const left = thumbList.scrollLeft;
-    const visibleWidth = thumbList.clientWidth;
+    const maxScroll = scrollAmount * (total + 3);
+    const minScroll = 0;
 
-    if (left + visibleWidth >= thumbList.scrollWidth - 5) {
-      thumbList.scrollLeft = thumbList.scrollWidth / 3 - visibleWidth;
-    }
-    if (left <= 0) {
-      thumbList.scrollLeft = thumbList.scrollWidth / 3;
+    if (left >= maxScroll) {
+      thumbList.scrollLeft = initialScroll;
+    } else if (left <= minScroll) {
+      thumbList.scrollLeft = initialScroll + scrollAmount * (total - 1);
     }
   }
 
-  // ===== ボタン操作 =====
-  prevBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + total) % total;
-    updateSlider(currentIndex);
-    thumbList.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-    handleLoop();
-  });
-
+  // ===== イベント =====
   nextBtn.addEventListener("click", () => {
     currentIndex = (currentIndex + 1) % total;
-    updateSlider(currentIndex);
     thumbList.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    handleLoop();
+    updateActive(currentIndex);
+    setTimeout(checkLoop, 400);
   });
 
-  // 初期状態
-  updateSlider(currentIndex);
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + total) % total;
+    thumbList.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    updateActive(currentIndex);
+    setTimeout(checkLoop, 400);
+  });
+
+  // ===== クローンにもクリックイベントを付与 =====
+  thumbs.forEach((thumb, i) => {
+    thumb.addEventListener("click", () => {
+      const realIndex = (i - 3 + total) % total;
+      currentIndex = realIndex;
+      updateActive(currentIndex);
+      thumbList.scrollTo({
+        left: initialScroll + scrollAmount * realIndex,
+        behavior: "smooth",
+      });
+
+      // ここでメイン画像・説明欄の切り替えを発火させる関数を呼ぶ（例：showMainImage(realIndex)）
+    });
+  });
+
+  // ===== 初期表示 =====
+  updateActive(currentIndex);
 });
