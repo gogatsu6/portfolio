@@ -1249,6 +1249,9 @@ footer.pos-left {
   /* -------------------------------------
     thumbnail-area
   ------------------------------------- */
+  /* -------------------------------------
+    sort button
+  ------------------------------------- */
 }
 @media screen and (max-width: 767px) {
   #work .work-wrapper .work-left {
@@ -1406,7 +1409,7 @@ footer.pos-left {
     transition: background 0.3s ease, transform 0.3s ease;
   }
   #work .work-wrapper .work-left .thumbnail-area .thumb-indicator span.active {
-    background: #424040; /* 現在位置ドットの色 */
+    background: #424040;
     transform: scale(1.3);
   }
 }
@@ -1444,7 +1447,6 @@ footer.pos-left {
 #work .work-wrapper .work-left .sort-btn li.active {
   background: #424040;
   color: #fff;
-  cursor: pointer;
 }
 #work .work-wrapper .work-left .sort-btn li::after {
   content: "";
@@ -1559,11 +1561,6 @@ footer.pos-left {
   }
 }
 @media screen and (max-width: 767px) {
-  #work {
-    /* -------------------------------------
-       Muuri ALL 表示時の空白対策（追記）
-    ------------------------------------- */
-  }
   #work .grid {
     position: static !important;
     transform: none !important;
@@ -1578,7 +1575,7 @@ footer.pos-left {
     transform: none !important;
   }
   #work .grid {
-    height: auto !important; /* 強制的に高さリセット */
+    height: auto !important;
   }
   #work .grid .item {
     top: auto !important;

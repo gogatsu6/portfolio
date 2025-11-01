@@ -4,346 +4,351 @@
 
 @use "../base" as *;
 
-
 #work {
 
   #header.dnone.panelactive #g-navi ul {
     padding-left: 0;
   }
 
-/* ---------------------------------------------
-   ページ全体
---------------------------------------------- */
-
-.work-wrapper {
-  display: flex;
-  gap: 4vw;
-  background-color: $on-background-color;
-  color: $text-color;
-  font-family: $font-main;
-  padding-top: 5vh;
-
-  @include respond-max('sp') {
-     padding-top: 40px;
-     padding-bottom: 40px;
-  }
-
-  .innerWrap-work {
-    width: 75%;
-    position: relative;
-
-  @include respond-max('sp') {
-    width: 100%;
-  }
-
-  h1 {
-    font-family: $font-sub;
-    @include font-size-L;
-    font-weight: 500;
-    margin-bottom: 40px;
-    right: 50%;
-    transform: translateX(50%);
-    position: absolute;
-}
-}
-
-/* -------------------------------------
-  gallery
-------------------------------------- */
-  .work-left {
-    width: 55%;
+  /* ---------------------------------------------
+     ページ全体
+  --------------------------------------------- */
+  .work-wrapper {
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: flex-end;
+    gap: 4vw;
+    background-color: $on-background-color;
+    color: $text-color;
+    font-family: $font-main;
+    padding-top: 5vh;
 
     @include respond-max('sp') {
-      align-items: flex-start;
-  }
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
 
-.work-left-gallery{
-    margin-top: 65px;
-  
-    .main-visual {
+    .innerWrap-work {
+      width: 75%;
       position: relative;
-      width: 100%;
-      overflow: hidden;
-
-      .work-image {
-        display: none;
-        animation: fadeIn 0.6s ease forwards;
-
-        &.active {
-          display: block;
-        }
-
-        img {
-          width: 40vw;
-          height: auto;
-          display: block;
-          object-fit: contain;
-          aspect-ratio: 4 / 3;
 
       @include respond-max('sp') {
         width: 100%;
-    }
-   }
-  }
- }
-}
-
-/* -------------------------------------
-  thumbnail-area
-------------------------------------- */
-  .thumbnail-area {
-
-  .thumb-prev,
-  .thumb-next {
-    display: none;
-  }
-
-      .thumb-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        transform: none;
-
-        li {  margin: 5px;}
       }
 
-      .thumb {
-        width: 80px;
-        height: 80px;
-        border: 1px solid transparent;
-        border-radius: 8px;
-        cursor: pointer;
-        overflow: hidden;
-        opacity: 0.6;
-        transition: all 0.3s ease;
+      h1 {
+        font-family: $font-sub;
+        @include font-size-L;
+        font-weight: 500;
+        margin-bottom: 40px;
+        right: 50%;
+        transform: translateX(50%);
+        position: absolute;
+      }
+    }
 
-        &.active {
-          opacity: 1;
-          border-color: $text-color;
-        }
+    /* -------------------------------------
+      gallery
+    ------------------------------------- */
+    .work-left {
+      width: 55%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: flex-end;
 
-        img {
+      @include respond-max('sp') {
+        align-items: flex-start;
+      }
+
+      .work-left-gallery {
+        margin-top: 65px;
+
+        .main-visual {
+          position: relative;
           width: 100%;
-          height: 100%;
-          object-fit: cover;
+          overflow: hidden;
+
+          .work-image {
+            display: none;
+            animation: fadeIn 0.6s ease forwards;
+
+            &.active {
+              display: block;
+            }
+
+            img {
+              width: 40vw;
+              height: auto;
+              display: block;
+              object-fit: contain;
+              aspect-ratio: 4 / 3;
+
+              @include respond-max('sp') {
+                width: 100%;
+              }
+            }
+          }
         }
       }
 
-/* ==============================
-  スマホ専用スライダー設定
-============================== */
+      /* -------------------------------------
+        thumbnail-area
+      ------------------------------------- */
+      .thumbnail-area {
+        .thumb-prev,
+        .thumb-next {
+          display: none;
+        }
 
-  @include respond-max('sp') {
-      width: 100%;
-      overflow: visible;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-      margin-top: 1rem;
+        .thumb-list {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+          transform: none;
 
-      .thumbnail-area::-webkit-scrollbar {
-      display: none;
-    }
+          li {
+            margin: 5px;
+          }
+        }
 
-        position: relative;
-        overflow: hidden;
-        align-items: center;
-    
-     &.muuri {
-        display: flex !important;
-        position: static !important;
-        transform: none !important;
-      }
+        .thumb {
+          width: 80px;
+          height: 80px;
+          border: 1px solid transparent;
+          border-radius: 8px;
+          cursor: pointer;
+          overflow: hidden;
+          opacity: 0.6;
+          transition: all 0.3s ease;
 
-      .item {
-        position: static !important;
-        transform: none !important;
-        flex: 0 0 auto !important;
-      }
+          &.active {
+            opacity: 1;
+            border-color: $text-color;
+          }
 
-      .thumb-list {
-      display: flex;
-      flex-wrap: nowrap;
-      gap: 0.8rem;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-      width: 100%;
-      scrollbar-width: none;
-      padding-left: 0;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
 
-      &::-webkit-scrollbar { display: none; }
-      .thumb { flex: 0 0 auto; }
-    }
+        /* ==============================
+          スマホ専用スライダー設定
+        ============================== */
+        @include respond-max('sp') {
+          width: 100%;
+          overflow: visible;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+          margin-top: 1rem;
+          position: relative;
+          overflow: hidden;
+          align-items: center;
 
-     /* --- スマホ ＜ ＞ ボタン --- */
-    .thumb-prev,
-    .thumb-next {
-      display: block;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255, 255, 255, 0.6);
-      border: none;
-      font-size: 1.8rem;
-      padding: 0.2rem 0.5rem;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      z-index: 10;
+          .thumbnail-area::-webkit-scrollbar {
+            display: none;
+          }
 
-      &:hover {
-        background: rgba(255, 255, 255, 0.9);
-      }
-    }
+          &.muuri {
+            display: flex !important;
+            position: static !important;
+            transform: none !important;
+          }
 
-    .thumb-prev { left: 0.3rem; }
-    .thumb-next { right: 0.3rem; }
+          .item {
+            position: static !important;
+            transform: none !important;
+            flex: 0 0 auto !important;
+          }
 
+          .thumb-list {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 0.8rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            width: 100%;
+            scrollbar-width: none;
+            padding-left: 0;
 
-     /* --- スマホ ドットの設定 --- */
-    .thumb-indicator {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.6rem;
-      margin-top: 0.8rem;
+            &::-webkit-scrollbar {
+              display: none;
+            }
 
-      span {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: rgba(0, 0, 0, 0.2);
-        display: inline-block;
-        transition: background 0.3s ease, transform 0.3s ease;
-      }
+            .thumb {
+              flex: 0 0 auto;
+            }
+          }
 
-      span.active {
-        background: $text-color; /* 現在位置ドットの色 */
-        transform: scale(1.3);
-      }
-    }
-}
-     /* --- スマホ以外は非表示 --- */
-    @include respond-min('tab') {
-      .thumb-indicator {
-        display: none;
-      }
-    }
-}
+          /* --- スマホ ＜ ＞ ボタン --- */
+          .thumb-prev,
+          .thumb-next {
+            display: block;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.6);
+            border: none;
+            font-size: 1.8rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            z-index: 10;
 
-  // sort button
- .sort-btn{
-	display: flex;
-	flex-wrap: nowrap;
-	padding: 25px 0;
-    justify-content: space-around;
+            &:hover {
+              background: rgba(255, 255, 255, 0.9);
+            }
+          }
 
-  @include respond-max('sp') {
+          .thumb-prev {
+            left: 0.3rem;
+          }
+
+          .thumb-next {
+            right: 0.3rem;
+          }
+
+          /* --- スマホ ドットの設定 --- */
+          .thumb-indicator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.6rem;
+            margin-top: 0.8rem;
+
+            span {
+              width: 8px;
+              height: 8px;
+              border-radius: 50%;
+              background: rgba(0, 0, 0, 0.2);
+              display: inline-block;
+              transition: background 0.3s ease, transform 0.3s ease;
+            }
+
+            span.active {
+              background: $text-color;
+              transform: scale(1.3);
+            }
+          }
+        }
+
+        /* --- スマホ以外は非表示 --- */
+        @include respond-min('tab') {
+          .thumb-indicator {
+            display: none;
+          }
+        }
+      } // .thumbnail-area end
+
+      /* -------------------------------------
+        sort button
+      ------------------------------------- */
+      .sort-btn {
+        display: flex;
+        flex-wrap: nowrap;
+        padding: 25px 0;
+        justify-content: space-around;
+
+        @include respond-max('sp') {
           justify-content: space-between;
           padding: 0;
 
-     li {
-            width:48%;
-            margin:0 0 10px 0;
-            text-align:center;
+          li {
+            width: 48%;
+            margin: 0 0 10px 0;
+            text-align: center;
           }
-    }
+        }
 
-  li{
-    list-style: none;
-    width: 23%;
-    height: 25px;
-    text-align: center;
-    cursor: pointer;
-    position: relative;
-    padding-top: 0.5%;
+        li {
+          list-style: none;
+          width: 23%;
+          height: 25px;
+          text-align: center;
+          cursor: pointer;
+          position: relative;
+          padding-top: 0.5%;
 
-  &.active{
-    background:$text-color;
-    color: #fff;
-    cursor: pointer;
-}
+          &.active {
+            background: $text-color;
+            color: #fff;
+          }
 
-&::after {
-    content: "";
-    position: absolute;
-    left: 105%;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 60%;
-    width: 1px;
-    background-color: #424040;
-  }
+          &::after {
+            content: "";
+            position: absolute;
+            left: 105%;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 60%;
+            width: 1px;
+            background-color: #424040;
+          }
 
-  &:last-child::after {
-    display: none;
-  }
-}
-}
-
-.grid {  
-  position: relative;
-
-  img{
-	width:100%;
-	height:auto;
-	vertical-align: bottom;
-}
-}
-
-.item {
-  display: block;
-  position: absolute;
-  width: 33%;
-  z-index: 1;
-list-style:none;
-
-
-}
-
-.item-content {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-  @include respond-max('sp') {
-    .item {
-  width: 49.5%;
-}
-}
-  }
-
-
-/* -------------------------------------
-  description-area
-------------------------------------- */
-  .work-right {
-    width: 45%;
-
-    .text-content {
-      display: none;
-      line-height: 1.6;
-      letter-spacing: 1.4px;
-      max-height: 80vh;
-      overflow-y: auto;
-
-      &.active {
-        display: block;
-        animation: fadeInText 0.6s ease forwards;
+          &:last-child::after {
+            display: none;
+          }
+        }
       }
-    }
-  }
 
-.description_title {
-  display: flex;
-  border-bottom: 1px solid $text-color;
-  justify-content: space-between;
-  align-items: center;
+      .grid {
+        position: relative;
+
+        img {
+          width: 100%;
+          height: auto;
+          vertical-align: bottom;
+        }
+      }
+
+      .item {
+        display: block;
+        position: absolute;
+        width: 33%;
+        z-index: 1;
+        list-style: none;
+      }
+
+      .item-content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      @include respond-max('sp') {
+        .item {
+          width: 49.5%;
+        }
+      }
+    } // .work-left end
+
+    /* -------------------------------------
+      description-area
+    ------------------------------------- */
+    .work-right {
+      width: 45%;
+
+      .text-content {
+        display: none;
+        line-height: 1.6;
+        letter-spacing: 1.4px;
+        max-height: 80vh;
+        overflow-y: auto;
+
+        &.active {
+          display: block;
+          animation: fadeInText 0.6s ease forwards;
+        }
+      }
+    } // .work-right end
+
+    .description_title {
+      display: flex;
+      border-bottom: 1px solid $text-color;
+      justify-content: space-between;
+      align-items: center;
 
       h3 {
         @include font-size-M;
@@ -351,102 +356,98 @@ list-style:none;
         padding-left: 25px;
       }
 
-a img {
-  width: 36px;
-  height: 36px;
-  margin-right: 25px;
-}
+      a img {
+        width: 36px;
+        height: 36px;
+        margin-right: 25px;
+      }
     }
 
-.description_container {
-  display: flex;
-  align-items: center;
-  border-bottom: 1px dotted $text-color;
-  padding: 10px 0;
-  
+    .description_container {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px dotted $text-color;
+      padding: 10px 0;
 
-  .description_sub-title{
-    text-align: center;
-    width: 28%;
-  }
+      .description_sub-title {
+        text-align: center;
+        width: 28%;
+      }
 
-  p {
-    width: 70%;
-    margin-right: 10px;
-  }
-}
-
-
-
-  // フェードアニメーション
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: scale(1.02);
+      p {
+        width: 70%;
+        margin-right: 10px;
+      }
     }
-    to {
-      opacity: 1;
-      transform: scale(1);
+
+    // フェードアニメーション
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(1.02);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
-  }
 
-  @keyframes fadeInText {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
+    @keyframes fadeInText {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+
+    @include respond-max('sp') {
+      flex-direction: column;
+
+      .work-left,
+      .work-right {
+        width: 90%;
+        margin: 0 auto;
+      }
     }
-  }
-
-  @include respond-max('sp') {
-    flex-direction: column;
-
-    .work-left,
-    .work-right {
-      width: 90%;
-      margin: 0 auto;
-    }
-  }
-}
-/* -------------------------------------
-   Muuri 無効化（スマホ用リセット）
-------------------------------------- */
-@include respond-max('sp') {
-  .grid {
-    position: static !important;
-    transform: none !important;
-  }
-
-  .grid .item {
-    position: static !important;
-    transform: none !important;
-    flex: 0 0 auto !important;
-  }
-
-  .grid .item-content {
-    position: static !important;
-    transform: none !important;
-  }
+  } // .work-wrapper end
 
   /* -------------------------------------
-     Muuri ALL 表示時の空白対策（追記）
+     Muuri 無効化（スマホ用リセット）
   ------------------------------------- */
-  .grid {
-    height: auto !important; /* 強制的に高さリセット */
+  @include respond-max('sp') {
+    .grid {
+      position: static !important;
+      transform: none !important;
+    }
+
+    .grid .item {
+      position: static !important;
+      transform: none !important;
+      flex: 0 0 auto !important;
+    }
+
+    .grid .item-content {
+      position: static !important;
+      transform: none !important;
+    }
+
+    .grid {
+      height: auto !important;
+    }
+
+    .grid .item {
+      top: auto !important;
+      left: auto !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    .grid .item.muuri-item-hidden {
+      display: none !important;
+    }
   }
 
-  .grid .item {
-    top: auto !important;
-    left: auto !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-
-  .grid .item.muuri-item-hidden {
-    display: none !important;
-  }
-}
-}
+} // #work end
