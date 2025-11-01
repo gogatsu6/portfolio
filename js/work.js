@@ -134,32 +134,66 @@ document.addEventListener("DOMContentLoaded", () => {
 //  work___ thumb-indicator_dots/loop
 // =====================================================
 
-const thumbs = document.querySelectorAll('.thumb');
-const prevBtn = document.querySelector('.thumb-prev');
-const nextBtn = document.querySelector('.thumb-next');
-const dots = document.querySelectorAll('.thumb-indicator span');
+document.addEventListener("DOMContentLoaded", () => {
+  const thumbList = document.querySelector(".thumb-list");
+  const thumbs = Array.from(document.querySelectorAll(".thumb"));
+  const prevBtn = document.querySelector(".thumb-prev");
+  const nextBtn = document.querySelector(".thumb-next");
+  const dots = document.querySelectorAll(".thumb-indicator span");
 
-let currentIndex = 0;
-const total = thumbs.length;
+  if (!thumbList || !thumbs.length || !prevBtn || !nextBtn || !dots.length) return;
 
-function updateSlider(index) {
-  thumbs.forEach((thumb, i) => {
-    thumb.classList.toggle('active', i === index);
+  const scrollAmount = 120;
+  const total = thumbs.length;
+  let currentIndex = 0;
+
+  // ===== クローンを追加してループ再現 =====
+  const cloneBefore = thumbs.slice(-3).map(t => t.cloneNode(true));
+  const cloneAfter = thumbs.slice(0, 3).map(t => t.cloneNode(true));
+  cloneBefore.forEach(c => thumbList.prepend(c));
+  cloneAfter.forEach(c => thumbList.append(c));
+
+  // 初期スクロール位置を中央に
+  thumbList.scrollLeft = thumbList.scrollWidth / 3;
+
+  // ===== 表示更新関数 =====
+  function updateSlider(index) {
+    thumbs.forEach((thumb, i) => {
+      thumb.classList.toggle('active', i === index);
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  }
+
+  // ===== ループスクロール関数 =====
+  function handleLoop() {
+    const left = thumbList.scrollLeft;
+    const visibleWidth = thumbList.clientWidth;
+
+    if (left + visibleWidth >= thumbList.scrollWidth - 5) {
+      thumbList.scrollLeft = thumbList.scrollWidth / 3 - visibleWidth;
+    }
+    if (left <= 0) {
+      thumbList.scrollLeft = thumbList.scrollWidth / 3;
+    }
+  }
+
+  // ===== ボタン操作 =====
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + total) % total;
+    updateSlider(currentIndex);
+    thumbList.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    handleLoop();
   });
-  dots.forEach((dot, i) => {
-    dot.classList.toggle('active', i === index);
-  });
-}
 
-prevBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + total) % total; // ←ループ対応
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % total;
+    updateSlider(currentIndex);
+    thumbList.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    handleLoop();
+  });
+
+  // 初期状態
   updateSlider(currentIndex);
 });
-
-nextBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % total; // ←ループ対応
-  updateSlider(currentIndex);
-});
-
-// 初期状態
-updateSlider(currentIndex);
