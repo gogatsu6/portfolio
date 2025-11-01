@@ -235,7 +235,7 @@
         }
 
         /* --- スマホ以外は非表示 --- */
-        @include respond-min('tab') {
+        @include respond-min('tb') {
           .thumb-indicator {
             display: none;
           }
@@ -415,7 +415,7 @@
   } // .work-wrapper end
 
   /* -------------------------------------
-     Muuri 無効化（スマホ用リセット）
+     Muuri 無効化（スマホ用リセット）※下記とまとめるの禁止
   ------------------------------------- */
   @include respond-max('sp') {
     .grid {
@@ -433,6 +433,10 @@
       position: static !important;
       transform: none !important;
     }
+
+/* -------------------------------------
+     Muuri ALL 表示時の空白対策 ※下記とまとめるの禁止
+------------------------------------- */
 
     .grid {
       height: auto !important;

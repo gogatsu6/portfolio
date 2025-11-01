@@ -1196,7 +1196,7 @@ footer.pos-left {
      ページ全体
   --------------------------------------------- */
   /* -------------------------------------
-     Muuri 無効化（スマホ用リセット）
+     Muuri 無効化（スマホ用リセット）※下記とまとめるの禁止
   ------------------------------------- */
 }
 #work #header.dnone.panelactive #g-navi ul {
@@ -1413,7 +1413,7 @@ footer.pos-left {
     transform: scale(1.3);
   }
 }
-@media screen and (min-width: ) {
+@media screen and (min-width: 1024px) {
   #work .work-wrapper .work-left .thumbnail-area .thumb-indicator {
     display: none;
   }
@@ -1561,6 +1561,11 @@ footer.pos-left {
   }
 }
 @media screen and (max-width: 767px) {
+  #work {
+    /* -------------------------------------
+         Muuri ALL 表示時の空白対策 ※下記とまとめるの禁止
+    ------------------------------------- */
+  }
   #work .grid {
     position: static !important;
     transform: none !important;
