@@ -150,20 +150,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ===== 表示更新関数 =====
   function updateActive(index) {
-    // サムネイル active 更新
     thumbs.forEach((thumb, i) => {
       thumb.classList.toggle("active", i === index);
     });
 
-    // ドット更新（作品全体をドット数で分割）
     const perDotRange = Math.ceil(total / dots.length);
     const dotIndex = Math.floor(index / perDotRange);
     dots.forEach((dot, i) => dot.classList.toggle("active", i === dotIndex));
   }
 
-  // ===== ループ付きスクロール =====
+  // ===== スクロール関数（ループ対応） =====
   function scrollToIndex(index, smooth = true) {
-    // 端を超えたらループ
     if (index < 0) {
       index = total - 1;
     } else if (index >= total) {
@@ -180,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateActive(index);
   }
 
-  // ===== ボタン操作 =====
+  // ===== 前後ボタン操作 =====
   nextBtn.addEventListener("click", () => {
     scrollToIndex(currentIndex + 1);
   });
@@ -193,7 +190,16 @@ document.addEventListener("DOMContentLoaded", () => {
   thumbs.forEach((thumb, i) => {
     thumb.addEventListener("click", () => {
       scrollToIndex(i);
-      // ここでメイン画像・説明切替処理を呼ぶ（例：showMainImage(i)）
+      // メイン画像と説明更新関数を呼び出す場所（例：showMainImage(i)）
+    });
+  });
+
+  // ===== ドットクリック追加 =====
+  dots.forEach((dot, dotIndex) => {
+    dot.addEventListener("click", () => {
+      const perDotRange = Math.ceil(total / dots.length);
+      const targetIndex = dotIndex * perDotRange;
+      scrollToIndex(targetIndex);
     });
   });
 
