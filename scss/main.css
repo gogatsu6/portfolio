@@ -1494,7 +1494,7 @@ footer.pos-left {
   display: none;
   line-height: 1.6;
   letter-spacing: 1.4px;
-  max-height: 80vh;
+  max-height: 90vh;
   overflow-y: auto;
 }
 #work .work-wrapper .work-right .text-content.active {
