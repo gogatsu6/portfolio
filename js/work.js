@@ -224,7 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", async () => {
   try {
     // JSONファイルを取得
-    const response = await fetch("../work/data/works.json");
+const response = await fetch("./data/works.json");
     const works = await response.json();
 
     console.log("✅ JSON 読み込み成功", works);
