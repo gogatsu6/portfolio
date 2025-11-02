@@ -215,3 +215,25 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===== 初期化 =====
   updateActive(currentIndex);
 });
+
+
+// =====================================================
+//  work___ JSON data load
+// =====================================================
+
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    // JSONファイルを取得
+    const response = await fetch("../work/data/works.json");
+    const works = await response.json();
+
+    console.log("✅ JSON 読み込み成功", works);
+
+    // 例）最初の作品タイトルを確認
+    console.log("1番目の作品タイトル:", works[0].title);
+
+    // 次のSTEP3でここにDOM生成コードを追加していきます
+  } catch (error) {
+    console.error("❌ JSON読み込みエラー:", error);
+  }
+});
