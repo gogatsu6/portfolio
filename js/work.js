@@ -223,14 +223,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    // JSONファイルを取得
-const response = await fetch("./data/works.json");
-    const works = await response.json();
+    const response = await fetch("./data/works.json");
+    const data = await response.json();
 
-    console.log("✅ JSON 読み込み成功", works);
+    console.log("✅ JSON 読み込み成功", data);
 
-    // 例）最初の作品タイトルを確認
-    console.log("1番目の作品タイトル:", works[0].title);
+    // 正しい参照方法
+    console.log("1番目の作品タイトル:", data.works[0].title);
 
     // 次のSTEP3でここにDOM生成コードを追加していきます
   } catch (error) {
