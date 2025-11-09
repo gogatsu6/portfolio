@@ -98,11 +98,6 @@ display: flex;
 #wrapper.mode-off {
   background-color: $off-background-color;
   color: #fff;
-
-  @include respond-max('sp') {
-    display: flex;
-    flex-direction: column !important;
-  }
 }
 
 
@@ -765,13 +760,6 @@ textarea {
 
 }
 
-.mode-off .scroll-container {
-      @include respond-max('tb') {
-        position: absolute;
-        bottom: 99%;
-      }
-}
-
 .scroll-down {
   position: absolute;
   left: 50%;
@@ -802,9 +790,7 @@ textarea {
   position: relative;
   text-align: center;
   height: 100vh;
-  box-sizing: border-box;
-}
-
+  box-sizing: border-box;}
 
 /* --------------------------------------------------
    レスポンシブ調整
@@ -837,13 +823,12 @@ textarea {
   }
 
   input, textarea {
+    width: 90vw;
+
+   @include respond-max('sp') {
      width: 75vw;
    }
-
-.mode-off #container {
-  background-color: $off-background-color;
-}
-
+   }
 }
 
 

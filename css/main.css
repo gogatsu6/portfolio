@@ -465,6 +465,12 @@ footer.pos-left {
   background-color: #7A788A;
   color: #fff;
 }
+@media screen and (max-width: 768px) {
+  #top #wrapper.mode-off {
+    display: flex;
+    flex-direction: column !important;
+  }
+}
 #top #fixed-area {
   position: sticky;
   top: 0;
@@ -1171,6 +1177,12 @@ footer.pos-left {
     padding-top: 1vh;
   }
 }
+@media screen and (max-width: 1024px) {
+  #top .mode-off .scroll-container {
+    position: absolute;
+    bottom: 99%;
+  }
+}
 #top .scroll-down {
   position: absolute;
   left: 50%;
@@ -1303,12 +1315,10 @@ footer.pos-left {
     padding: 0;
   }
   #top input, #top textarea {
-    width: 90vw;
-  }
-}
-@media screen and (max-width: 768px) and (max-width: 768px) {
-  #top input, #top textarea {
     width: 75vw;
+  }
+  #top .mode-off #container {
+    background-color: #7A788A;
   }
 }
 #top #header.pos-right {
