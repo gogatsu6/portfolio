@@ -542,7 +542,6 @@ h5 {
 }
 
 .profile-item-skills_text {
-  @include font-size-S;
   margin-top: 5px;
   margin-bottom: 20px;
   line-height: 1.833;
@@ -581,7 +580,6 @@ input, textarea {
   box-sizing: border-box;
   border: 1px solid #424040;
   margin-top: 10px;
-  margin-bottom: 50px;
   text-align: left;
   padding-left: 20px;
   background-color: #fff;
@@ -589,13 +587,27 @@ input, textarea {
     @include respond-max('tb') {
   width: 75vw;
     }
+}
 
-
+input {
+  margin-bottom: 50px;
 }
 
 input:focus, textarea:focus { outline-style: solid; outline-color: #000; }
 
-textarea { vertical-align: top; height: 246px; padding-top: 20px; }
+textarea { 
+  vertical-align: top;
+  height: 246px;
+  padding-top: 20px;
+  margin-bottom: 10px;
+
+}
+
+.contact-warning {  
+  @include font-size-S;
+  margin-bottom: 50px;
+
+ }
 
 .contact-button {
   width: 91.7%;
@@ -605,7 +617,6 @@ textarea { vertical-align: top; height: 246px; padding-top: 20px; }
   @include font-size-M;
   letter-spacing: 5.2px;
   color: #fff;
-  margin-bottom: 200px;
 
   @include respond-max('sp') {
   margin-bottom: 0;
@@ -614,7 +625,7 @@ textarea { vertical-align: top; height: 246px; padding-top: 20px; }
 }
 
 /* --------------------------------------------------
-   OFF MODE（元のデザイン維持）
+   OFF MODE
 -------------------------------------------------- */
 .off_screen {
   background-color: $off-background-color;
@@ -743,7 +754,7 @@ textarea { vertical-align: top; height: 246px; padding-top: 20px; }
 
       @include respond-max('tb') {
         position: static;
-        padding-top: 3vh;
+        padding-top: 1vh;
       }
 
 }

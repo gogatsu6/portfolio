@@ -39,7 +39,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Zen Kaku Gothic New", sans-serif;
-  font-size: clamp(1.2rem, 0.9rem + 0.625vw, 1.4rem);
+  font-size: clamp(1.4rem, 1.2rem + 0.625vw, 1.6rem);
   background-color: #E5E0DA;
   color: #424040;
 }
@@ -439,7 +439,7 @@ footer.pos-left {
   /* ---- profile ---- */
   /* ---- Contact ---- */
   /* --------------------------------------------------
-     OFF MODE（元のデザイン維持）
+     OFF MODE
   -------------------------------------------------- */
   /* --------------------------------------------------
      Scroll Indicator
@@ -907,7 +907,6 @@ footer.pos-left {
   }
 }
 #top .profile-item-skills_text {
-  font-size: clamp(1.2rem, 0.9rem + 0.625vw, 1.4rem);
   margin-top: 5px;
   margin-bottom: 20px;
   line-height: 1.833;
@@ -948,7 +947,6 @@ footer.pos-left {
   box-sizing: border-box;
   border: 1px solid #424040;
   margin-top: 10px;
-  margin-bottom: 50px;
   text-align: left;
   padding-left: 20px;
   background-color: #fff;
@@ -958,6 +956,9 @@ footer.pos-left {
     width: 75vw;
   }
 }
+#top input {
+  margin-bottom: 50px;
+}
 #top input:focus, #top textarea:focus {
   outline-style: solid;
   outline-color: #000;
@@ -966,6 +967,11 @@ footer.pos-left {
   vertical-align: top;
   height: 246px;
   padding-top: 20px;
+  margin-bottom: 10px;
+}
+#top .contact-warning {
+  font-size: clamp(1.2rem, 0.9rem + 0.625vw, 1.4rem);
+  margin-bottom: 50px;
 }
 #top .contact-button {
   width: 91.7%;
@@ -975,7 +981,6 @@ footer.pos-left {
   font-size: clamp(1.4rem, 1.2rem + 0.625vw, 1.6rem);
   letter-spacing: 5.2px;
   color: #fff;
-  margin-bottom: 200px;
 }
 @media screen and (max-width: 768px) {
   #top .contact-button {
@@ -1163,7 +1168,7 @@ footer.pos-left {
 @media screen and (max-width: 1024px) {
   #top .scroll-container {
     position: static;
-    padding-top: 3vh;
+    padding-top: 1vh;
   }
 }
 #top .scroll-down {
@@ -1704,8 +1709,8 @@ footer.pos-left {
   #work .work-left .thumbnail-area .grid .item {
     position: static !important;
     flex: 0 0 auto;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     scroll-snap-align: center;
   }
   #work .work-left .thumbnail-area .grid .thumb-img {
