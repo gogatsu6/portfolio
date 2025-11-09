@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="keywords" content="ポートフォリオ">
+    <meta name="description" content="このサイトは山本さつきのポートフォリオです。">
+    <title>Works｜Yamamoto-Portfolio</title>
+
+    <!--============= Google Analytics ===============-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <!--============= Google Font ===============-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&family=Zen+Kaku+Gothic+New&display=swap"
+        rel="stylesheet">
+
+    <!--============= CSS ===============-->
+    <link rel="stylesheet" href="scss/destyle.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="../scss/main.css">
+
+    <!--============= Favicon =============-->
+    <link rel="icon" type="../image/x-icon" href="img/favicon.ico">
+</head>
+
+<body id="work">
+    <!--============= Header =============-->
+    <header id="header">
+        <nav id="g-navi">
+            <ul>
+                <li><a href="https://gogatsu6.github.io/portfolio/index.html">TOP</a></li>
+                <li><a href="https://gogatsu6.github.io/portfolio/index.html#area-2">profile</a></li>
+                <li><a href="https://gogatsu6.github.io/portfolio/index.html#area-3">contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="openbtn"><span></span><span></span><span></span></div>
+
+
+    <main>
+        <div class="work-wrapper">
+            <!--============= list-area =============-->
+            <div class="work-left">
+                <div class="innerWrap-work">
+                    <h1>Work</h1>
+                    <!----------- main-img  ----------->
+                    <div class="work-left-gallery">
+                        <div class="main-visual">
+                            <div class="work-image active" id="work1">
+                                <img src="img/01.png" alt="大西皮フ科形成外科医院様 採用サイト［TOPのみ］">
+                            </div>
+                            <div class="work-image" id="work2">
+                                <img src="img/02.jpg" alt="大西皮フ科形成外科医院様 毎月キャンペーンPOP">
+                            </div>
+                            <div class="work-image" id="work3">
+                                <img src="img/03.jpg" alt="大西皮フ科形成外科医院様 毎月キャンペーンPOP">
+                            </div>
+                            <div class="work-image" id="work4">
+                                <img src="img/04.jpg" alt="大西皮フ科形成外科医院様 毎月キャンペーンPOP">
+                            </div>
+                            <div class="work-image" id="work5">
+                                <img src="img/05.jpg" alt="大西皮フ科形成外科医院様 採用サイトバナー">
+                            </div>
+                            <div class="work-image" id="work6">
+                                <img src="img/06.png" alt="自主制作 電子マンガのLP">
+                            </div>
+                            <div class="work-image" id="work7">
+                                <img src="img/07.png" alt="大西皮フ科形成外科医院様 オリジナルコスメの同梱物（表裏）">
+                            </div>
+
+                        </div>
+
+                        <div class="thumbnail-area">
+                            <!----------- sort-list  ----------->
+                            <ul class="sort-btn">
+                                <li class="sort00 active">all</li>
+                                <li class="sort-web">web</li>
+                                <li class="sort-pa">paper</li>
+                                <li class="sort-oh">other</li>
+                            </ul>
+
+                            <!----------- thumbnail-img  ----------->
+                            <button class="thumb-prev">‹</button>
+                            <ul class="thumb-list grid">
+                                <li class="thumb active item sort-web" data-target="work1">
+                                    <div class="item-content"><img src="img/01.png" alt="サムネイル1"></div>
+                                </li>
+                                <li class="thumb item sort-pa" data-target="work2">
+                                    <div class="item-content"><img src="img/02.jpg" alt="サムネイル2"></div>
+                                </li>
+                                <li class="thumb item sort-pa" data-target="work3">
+                                    <div class="item-content"><img src="img/03.jpg" alt="サムネイル3"></div>
+                                </li>
+                                <li class="thumb item sort-pa" data-target="work4">
+                                    <div class="item-content"><img src="img/04.jpg" alt="サムネイル4"></div>
+                                </li>
+                                <li class="thumb item sort-oh" data-target="work5">
+                                    <div class="item-content"><img src="img/05.jpg" alt="サムネイル5"></div>
+                                </li>
+                                <li class="thumb item sort-web" data-target="work6">
+                                    <div class="item-content"><img src="img/06.png" alt="サムネイル6"></div>
+                                </li>
+                                <li class="thumb item sort-pa" data-target="work7">
+                                    <div class="item-content"><img src="img/07.png" alt="サムネイル7"></div>
+                                </li>
+
+
+                            </ul>
+                            <button class="thumb-next">›</button>
+                            <div class="thumb-indicator">
+                                <span class="active"></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--============= description-area =============-->
+            <div class="work-right">
+                <div class="innerWrap-work">
+                    <!-- 1つ目 -->
+                    <div class="text-content active" data-id="work1">
+                        <div class="description_title">
+                            <h3>大西皮フ科形成外科医院 様<br>採用サイト［TOPのみ］</h3>
+                            <a href="https://onishiskinclinic-recruit.com/index.html" target="_blank"><img
+                                    src="img/link.png" alt="リンク先のアイコン"></a>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">ターゲット</p>
+                            <p>
+                                20代・30代の女性がメインターゲット。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">課題</p>
+                            <p>
+                                ①作成されてから随分経過しているため、全体的に古い印象がある。<br>
+                                ②情報量が多いためスクロールが長く、求職者が途中で離脱＆迷ってしまう。<br>
+                                ③情報が事務的に配置されているためクリニックやスタッフの雰囲気が伝わりりにくい。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">目的</p>
+                            <p>
+                                同業他院と比較した際に「古い・堅そう」といったマイナスなイメージを持たれないように課題解決を行いたい。大幅な内容の修正を行いたい(クリニックの強みなど)。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">情報設計</p>
+                            <p>
+                                求職者の関心は「募集職種」「仕事内容・給与・福利厚生などの情報」「クリニックやスタッフの雰囲気」であるだろうと仮定。その上で、クリニックの魅力が伝わりやすい順番でコンテンツを並び替えた。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">制作過程</p>
+                            <p>
+                                まずは人事担当者と希望イメージのすり合わせのため、競合他院をリストアップ。机上でコンテンツの並び替えを行い、順番が決定してからPhotoshopでPC版・SF版のイメージボードを作成。また同時に自院に足りないコンテンツの文章や画像を作成＆写真を撮影。人事担当者とマネージャー、クリニックの代表に確認後、外部のコーダーにコーディングを依頼。完成後修正箇所があれば行い、内容をチェックして、本番公開。(すべて担当)
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">制作期間</p>
+                            <p>
+                                2か月
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">使用ツール</p>
+                            <p>
+                                Photoshop、VSchord<br>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 2つ目 -->
+                    <div class="text-content" data-id="work2">
+                        <div class="description_title">
+                            <h3>大西皮フ科形成外科医院 様<br>キャンペーンPOP</h3>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">ターゲット</p>
+                            <p>
+                                20代～50代女性がメインターゲット。<br>
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">課題</p>
+                            <p>
+                                新導入の機器のお試しキャンペーンや季節的に特におすすめの施術、併用治療の宣伝などを患者様に伝える。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">目的</p>
+                            <p>
+                                施術の認知拡大や売上アップ、リピーター獲得などが目的。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">情報設計</p>
+                            <p>
+                                金額(定価［1回・複数回］、キャンペーン価格)、割引率、施術名、キャンペーン月、施術の効果、注意書きが必須情報。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">制作過程</p>
+                            <p>
+                                キャンペーン担当者より情報を共有。その時々でPOPイメージ(色味や写真の雰囲気など)があれば、それに合わせてA4サイズで作成。作成後、担当者に確認してもらい、修正があれば行う。問題がなければクリニックの代表に最終確認を行う。チェックがOKならば、このPOPをもとにHP上に貼るバナーやLINE用のバナーを作成。A4のPOPは院内に掲示する用と配布するためのカードサイズにリサイズして印刷。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">制作期間</p>
+                            <p>
+                                2日～3日 ※時短勤務のため実働15時間ほど／修正含め印刷まで
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">使用ツール</p>
+                            <p>
+                                Photoshop、illustrator
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 3つ目 -->
+                    <div class="text-content" data-id="work3">
+                        <div class="description_title">
+                            <h3>大西皮フ科形成外科医院 様<br>キャンペーンPOP</h3>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">ターゲット</p>
+                            <p>
+                                20代～50代女性がメインターゲット。<br>
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">課題</p>
+                            <p>
+                                多彩な薬液によって施術が選びきれない患者様に向けて、ランキング形式にして分かりやすいようにする。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">目的</p>
+                            <p>
+                                施術の認知拡大や売上アップ、リピーター獲得などが目的。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">情報設計</p>
+                            <p>
+                                金額(定価［1回・複数回］、キャンペーン価格)、割引率、施術名、キャンペーン月、施術の効果、注意書きが必須情報。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">制作過程</p>
+                            <p>
+                                キャンペーン担当者より情報を共有。その時々でPOPイメージ(色味や写真の雰囲気など)があれば、それに合わせてA4サイズで作成。作成後、担当者に確認してもらい、修正があれば行う。問題がなければクリニックの代表に最終確認を行う。チェックがOKならば、このPOPをもとにHP上に貼るバナーやLINE用のバナーを作成。A4のPOPは院内に掲示する用と配布するためのカードサイズにリサイズして印刷。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">制作期間</p>
+                            <p>
+                                2日～3日 ※時短勤務のため実働15時間ほど／修正含め印刷まで
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">使用ツール</p>
+                            <p>
+                                Photoshop、illustrator
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 4つ目 -->
+                    <div class="text-content" data-id="work4">
+                        <div class="description_title">
+                            <h3>大西皮フ科形成外科医院 様<br>キャンペーンPOP</h3>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">ターゲット</p>
+                            <p>
+                                20代～50代女性がメインターゲット。<br>
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">課題</p>
+                            <p>
+                                治療効果の似ている施術がキャンペーン対象になっており、それぞれどのような違いがあるのかを伝える。同じような治療でも効果の違いによる金額の違いに納得感を出す。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">目的</p>
+                            <p>
+                                施術の認知拡大や売上アップ、リピーター獲得などが目的。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">情報設計</p>
+                            <p>
+                                金額(定価［1回・複数回］、キャンペーン価格)、割引率、施術名、キャンペーン月、施術の効果、注意書きが必須情報。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">制作過程</p>
+                            <p>
+                                キャンペーン担当者より情報を共有。その時々でPOPイメージ(色味や写真の雰囲気など)があれば、それに合わせてA4サイズで作成。作成後、担当者に確認してもらい、修正があれば行う。問題がなければクリニックの代表に最終確認を行う。チェックがOKならば、このPOPをもとにHP上に貼るバナーやLINE用のバナーを作成。A4のPOPは院内に掲示する用と配布するためのカードサイズにリサイズして印刷。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">制作期間</p>
+                            <p>
+                                2日～3日 ※時短勤務のため実働15時間ほど／修正含め印刷まで
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">使用ツール</p>
+                            <p>
+                                Photoshop、illustrator
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 5つ目 -->
+                    <div class="text-content" data-id="work5">
+                        <div class="description_title">
+                            <h3>大西皮フ科形成外科医院 様<br>採用サイトのバナー</h3>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">ターゲット</p>
+                            <p>
+                                20代・30代の女性がメインターゲット。<br>
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">課題</p>
+                            <p>
+                                ①広くスタッフ募集は行っているが、メイン年齢層への訴求を高めたい。<br>
+                                ②勤務地が滋賀だけでなく京都にもあることを認知させたい。<br>
+                                ③未経験も応募可能、多彩な募集職種があることを伝えたい。<br>
+                                ④新しくOPENした支店も告知したい。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">目的</p>
+                            <p>
+                                求人者に「未経験ＯＫ」「募集職種」「OPENしたクリニック」「滋賀院・京都院」を伝えたい。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">情報設計</p>
+                            <p>
+                                情報量が多いため、左側に募集情報、右側にクリニックOPEN告知の情報を区分け。クリニックサイトに貼るすることが決まっていたので、サイトの雰囲気を壊さないような色味・テイストでデザイン。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">制作過程</p>
+                            <p>
+                                記載したい情報を整理し作成。クリニックのOPEN日が春だったので、イメージを桜にして季節感を出した。作成後、担当者に確認してもらい修正。問題がなければ、一回り小さいリサイズ版も作成し、クリニックのサイトにも貼り付けまで行う。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">制作期間</p>
+                            <p>
+                                1週間
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">使用ツール</p>
+                            <p>
+                                Photoshop、VSchord
+                            </p>
+                        </div>
+                    </div>
+                    <!-- 6つ目 -->
+                    <div class="text-content" data-id="work6">
+                        <div class="description_title">
+                            <h3>自主制作<br>電子マンガのLP</h3>
+                            <a href="#"><img src="img/link.png" alt="リンク先のアイコン"></a>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">ターゲット</p>
+                            <p>
+                                20代～40代の男女がターゲット。<br>
+                                中年男性向けの作品であるため、多少男性よりなデザインイメージ。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">課題</p>
+                            <p>
+                                想定としては、中年男性向けマンガ誌に掲載している作品を電子マンガ化し、読者層を若年層・女性にも拡大させたい。紙面での中年男性は電子マンガに慣れていない(この作品が掲載時)ということで、凝ったLPは避けたい。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">目的</p>
+                            <p>
+                                電子化による読者層を若年層・女性にも拡大。手軽にいつでも読める電子マンガの普及。 </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">情報設計</p>
+                            <p>
+                                1話・2話の作品の始まり部分の内容をLP用に精査する。話が続く部分でコマは終え、サイト下部に本ページのリンクボタンを設置する。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">制作過程</p>
+                            <p>
+                                現代医療をテーマとしたマンガなので白黒の背景で世界観を統一。1話・2話の作品の始まり部分の序破急のコマを選定。選定したコマだけでも話が追える程度にし、SFがメインデバイスではあるもののPCにもそのまま展開しやすいように縦並びで配置。電子マンガを見慣れないユーザーを想定しているので、冒頭は目をとめてもらうよう動きをつける。コマの形によっては絵が切れてしまうものもあるため、PhotoshopでAI生成を行って調整。コマを並べたら最後にリンクボタンを設置。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">制作期間</p>
+                            <p>
+                                1か月 </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">使用ツール</p>
+                            <p>
+                                Photoshop、VSchord </p>
+                        </div>
+                    </div>
+                    <!-- 7つ目 -->
+                    <div class="text-content" data-id="work7">
+                        <div class="description_title">
+                            <h3>大西皮フ科形成外科医院 様<br>オリジナルコスメの同梱物［表裏］</h3>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">ターゲット</p>
+                            <p>
+                                20代・30代の女性がメインターゲット。<br>
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">課題</p>
+                            <p>
+                                ①広くスタッフ募集は行っているが、メイン年齢層への訴求を高めたい。<br>
+                                ②勤務地が滋賀だけでなく京都にもあることを認知させたい。<br>
+                                ③未経験も応募可能、多彩な募集職種があることを伝えたい。<br>
+                                ④新しくOPENした支店も告知したい。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">目的</p>
+                            <p>
+                                求人者に「未経験ＯＫ」「募集職種」「OPENしたクリニック」「滋賀院・京都院」を伝えたい。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">情報設計</p>
+                            <p>
+                                情報量が多いため、左側に募集情報、右側にクリニックOPEN告知の情報を区分け。クリニックサイトに貼るすることが決まっていたので、サイトの雰囲気を壊さないような色味・テイストでデザイン。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">制作過程</p>
+                            <p>
+                                記載したい情報を整理し作成。クリニックのOPEN日が春だったので、イメージを桜にして季節感を出した。作成後、担当者に確認してもらい修正。問題がなければ、一回り小さいリサイズ版も作成し、クリニックのサイトにも貼り付けまで行う。
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">制作期間</p>
+                            <p>
+                                1週間
+                            </p>
+                        </div>
+
+                        <div class="description_container">
+                            <p class="description_sub-title">使用ツール</p>
+                            <p>
+                                Photoshop、VSchord
+                            </p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div><!-- work-wrapper end -->
+    </main>
+
+    <!--============= script.js =============-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://unpkg.com/web-animations-js@2.3.2/web-animations.min.js"></script>
+    <script src="https://unpkg.com/muuri@0.8.0/dist/muuri.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/work.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,275 @@
+@charset "UTF-8";
+/* ==================================================
+  _work-plus.scss
+  （work右カラムJSON対応用）
+================================================== */
+/* ==================================================
+  base.scss
+  サイト全体の基礎設定ファイル
+================================================== */
+/* -------------------------------------
+  1. 変数
+------------------------------------- */
+/*---------- collar ----------*/
+/* -------------------------------------
+  2. ブレークポイント
+------------------------------------- */
+/* -------------------------------------
+  3. mixin
+------------------------------------- */
+/* -------------------------------------
+  4. Reset & Base Style
+------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0 auto;
+  font-size: 62.5%;
+  letter-spacing: 1.2px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: clamp(1.2rem, 0.9rem + 0.625vw, 1.4rem);
+  background-color: #E5E0DA;
+  color: #424040;
+}
+
+main {
+  display: block;
+  width: 100%;
+}
+
+section {
+  scroll-margin-top: 60px;
+}
+
+/* -------------------------------------
+  5. 共通ユーティリティ
+------------------------------------- */
+.innerWrap {
+  width: 66.66%;
+  margin: 0 auto;
+}
+@media screen and (max-width: 767px) {
+  .innerWrap {
+    width: 90%;
+  }
+}
+
+.fadeUpTrigger {
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+.fadeUp {
+  animation-name: fadeUpAnime;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUpAnime {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.sp {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .sp {
+    display: block;
+  }
+}
+.tb {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .tb {
+    display: block;
+  }
+}
+.dp {
+  display: none;
+}
+
+@media screen and (max-width: 1920px) {
+  .dp {
+    display: block;
+  }
+}
+#work {
+  /* ---------------------------------------------
+     ページ全体（左右レイアウト）
+  --------------------------------------------- */
+  /* ---------------------------------------------
+     左カラム（ギャラリー）
+  --------------------------------------------- */
+  /* ---------------------------------------------
+     右カラム（説明エリア）
+  --------------------------------------------- */
+  /* ---------------------------------------------
+     アニメーション
+  --------------------------------------------- */
+}
+#work .work-wrapper {
+  display: flex;
+  gap: 4vw;
+  background-color: #E5E0DA;
+  color: #424040;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  padding-top: 5vh;
+}
+@media screen and (max-width: 767px) {
+  #work .work-wrapper {
+    flex-direction: column;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+#work .work-left {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-end;
+}
+@media screen and (max-width: 767px) {
+  #work .work-left {
+    width: 90%;
+    margin: 0 auto;
+    align-items: flex-start;
+  }
+}
+#work .work-left .work-left-gallery {
+  margin-top: 65px;
+}
+#work .work-left .work-left-gallery .main-visual {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+#work .work-left .work-left-gallery .main-visual .work-image {
+  display: none;
+  animation: fadeIn 0.6s ease forwards;
+}
+#work .work-left .work-left-gallery .main-visual .work-image.active {
+  display: block;
+}
+#work .work-left .work-left-gallery .main-visual .work-image img {
+  width: 40vw;
+  height: auto;
+  display: block;
+  -o-object-fit: contain;
+     object-fit: contain;
+  aspect-ratio: 4/3;
+}
+@media screen and (max-width: 767px) {
+  #work .work-left .work-left-gallery .main-visual .work-image img {
+    width: 100%;
+  }
+}
+#work .work-right {
+  width: 45%;
+  padding: 4rem 3rem;
+  background-color: #E5E0DA;
+  color: #424040;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  overflow-y: auto;
+  border-radius: 0.8rem;
+}
+@media screen and (max-width: 767px) {
+  #work .work-right {
+    width: 90%;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+}
+#work .work-right .work-detail {
+  position: relative;
+}
+#work .work-right .text-content {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+#work .work-right .text-content.active {
+  display: block;
+  opacity: 1;
+  animation: fadeInText 0.6s ease forwards;
+}
+#work .work-right .text-content h2 {
+  font-family: "Baskervville", serif;
+  font-size: clamp(1.8rem, 1.6rem + 0.625vw, 2.4rem);
+  font-weight: 500;
+  margin-bottom: 2rem;
+  color: #3A374D;
+}
+#work .work-right .text-content .desc-block dl {
+  display: flex;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px dotted rgba(66, 64, 64, 0.4);
+  padding-bottom: 0.8rem;
+}
+#work .work-right .text-content .desc-block dl dt {
+  flex: 0 0 7em;
+  color: #3A374D;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+#work .work-right .text-content .desc-block dl dd {
+  flex: 1;
+  color: #424040;
+  line-height: 1.6;
+}
+#work .work-right .text-content .link {
+  margin-top: 2.4rem;
+  text-align: center;
+}
+#work .work-right .text-content .link a {
+  display: inline-block;
+  padding: 0.8em 2.4em;
+  background: #424040;
+  color: #fff;
+  border-radius: 2em;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.3s;
+}
+#work .work-right .text-content .link a:hover {
+  background: #967e61;
+  transform: translateY(-2px);
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

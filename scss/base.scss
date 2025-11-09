@@ -30,7 +30,7 @@ $off-link-button_animation-color: #5a576b;
   2. ブレークポイント
 ------------------------------------- */
 $breakpoints: (
-  'sp': 767px,
+  'sp': 768px,
   'tb': 1024px,
   'lp': 1300px,
   'dp': 1920px
@@ -65,6 +65,9 @@ $breakpoints: (
 }
 @mixin font-size-title {
     font-size: clamp(4.1rem, calc(3.7rem + 0.625vw), 5.6rem);
+}
+@mixin font-size-title_lp {
+    font-size: clamp(4.2px, calc(3.7rem + 0.625vw), 6.6rem);
 }
 
 /* -------------------------------------
@@ -109,8 +112,8 @@ section {
   width: 66.66%;
   margin: 0 auto;
 
-  @include respond-max('sp') {
-    width: 90%;
+  @include respond-max('tb') {
+    width: 75%;
   }
 }
 

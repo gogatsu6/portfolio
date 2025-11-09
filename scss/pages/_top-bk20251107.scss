@@ -21,16 +21,6 @@
   top: 50%;
   left: 50%;
   transform: translateY(-70%) translateX(-50%);
-
-      @include respond-max('tb') {
-          margin-bottom: 0;
-          margin-top: 8vh;
-         @include font-size-title-lp;
-      }
-
-         @include respond-max('sp') {
-           margin-top: 0;
-      }
 }
 
 @mixin h2_title-style($color) {
@@ -52,12 +42,6 @@
   margin-bottom: 12px;
   margin-inline: auto;
   animation: pulse 2s infinite;
-
-    @include respond-max('sp') {
-    width: 30px;
-    height: 30px;
-    margin-bottom: 8px;
-    }
 }
 
 @mixin arrow_after($color) {
@@ -70,11 +54,6 @@
   border-left: 1px solid $color;
   border-bottom: 1px solid $color;
   transform: translate(-50%, -50%) rotate(-45deg);
-
-      @include respond-max('sp') {
-    width: 8px;
-    height: 8px;
-      }
 }
 
 
@@ -88,6 +67,8 @@ display: flex;
   flex-wrap: nowrap;
   width: 100%;
   height: auto;
+
+  
 }
 
 #wrapper.mode-on {
@@ -115,12 +96,6 @@ position: sticky;
   overflow: hidden;
   z-index: 1;
   padding: 10px;
-
-    @include respond-max('tb') {
-    width: 100vw;
-    margin: 0 auto;
-    // aspect-ratio: 4 / 3;
-    object-fit: cover;  }
 }
 
 #container {
@@ -131,14 +106,7 @@ position: sticky;
   transition: all 0.5s ease;
   background: transparent;
   overflow: hidden;
-  height: auto;
-  background-color: $on-background-color;
-
-    @include respond-max('tb') {
-    width: 100vw;
-    margin: 0 auto;
-  }
-}
+  height: auto;}
 
 #fixed-area video,
 .mode-area video {
@@ -148,10 +116,6 @@ position: sticky;
   object-position: 38%;
   border-radius: 10px;
   display: block;
-
-  @include respond-max('tb') {
-    object-position: 41%;
-    height: 80vh;  }
 }
 
 .video-on {
@@ -192,10 +156,6 @@ position: sticky;
 
   &.mode-off {
     flex-direction: row-reverse; /* OFFモードでは左右反転 */
-  }
-
-  @include respond-max('tb') {
-    flex-direction: column;
   }
 }
 
@@ -338,15 +298,6 @@ position: sticky;
 .greeting-box {
   text-align: center;
 
-        @include respond-max('tb') {
-          transform: translateY(-35vh);
-        }
-
-        @include respond-max('sp') {
-          transform: translateY(-20vh);
-        }
-
-
   p {
     text-align: center;
     line-height: 1.85;
@@ -384,22 +335,11 @@ h3 {
   @include font-size-M;
   width: 100%;
   padding-bottom: 10px;
-  font-weight: bold;
-
-    @include respond-max('sp') {
-      margin: 20px 0 5px 0;
-    }
 }
 
 .work-container {
   position: relative;
   margin-top: 300px;
-
-  @include respond-max('tb') {
-      margin-top: 5vh;
-      transform: translateY(4vh);
-  }
-
 }
 
 .work-item {
@@ -420,13 +360,9 @@ h3 {
     padding-top: 10px;
     margin-bottom: 20px;
     line-height: 1.5;
-
-    @include respond-max('sp') {
-    margin-bottom: 15px;
-    }
   }
 
-  a { display: block; }
+  a { padding-right: 32px; display: block; }
 
     &::after {
     content: "＋";
@@ -447,7 +383,6 @@ h3 {
 
 .more-link {
   text-align: right;
-  padding-right: 32px;
 }
 
 .view-all {
@@ -495,10 +430,6 @@ h4 {
     position: absolute;
     transform: translateX(52px) translateY(16px) scaleX(0.5);
   }
-
-  @include respond-max('sp') {
-  margin: 0 auto 20px;
-  }
 }
 
 h5 {
@@ -511,15 +442,7 @@ h5 {
 
 #profile { scroll-margin-top: 100px; }
 
-.profile-container {
-  position: relative;
-  margin-top: 300px;
-
-     @include respond-max('sp') {
-      padding-top: 2vh;
-      transform: translateY(-10vh);
-     }
-}
+.profile-container { position: relative; margin-top: 300px; }
 .profile-item { display: flex; }
 
 .profile-item img {
@@ -532,14 +455,7 @@ h5 {
 .profile-item-left { width: 35%; height: auto; }
 .profile-item-right { width: 65%; padding: 0 0 0 20px; }
 
-.profile-item-text {
-  margin-bottom: 40px;
-  line-height: 1.85;
-
-    @include respond-max('sp') {
-      padding-top: 15px;
-  }
-}
+.profile-item-text { margin-bottom: 40px; line-height: 1.85; }
 
 .profile-item-skills_text {
   @include font-size-S;
@@ -555,21 +471,9 @@ h5 {
   position: relative;
   margin-top: 300px;
   text-align: center;
-
-     @include respond-max('sp') {
-      margin-top: 5vh;
-      padding-top: 15vh;
-     }
 }
 
-.contact-message {
-  line-height: 1.85;
-  white-space: nowrap;
-
-    @include respond-max('sp') {
-  white-space: wrap;
-  }
-}
+.contact-message { line-height: 1.85; white-space: nowrap; }
 
 form { display: inline-block; padding-top: 50px; }
 
@@ -585,12 +489,6 @@ input, textarea {
   text-align: left;
   padding-left: 20px;
   background-color: #fff;
-
-    @include respond-max('tb') {
-  width: 75vw;
-    }
-
-
 }
 
 input:focus, textarea:focus { outline-style: solid; outline-color: #000; }
@@ -606,11 +504,6 @@ textarea { vertical-align: top; height: 246px; padding-top: 20px; }
   letter-spacing: 5.2px;
   color: #fff;
   margin-bottom: 200px;
-
-  @include respond-max('sp') {
-  margin-bottom: 0;
-    }
-
 }
 
 /* --------------------------------------------------
@@ -740,12 +633,6 @@ textarea { vertical-align: top; height: 246px; padding-top: 20px; }
   position: absolute;
   bottom: 11vmax;
   white-space: nowrap;
-
-      @include respond-max('tb') {
-        position: static;
-        padding-top: 3vh;
-      }
-
 }
 
 .scroll-down {
@@ -810,13 +697,7 @@ textarea { vertical-align: top; height: 246px; padding-top: 20px; }
     padding: 0;
   }
 
-  input, textarea {
-    width: 90vw;
-
-   @include respond-max('sp') {
-     width: 75vw;
-   }
-   }
+  input, textarea { width: 90vw; }
 }
 
 

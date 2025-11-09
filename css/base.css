@@ -1,0 +1,110 @@
+@charset "UTF-8";
+/* ==================================================
+  base.scss
+  サイト全体の基礎設定ファイル
+================================================== */
+/* -------------------------------------
+  1. 変数
+------------------------------------- */
+/*---------- collar ----------*/
+/* -------------------------------------
+  2. ブレークポイント
+------------------------------------- */
+/* -------------------------------------
+  3. mixin
+------------------------------------- */
+/* -------------------------------------
+  4. Reset & Base Style
+------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0 auto;
+  font-size: 62.5%;
+  letter-spacing: 1.2px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: clamp(1.2rem, 0.9rem + 0.625vw, 1.4rem);
+  background-color: #E5E0DA;
+  color: #424040;
+}
+
+main {
+  display: block;
+  width: 100%;
+}
+
+section {
+  scroll-margin-top: 60px;
+}
+
+/* -------------------------------------
+  5. 共通ユーティリティ
+------------------------------------- */
+.innerWrap {
+  width: 66.66%;
+  margin: 0 auto;
+}
+@media screen and (max-width: 1024px) {
+  .innerWrap {
+    width: 75%;
+  }
+}
+
+.fadeUpTrigger {
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+.fadeUp {
+  animation-name: fadeUpAnime;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUpAnime {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.sp {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .sp {
+    display: block;
+  }
+}
+.tb {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .tb {
+    display: block;
+  }
+}
+.dp {
+  display: none;
+}
+
+@media screen and (max-width: 1920px) {
+  .dp {
+    display: block;
+  }
+}

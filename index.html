@@ -25,28 +25,49 @@
         rel="stylesheet">
 
     <!--============= CSS ===============-->
-    <link rel="stylesheet" href="scss/destyle.css">
+    <link rel="stylesheet" href="css/destyle.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-    <link rel="stylesheet" href="scss/main.css">
+    <link rel="stylesheet" href="css/main.css">
 
     <!--============= Favicon =============-->
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <!--============= password =============-->
     <script>
-        // 最初は本文を非表示
-        document.addEventListener("DOMContentLoaded", () => {
-            document.body.style.display = "none";
+        // ===============================
+        // 簡易パスワード認証（Cookieで24時間保持）
+        // ===============================
+        const PASSWORD = "0000";
+        const VALID_HOURS = 24;
 
-            const password = prompt("パスワードを入力してください：");
-            if (password === "0000") {
-                // 正しいパスワード → 表示
+        function setAuthCookie() {
+            const expireDate = new Date();
+            expireDate.setHours(expireDate.getHours() + VALID_HOURS);
+            document.cookie = `auth=1; expires=${expireDate.toUTCString()}; path=/`;
+        }
+
+        function isAuthorized() {
+            return document.cookie.split(";").some((item) => item.trim().startsWith("auth="));
+        }
+
+        function askPassword() {
+            if (isAuthorized()) {
+                document.body.style.display = "block";
+                return;
+            }
+
+            document.body.style.display = "none";
+            const input = prompt("パスワードを入力してください：");
+            if (input === PASSWORD) {
+                setAuthCookie();
                 document.body.style.display = "block";
             } else {
-                // 間違い or キャンセル → 非表示メッセージのみ
-                document.body.innerHTML = "<h2 style='text-align:center;margin-top:20vh;'>アクセスできません。</h2>";
+                document.body.innerHTML =
+                    "<h2 style='text-align:center;margin-top:20vh;'>アクセスできません。</h2>";
                 document.body.style.display = "block";
             }
-        });
+        }
+
+        document.addEventListener("DOMContentLoaded", askPassword);
     </script>
 
 </head>
@@ -209,8 +230,8 @@
                             <div class="contact-container">
                                 <h2 class="fadeUpTrigger">contact</h2>
                                 <p class="contact-message fadeUpTrigger">
-                                    当サイトをご覧いただき、ありがとうございます。<br>
-                                    ご質問やご相談など、お気軽にご連絡ください。
+                                    当サイトをご覧いただき、<br class="sp">ありがとうございます。<br>
+                                    ご質問やご相談など、<br class="sp">お気軽にご連絡ください。
                                 </p>
                                 <form action="" method="post" class="fadeUpTrigger">
                                     <label for="name">お名前</label>
