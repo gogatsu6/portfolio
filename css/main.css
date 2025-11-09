@@ -1329,6 +1329,11 @@ footer.pos-left {
   left: -50vw;
   right: auto;
 }
+@media screen and (max-width: 768px) {
+  #top #header.pos-left {
+    left: 0vw;
+  }
+}
 #top #header.pos-left a {
   color: #fff;
 }

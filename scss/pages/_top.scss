@@ -860,6 +860,10 @@ textarea {
   left: -50vw;
   right: auto;
 
+  @include respond-max('sp') {
+    left: 0vw;
+  }
+
   a {
     color: #fff;
   }
