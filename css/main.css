@@ -1222,7 +1222,7 @@ footer.pos-left {
 }
 @media screen and (max-width: 768px) {
   #top .off_screen .about-container .about-item-01 .about-item-left, #top .off_screen .about-container .about-item-02 .about-item-right {
-    width: 45%;
+    width: 40%;
   }
 }
 @media screen and (max-width: 480px) {

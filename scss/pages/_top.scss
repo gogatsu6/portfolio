@@ -777,7 +777,7 @@ textarea {
        width: 25%;
 
        @include respond-max('sp') {
-        width: 45%;
+        width: 40%;
       }
 
        @include respond-max('mini') {
