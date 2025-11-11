@@ -1450,7 +1450,7 @@ footer.pos-left {
 }
 @media screen and (max-width: 1024px) {
   #top #header.pos-right {
-    right: 0vw;
+    right: 4vw;
   }
 }
 #top #header.pos-left {
