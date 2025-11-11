@@ -30,6 +30,7 @@ $off-link-button_animation-color: #5a576b;
   2. ブレークポイント
 ------------------------------------- */
 $breakpoints: (
+  'mini': 480px,
   'sp': 768px,
   'tb': 1024px,
   'lp': 1300px,

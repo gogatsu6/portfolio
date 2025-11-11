@@ -99,7 +99,7 @@ display: flex;
   background-color: $off-background-color;
   color: #fff;
 
-  @include respond-max('sp') {
+  @include respond-max('tb') {
     display: flex;
     flex-direction: column !important;
   }
@@ -632,6 +632,10 @@ textarea {
 /* --------------------------------------------------
    OFF MODE
 -------------------------------------------------- */
+.mode-off #container {
+  background-color: $off-background-color;
+}
+
 .off_screen {
   background-color: $off-background-color;
   color: $off-text-color;
@@ -657,6 +661,19 @@ textarea {
     top: 15%;
     width: 45vmin;
     animation: handMove 5.3s ease-in-out forwards;
+
+    @include respond-max('sp') {
+    width: 60vmin;
+    bottom: -80%;
+    }
+
+    @include respond-max('mini') {
+    width: 85vmin;
+    animation: handMove 5.3s ease-in-out forwards;
+    animation-delay: 1s;
+    opacity: 0;
+    }
+
   }
 
   .text-img {
@@ -666,6 +683,24 @@ textarea {
     opacity: 1;
     clip-path: inset(0 100% 0 0);
     animation: revealMask 5.3s ease-in-out forwards;
+
+  @include respond-max('tb') {
+    width: 40vmin;
+    bottom: -26%;
+    transform: translateX(-20px);
+  }
+
+  @include respond-max('sp') {
+    width: 40vmin;
+    bottom: -8%;
+    transform: translateX(-20px);
+  }
+
+    @include respond-max('mini') {
+    width: 55vmin;
+    transform: translateX(-30px);
+    animation-delay: 1.1s;
+    }
   }
 
   @keyframes handMove {
@@ -675,6 +710,29 @@ textarea {
     90% { transform: translate(14vh, 26vh); opacity: 0.8; }
     100% { transform: translate(14vh, 26vh); opacity: 0; }
   }
+
+    @include respond-max('tb') {
+    @keyframes handMove {
+    0% { transform: translate(-10vh, 54vh); opacity: 0; }
+    1% { transform: translate(-10vh, 54vh); opacity: 1; }
+    40% { transform: translate(-3vh, 53vh); }
+    80% { transform: translate(10vh, 49vh); opacity: 1; }
+    90% { transform: translate(14vh, 48vh); opacity: 0.8; }
+    100% { transform: translate(14vh, 48vh); opacity: 0; }
+  }
+}
+
+    @include respond-max('sp') {
+    @keyframes handMove {
+    0% { transform: translate(-18vh, 42vh); opacity: 0; }
+    1% { transform: translate(-18vh, 42vh); opacity: 1; }
+    40% { transform: translate(-3vh, 38vh); }
+    80% { transform: translate(10vh, 33vh); opacity: 1; }
+    90% { transform: translate(14vh, 31vh); opacity: 0.8; }
+    100% { transform: translate(14vh, 31vh); opacity: 0; }
+  }
+    }
+
 
   @keyframes revealMask {
     0% { clip-path: inset(0 100% 0 0); }
@@ -686,11 +744,20 @@ textarea {
   .about-container {
     margin-top: 200px;
 
+   @include respond-max('sp') {
+      margin-top: 5vh;
+     }
+
     h2 { @include h2_title-style($off-text-color); }
 
     p { padding-left: 15px; line-height: 2.0; letter-spacing: 1.8px; }
 
     .about-item-01, .about-item-02 { display: flex;
+
+      @include respond-max('sp') {
+        flex-direction: column;
+        align-items: center;
+      }
 
       img {
         width: 100%;
@@ -698,15 +765,36 @@ textarea {
         position: relative;
         top: 45%;
         left: 50%;
-        transform: translateY(-45%) translateX(-50%);
+        transform: translateX(-50%) translateY(-45%);
+
+        @include respond-max('sp') {
+        transform: translateX(-50%) translateY(0%);
+      }
+    }
+  }
+
+    .about-item-01 .about-item-left, .about-item-02 .about-item-right {
+       width: 25%;
+
+       @include respond-max('sp') {
+        width: 45%;
+      }
+
+       @include respond-max('mini') {
+        width: 75%;
+      }
+      }
+
+    .about-item-01 .about-item-right, .about-item-02 .about-item-left { 
+      width: 75%;
+      @include respond-max('sp') {
+      width: 100%;
       }
     }
 
-    .about-item-01 .about-item-left, .about-item-02 .about-item-right { width: 25%; }
-    .about-item-01 .about-item-right, .about-item-02 .about-item-left { width: 75%; }
-
     .about-item-01 { margin-bottom: 90px; }
-    .about-item-02 { margin-bottom: 150px; }
+    .about-item-02 { margin-bottom: 150px; 
+    }
   }
 
   .about-like-container {
@@ -854,13 +942,18 @@ textarea {
 #header.pos-right {
   right: 50vw;
   left: auto;
+
+    @include respond-max('tb') {
+    right: 0vw;
+  }
+
 }
 
 #header.pos-left {
   left: -50vw;
   right: auto;
 
-  @include respond-max('sp') {
+  @include respond-max('tb') {
     left: 0vw;
   }
 
