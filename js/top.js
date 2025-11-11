@@ -42,7 +42,7 @@ toggleBtn.on('click', function () {
     toggleBtn
       .removeClass('mode-on')
       .addClass('mode-off')
-      .text('OFF MODE');
+      .text('Working');
     videoOn.hide();
     videoOff.show();
     onScreen.fadeOut(400, () => offScreen.fadeIn(400));
@@ -59,7 +59,7 @@ toggleBtn.on('click', function () {
     toggleBtn
       .removeClass('mode-off')
       .addClass('mode-on')
-      .text('ON MODE');
+      .text('Private');
     videoOff.hide();
     videoOn.show();
     offScreen.fadeOut(400, () => onScreen.fadeIn(400));
