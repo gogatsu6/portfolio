@@ -1,5 +1,5 @@
 // ===================================================== 
-//  work.js — Muuri＋スマホ横スクロール＋暴走防止＋高さリセット＋スマホソート対応版
+//  work.js — Muuri＋スマホ横スクロール＋暴走防止＋高さリセット＋スマホソート対応版（停止後ゆっくりループ）
 // =====================================================
 
 $(window).off('scroll');
@@ -55,7 +55,8 @@ document.addEventListener("DOMContentLoaded", async () => {
               <p class="description_sub-title">${desc.label}</p>
               <p>${desc.text.replace(/\n/g, '<br>')}</p>
             </div>
-          `)
+          `
+        )
         .join("");
 
       const linkHtml = work.link
@@ -109,7 +110,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         loadedCount++;
         if (loadedCount === allImages.length && grid) {
           console.log("🟢 画像読込完了 → Muuriレイアウト更新");
-          if (grid) grid.refreshItems().layout();
+          grid.refreshItems().layout();
         }
       });
     });
@@ -125,7 +126,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       const isMobile = window.innerWidth <= 768;
 
       if (isMobile) {
-        // 📱 スマホモード：DOMで切り替え
         if (className === "sort00") {
           $(".item").show();
         } else {
@@ -135,13 +135,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
       }
 
-      // 💻 PCモード：Muuriでフィルター
       if (!grid) return;
       if (className === "sort00") grid.show("");
       else grid.filter("." + className);
 
       setTimeout(() => {
-        if (grid) grid.refreshItems().layout();
+        grid.refreshItems().layout();
         const parent = gridEl.parentElement;
         if (parent) parent.style.height = gridEl.scrollHeight + "px";
       }, 600);
@@ -159,7 +158,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         const targetId = thumb.dataset.target;
         thumbs.forEach((t) => t.classList.remove("active"));
         thumb.classList.add("active");
-
         images.forEach((img) => img.classList.toggle("active", img.id === targetId));
         texts.forEach((text) => text.classList.toggle("active", text.dataset.id === targetId));
       });
@@ -178,45 +176,55 @@ document.addEventListener("DOMContentLoaded", async () => {
     checkMode();
 
     // =====================================================
-    // 📱 スマホ専用：横スクロール無限ループ（暴走防止）
+    // 📱 スマホ専用：横スクロールループ（停止後にゆっくり戻る）
     // =====================================================
     const gridContainer = document.querySelector(".grid");
 
     if (thumbPrev && thumbNext && gridContainer) {
       const scrollAmount = 150;
       let isJumping = false;
+      let scrollTimeout = null; // 🆕 停止タイマー
 
       gridContainer.addEventListener("scroll", () => {
         if (isJumping) return;
+
         const maxScroll = gridContainer.scrollWidth - gridContainer.clientWidth;
         const current = gridContainer.scrollLeft;
 
-        if (current >= maxScroll - 5) {
-          isJumping = true;
-          gridContainer.scrollTo({ left: 1, behavior: "instant" });
-          setTimeout(() => (isJumping = false), 300);
-        } else if (current <= 0) {
-          isJumping = true;
-          gridContainer.scrollTo({ left: maxScroll - 2, behavior: "instant" });
-          setTimeout(() => (isJumping = false), 300);
-        }
+        // スクロール中はタイマーをリセット
+        if (scrollTimeout) clearTimeout(scrollTimeout);
+
+        // 一定時間（1.2秒）止まっていたらループ発動
+        scrollTimeout = setTimeout(() => {
+          if (current >= maxScroll - 20) {
+            isJumping = true;
+            gridContainer.scrollTo({ left: 5, behavior: "smooth" });
+            setTimeout(() => (isJumping = false), 600);
+          } else if (current <= 0) {
+            isJumping = true;
+            gridContainer.scrollTo({ left: maxScroll - 5, behavior: "smooth" });
+            setTimeout(() => (isJumping = false), 600);
+          }
+        }, 2000); // 🕒 ← 停止後に戻るまでの時間（今は1.2秒）
       });
 
+      // ← ボタン
       thumbPrev.addEventListener("click", () => {
         const maxScroll = gridContainer.scrollWidth - gridContainer.clientWidth;
         const newLeft = gridContainer.scrollLeft - scrollAmount;
         if (newLeft <= 0) {
-          gridContainer.scrollTo({ left: maxScroll - 2, behavior: "smooth" });
+          gridContainer.scrollTo({ left: maxScroll - 5, behavior: "smooth" });
         } else {
           gridContainer.scrollBy({ left: -scrollAmount, behavior: "smooth" });
         }
       });
 
+      // → ボタン
       thumbNext.addEventListener("click", () => {
         const maxScroll = gridContainer.scrollWidth - gridContainer.clientWidth;
         const newLeft = gridContainer.scrollLeft + scrollAmount;
-        if (newLeft >= maxScroll - 2) {
-          gridContainer.scrollTo({ left: 1, behavior: "smooth" });
+        if (newLeft >= maxScroll - 10) {
+          gridContainer.scrollTo({ left: 5, behavior: "smooth" });
         } else {
           gridContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
         }

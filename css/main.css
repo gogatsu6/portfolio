@@ -892,8 +892,8 @@ footer.pos-left {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: 52%;
-     object-position: 52%;
+  -o-object-position: 54%;
+     object-position: 54%;
 }
 #top .profile-item-left {
   width: 35%;
@@ -1075,7 +1075,7 @@ footer.pos-left {
 @media screen and (max-width: 768px) {
   #top .off_screen .text-img {
     width: 40vmin;
-    bottom: -8%;
+    bottom: -4%;
     transform: translateX(-20px);
   }
 }
@@ -1137,26 +1137,26 @@ footer.pos-left {
 @media screen and (max-width: 768px) {
   @keyframes handMove {
     0% {
-      transform: translate(-18vh, 42vh);
+      transform: translate(-12vh, 42vh);
       opacity: 0;
     }
     1% {
-      transform: translate(-18vh, 42vh);
+      transform: translate(-12vh, 42vh);
       opacity: 1;
     }
     40% {
       transform: translate(-3vh, 38vh);
     }
     80% {
-      transform: translate(10vh, 33vh);
+      transform: translate(8vh, 33vh);
       opacity: 1;
     }
     90% {
-      transform: translate(14vh, 31vh);
+      transform: translate(12vh, 31vh);
       opacity: 0.8;
     }
     100% {
-      transform: translate(14vh, 31vh);
+      transform: translate(12vh, 31vh);
       opacity: 0;
     }
   }
