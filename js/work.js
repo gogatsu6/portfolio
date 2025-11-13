@@ -1,5 +1,5 @@
 // ===================================================== 
-//  work.js — Muuri＋スマホ横スクロール＋暴走防止＋高さリセット＋スマホソート対応版（停止後ゆっくりループ）
+//  work.js — Muuri＋スマホ横スクロール＋暴走防止＋高さリセット＋スマホソート対応版（停止後ゆっくりループ）＋ハッシュ自動オープン
 // =====================================================
 
 $(window).off('scroll');
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       gridEl.style.display = "flex";
       gridEl.style.flexWrap = "nowrap";
       gridEl.style.overflowX = "auto";
-      gridEl.parentElement.style.height = "auto"; // ✅ 高さリセット
+      gridEl.parentElement.style.height = "auto";
       console.log("📱 Muuri 停止＆高さリセット");
     };
 
@@ -164,6 +164,35 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     // =====================================================
+    // 🔥 ハッシュから該当作品を自動オープン！
+    // =====================================================
+    const handleHashOpen = () => {
+      const hash = window.location.hash.replace("#", "");
+      if (!hash) return;
+
+      setTimeout(() => {
+        const targetThumb = document.querySelector(`.item[data-target="${hash}"]`);
+        if (!targetThumb) {
+          console.warn("⚠ 該当作品が見つかない:", hash);
+          return;
+        }
+
+        // サムネクリックと同じ動き
+        targetThumb.click();
+
+        const targetImg = document.getElementById(hash);
+        if (targetImg) {
+          targetImg.scrollIntoView({ behavior: "smooth" });
+        }
+
+        console.log("🎯 ハッシュ作品自動オープン:", hash);
+      }, 300);
+    };
+
+    // 実行！
+    handleHashOpen();
+
+    // =====================================================
     // PC／スマホ切替処理
     // =====================================================
     const checkMode = () => {
@@ -176,14 +205,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     checkMode();
 
     // =====================================================
-    // 📱 スマホ専用：横スクロールループ（停止後にゆっくり戻る）
+    // 📱 スマホ専用：横スクロールループ
     // =====================================================
     const gridContainer = document.querySelector(".grid");
 
     if (thumbPrev && thumbNext && gridContainer) {
       const scrollAmount = 150;
       let isJumping = false;
-      let scrollTimeout = null; // 🆕 停止タイマー
+      let scrollTimeout = null;
 
       gridContainer.addEventListener("scroll", () => {
         if (isJumping) return;
@@ -191,10 +220,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         const maxScroll = gridContainer.scrollWidth - gridContainer.clientWidth;
         const current = gridContainer.scrollLeft;
 
-        // スクロール中はタイマーをリセット
         if (scrollTimeout) clearTimeout(scrollTimeout);
 
-        // 一定時間（1.2秒）止まっていたらループ発動
         scrollTimeout = setTimeout(() => {
           if (current >= maxScroll - 20) {
             isJumping = true;
@@ -205,10 +232,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             gridContainer.scrollTo({ left: maxScroll - 5, behavior: "smooth" });
             setTimeout(() => (isJumping = false), 600);
           }
-        }, 2000); // 🕒 ← 停止後に戻るまでの時間（今は1.2秒）
+        }, 2000);
       });
 
-      // ← ボタン
       thumbPrev.addEventListener("click", () => {
         const maxScroll = gridContainer.scrollWidth - gridContainer.clientWidth;
         const newLeft = gridContainer.scrollLeft - scrollAmount;
@@ -219,7 +245,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
       });
 
-      // → ボタン
       thumbNext.addEventListener("click", () => {
         const maxScroll = gridContainer.scrollWidth - gridContainer.clientWidth;
         const newLeft = gridContainer.scrollLeft + scrollAmount;
