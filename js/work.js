@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         console.log("🎯 ハッシュ作品自動オープン:", hash);
-      }, 300);
+      }, 150);
     };
 
     // 実行！
