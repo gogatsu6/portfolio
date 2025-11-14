@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         layoutEasing: "ease",
         dragEnabled: false,
       });
-      console.log("💻 Muuri 初期化");
+      console.log("Muuri 初期化");
     };
 
     const destroyMuuri = () => {
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       img.addEventListener("load", () => {
         loadedCount++;
         if (loadedCount === allImages.length && grid) {
-          console.log("🟢 画像読込完了 → Muuriレイアウト更新");
+          console.log("画像読込完了 → Muuriレイアウト更新");
           grid.refreshItems().layout();
         }
       });
@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     // =====================================================
-    // 🔥 ハッシュから該当作品を自動オープン！
+    //  ハッシュから該当作品を自動オープン！
     // =====================================================
     const handleHashOpen = () => {
       const hash = window.location.hash.replace("#", "");
@@ -185,8 +185,8 @@ document.addEventListener("DOMContentLoaded", async () => {
           targetImg.scrollIntoView({ behavior: "smooth" });
         }
 
-        console.log("🎯 ハッシュ作品自動オープン:", hash);
-      }, 150);
+        console.log("ハッシュ作品自動オープン:", hash);
+      }, 200);
     };
 
     // 実行！

@@ -201,7 +201,7 @@
       "title": "自主制作 電子マンガのLP",
       "thumbnail": "./img/06.png",
       "mainImage": "./img/06.png",
-      "link": "https://onishiskinclinic-recruit.com/index.html",
+      "link": "https://gogatsu6.github.io/lp-manga01.2025_07/index.html",
       "descriptions": [
         {
           "label": "ターゲット",
@@ -217,7 +217,7 @@
         },
         {
           "label": "情報設計",
-          "text": "1話・2話の作品の始まり部分の内容をLP用に精査する。話が続く部分でコマは終え、サイト下部に本ページのリンクボタンを設置する。"
+          "text": "基本的に1ページのサイトなのでCSSとJSで製作。デザインとしては1話・2話の作品の始まり部分の内容をLP用に精査する。話が続く部分でコマは終え、サイト下部に本ページのリンクボタンを設置する。"
         },
         {
           "label": "制作過程",
