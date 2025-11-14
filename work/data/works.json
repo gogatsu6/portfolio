@@ -312,15 +312,12 @@
       ]
     },
 
-
-
-
-        {
-      "id": "work10",
+            {
+      "id": "work9",
       "category": "web",
-      "title": "大西皮フ科形成外科医院 様 \n施術ページの新規作成(2サイト分)成",
-      "thumbnail": "./img/28.png",
-      "mainImage": "./img/28.png",
+      "title": "大西皮フ科形成外科医院 様 \n施術ページの新規作成(2サイト分)",
+      "thumbnail": "./img/29.png",
+      "mainImage": "./img/29.png",
       "link": "https://www.onishiskinclinic.com/kyoto/nikibi_treatment/potenza/index.html",
       "descriptions": [
         {
@@ -350,6 +347,46 @@
         {
           "label": "使用ツール",
           "text": "Photoshop、VSchord、html、css"
+        }
+      ]
+    },
+
+
+        {
+      "id": "work10",
+      "category": "pa",
+      "title": "大西皮フ科形成外科医院 様 \n治療用の資料作成",
+      "thumbnail": "./img/30.jpg",
+      "mainImage": "./img/30.jpg",
+      "link": "",
+      "descriptions": [
+        {
+          "label": "ターゲット",
+          "text": "20代～40代の男女がターゲット。"
+        },
+        {
+          "label": "課題",
+          "text": "人気の治療だが専門的な資料がなく、また商品数の多さ、使用順番、使用量など詳しい説明書きのあるものがほしい。患者様だけでなく、新しいスタッフの知識統一もしたい。"
+        },
+        {
+          "label": "目的",
+          "text": "患者様へ正しい使い方の説明。スタッフの知識統一。売上向上。新規＆リピーター獲得。他治療との併用の促進。"
+        },
+        {
+          "label": "情報設計",
+          "text": "担当者より商品情報と作成背景を共有。使用方法、効果、注意点などを盛り込みA4二つ折りで作成。"
+        },
+        {
+          "label": "制作過程",
+          "text": "写真のレタッチ、文章作成、紙面デザインまで作り修正確認を行う。問題なければ、入稿データにして印刷所に入稿。"
+        },
+        {
+          "label": "制作期間",
+          "text": "2週間　※この他にも同様の資料を4枚作成(2枚裏表)"
+        },
+        {
+          "label": "使用ツール",
+          "text": "Photoshop"
         }
       ]
     },
