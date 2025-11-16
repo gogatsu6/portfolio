@@ -132,12 +132,10 @@
             text-align: center;
             cursor: pointer;
             position: relative;
-            padding-top: 4px;
 
             &.active {
               background: $text-color;
               color: #fff;
-              padding-top: 4px;
             }
 
             &:after {
@@ -363,6 +361,7 @@
           li {
             @include font-size-S;
             color: #6b6355;
+            padding-top: 4px;
 
             &.active {
               color: $text-color;
