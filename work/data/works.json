@@ -34,46 +34,46 @@
         },
         {
           "label": "使用ツール",
-          "text": "Photoshop、VSchord"
+          "text": "Photoshop、VScode"
         }
       ]
     },
 
         {
       "id": "work2",
-      "category": "pa",
+      "category": "web",
       "title": "自主製作 ポートフォリオサイト",
-      "thumbnail": "./img/02.jpg",
-      "mainImage": "./img/02.jpg",
-      "link": "https://onishiskinclinic-recruit.com/index.html",
+      "thumbnail": "./img/31.png",
+      "mainImage": "./img/31.png",
+      "link": "https://gogatsu6.github.io/portfolio/index.html",
       "descriptions": [
         {
           "label": "ターゲット",
-          "text": "20代～50代女性がメインターゲット。"
+          "text": "企業の採用担当者様。"
         },
         {
           "label": "課題",
-          "text": "新導入の機器のお試しキャンペーンや季節的に特におすすめの施術、併用治療の宣伝などを患者様に伝える。"
+          "text": "毎日多くの応募者を対応している採用担当者様に、短時間で自分のスキルや実績を理解してもらう必要がある。また書類だけでは伝わりにくい自分の作品や人柄を伝えられるまとまったものがないためサイトとして作成する必要がある。"
         },
         {
           "label": "目的",
-          "text": "施術の認知拡大や売上アップ、リピーター獲得などが目的。"
+          "text": "①採用担当者様が短時間で自分のスキルや実績を理解できる。②書類だけでは伝わりにくい自分の作品や人柄を伝えられる。③静的作品だけでなく、動的作品も見てもらう。④一緒に働いてみたいと思ってもらう。"
         },
         {
           "label": "情報設計",
-          "text": "金額(定価［1回・複数回］、キャンペーン価格)、割引率、施術名、キャンペーン月、施術の効果、注意書きが必須情報。"
+          "text": "採用担当者様が第一に見るデバイスとしてPCを想定。PC優先のデザインで作成をしていく。まずは迷わないようにシンプルな構成で、ページ構成はTOPとWorkのみにする。TOP内に簡単な自己紹介と連絡先を記載する。あまり長すぎると読むのが面倒になるため、仕事のことに関しては「Working」プライベートな人柄に関しては「private」ボタンを設置して、内容の住み分けをする。Workページでは、掲載作品が多いまたは多くなる予定を想定すると、作品ごとにページを作成すると作成量が多くなると共に、その都度リンクで飛ぶ必要があり手間をかけてしまうので一覧表示を採用。その際、作品画像の横に作品説明があることで、作品の概要を理解しやすくする。レスポンシブデザインでは、画面が小さくなることで情報量が多くなりすぎるため、サムネイルを横スクロール配置＆作品画像の下に作品説明を配置する。作品数が多くなるため、HTML上に作品を記載するのではなくJSONで作成して管理しやすくする。色味は視認性と優しい色合い、作品の色味を際立てることを意識しアースカラーにし、Workingとprivateでは対局な色を設定。fontは固くなりすぎないように丸みのあるものを採用。公開は管理・運用・公開のしやすさを考えGitHub Pagesを使用。"
         },
         {
           "label": "制作過程",
-          "text": "キャンペーン担当者より情報を共有。その時々でPOPイメージ(色味や写真の雰囲気など)があれば、それに合わせてA4サイズで作成。作成後、担当者に確認してもらい、修正があれば行う。問題がなければクリニックの代表に最終確認を行う。チェックがOKならば、このPOPをもとにHP上に貼るバナーやLINE用のバナーを作成。A4のPOPは院内に掲示する用と配布するためのカードサイズにリサイズして印刷。"
+          "text": "要件定義をまとめ、figmaでワイヤーフレームを作成。ワイヤーフレームをもとに使用する画像の作成・コーディングを自分で行い、html・css・js・jsonでレスポンシブデザインを実装。作品はその後も都度追加していく予定。"
         },
         {
           "label": "制作期間",
-          "text": "2日～3日 ※時短勤務のため実働15時間ほど／修正含め印刷まで"
+          "text": "1か月半 ※その後も作品追加で更新中"
         },
         {
           "label": "使用ツール",
-          "text": "Photoshop、illustrator"
+          "text": "Photoshop、illustrator、VScode、Figma、html、css、js、json ※json部分はChatGPTの出力で作成、jQuery、GitHub Pages"
         }
       ]
     },
@@ -190,7 +190,7 @@
         },
         {
           "label": "使用ツール",
-          "text": "Photoshop、VSchord"
+          "text": "Photoshop、VScode、FTP"
         }
       ]
     },
@@ -229,7 +229,7 @@
         },
         {
           "label": "使用ツール",
-          "text": "Photoshop、VSchord、html、css、jscript ※JSのアニメーション部分はChatGPTの出力で作成"
+          "text": "Photoshop、VScode、Figma、html、css、jscript ※JSのアニメーション部分はChatGPTの出力で作成、jQuery、Github Pages"
         }
       ]
     },
@@ -264,11 +264,11 @@
         },
         {
           "label": "制作期間",
-          "text": "1か月　※POPとサイトページ2ページ分(クリニックサイトとエステサイト)、他リンク回りの追加"
+          "text": "1か月 ※POPとサイトページ2ページ分(クリニックサイトとエステサイト)、他リンク回りの追加"
         },
         {
           "label": "使用ツール",
-          "text": "Photoshop、VSchord、html、css"
+          "text": "Photoshop、VScode、html、css、専用のコンテンツ管理システム(ワードプレスのようなもの)、FTP"
         }
       ]
     },
@@ -303,11 +303,11 @@
         },
         {
           "label": "制作期間",
-          "text": "1か月半　※サイトページ4ページ分、他リンク回りの追加"
+          "text": "1か月半 ※サイトページ4ページ分、他リンク回りの追加"
         },
         {
           "label": "使用ツール",
-          "text": "Photoshop、VSchord、html、css"
+          "text": "Photoshop、VScode、html、css、専用のコンテンツ管理システム(ワードプレスのようなもの)"
         }
       ]
     },
@@ -342,11 +342,11 @@
         },
         {
           "label": "制作期間",
-          "text": "2週間　※サイトページ2ページ分(クリニックサイトとエステサイト)、他リンク回りの追加"
+          "text": "2週間 ※サイトページ2ページ分(クリニックサイトとエステサイト)、他リンク回りの追加"
         },
         {
           "label": "使用ツール",
-          "text": "Photoshop、VSchord、html、css"
+          "text": "Photoshop、VScode、html、css、専用のコンテンツ管理システム(ワードプレスのようなもの)、FTP"
         }
       ]
     },
@@ -382,11 +382,11 @@
         },
         {
           "label": "制作期間",
-          "text": "2週間　※この他にも同様の資料を4枚作成(2枚裏表)"
+          "text": "2週間 ※この他にも同様の資料を4枚作成(2枚裏表)"
         },
         {
           "label": "使用ツール",
-          "text": "Photoshop"
+          "text": "Photoshop、illustrator"
         }
       ]
     },
@@ -699,7 +699,7 @@
         },
         {
           "label": "使用ツール",
-          "text": "Photoshop、VSchord"
+          "text": "Photoshop、VScode、専用のコンテンツ管理システム(ワードプレスのようなもの)"
         }
       ]
     },
@@ -739,7 +739,7 @@
         },
         {
           "label": "使用ツール",
-          "text": "Photoshop、VSchord"
+          "text": "Photoshop、VScode、専用のコンテンツ管理システム(ワードプレスのようなもの)"
         }
       ]
     },
@@ -779,7 +779,7 @@
         },
         {
           "label": "使用ツール",
-          "text": "Photoshop、VSchord"
+          "text": "Photoshop、VScode"
         }
       ]
     },
@@ -858,7 +858,7 @@
         },
         {
           "label": "使用ツール",
-          "text": "Photoshop、VSchord"
+          "text": "Photoshop、VScode、html、css、js、FTP"
         }
       ]
     },
@@ -1014,7 +1014,7 @@
         },
         {
           "label": "使用ツール",
-          "text": "Photoshop"
+          "text": "Photoshop、illustrator"
         }
       ]
     },
@@ -1172,7 +1172,7 @@
         },
         {
           "label": "使用ツール",
-          "text": "Photoshop、VSchord"
+          "text": "Photoshop、VScode、専用のコンテンツ管理システム(ワードプレスのようなもの)"
         }
       ]
     }
