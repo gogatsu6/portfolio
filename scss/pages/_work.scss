@@ -443,7 +443,10 @@
   .text-content {
     .description_container {
       flex-direction: column;
-
+      
+      .description_sub-title {
+          width: 100%;
+      }
       p {
         width: 100%;
       }
