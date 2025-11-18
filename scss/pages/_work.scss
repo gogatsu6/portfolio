@@ -438,6 +438,15 @@
 
       } // .thumbnail-area end
     } // .work-left end
+
+      .work-right {
+
+         .description_container {
+             flex-direction: column;
+         p{ width: 100%; }
+        }
+
+      } // .work-right end
   } // [sp-size end]
 } // #work end
 
