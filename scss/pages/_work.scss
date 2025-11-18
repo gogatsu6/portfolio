@@ -439,12 +439,17 @@
       } // .thumbnail-area end
     } // .work-left end
 
-      .work-right {
-        .text-content .description_container {
-              flex-direction: column;
-                p{ width: 100%; }
-        } 
-      } // .work-right end
+.work-right {
+  .text-content {
+    .description_container {
+      flex-direction: column;
+
+      p {
+        width: 100%;
+      }
+    }
+  } // .text-content end
+} // .work-right end
   } // [sp-size end]
 } // #work end
 
