@@ -440,11 +440,12 @@
     } // .work-left end
 
       .work-right {
-
-         .description_container {
-             flex-direction: column;
-         p{ width: 100%; }
+        .text-content {
+          .description_container {
+              flex-direction: column;
+                p{ width: 100%; }
         }
+      } // .text-content end
 
       } // .work-right end
   } // [sp-size end]
