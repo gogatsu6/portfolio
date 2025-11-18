@@ -1,4 +1,3 @@
-
 // =====================================================
 //  scroll animation（fadeUp）
 // =====================================================
@@ -33,14 +32,13 @@ window.addEventListener('scroll', () => requestAnimationFrame(fadeAnimeLight), {
 window.addEventListener('load', fadeAnimeLight);
 
 
-
 // =====================================================
 //  Header & Hamburger（bodyスクロール対応・安定版）
 // =====================================================
 function FixedAnime() {
   const scroll = $(window).scrollTop();
 
-  if (scroll > 50) { // ← 少し下がったら隠す（0だと誤判定しやすい）
+  if (scroll > 50) {
     $('#header').addClass('dnone');
     $('.openbtn').addClass('fadeDown');
   } else {
@@ -49,19 +47,20 @@ function FixedAnime() {
   }
 }
 
-// 初回ロード時はheaderをフェードイン
+// 初回ロード時 header をフェードイン
 $(window).on('load', function () {
   $('#header').addClass('fadeDown');
   setTimeout(() => {
     $('#header').removeClass('fadeDown');
-  }, 800); // フェードアニメ後にクラスを削除（状態リセット）
+  }, 800);
 });
 
-// スクロール時に切り替え
+// スクロールで切り替え
 $(window).on('scroll', FixedAnime);
 
+
 // =====================================================
-//  Hamburger ボタンの動作
+//  Hamburger ボタン
 // =====================================================
 $(".openbtn").on('click', function () {
   $(this).toggleClass('active');
@@ -73,13 +72,28 @@ $("#g-navi li a").on('click', function () {
   $("#header").removeClass('panelactive dnone');
 });
 
-// -------------------------------------------
-// Smooth Scroll（アンカーリンク）
-// -------------------------------------------
-$('#g-navi li a, a[href^="#"]').on('click', function (e) {
-  const href = $(this).attr('href');
-  if (!href || href === '#') return;
 
+// =====================================================
+//  Smooth Scroll（アンカーリンクの安全版）
+// =====================================================
+//
+// ※修正ポイント：
+// href が「http」で始まる絶対URL → スムーススクロールを無効化
+// href が「#xxx」だけ → スクロールを発動
+//
+$('#g-navi li a, a[href*="#"]').on('click', function (e) {
+  const href = $(this).attr('href');
+
+  // href が無ければ何もしない
+  if (!href) return;
+
+  // http 含む絶対URL → ページ遷移させる（scroll発動しない）
+  if (href.startsWith('http')) return;
+
+  // # だけのリンクは無視
+  if (href === '#') return;
+
+  // ページ内リンク処理
   const target = $(href);
   if (target.length === 0) return;
 
@@ -93,27 +107,8 @@ $('#g-navi li a, a[href^="#"]').on('click', function (e) {
 
 
 // =====================================================
-//  アンカーリンク（連続クリック対応）
-// =====================================================
-$('a[href^="#"]').off('click.anchor').on('click.anchor', function (e) {
-  const href = $(this).attr('href');
-  if (!href || href === '#') return;
-  const $target = $(href);
-  if ($target.length === 0) return;
-
-  e.preventDefault();
-  $('html, body').stop(true, false);
-
-  const headerH = $('#header').outerHeight(true) || 0;
-  const pos = $target.offset().top - headerH;
-  $('html, body').animate({ scrollTop: pos }, 600, 'swing');
-});
-
-
-// =====================================================
 //  page_top button
 // =====================================================
-
 const button = document.querySelector('.page-top');
 
 if (button) {
