@@ -42,7 +42,7 @@
         {
       "id": "work2",
       "category": "pa",
-      "title": "大西皮フ科形成外科医院 様 \nキャンペーンPOP",
+      "title": "自主製作 ポートフォリオサイト",
       "thumbnail": "./img/02.jpg",
       "mainImage": "./img/02.jpg",
       "link": "https://onishiskinclinic-recruit.com/index.html",
@@ -587,7 +587,46 @@
       ]
     },
 
-         {
+        {
+      "id": "work16",
+      "category": "pa",
+      "title": "大西皮フ科形成外科医院 様 \nキャンペーンPOP",
+      "thumbnail": "./img/02.jpg",
+      "mainImage": "./img/02.jpg",
+      "link": "https://onishiskinclinic-recruit.com/index.html",
+      "descriptions": [
+        {
+          "label": "ターゲット",
+          "text": "20代～50代女性がメインターゲット。"
+        },
+        {
+          "label": "課題",
+          "text": "新導入の機器のお試しキャンペーンや季節的に特におすすめの施術、併用治療の宣伝などを患者様に伝える。"
+        },
+        {
+          "label": "目的",
+          "text": "施術の認知拡大や売上アップ、リピーター獲得などが目的。"
+        },
+        {
+          "label": "情報設計",
+          "text": "金額(定価［1回・複数回］、キャンペーン価格)、割引率、施術名、キャンペーン月、施術の効果、注意書きが必須情報。"
+        },
+        {
+          "label": "制作過程",
+          "text": "キャンペーン担当者より情報を共有。その時々でPOPイメージ(色味や写真の雰囲気など)があれば、それに合わせてA4サイズで作成。作成後、担当者に確認してもらい、修正があれば行う。問題がなければクリニックの代表に最終確認を行う。チェックがOKならば、このPOPをもとにHP上に貼るバナーやLINE用のバナーを作成。A4のPOPは院内に掲示する用と配布するためのカードサイズにリサイズして印刷。"
+        },
+        {
+          "label": "制作期間",
+          "text": "2日～3日 ※時短勤務のため実働15時間ほど／修正含め印刷まで"
+        },
+        {
+          "label": "使用ツール",
+          "text": "Photoshop、illustrator"
+        }
+      ]
+    },
+
+    {
       "id": "work20",
       "category": "pa",
       "title": "大西皮フ科形成外科医院 様 \nキャンペーンPOP",
