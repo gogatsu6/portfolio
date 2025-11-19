@@ -984,6 +984,8 @@
     @include respond-max("tb") {
       position: static;
       padding-top: 1vh;
+      bottom: auto;
+      text-align: center;
     }
   }
 
@@ -1000,8 +1002,8 @@
 
   .mode-off .scroll-container {
     @include respond-max("tb") {
-      position: absolute;
-      bottom: 99%;
+      position: static;
+      bottom: auto;
     }
   }
 
@@ -1014,6 +1016,14 @@
     color: $text-color;
     font-size: 14px;
     text-decoration: none;
+
+    @include respond-max("tb") {
+      position: relative;
+      left: auto;
+      transform: none;
+      display: inline-block;
+      margin: 0 auto;
+    }
   }
 
   .on_screen {

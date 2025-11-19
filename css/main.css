@@ -1306,17 +1306,30 @@ footer.pos-left {
   bottom: 11vmax;
   white-space: nowrap;
   animation-delay: 2s;
+  animation: scrollFadeIn 0.8s ease forwards;
 }
 @media screen and (max-width: 1024px) {
   #top .scroll-container {
     position: static;
     padding-top: 1vh;
+    bottom: auto;
+    text-align: center;
+  }
+}
+@keyframes scrollFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 @media screen and (max-width: 1024px) {
   #top .mode-off .scroll-container {
-    position: absolute;
-    bottom: 99%;
+    position: static;
+    bottom: auto;
   }
 }
 #top .scroll-down {
@@ -1328,6 +1341,15 @@ footer.pos-left {
   color: #424040;
   font-size: 14px;
   text-decoration: none;
+}
+@media screen and (max-width: 1024px) {
+  #top .scroll-down {
+    position: relative;
+    left: auto;
+    transform: none;
+    display: inline-block;
+    margin: 0 auto;
+  }
 }
 #top .on_screen .circle-arrow {
   width: 40px;
