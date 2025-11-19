@@ -1301,13 +1301,10 @@ footer.pos-left {
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 #top .scroll-container {
-  opacity: 0;
   display: inline-block;
   position: absolute;
   bottom: 11vmax;
   white-space: nowrap;
-  animation-delay: 2s;
-  animation: scrollFadeIn 0.8s ease forwards;
 }
 @media screen and (max-width: 1024px) {
   #top .scroll-container {
