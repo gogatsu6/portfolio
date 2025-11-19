@@ -852,7 +852,7 @@ footer.pos-left {
   width: 120px;
   height: 24px;
   text-align: center;
-  line-height: 1.6;
+  line-height: 1.4;
   margin-bottom: 20px;
 }
 #top h4::after {
@@ -1523,9 +1523,6 @@ footer.pos-left {
   /*-----------------------------------------------
     アニメーション
   -----------------------------------------------*/
-  /*-----------------------------------------------
-    スマホレイアウト（768px以下）
-  -----------------------------------------------*/
 }
 @media screen and (max-width: 1024px) {
   #work #header {
@@ -1638,12 +1635,10 @@ footer.pos-left {
   text-align: center;
   cursor: pointer;
   position: relative;
-  padding-top: 4px;
 }
 #work .work-left .innerWrap-work .thumbnail-area .sort-btn li.active {
   background: #424040;
   color: #fff;
-  padding-top: 4px;
 }
 #work .work-left .innerWrap-work .thumbnail-area .sort-btn li:after {
   content: "";
@@ -1805,6 +1800,10 @@ footer.pos-left {
     transform: translateY(0);
   }
 }
+
+/*-----------------------------------------------
+    スマホレイアウト（768px以下）
+  -----------------------------------------------*/
 @media screen and (max-width: 768px) {
   #work .work-left {
     width: 100%;
@@ -1828,6 +1827,7 @@ footer.pos-left {
   #work .work-left .thumbnail-area .sort-btn li {
     font-size: clamp(1.2rem, 0.9rem + 0.625vw, 1.4rem);
     color: #6b6355;
+    padding-top: 4px;
   }
   #work .work-left .thumbnail-area .sort-btn li.active {
     color: #424040;
@@ -1892,8 +1892,16 @@ footer.pos-left {
     opacity: 1;
     pointer-events: none;
   }
+  #work .work-right .text-content .description_container {
+    flex-direction: column;
+  }
+  #work .work-right .text-content .description_container .description_sub-title {
+    width: 100%;
+  }
+  #work .work-right .text-content .description_container p {
+    width: 100%;
+  }
 }
-
 /* =====================================================
    スマホ時：ソートボタン優先クリック & レイヤー補正
 ===================================================== */
