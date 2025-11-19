@@ -36,23 +36,23 @@
    6. 共通アニメーションのトリガー整備
 ------------------------------ */
 .fadeUpTrigger {
-  opacity: 0;
-  transform: translateY(100px);
+   opacity: 0;
+   transform: translateY(100px);
 }
 
 .fadeUp {
-  animation: fadeUpAnime 1.6s forwards;
+   animation: fadeUpAnime 1.6s forwards;
 }
 
 @keyframes fadeUpAnime {
-  from {
-    opacity: 0;
-    transform: translateY(100px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+   from {
+      opacity: 0;
+      transform: translateY(100px);
+   }
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
 }
 
 /* ------------------------------
@@ -60,10 +60,10 @@
 ------------------------------ */
 img,
 video {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  max-width: 100%;
-  vertical-align: bottom;
+   display: block;
+   width: 100%;
+   height: auto;
+   object-fit: cover;
+   max-width: 100%;
+   vertical-align: bottom;
 }
