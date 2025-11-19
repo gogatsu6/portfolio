@@ -1301,6 +1301,7 @@ footer.pos-left {
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 #top .scroll-container {
+  opacity: 0;
   display: inline-block;
   position: absolute;
   bottom: 11vmax;
