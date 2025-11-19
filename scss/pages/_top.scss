@@ -975,9 +975,12 @@
 -------------------------------------------------- */
   .scroll-container {
     opacity: 0;
-    transform: translateY(10px);
-    animation: scrollFadeIn 0.8s ease forwards;
+    display: inline-block;
+    position: absolute;
+    bottom: 11vmax;
+    white-space: nowrap;
     animation-delay: 2s;
+    animation: scrollFadeIn 0.8s ease forwards;
 
     @include respond-max("tb") {
       position: static;

@@ -1302,9 +1302,12 @@ footer.pos-left {
 }
 #top .scroll-container {
   opacity: 0;
-  transform: translateY(10px);
-  animation: scrollFadeIn 0.8s ease forwards;
+  display: inline-block;
+  position: absolute;
+  bottom: 11vmax;
+  white-space: nowrap;
   animation-delay: 2s;
+  animation: scrollFadeIn 0.8s ease forwards;
 }
 @media screen and (max-width: 1024px) {
   #top .scroll-container {
