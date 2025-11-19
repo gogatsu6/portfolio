@@ -1802,7 +1802,7 @@ footer.pos-left {
 }
 
 /*-----------------------------------------------
-    スマホレイアウト（768px以下）
+    タブレットレイアウト（768px以下）
   -----------------------------------------------*/
 @media screen and (max-width: 768px) {
   #work .work-left {
@@ -1892,6 +1892,11 @@ footer.pos-left {
     opacity: 1;
     pointer-events: none;
   }
+}
+/*-----------------------------------------------
+    スマホレイアウト（480px以下）
+  -----------------------------------------------*/
+@media screen and (max-width: 480px) {
   #work .work-right .text-content .description_container {
     flex-direction: column;
   }
