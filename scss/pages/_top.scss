@@ -1,13 +1,13 @@
 /* ==================================================
-  _top.scss
+  _top.scss (refactor: 構造整理＋安定化版)
 ================================================== */
 
 @use "../base" as *;
 
 #top {
   /* ---------------------------------------------
-   mixin スタイル
---------------------------------------------- */
+   Mixin（このファイル専用）
+  --------------------------------------------- */
 
   @mixin h1_title-style($color) {
     position: relative;
@@ -17,9 +17,7 @@
     color: $color;
     text-align: center;
     margin-bottom: 7vh;
-    top: 50%;
-    // left: 50%;
-    // transform: translateY(-70%) translateX(-50%);
+    top: 44%;
 
     @include respond-max("tb") {
       margin-bottom: 0;
@@ -40,8 +38,7 @@
     margin-bottom: 45px;
   }
 
-  /* ---- scroll down ---- */
-
+  /* ---- scroll down arrow ---- */
   @mixin arrow($color) {
     width: 40px;
     height: 40px;
@@ -77,34 +74,60 @@
   }
 
   /* --------------------------------------------------
-   Base Layout
--------------------------------------------------- */
+   Base Layout（ON / OFF 共通）
+  -------------------------------------------------- */
 
   #wrapper {
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
     height: auto;
-  }
-
-  #wrapper.mode-on {
     background-color: $on-background-color;
     color: $text-color;
-  }
+    opacity: 1;
+    transition: opacity 0.4s ease;
 
-  #wrapper.mode-off {
-    background-color: $off-background-color;
-    color: #fff;
+    &.is-switching {
+      opacity: 0;
+    }
 
-    @include respond-max("tb") {
-      display: flex;
-      flex-direction: column !important;
+    /* ONモード */
+    &.mode-on {
+      background-color: $on-background-color;
+      color: $text-color;
+      flex-direction: row;
+
+      /* タブレット以下は縦積み */
+      @include respond-max("tb") {
+        flex-direction: column;
+      }
+    }
+
+    /* OFFモード：左右反転＋カラー切替 */
+    &.mode-off {
+      background-color: $off-background-color;
+      color: #fff;
+      flex-direction: row-reverse;
+
+      @include respond-max("tb") {
+        flex-direction: column;
+      }
+    }
+
+    .mode-area {
+      flex: 1;
+      transition: transform 0.4s ease;
+    }
+
+    #container {
+      flex: 1;
+      transition: transform 0.4s ease;
     }
   }
 
   /* --------------------------------------------------
    動画（左）とスクロール（右）の二分割レイアウト
--------------------------------------------------- */
+  -------------------------------------------------- */
 
   #fixed-area {
     position: sticky;
@@ -119,8 +142,6 @@
     @include respond-max("tb") {
       width: 100vw;
       margin: 0 auto;
-      // aspect-ratio: 4 / 3;
-      object-fit: cover;
     }
   }
 
@@ -129,11 +150,10 @@
     width: 50%;
     box-sizing: border-box;
     z-index: 2;
-    transition: all 0.5s ease;
-    background: transparent;
+    background-color: $on-background-color;
+    transition: background-color 0.5s ease;
     overflow: hidden;
     height: auto;
-    background-color: $on-background-color;
 
     @include respond-max("tb") {
       width: 100vw;
@@ -169,53 +189,23 @@
   #wrapper.mode-off .video-on {
     opacity: 0 !important;
   }
+
   #wrapper.mode-off .video-off {
     opacity: 1 !important;
   }
 
-  /* =======================================================
-   Layout switch（ON / OFFで左右入れ替え）
-======================================================= */
-  #wrapper {
-    display: flex;
-    flex-direction: row; /* 通常（ONモード）は左：動画、右：テキスト） */
-    transition:
-      flex-direction 0.4s ease,
-      opacity 0.4s ease;
-    opacity: 1;
-
-    &.is-switching {
-      opacity: 0;
-    }
-
-    .mode-area {
-      flex: 1;
-      transition: all 0.4s ease;
-    }
-
-    #container {
-      flex: 1;
-      transition: all 0.4s ease;
-    }
-
-    &.mode-off {
-      flex-direction: row-reverse; /* OFFモードでは左右反転 */
-    }
-
-    @include respond-max("tb") {
-      flex-direction: column;
-    }
-  }
-
   /* --------------------------------------------------
-   ON / OFF 切替時の on_screen / off_screen 表示
--------------------------------------------------- */
+   ON / OFF 切替時の on_screen / off_screen 表示制御
+   （display / opacity / pointer-events を整理）
+  -------------------------------------------------- */
 
-  .on_screen {
+  .on_screen,
+  .off_screen {
     opacity: 0;
     pointer-events: none;
     display: none;
     z-index: 1;
+    transition: opacity 0.4s ease;
   }
 
   #wrapper.mode-on .on_screen {
@@ -224,19 +214,19 @@
     pointer-events: auto;
     z-index: 2;
   }
+
   #wrapper.mode-on .off_screen {
     display: none;
     opacity: 0;
     pointer-events: none;
-    z-index: 1;
   }
 
   #wrapper.mode-off .on_screen {
     display: none;
     opacity: 0;
     pointer-events: none;
-    z-index: 1;
   }
+
   #wrapper.mode-off .off_screen {
     display: block;
     opacity: 1;
@@ -244,7 +234,10 @@
     z-index: 2;
   }
 
-  /* ボタン共通スタイル */
+  /* --------------------------------------------------
+   モード切替ボタン
+  -------------------------------------------------- */
+
   #mode-toggle {
     position: relative;
     width: 120px;
@@ -255,7 +248,9 @@
     text-align: center;
     letter-spacing: 1px;
     font-size: 14px;
-    transition: all 0.3s ease;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
     top: -15px;
   }
 
@@ -264,8 +259,8 @@
     color: #fff;
     background-color: $on-link-button_background-color;
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       content: "";
       position: absolute;
       z-index: -10;
@@ -279,11 +274,11 @@
       transform: translate3d(0, 0, 0);
     }
 
-    &:before {
+    &::before {
       animation: anime 2s ease-out infinite;
     }
 
-    &:after {
+    &::after {
       animation: anime 2s ease-out 1s infinite;
     }
   }
@@ -294,8 +289,8 @@
     background-color: $off-link-button_background-color;
     font-weight: bold;
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       content: "";
       position: absolute;
       z-index: -10;
@@ -309,11 +304,11 @@
       transform: translate3d(0, 0, 0);
     }
 
-    &:before {
+    &::before {
       animation: anime 2s ease-out infinite;
     }
 
-    &:after {
+    &::after {
       animation: anime 2s ease-out 1s infinite;
     }
   }
@@ -326,24 +321,15 @@
     90% {
       opacity: 0.1;
     }
-    to {
+    100% {
       transform: scale(1.2, 1.5);
       opacity: 0;
     }
   }
 
-  @include respond-max("sp") {
-    #mode-toggle {
-      bottom: 20px;
-      width: 120px;
-      height: 36px;
-      font-size: 13px;
-    }
-  }
-
-  /* ---------------------------------------------
-  on_screen
---------------------------------------------- */
+  /* --------------------------------------------------
+   ON MODE コンテンツ
+  -------------------------------------------------- */
 
   .on_screen {
     h1.on-title {
@@ -388,6 +374,7 @@
         height: 55px;
         width: auto;
       }
+
       p {
         @include font-size-L;
         font-family: "Baskervville";
@@ -443,7 +430,9 @@
     width: 35%;
     height: auto;
   }
+
   .work-item-right {
+    position: relative;
     width: 65%;
     padding: 0 0 0 15px;
 
@@ -520,6 +509,7 @@
     text-align: center;
     line-height: 1.4;
     margin-bottom: 20px;
+    position: relative;
 
     &::after {
       content: "▼";
@@ -554,6 +544,7 @@
       transform: translateY(-10vh);
     }
   }
+
   .profile-item {
     display: flex;
   }
@@ -569,6 +560,7 @@
     width: 35%;
     height: auto;
   }
+
   .profile-item-right {
     width: 65%;
     padding: 0 0 0 20px;
@@ -676,8 +668,9 @@
   }
 
   /* --------------------------------------------------
-   OFF MODE
--------------------------------------------------- */
+   OFF MODE コンテンツ
+  -------------------------------------------------- */
+
   .mode-off #container {
     background-color: $off-background-color;
   }
@@ -685,15 +678,6 @@
   .off_screen {
     background-color: $off-background-color;
     color: $off-text-color;
-    opacity: 0;
-    display: none;
-    pointer-events: none;
-    z-index: 1;
-
-    &.visible {
-      opacity: 1;
-      pointer-events: auto;
-    }
 
     .title-container {
       h1 {
@@ -704,7 +688,7 @@
     .title-item-img {
       position: relative;
       right: -50%;
-      height: 60%;
+      height: 48%;
     }
 
     .hand-img {
@@ -755,22 +739,22 @@
 
     @keyframes handMove {
       0% {
-        transform: translate(-10vh, 33vh);
+        transform: translate(-10vh, 26vh);
         opacity: 1;
       }
       40% {
-        transform: translate(1vh, 31vh);
+        transform: translate(1vh, 24vh);
       }
       80% {
-        transform: translate(10vh, 27vh);
+        transform: translate(10vh, 21vh);
         opacity: 1;
       }
       90% {
-        transform: translate(14vh, 26vh);
+        transform: translate(14vh, 20vh);
         opacity: 0.8;
       }
       100% {
-        transform: translate(14vh, 26vh);
+        transform: translate(14vh, 20vh);
         opacity: 0;
       }
     }
@@ -902,6 +886,7 @@
       .about-item-01 .about-item-right,
       .about-item-02 .about-item-left {
         width: 75%;
+
         @include respond-max("sp") {
           width: 100%;
         }
@@ -910,6 +895,7 @@
       .about-item-01 {
         margin-bottom: 90px;
       }
+
       .about-item-02 {
         margin-bottom: 150px;
       }
@@ -930,6 +916,7 @@
           width: 10px;
           margin-right: 20px;
         }
+
         &::after {
           content: "";
           border: 1px solid #fff;
@@ -972,7 +959,8 @@
 
   /* --------------------------------------------------
    Scroll Indicator
--------------------------------------------------- */
+  -------------------------------------------------- */
+
   .scroll-container {
     opacity: 0;
     display: inline-block;
@@ -1032,9 +1020,11 @@
     .circle-arrow {
       @include arrow($text-color);
     }
+
     .circle-arrow::after {
       @include arrow_after($text-color);
     }
+
     .scroll-down p {
       color: $text-color;
     }
@@ -1044,9 +1034,11 @@
     .circle-arrow {
       @include arrow($off-text-color);
     }
+
     .circle-arrow::after {
       @include arrow_after($off-text-color);
     }
+
     .scroll-down p {
       color: $off-text-color;
     }
@@ -1072,8 +1064,8 @@
   }
 
   /* --------------------------------------------------
-   レスポンシブ調整
--------------------------------------------------- */
+   レスポンシブ調整（SP中心）
+  -------------------------------------------------- */
 
   @include respond-max("sp") {
     /* 小画面では動画を上に、本文は下に回す */
@@ -1099,9 +1091,11 @@
     .profile-item {
       flex-direction: column;
     }
+
     .work-item {
       flex-direction: column;
     }
+
     .work-item-left,
     .work-item-right,
     .profile-item-left,
@@ -1118,11 +1112,18 @@
     .mode-off #container {
       background-color: $off-background-color;
     }
+
+    #mode-toggle {
+      bottom: 20px;
+      width: 120px;
+      height: 36px;
+      font-size: 13px;
+    }
   }
 
   /* --------------------------------------------------
    Header & Page-top layout (ON/OFF切替)
--------------------------------------------------- */
+  -------------------------------------------------- */
 
   #header.pos-right {
     right: 50vw;

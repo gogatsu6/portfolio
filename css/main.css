@@ -410,45 +410,45 @@ footer.pos-left {
    1. 基本設定（リセット・変数・共通スタイル）
 ------------------------------ */
 /* ==================================================
-  _top.scss
+  _top.scss (refactor: 構造整理＋安定化版)
 ================================================== */
 #top {
   /* ---------------------------------------------
-     mixin スタイル
+   Mixin（このファイル専用）
   --------------------------------------------- */
-  /* ---- scroll down ---- */
+  /* ---- scroll down arrow ---- */
   /* --------------------------------------------------
-     Base Layout
+   Base Layout（ON / OFF 共通）
   -------------------------------------------------- */
   /* --------------------------------------------------
-     動画（左）とスクロール（右）の二分割レイアウト
+   動画（左）とスクロール（右）の二分割レイアウト
   -------------------------------------------------- */
-  /* =======================================================
-     Layout switch（ON / OFFで左右入れ替え）
-  ======================================================= */
   /* --------------------------------------------------
-     ON / OFF 切替時の on_screen / off_screen 表示
+   ON / OFF 切替時の on_screen / off_screen 表示制御
+   （display / opacity / pointer-events を整理）
   -------------------------------------------------- */
-  /* ボタン共通スタイル */
+  /* --------------------------------------------------
+   モード切替ボタン
+  -------------------------------------------------- */
   /* ONモード時の見た目 */
   /* OFFモード時の見た目 */
-  /* ---------------------------------------------
-    on_screen
-  --------------------------------------------- */
+  /* --------------------------------------------------
+   ON MODE コンテンツ
+  -------------------------------------------------- */
   /* ---- work ---- */
   /* ---- profile ---- */
   /* ---- Contact ---- */
   /* --------------------------------------------------
-     OFF MODE
+   OFF MODE コンテンツ
   -------------------------------------------------- */
   /* --------------------------------------------------
-     Scroll Indicator
+   Scroll Indicator
   -------------------------------------------------- */
   /* --------------------------------------------------
-     レスポンシブ調整
+   レスポンシブ調整（SP中心）
   -------------------------------------------------- */
   /* --------------------------------------------------
-     Header & Page-top layout (ON/OFF切替)
+   Header & Page-top layout (ON/OFF切替)
   -------------------------------------------------- */
 }
 #top #wrapper {
@@ -456,20 +456,44 @@ footer.pos-left {
   flex-wrap: nowrap;
   width: 100%;
   height: auto;
+  background-color: #E5E0DA;
+  color: #424040;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  /* ONモード */
+  /* OFFモード：左右反転＋カラー切替 */
+}
+#top #wrapper.is-switching {
+  opacity: 0;
 }
 #top #wrapper.mode-on {
   background-color: #E5E0DA;
   color: #424040;
+  flex-direction: row;
+  /* タブレット以下は縦積み */
+}
+@media screen and (max-width: 1024px) {
+  #top #wrapper.mode-on {
+    flex-direction: column;
+  }
 }
 #top #wrapper.mode-off {
   background-color: #7A788A;
   color: #fff;
+  flex-direction: row-reverse;
 }
 @media screen and (max-width: 1024px) {
   #top #wrapper.mode-off {
-    display: flex;
-    flex-direction: column !important;
+    flex-direction: column;
   }
+}
+#top #wrapper .mode-area {
+  flex: 1;
+  transition: transform 0.4s ease;
+}
+#top #wrapper #container {
+  flex: 1;
+  transition: transform 0.4s ease;
 }
 #top #fixed-area {
   position: sticky;
@@ -485,8 +509,6 @@ footer.pos-left {
   #top #fixed-area {
     width: 100vw;
     margin: 0 auto;
-    -o-object-fit: cover;
-       object-fit: cover;
   }
 }
 #top #container {
@@ -494,11 +516,10 @@ footer.pos-left {
   width: 50%;
   box-sizing: border-box;
   z-index: 2;
-  transition: all 0.5s ease;
-  background: transparent;
+  background-color: #E5E0DA;
+  transition: background-color 0.5s ease;
   overflow: hidden;
   height: auto;
-  background-color: #E5E0DA;
 }
 @media screen and (max-width: 1024px) {
   #top #container {
@@ -539,36 +560,13 @@ footer.pos-left {
 #top #wrapper.mode-off .video-off {
   opacity: 1 !important;
 }
-#top #wrapper {
-  display: flex;
-  flex-direction: row; /* 通常（ONモード）は左：動画、右：テキスト） */
-  transition: flex-direction 0.4s ease, opacity 0.4s ease;
-  opacity: 1;
-}
-#top #wrapper.is-switching {
-  opacity: 0;
-}
-#top #wrapper .mode-area {
-  flex: 1;
-  transition: all 0.4s ease;
-}
-#top #wrapper #container {
-  flex: 1;
-  transition: all 0.4s ease;
-}
-#top #wrapper.mode-off {
-  flex-direction: row-reverse; /* OFFモードでは左右反転 */
-}
-@media screen and (max-width: 1024px) {
-  #top #wrapper {
-    flex-direction: column;
-  }
-}
-#top .on_screen {
+#top .on_screen,
+#top .off_screen {
   opacity: 0;
   pointer-events: none;
   display: none;
   z-index: 1;
+  transition: opacity 0.4s ease;
 }
 #top #wrapper.mode-on .on_screen {
   display: block;
@@ -580,13 +578,11 @@ footer.pos-left {
   display: none;
   opacity: 0;
   pointer-events: none;
-  z-index: 1;
 }
 #top #wrapper.mode-off .on_screen {
   display: none;
   opacity: 0;
   pointer-events: none;
-  z-index: 1;
 }
 #top #wrapper.mode-off .off_screen {
   display: block;
@@ -604,14 +600,14 @@ footer.pos-left {
   text-align: center;
   letter-spacing: 1px;
   font-size: 14px;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
   top: -15px;
 }
 #top #mode-toggle.mode-on {
   color: #fff;
   background-color: #424040;
 }
-#top #mode-toggle.mode-on:before, #top #mode-toggle.mode-on:after {
+#top #mode-toggle.mode-on::before, #top #mode-toggle.mode-on::after {
   content: "";
   position: absolute;
   z-index: -10;
@@ -624,10 +620,10 @@ footer.pos-left {
   border: 1px solid #967e61;
   transform: translate3d(0, 0, 0);
 }
-#top #mode-toggle.mode-on:before {
+#top #mode-toggle.mode-on::before {
   animation: anime 2s ease-out infinite;
 }
-#top #mode-toggle.mode-on:after {
+#top #mode-toggle.mode-on::after {
   animation: anime 2s ease-out 1s infinite;
 }
 #top #mode-toggle.mode-off {
@@ -635,7 +631,7 @@ footer.pos-left {
   background-color: #fff;
   font-weight: bold;
 }
-#top #mode-toggle.mode-off:before, #top #mode-toggle.mode-off:after {
+#top #mode-toggle.mode-off::before, #top #mode-toggle.mode-off::after {
   content: "";
   position: absolute;
   z-index: -10;
@@ -648,10 +644,10 @@ footer.pos-left {
   border: 1px solid #5a576b;
   transform: translate3d(0, 0, 0);
 }
-#top #mode-toggle.mode-off:before {
+#top #mode-toggle.mode-off::before {
   animation: anime 2s ease-out infinite;
 }
-#top #mode-toggle.mode-off:after {
+#top #mode-toggle.mode-off::after {
   animation: anime 2s ease-out 1s infinite;
 }
 @keyframes anime {
@@ -662,17 +658,9 @@ footer.pos-left {
   90% {
     opacity: 0.1;
   }
-  to {
+  100% {
     transform: scale(1.2, 1.5);
     opacity: 0;
-  }
-}
-@media screen and (max-width: 768px) {
-  #top #mode-toggle {
-    bottom: 20px;
-    width: 120px;
-    height: 36px;
-    font-size: 13px;
   }
 }
 #top .on_screen h1.on-title {
@@ -683,7 +671,7 @@ footer.pos-left {
   color: #424040;
   text-align: center;
   margin-bottom: 7vh;
-  top: 50%;
+  top: 44%;
 }
 @media screen and (max-width: 1024px) {
   #top .on_screen h1.on-title {
@@ -784,6 +772,7 @@ footer.pos-left {
   height: auto;
 }
 #top .work-item-right {
+  position: relative;
   width: 65%;
   padding: 0 0 0 15px;
 }
@@ -852,6 +841,7 @@ footer.pos-left {
   text-align: center;
   line-height: 1.4;
   margin-bottom: 20px;
+  position: relative;
 }
 #top h4::after {
   content: "▼";
@@ -1000,14 +990,6 @@ footer.pos-left {
 #top .off_screen {
   background-color: #7A788A;
   color: #fff;
-  opacity: 0;
-  display: none;
-  pointer-events: none;
-  z-index: 1;
-}
-#top .off_screen.visible {
-  opacity: 1;
-  pointer-events: auto;
 }
 #top .off_screen .title-container h1 {
   position: relative;
@@ -1017,7 +999,7 @@ footer.pos-left {
   color: #fff;
   text-align: center;
   margin-bottom: 7vh;
-  top: 50%;
+  top: 44%;
 }
 @media screen and (max-width: 1024px) {
   #top .off_screen .title-container h1 {
@@ -1034,7 +1016,7 @@ footer.pos-left {
 #top .off_screen .title-item-img {
   position: relative;
   right: -50%;
-  height: 60%;
+  height: 48%;
 }
 #top .off_screen .hand-img {
   position: absolute;
@@ -1087,22 +1069,22 @@ footer.pos-left {
 }
 @keyframes handMove {
   0% {
-    transform: translate(-10vh, 33vh);
+    transform: translate(-10vh, 26vh);
     opacity: 1;
   }
   40% {
-    transform: translate(1vh, 31vh);
+    transform: translate(1vh, 24vh);
   }
   80% {
-    transform: translate(10vh, 27vh);
+    transform: translate(10vh, 21vh);
     opacity: 1;
   }
   90% {
-    transform: translate(14vh, 26vh);
+    transform: translate(14vh, 20vh);
     opacity: 0.8;
   }
   100% {
-    transform: translate(14vh, 26vh);
+    transform: translate(14vh, 20vh);
     opacity: 0;
   }
 }
@@ -1479,6 +1461,12 @@ footer.pos-left {
   }
   #top .mode-off #container {
     background-color: #7A788A;
+  }
+  #top #mode-toggle {
+    bottom: 20px;
+    width: 120px;
+    height: 36px;
+    font-size: 13px;
   }
 }
 #top #header.pos-right {
