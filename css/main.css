@@ -1309,7 +1309,7 @@ footer.pos-left {
 @media screen and (max-width: 1024px) {
   #top .mode-off .scroll-container {
     position: relative;
-    bottom: 65%;
+    bottom: 53%;
   }
 }
 #top .scroll-down {

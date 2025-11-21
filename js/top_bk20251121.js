@@ -87,26 +87,3 @@ if (hand && text) {
     text.style.opacity = 1;
   });
 }
-
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  /* PCだけで実行 */
-  if (window.innerWidth >= 1025) {
-
-    const title = document.querySelector("#top h1.on-title");
-
-    if (title) {
-      title.classList.add("pc-title-init");
-
-      /* 2秒後にフェードイン */
-      setTimeout(() => {
-        title.classList.add("pc-title-show");
-      }, 2000);
-    }
-  }
-
-});
-
-
-
