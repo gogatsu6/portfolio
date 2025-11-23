@@ -141,7 +141,7 @@
   /* Scroll-down */
   .scroll-container {
     opacity: 0;
-    position: absolute;
+    position: relative;
     bottom: 12vh;
     animation: scrollFadeIn 2s ease forwards 2s;
     text-align: center;
@@ -809,19 +809,17 @@
 
     /* scroll-down は動画の直下 15dvh（左右中央） */
     .scroll-container {
-      position: relative;
+      position: absolute;
+      left: 0;
+      transform: translateY(60px);
       width: 100%;
-      height: 15dvh;
       opacity: 1;
       animation: none;
-      display: flex;
-      justify-content: center;
       align-items: center;
-      top: -40dvh;
     }
 
     .mode-off .scroll-container {
-      top: -16dvh;
+      top: -3dvh;
     }
 
     /* タイトルコンテナ：
@@ -836,6 +834,10 @@
 
     .innerWrap {
       width: 75%;
+    }
+
+    .greeting-container {
+      margin-top: 0px;
     }
 
     /* OFF：hand / text の位置補正（TB） */
@@ -915,7 +917,7 @@
     }
 
     .greeting-container {
-      margin-top: 15vh;
+      margin-top: 0;
     }
 
     .greeting-box {
@@ -992,14 +994,6 @@
   @include respond-max("mini") {
     .innerWrap {
       width: 100%;
-    }
-
-    .scroll-container {
-      top: -39dvh;
-    }
-
-    .mode-off .scroll-container {
-      top: -12dvh;
     }
 
     .off_screen {
