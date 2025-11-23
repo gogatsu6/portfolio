@@ -26,7 +26,6 @@ const offScreen = $('.off_screen');
 const header = $('#header');
 const pageTop = $('.page-top');
 const openbtn = $('.openbtn')
-const scroll = $('.scroll-container');
 const footer = $('#footer')
 
 wrapper.addClass('mode-on');
@@ -40,9 +39,6 @@ toggleBtn.on('click', function () {
   if (isOn) {
     // ---- ON → OFF ----
     wrapper.removeClass('mode-on').addClass('mode-off');
-    header.removeClass('mode-on').addClass('mode-off');
-    openbtn.removeClass('mode-on').addClass('mode-off');
-    scroll.removeClass('mode-on').addClass('mode-off');
     toggleBtn
       .removeClass('mode-on')
       .addClass('mode-off')
@@ -50,12 +46,16 @@ toggleBtn.on('click', function () {
     videoOn.hide();
     videoOff.show();
     onScreen.fadeOut(400, () => offScreen.fadeIn(400));
+
+    // header / page-top を左側へ
+    header.addClass('pos-left').removeClass('pos-right');
+    pageTop.addClass('pos-left').removeClass('pos-right');
+    openbtn.addClass('pos-left').removeClass('pos-right');
+    footer.addClass('pos-left').removeClass('pos-right');
     
   } else {
     // ---- OFF → ON ----
     wrapper.removeClass('mode-off').addClass('mode-on');
-    header.removeClass('mode-off').addClass('mode-on');
-    openbtn.removeClass('mode-off').addClass('mode-on');
     toggleBtn
       .removeClass('mode-off')
       .addClass('mode-on')
@@ -63,6 +63,12 @@ toggleBtn.on('click', function () {
     videoOff.hide();
     videoOn.show();
     offScreen.fadeOut(400, () => onScreen.fadeIn(400));
+
+    // header / page-top を右側へ
+    header.addClass('pos-right').removeClass('pos-left');
+    pageTop.addClass('pos-right').removeClass('pos-left');
+        openbtn.addClass('pos-right').removeClass('pos-left');
+    footer.addClass('pos-right').removeClass('pos-left');
 
   }
 
@@ -104,29 +110,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
-
-  /* PC のみ実行 */
-  if (window.innerWidth >= 1025) {
-
-    const options = {
-      root: null,
-      threshold: 0.2, // 20%見えたら発火
-    };
-
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("pc-section-show");
-        }
-      });
-    }, options);
-
-    /* フェード対象を登録 */
-    document.querySelectorAll(".fade-section").forEach(section => {
-      section.classList.add("pc-section-init");
-      io.observe(section);
-    });
-  }
-
-});

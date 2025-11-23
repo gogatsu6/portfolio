@@ -40,7 +40,7 @@ body {
   padding: 0;
   font-family: "Zen Kaku Gothic New", sans-serif;
   font-size: clamp(1.4rem, 1.2rem + 0.625vw, 1.6rem);
-  background-color: #E5E0DA;
+  background-color: #e5e0da;
   color: #424040;
 }
 
@@ -137,7 +137,7 @@ section {
   margin-top: 45px;
   text-align: center;
   padding: 0 5vw;
-  z-index: 10;
+  z-index: 5;
   pointer-events: auto;
 }
 @media screen and (max-width: 1024px) {
@@ -355,7 +355,7 @@ footer.pos-left {
   display: flex;
   align-items: center;
   justify-content: center;
-  right: 3vw;
+  right: 2vw;
   bottom: 4vh;
   cursor: pointer;
   opacity: 0;
@@ -365,7 +365,8 @@ footer.pos-left {
   letter-spacing: 3px;
   z-index: 2000;
 }
-.page-top span::before, .page-top span::after {
+.page-top span::before,
+.page-top span::after {
   position: absolute;
   transform: rotate(-45deg);
   display: block;
@@ -410,185 +411,219 @@ footer.pos-left {
    1. 基本設定（リセット・変数・共通スタイル）
 ------------------------------ */
 /* ==================================================
-  _top.scss (refactor: 構造整理＋安定化版)
+  _top.scss（新生・最適化版）
+  - PC：左動画 / 右テキスト（横並び固定）
+  - TB/SP/mini：縦並び（動画85dvh → scroll 15dvh → 本文）
+  - ON/OFF：色・ビジュアル・文言だけ切替（レイアウト共通）
+================================================== */
+/* --------------------------------------------------
+   0. Mixin（このファイル専用）
+-------------------------------------------------- */
+/* ==================================================
+   1. #top（PC 基準のレイアウト・スタイル）
 ================================================== */
 #top {
   /* ---------------------------------------------
-   Mixin（このファイル専用）
+     1-1. wrapper：左右2カラム（PC基準）
   --------------------------------------------- */
-  /* ---- scroll down arrow ---- */
-  /* --------------------------------------------------
-   Base Layout（ON / OFF 共通）
-  -------------------------------------------------- */
-  /* --------------------------------------------------
-   動画（左）とスクロール（右）の二分割レイアウト
-  -------------------------------------------------- */
-  /* --------------------------------------------------
-   ON / OFF 切替時の on_screen / off_screen 表示制御
-   （display / opacity / pointer-events を整理）
-  -------------------------------------------------- */
-  /* --------------------------------------------------
-   モード切替ボタン
-  -------------------------------------------------- */
-  /* ONモード時の見た目 */
-  /* OFFモード時の見た目 */
-  /* --------------------------------------------------
-   ON MODE コンテンツ
-  -------------------------------------------------- */
+  /* ---------------------------------------------
+     1-2. 左：動画エリア（PC 固定 50%）
+  --------------------------------------------- */
+  /* ---------------------------------------------
+     1-3. 右：コンテンツエリア（PC 固定 50%）
+  --------------------------------------------- */
+  /* ---------------------------------------------
+     1-4. タイトル & Scroll-down（PC）
+  --------------------------------------------- */
+  /* Scroll-down */
+  /* ON/OFF 色切り替え */
+  /* ---------------------------------------------
+     1-5. ON / OFF 切替表示
+  --------------------------------------------- */
+  /* ---------------------------------------------
+     1-6. モード切替ボタン
+  --------------------------------------------- */
+  /* ====== アニメーション（共通） ====== */
+  /* ---------------------------------------------
+     1-7. ON MODE 共通コンテンツ
+     （greeting / work / profile / contact）
+  --------------------------------------------- */
   /* ---- work ---- */
   /* ---- profile ---- */
   /* ---- Contact ---- */
-  /* --------------------------------------------------
-   OFF MODE コンテンツ
-  -------------------------------------------------- */
-  /* --------------------------------------------------
-   Scroll Indicator
-  -------------------------------------------------- */
-  /* --------------------------------------------------
-   レスポンシブ調整（SP中心）
-  -------------------------------------------------- */
-  /* --------------------------------------------------
-   Header & Page-top layout (ON/OFF切替)
-  -------------------------------------------------- */
+  /* ---------------------------------------------
+     1-8. OFF MODE コンテンツ（hand / text / about）
+  --------------------------------------------- */
+  /* ---------------------------------------------
+     1-10. Header & page-top（PC 基準位置）
+  --------------------------------------------- */
+  /* ==================================================
+     2. Tablet 以下（〜tb：1024px）
+     動画 85dvh → scroll 15dvh → タイトル → 本文
+  ================================================== */
+  /* ==================================================
+     3. Smartphone 以下（〜sp：768px）
+     さらに余白・サイズ微調整
+  ================================================== */
+  /* ==================================================
+     4. mini（〜480px）さらに微調整したい場合
+  ================================================== */
 }
 #top #wrapper {
   display: flex;
-  flex-wrap: nowrap;
+  flex-direction: row; /* PC：横並び */
   width: 100%;
-  height: auto;
-  background-color: #E5E0DA;
+  background-color: #e5e0da;
   color: #424040;
-  opacity: 1;
-  transition: opacity 0.4s ease;
-  /* ONモード */
-  /* OFFモード：左右反転＋カラー切替 */
-}
-#top #wrapper.is-switching {
-  opacity: 0;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 #top #wrapper.mode-on {
-  background-color: #E5E0DA;
+  background-color: #e5e0da;
   color: #424040;
-  flex-direction: row;
-  /* タブレット以下は縦積み */
-}
-@media screen and (max-width: 1024px) {
-  #top #wrapper.mode-on {
-    flex-direction: column;
-  }
 }
 #top #wrapper.mode-off {
-  background-color: #7A788A;
+  background-color: #7a788a;
   color: #fff;
-  flex-direction: row-reverse;
-}
-@media screen and (max-width: 1024px) {
-  #top #wrapper.mode-off {
-    flex-direction: column;
-  }
-}
-#top #wrapper .mode-area {
-  flex: 1;
-  transition: transform 0.4s ease;
-}
-#top #wrapper #container {
-  flex: 1;
-  transition: transform 0.4s ease;
 }
 #top #fixed-area {
   position: sticky;
   top: 0;
-  left: 0;
   width: 50%;
   height: 100vh;
+  padding: 10px;
   overflow: hidden;
   z-index: 1;
-  padding: 10px;
 }
-@media screen and (max-width: 1024px) {
-  #top #fixed-area {
-    width: 100vw;
-    margin: 0 auto;
-  }
-}
-#top #container {
-  position: relative;
-  width: 50%;
-  box-sizing: border-box;
-  z-index: 2;
-  background-color: #E5E0DA;
-  transition: background-color 0.5s ease;
-  overflow: hidden;
-  height: auto;
-}
-@media screen and (max-width: 1024px) {
-  #top #container {
-    width: 100vw;
-    margin: 0 auto;
-  }
-}
-#top #fixed-area video,
-#top .mode-area video {
+#top #fixed-area video {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: 38%;
-     object-position: 38%;
+  -o-object-position: center;
+     object-position: center;
   border-radius: 10px;
   display: block;
 }
-@media screen and (max-width: 1024px) {
-  #top #fixed-area video,
-  #top .mode-area video {
-    -o-object-position: 41%;
-       object-position: 41%;
-    height: 80vh;
+#top #container {
+  width: 50%;
+  background-color: inherit;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 2;
+}
+#top .innerWrap {
+  width: 100%;
+  padding: 0 4vw;
+}
+#top .title-container {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#top h1 {
+  font-size: clamp(4.1rem, 3.7rem + 0.625vw, 5.6rem);
+  font-family: "Baskervville";
+  text-align: center;
+  letter-spacing: 2px;
+  color: currentColor;
+  position: relative;
+  z-index: 5;
+  transform: translateY(20px);
+  transition: 0.8s ease, transform 0.8s ease;
+}
+#top .scroll-container {
+  opacity: 0;
+  position: absolute;
+  bottom: 12vh;
+  animation: scrollFadeIn 2s ease forwards 2s;
+  text-align: center;
+}
+@keyframes scrollFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
-#top .video-on {
-  opacity: 1;
-  transition: opacity 0.8s ease;
+#top .scroll-down {
+  font-size: 13px;
+  font-family: serif;
 }
-#top .video-off {
-  opacity: 0;
-  transition: opacity 0.8s ease;
+#top .scroll-down p {
+  margin-top: 15px;
 }
-#top #wrapper.mode-off .video-on {
-  opacity: 0 !important;
+#top .on_screen .circle-arrow {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #424040;
+  border-radius: 50%;
+  position: relative;
+  margin-inline: auto;
+  animation: pulse 2s infinite;
 }
-#top #wrapper.mode-off .video-off {
-  opacity: 1 !important;
+#top .on_screen .circle-arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-left: 1px solid #424040;
+  border-bottom: 1px solid #424040;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+#top .off_screen .circle-arrow {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  position: relative;
+  margin-inline: auto;
+  animation: pulse 2s infinite;
+}
+#top .off_screen .circle-arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 #top .on_screen,
 #top .off_screen {
+  display: none;
   opacity: 0;
   pointer-events: none;
-  display: none;
-  z-index: 1;
-  transition: opacity 0.4s ease;
 }
 #top #wrapper.mode-on .on_screen {
   display: block;
   opacity: 1;
   pointer-events: auto;
-  z-index: 2;
-}
-#top #wrapper.mode-on .off_screen {
-  display: none;
-  opacity: 0;
-  pointer-events: none;
-}
-#top #wrapper.mode-off .on_screen {
-  display: none;
-  opacity: 0;
-  pointer-events: none;
 }
 #top #wrapper.mode-off .off_screen {
   display: block;
   opacity: 1;
   pointer-events: auto;
-  z-index: 2;
 }
 #top #mode-toggle {
   position: relative;
@@ -600,55 +635,41 @@ footer.pos-left {
   text-align: center;
   letter-spacing: 1px;
   font-size: 14px;
-  transition: background-color 0.3s ease, color 0.3s ease;
   top: -15px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  /* ====== アニメーション背景（共通） ====== */
+  /* ====== ON / OFF 色だけ切替 ====== */
+}
+#top #mode-toggle::before, #top #mode-toggle::after {
+  content: "";
+  position: absolute;
+  z-index: -10;
+  inset: 0;
+  border-radius: 32px;
+  transform: translate3d(0, 0, 0);
+}
+#top #mode-toggle::before {
+  animation: anime 2s ease-out infinite;
+}
+#top #mode-toggle::after {
+  animation: anime 2s ease-out 1s infinite;
 }
 #top #mode-toggle.mode-on {
   color: #fff;
   background-color: #424040;
 }
 #top #mode-toggle.mode-on::before, #top #mode-toggle.mode-on::after {
-  content: "";
-  position: absolute;
-  z-index: -10;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  border-radius: 32px;
   background: #967e61;
   border: 1px solid #967e61;
-  transform: translate3d(0, 0, 0);
-}
-#top #mode-toggle.mode-on::before {
-  animation: anime 2s ease-out infinite;
-}
-#top #mode-toggle.mode-on::after {
-  animation: anime 2s ease-out 1s infinite;
 }
 #top #mode-toggle.mode-off {
-  color: #3A374D;
-  background-color: #fff;
+  color: #3a374d;
   font-weight: bold;
+  background-color: #fff;
 }
 #top #mode-toggle.mode-off::before, #top #mode-toggle.mode-off::after {
-  content: "";
-  position: absolute;
-  z-index: -10;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  border-radius: 32px;
   background: #5a576b;
   border: 1px solid #5a576b;
-  transform: translate3d(0, 0, 0);
-}
-#top #mode-toggle.mode-off::before {
-  animation: anime 2s ease-out infinite;
-}
-#top #mode-toggle.mode-off::after {
-  animation: anime 2s ease-out 1s infinite;
 }
 @keyframes anime {
   0% {
@@ -661,28 +682,6 @@ footer.pos-left {
   100% {
     transform: scale(1.2, 1.5);
     opacity: 0;
-  }
-}
-#top .on_screen h1.on-title {
-  position: relative;
-  font-size: clamp(4.1rem, 3.7rem + 0.625vw, 5.6rem);
-  font-family: "Baskervville";
-  letter-spacing: 2px;
-  color: #424040;
-  text-align: center;
-  margin-bottom: 7vh;
-  top: 44%;
-}
-@media screen and (max-width: 1024px) {
-  #top .on_screen h1.on-title {
-    margin-bottom: 0;
-    margin-top: 8vh;
-    font-size: clamp(4.2px, 3.7rem + 0.625vw, 6.6rem);
-  }
-}
-@media screen and (max-width: 768px) {
-  #top .on_screen h1.on-title {
-    margin-top: 0;
   }
 }
 #top .on_screen h2 {
@@ -698,16 +697,6 @@ footer.pos-left {
 }
 #top .greeting-box {
   text-align: center;
-}
-@media screen and (max-width: 1024px) {
-  #top .greeting-box {
-    transform: translateY(-35vh);
-  }
-}
-@media screen and (max-width: 768px) {
-  #top .greeting-box {
-    transform: translateY(-20vh);
-  }
 }
 #top .greeting-box p {
   text-align: center;
@@ -741,20 +730,9 @@ footer.pos-left {
   padding-bottom: 10px;
   font-weight: bold;
 }
-@media screen and (max-width: 768px) {
-  #top h3 {
-    margin: 20px 0 5px 0;
-  }
-}
 #top .work-container {
   position: relative;
   margin-top: 300px;
-}
-@media screen and (max-width: 1024px) {
-  #top .work-container {
-    margin-top: 5vh;
-    transform: translateY(4vh);
-  }
 }
 #top .work-item {
   display: flex;
@@ -774,17 +752,12 @@ footer.pos-left {
 #top .work-item-right {
   position: relative;
   width: 65%;
-  padding: 0 0 0 15px;
+  padding-left: 1vw;
 }
 #top .work-item-right .work-item-text {
   padding-top: 10px;
   margin-bottom: 20px;
   line-height: 1.5;
-}
-@media screen and (max-width: 768px) {
-  #top .work-item-right .work-item-text {
-    margin-bottom: 15px;
-  }
 }
 #top .work-item-right a {
   display: block;
@@ -849,11 +822,6 @@ footer.pos-left {
   position: absolute;
   transform: translateX(52px) translateY(16px) scaleX(0.5);
 }
-@media screen and (max-width: 768px) {
-  #top h4 {
-    margin: 0 auto 20px;
-  }
-}
 #top h5::before {
   content: "▶";
   color: #424040;
@@ -865,12 +833,6 @@ footer.pos-left {
 #top .profile-container {
   position: relative;
   margin-top: 300px;
-}
-@media screen and (max-width: 768px) {
-  #top .profile-container {
-    padding-top: 2vh;
-    transform: translateY(-10vh);
-  }
 }
 #top .profile-item {
   display: flex;
@@ -889,16 +851,11 @@ footer.pos-left {
 }
 #top .profile-item-right {
   width: 65%;
-  padding: 0 0 0 20px;
+  padding-left: 2vw;
 }
 #top .profile-item-text {
   margin-bottom: 40px;
   line-height: 1.85;
-}
-@media screen and (max-width: 768px) {
-  #top .profile-item-text {
-    padding-top: 15px;
-  }
 }
 #top .profile-item-skills_text {
   margin-top: 5px;
@@ -910,20 +867,9 @@ footer.pos-left {
   margin-top: 300px;
   text-align: center;
 }
-@media screen and (max-width: 768px) {
-  #top .contact-container {
-    margin-top: 5vh;
-    padding-top: 15vh;
-  }
-}
 #top .contact-message {
   line-height: 1.85;
   white-space: nowrap;
-}
-@media screen and (max-width: 768px) {
-  #top .contact-message {
-    white-space: wrap;
-  }
 }
 #top form {
   display: inline-block;
@@ -945,12 +891,6 @@ footer.pos-left {
   text-align: left;
   padding-left: 20px;
   background-color: #fff;
-}
-@media screen and (max-width: 1024px) {
-  #top input,
-  #top textarea {
-    width: 75vw;
-  }
 }
 #top input {
   margin-bottom: 50px;
@@ -979,190 +919,38 @@ footer.pos-left {
   letter-spacing: 5.2px;
   color: #fff;
 }
-@media screen and (max-width: 768px) {
-  #top .contact-button {
-    margin-bottom: 0;
-  }
-}
-#top .mode-off #container {
-  background-color: #7A788A;
-}
 #top .off_screen {
-  background-color: #7A788A;
   color: #fff;
-}
-#top .off_screen .title-container h1 {
   position: relative;
-  font-size: clamp(4.1rem, 3.7rem + 0.625vw, 5.6rem);
-  font-family: "Baskervville";
-  letter-spacing: 2px;
-  color: #fff;
-  text-align: center;
-  margin-bottom: 7vh;
-  top: 44%;
-}
-@media screen and (max-width: 1024px) {
-  #top .off_screen .title-container h1 {
-    margin-bottom: 0;
-    margin-top: 8vh;
-    font-size: clamp(4.2px, 3.7rem + 0.625vw, 6.6rem);
-  }
-}
-@media screen and (max-width: 768px) {
-  #top .off_screen .title-container h1 {
-    margin-top: 0;
-  }
+  /* 手は左から入ってくる */
+  /* --- OFF用 hand（左→右→フェードアウト） --- */
+  /* --- OFF用 text-img マスク --- */
 }
 #top .off_screen .title-item-img {
-  position: relative;
-  right: -50%;
   height: 48%;
-}
-#top .off_screen .hand-img {
-  position: absolute;
-  top: 15%;
-  width: 45vmin;
-  animation: handMove 5.3s ease-in-out forwards;
-}
-@media screen and (max-width: 768px) {
-  #top .off_screen .hand-img {
-    width: 60vmin;
-    bottom: -80%;
-  }
-}
-@media screen and (max-width: 480px) {
-  #top .off_screen .hand-img {
-    width: 85vmin;
-    animation: handMove 5.3s ease-in-out forwards;
-    animation-delay: 1s;
-    opacity: 0;
-  }
 }
 #top .off_screen .text-img {
   position: absolute;
-  bottom: 0;
-  width: 26vmin;
+  left: 55%;
+  bottom: 8%;
+  width: 28vmin;
   opacity: 1;
   clip-path: inset(0 100% 0 0);
-  animation: revealMask 5.3s ease-in-out forwards;
-}
-@media screen and (max-width: 1024px) {
-  #top .off_screen .text-img {
-    width: 40vmin;
-    bottom: -26%;
-    transform: translateX(-20px);
-  }
-}
-@media screen and (max-width: 768px) {
-  #top .off_screen .text-img {
-    width: 40vmin;
-    bottom: -4%;
-    transform: translateX(-20px);
-  }
-}
-@media screen and (max-width: 480px) {
-  #top .off_screen .text-img {
-    width: 55vmin;
-    transform: translateX(-30px);
-    animation-delay: 1.1s;
-  }
-}
-@keyframes handMove {
-  0% {
-    transform: translate(-10vh, 26vh);
-    opacity: 1;
-  }
-  40% {
-    transform: translate(1vh, 24vh);
-  }
-  80% {
-    transform: translate(10vh, 21vh);
-    opacity: 1;
-  }
-  90% {
-    transform: translate(14vh, 20vh);
-    opacity: 0.8;
-  }
-  100% {
-    transform: translate(14vh, 20vh);
-    opacity: 0;
-  }
-}
-@media screen and (max-width: 1024px) {
-  @keyframes handMove {
-    0% {
-      transform: translate(-10vh, 54vh);
-      opacity: 0;
-    }
-    1% {
-      transform: translate(-10vh, 54vh);
-      opacity: 1;
-    }
-    40% {
-      transform: translate(-3vh, 53vh);
-    }
-    80% {
-      transform: translate(10vh, 49vh);
-      opacity: 1;
-    }
-    90% {
-      transform: translate(14vh, 48vh);
-      opacity: 0.8;
-    }
-    100% {
-      transform: translate(14vh, 48vh);
-      opacity: 0;
-    }
-  }
-}
-@media screen and (max-width: 768px) {
-  @keyframes handMove {
-    0% {
-      transform: translate(-12vh, 42vh);
-      opacity: 0;
-    }
-    1% {
-      transform: translate(-12vh, 42vh);
-      opacity: 1;
-    }
-    40% {
-      transform: translate(-3vh, 38vh);
-    }
-    80% {
-      transform: translate(8vh, 33vh);
-      opacity: 1;
-    }
-    90% {
-      transform: translate(12vh, 31vh);
-      opacity: 0.8;
-    }
-    100% {
-      transform: translate(12vh, 31vh);
-      opacity: 0;
-    }
-  }
+  animation: revealMask 4s ease forwards 0.5s;
 }
 @keyframes revealMask {
   0% {
     clip-path: inset(0 100% 0 0);
   }
-  40% {
-    clip-path: inset(0 60% 0 0);
-  }
-  90% {
-    clip-path: inset(0 20% 0 0);
+  50% {
+    clip-path: inset(0 40% 0 0);
   }
   100% {
-    clip-path: inset(0 0% 0 0);
+    clip-path: inset(0 0 0 0);
   }
 }
 #top .off_screen .about-container {
   margin-top: 200px;
-}
-@media screen and (max-width: 768px) {
-  #top .off_screen .about-container {
-    margin-top: 5vh;
-  }
 }
 #top .off_screen .about-container h2 {
   font-size: clamp(1.8rem, 1.6rem + 0.625vw, 2.4rem);
@@ -1180,13 +968,6 @@ footer.pos-left {
 #top .off_screen .about-container .about-item-02 {
   display: flex;
 }
-@media screen and (max-width: 768px) {
-  #top .off_screen .about-container .about-item-01,
-  #top .off_screen .about-container .about-item-02 {
-    flex-direction: column;
-    align-items: center;
-  }
-}
 #top .off_screen .about-container .about-item-01 img,
 #top .off_screen .about-container .about-item-02 img {
   width: 100%;
@@ -1196,37 +977,13 @@ footer.pos-left {
   left: 50%;
   transform: translateX(-50%) translateY(-45%);
 }
-@media screen and (max-width: 768px) {
-  #top .off_screen .about-container .about-item-01 img,
-  #top .off_screen .about-container .about-item-02 img {
-    transform: translateX(-50%) translateY(0%);
-  }
-}
 #top .off_screen .about-container .about-item-01 .about-item-left,
 #top .off_screen .about-container .about-item-02 .about-item-right {
   width: 25%;
 }
-@media screen and (max-width: 768px) {
-  #top .off_screen .about-container .about-item-01 .about-item-left,
-  #top .off_screen .about-container .about-item-02 .about-item-right {
-    width: 40%;
-  }
-}
-@media screen and (max-width: 480px) {
-  #top .off_screen .about-container .about-item-01 .about-item-left,
-  #top .off_screen .about-container .about-item-02 .about-item-right {
-    width: 75%;
-  }
-}
 #top .off_screen .about-container .about-item-01 .about-item-right,
 #top .off_screen .about-container .about-item-02 .about-item-left {
   width: 75%;
-}
-@media screen and (max-width: 768px) {
-  #top .off_screen .about-container .about-item-01 .about-item-right,
-  #top .off_screen .about-container .about-item-02 .about-item-left {
-    width: 100%;
-  }
 }
 #top .off_screen .about-container .about-item-01 {
   margin-bottom: 90px;
@@ -1278,175 +1035,93 @@ footer.pos-left {
   transform: translateY(20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
-#top .scroll-container {
+#top #header.mode-off nav,
+#top #header.mode-off #g-navi {
+  visibility: hidden;
+  pointer-events: none;
+}
+#top #header.mode-off .mode-btn-area {
+  display: block;
+  visibility: visible;
+  pointer-events: auto;
+}
+#top .openbtn.mode-off {
+  display: none !important;
   opacity: 0;
-  display: inline-block;
-  position: absolute;
-  bottom: 11vmax;
-  transform: translateY(10px);
-  white-space: nowrap;
-  animation-delay: 2s;
-  animation: scrollFadeIn 2s ease forwards;
+  pointer-events: none;
+}
+#top .page-top {
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 2000;
 }
 @media screen and (max-width: 1024px) {
+  #top {
+    /* wrapper を縦並びに */
+    /* 動画は 85dvh */
+    /* scroll-down は動画の直下 15dvh（左右中央） */
+    /* タイトルコンテナ：
+       TB/SP では「scroll → h1」の順に見えるように column-reverse */
+    /* OFF：hand / text の位置補正（TB） */
+    /* フォーム幅 */
+  }
+  #top #wrapper {
+    flex-direction: column;
+    width: 100%;
+  }
+  #top #fixed-area {
+    width: 100%;
+    height: 85dvh;
+    padding: 0;
+  }
+  #top #fixed-area video {
+    border-radius: 0;
+    -o-object-position: 41%;
+       object-position: 41%;
+  }
   #top .scroll-container {
     position: relative;
-    padding-top: 1vh;
-    bottom: 5%;
-    text-align: center;
-  }
-}
-@keyframes scrollFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@media screen and (max-width: 1024px) {
-  #top .mode-off .scroll-container {
-    position: relative;
-    bottom: 53%;
-  }
-}
-#top .scroll-down {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  font-family: serif;
-  color: #424040;
-  font-size: 14px;
-  text-decoration: none;
-}
-@media screen and (max-width: 1024px) {
-  #top .scroll-down {
-    position: relative;
-    left: auto;
-    transform: none;
-    display: inline-block;
-    margin: 0 auto;
-  }
-}
-#top .on_screen .circle-arrow {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #424040;
-  border-radius: 50%;
-  position: relative;
-  margin-bottom: 12px;
-  margin-inline: auto;
-  animation: pulse 2s infinite;
-}
-@media screen and (max-width: 768px) {
-  #top .on_screen .circle-arrow {
-    width: 30px;
-    height: 30px;
-    margin-bottom: 8px;
-  }
-}
-#top .on_screen .circle-arrow::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 10px;
-  height: 10px;
-  border-left: 1px solid #424040;
-  border-bottom: 1px solid #424040;
-  transform: translate(-50%, -50%) rotate(-45deg);
-}
-@media screen and (max-width: 768px) {
-  #top .on_screen .circle-arrow::after {
-    width: 8px;
-    height: 8px;
-  }
-}
-#top .on_screen .scroll-down p {
-  color: #424040;
-}
-#top .off_screen .circle-arrow {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #fff;
-  border-radius: 50%;
-  position: relative;
-  margin-bottom: 12px;
-  margin-inline: auto;
-  animation: pulse 2s infinite;
-}
-@media screen and (max-width: 768px) {
-  #top .off_screen .circle-arrow {
-    width: 30px;
-    height: 30px;
-    margin-bottom: 8px;
-  }
-}
-#top .off_screen .circle-arrow::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 10px;
-  height: 10px;
-  border-left: 1px solid #fff;
-  border-bottom: 1px solid #fff;
-  transform: translate(-50%, -50%) rotate(-45deg);
-}
-@media screen and (max-width: 768px) {
-  #top .off_screen .circle-arrow::after {
-    width: 8px;
-    height: 8px;
-  }
-}
-#top .off_screen .scroll-down p {
-  color: #fff;
-}
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-#top .title-container {
-  position: relative;
-  text-align: center;
-  height: 100vh;
-  box-sizing: border-box;
-}
-@media screen and (max-width: 768px) {
-  #top {
-    /* 小画面では動画を上に、本文は下に回す */
-  }
-  #top .mode-area,
-  #top #fixed-area {
-    position: relative;
     width: 100%;
-    height: 60vh;
-    border-radius: 0;
-    padding: 10px;
+    height: 15dvh;
+    opacity: 1;
+    animation: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -40dvh;
+  }
+  #top .mode-off .scroll-container {
+    top: -16dvh;
+  }
+  #top .title-container {
+    flex-direction: column-reverse;
   }
   #top #container {
-    margin-left: 0;
     width: 100%;
-    padding-top: 0;
   }
-  #top .greeting-container {
-    margin-top: 60px;
+  #top .innerWrap {
+    width: 75%;
+  }
+  #top .off_screen h1 {
+    transform: translateY(-20vh);
+  }
+  #top .off_screen .text-img {
+    position: static;
+    transform: translate(13vw, 35vh);
+    width: 35vmin;
+    bottom: -6%;
   }
   #top .profile-item {
     flex-direction: column;
   }
-  #top .work-item {
-    flex-direction: column;
+  #top .profile-item img {
+    width: 700px;
+    height: 500px;
+    -o-object-position: 50% 75%;
+       object-position: 50% 75%;
+  }
+  #top .profile-item-text {
+    margin-top: 20px;
   }
   #top .work-item-left,
   #top .work-item-right,
@@ -1457,65 +1132,93 @@ footer.pos-left {
   }
   #top input,
   #top textarea {
-    width: 75vw;
-  }
-  #top .mode-off #container {
-    background-color: #7A788A;
-  }
-  #top #mode-toggle {
-    bottom: 20px;
-    width: 120px;
-    height: 36px;
-    font-size: 13px;
+    width: 67vw;
   }
 }
-#top #header.pos-right {
-  right: 50vw;
-  left: auto;
-}
-@media screen and (max-width: 1024px) {
-  #top #header.pos-right {
-    right: 4vw;
+@media screen and (max-width: 768px) {
+  #top {
+    /* OFF 手書き位置（SP） */
+  }
+  #top .off_screen h1 {
+    transform: translateY(-20vh);
+  }
+  #top .off_screen .text-img {
+    position: static;
+    transform: translate(13vw, 35vh);
+    width: 46vmin;
+    bottom: 4%;
+  }
+  #top #container {
+    padding: 0 5vw;
+  }
+  #top .greeting-container {
+    margin-top: 15vh;
+  }
+  #top .greeting-box {
+    transform: translateY(-4vh);
+  }
+  #top .work-container {
+    margin-top: 20vh;
+  }
+  #top .profile-container {
+    margin-top: 20vh;
+    transform: none;
+  }
+  #top .contact-container {
+    margin-top: 15vh;
+    padding-top: 7vh;
+  }
+  #top .work-item,
+  #top .profile-item,
+  #top .about-item-01,
+  #top .about-item-02 {
+    flex-direction: column;
+  }
+  #top .work-item-right {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  #top input,
+  #top textarea {
+    width: 60vw;
+  }
+  #top .off_screen .about-container .about-item-01 img,
+  #top .off_screen .about-container .about-item-02 img {
+    width: 100%;
+    height: auto;
+    position: relative;
+    left: 50%;
+    transform: none;
+  }
+  #top .off_screen .about-container .about-item-01 {
+    margin-bottom: 50px;
+  }
+  #top .off_screen .about-container .about-item-02 p {
+    margin-bottom: 20px;
+  }
+  #top .off_screen .about-container .about-item-01 .about-item-left,
+  #top .off_screen .about-container .about-item-02 .about-item-right {
+    width: 50%;
+  }
+  #top .off_screen .about-container .about-item-01 .about-item-right,
+  #top .off_screen .about-container .about-item-02 .about-item-left {
+    width: 100%;
   }
 }
-#top #header.pos-left {
-  left: -50vw;
-  right: auto;
-}
-@media screen and (max-width: 1024px) {
-  #top #header.pos-left {
-    left: 0vw;
+@media screen and (max-width: 480px) {
+  #top .innerWrap {
+    width: 100%;
   }
-}
-#top #header.pos-left a {
-  color: #fff;
-}
-#top #header.pos-left #g-navi ul {
-  display: none;
-}
-#top .page-top.pos-right {
-  right: 3vw;
-  left: auto;
-}
-#top .page-top.pos-left {
-  left: 3vw;
-  right: auto;
-}
-#top .page-top {
-  cursor: pointer;
-  pointer-events: auto;
-  z-index: 2000;
-}
-#top .openbtn.fadeDown .pos-right {
-  right: auto;
-}
-#top .openbtn.fadeDown.pos-left {
-  display: none;
-  left: 42vw;
-  right: auto;
-}
-#top .openbtn.fadeDown.pos-left span {
-  background-color: #fff;
+  #top .scroll-container {
+    top: -36dvh;
+  }
+  #top .mode-off .scroll-container {
+    top: -12dvh;
+  }
+  #top .off_screen .text-img {
+    width: 55vmin;
+    bottom: 2%;
+  }
 }
 
 /* ==================================================
@@ -1533,7 +1236,7 @@ footer.pos-left {
   #work：全体共通設定
 -----------------------------------------------*/
 #work {
-  background: #E5E0DA;
+  background: #e5e0da;
   color: #424040;
   font-family: "Zen Kaku Gothic New", sans-serif;
   /*-----------------------------------------------
@@ -1728,7 +1431,7 @@ footer.pos-left {
 #work .work-right {
   width: 40%;
   padding: 0 1rem;
-  background: #E5E0DA;
+  background: #e5e0da;
   border-radius: 0.8rem;
   color: #424040;
   overflow-y: auto;

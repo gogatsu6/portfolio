@@ -8,154 +8,162 @@
 // --------------------------------------------------
 // Header
 // --------------------------------------------------
-#header {
+#header{
   position: fixed;
-  width: 50%;
-  transform: translateX(50vw);
-  align-items: center;
-  margin-top: 45px;
-  text-align: center;
-  padding: 0 5vw;
-  z-index: 5;
-  pointer-events: auto;
+    width: 50%;
+    transform: translateX(50vw);
+    align-items: center;
+    margin-top: 45px;
+    text-align: center;
+    padding: 0 5vw;
+    z-index: 10;
+    pointer-events: auto;
 
-  @include respond-max("tb") {
+  @include respond-max('tb') {
     width: 95%;
     transform: translateX(0);
-  }
-
-  &.dnone {
-    opacity: 0;
-    pointer-events: none;
-
-    &.panelactive {
-      opacity: 1;
-      pointer-events: auto;
-
-      @include respond-max("tb") {
-        transform: translateX(50vw);
-      }
     }
-  }
+
+&.dnone{
+  opacity: 0;
+  pointer-events: none;
+
+&.panelactive {
+	opacity: 1;
+  pointer-events: auto;
+  
+     
+  @include respond-max('tb') {
+    transform: translateX(50vw);
+    }
+
+
+
+}
+}
 }
 
 // --------------------------------------------------
 // Navigation
 // --------------------------------------------------
 
+
 #g-navi {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+    align-items: center;
+    justify-content: space-between;
 
-  ul {
-    list-style: none;
+ ul{
+  list-style: none;
     display: flex;
 
-    li {
-      padding-left: 35px;
+  li {
+    padding-left: 35px;
+  
+  a{
+	display: block;
+	text-decoration: none;
+          background:
+      linear-gradient(currentColor 0 0)
+      bottom /var(--d, 0) 1.2px
+      no-repeat;
+        transition:0.3s;
+          margin-bottom: 25px;
+  padding-bottom: 5px;
 
-      a {
-        display: block;
-        text-decoration: none;
-        background: linear-gradient(currentColor 0 0) bottom / var(--d, 0) 1.2px no-repeat;
-        transition: 0.3s;
-        margin-bottom: 25px;
-        padding-bottom: 5px;
-
-        &:hover {
-          --d: 100%;
-        }
-      }
-    }
+    &:hover {
+      --d: 100%;
+          }
   }
+}}
 }
 
-#header.dnone #g-navi {
-  position: fixed;
-  top: 0;
+#header.dnone #g-navi{
+  position:fixed;
+	top: 0;
   left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+	z-index: -1;
+	width:100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
   opacity: 0;
-  transition: opacity 0.4s ease;
+	transition: opacity 0.4s ease;
 }
 
-#header.dnone.panelactive #g-navi {
-  opacity: 1;
-  z-index: 3;
-  background: #eee;
+#header.dnone.panelactive #g-navi{
+	opacity: 1;
+	z-index:3;
+	background:#eee;
   position: relative;
-  width: 40vw;
-  height: 40vh;
-  border-radius: 30px;
-  margin-top: 2%;
+    width: 40vw;
+    height: 40vh;
+    border-radius: 30px;
+    margin-top: 2%;
 
-  @include respond-max("sp") {
+    @include respond-max('sp') {
     width: 90vw;
     height: 40vh;
     transform: translateX(-50vw);
   }
 
-  ul {
-    display: block;
+  ul{
+	display:block;
 
-    @include respond-max("sp") {
-      padding-left: 0;
-    }
+      @include respond-max('sp') {
+        padding-left: 0;
   }
 
-  li {
-    padding-left: 0;
+}
+
+   li {
+        padding-left: 0;
 
     :nth-of-type(1) {
-      padding-top: 30px;
-    }
+	padding-top:30px;
+}
 
     :nth-of-type(3) {
-      padding-top: 30px;
-    }
+	padding-top:30px;
+}
+   
+   a{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    transition: all 0.3s;
+    color: $text-color;
+}
+}
 
-    a {
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: bold;
-      transition: all 0.3s;
-      color: $text-color;
-    }
-  }
-
-  #mode-toggle {
-    display: none;
-  }
+#mode-toggle {
+  display: none;
+}
 }
 
 // --------------------------------------------------
 // Hamburger Button
 // --------------------------------------------------
-.openbtn {
+.openbtn{
   display: block;
-  position: fixed;
-  top: 5vh;
-  right: 4vw;
+	position:fixed;
+	top:5vh;
+	right: 4vw;
   z-index: 2000;
-  cursor: pointer;
-  width: 60px;
-  height: 60px;
-  pointer-events: none;
-  border-radius: 5px;
+	cursor: pointer;
+    width: 60px;
+    height:60px;
+    pointer-events: none;
+	border-radius: 5px;
   opacity: 0;
   background: none;
 
-  &.fadeDown {
-    opacity: 1;
-    pointer-events: auto;
-  }
+&.fadeDown {
+  opacity: 1;
+  pointer-events: auto;
+}
 
   &.active {
     border: 1px solid;
@@ -165,53 +173,48 @@
     height: 45px;
   }
 
-  @include respond-max("sp") {
-    top: 30px;
-  }
+      @include respond-max('sp') {
+      top: 30px;
+    }
 
-  span {
+ span{
     display: inline-block;
-    transition: all 0.4s;
+    transition: all .4s;
     position: absolute;
     left: 14px;
     height: 2px;
     border-radius: 2px;
-    background-color: $text-color;
-    width: 55%;
+	background-color: $text-color;
+  	width: 55%;
   }
 
-  span:nth-of-type(1) {
-    top: 15px;
-  }
-  span:nth-of-type(2) {
-    top: 27px;
-  }
-  span:nth-of-type(3) {
-    top: 39px;
-  }
+ span:nth-of-type(1) {top:15px;}
+ span:nth-of-type(2) {top: 27px;}
+ span:nth-of-type(3) {top:39px;}
 
-  &.active span {
-    background-color: #fff;
-  }
+&.active span {
+  	background-color: #fff;
+}
 
-  &.active span:nth-of-type(1) {
+&.active span:nth-of-type(1) {
     top: 18px;
     left: 13px;
     transform: translateY(4px) rotate(-45deg);
     width: 40%;
-  }
+}
 
-  &.active span:nth-of-type(2) {
-    opacity: 0;
-  }
+&.active span:nth-of-type(2) {
+	opacity: 0;
+}
 
-  &.active span:nth-of-type(3) {
+&.active span:nth-of-type(3){
     top: 30px;
     left: 13px;
-    transform: translateY(-8px) rotate(45deg);
+transform: translateY(-8px) rotate(45deg);
     width: 40%;
-  }
 }
+}
+
 
 // --------------------------------------------------
 // Footer
@@ -235,6 +238,7 @@ footer.pos-left {
   right: auto;
   color: #fff;
 }
+
 
 // --------------------------------------------------
 // Utility
@@ -269,7 +273,7 @@ footer.pos-left {
   display: flex;
   align-items: center;
   justify-content: center;
-  right: 2vw;
+  right: 3vw;
   bottom: 4vh;
   cursor: pointer;
   opacity: 0;
@@ -278,9 +282,8 @@ footer.pos-left {
   background: none;
   letter-spacing: 3px;
   z-index: 2000;
-
-  span::before,
-  span::after {
+ 
+  span::before,span::after {
     position: absolute;
     transform: rotate(-45deg);
     display: block;
@@ -288,20 +291,14 @@ footer.pos-left {
     height: 10px;
     content: "";
     border-width: 1px 1px 0px 0px;
-  }
+}
 
-  span::before {
-    top: -30px;
-    left: 3px;
-  }
-  span::after {
-    top: -20px;
-    left: 3px;
-  }
+span::before { top: -30px; left: 3px; }
+span::after { top: -20px; left: 3px; }
 
-  p {
+p {
     writing-mode: vertical-rl;
-  }
+}
 }
 
 .off_screen .page-top {
@@ -319,3 +316,4 @@ footer.pos-left {
   opacity: 1;
   visibility: visible;
 }
+
