@@ -909,6 +909,7 @@ footer.pos-left {
 #top .contact-warning {
   font-size: clamp(1.2rem, 0.9rem + 0.625vw, 1.4rem);
   margin-bottom: 50px;
+  line-height: 1.5;
 }
 #top .contact-button {
   width: 91.7%;
