@@ -452,7 +452,7 @@ footer.pos-left {
   /* ---- profile ---- */
   /* ---- Contact ---- */
   /* ---------------------------------------------
-     1-8. OFF MODE コンテンツ（hand / text / about）
+     1-8. OFF MODE コンテンツ（ text / about ）
   --------------------------------------------- */
   /* ---------------------------------------------
      1-10. Header & page-top（PC 基準位置）
@@ -923,8 +923,6 @@ footer.pos-left {
 #top .off_screen {
   color: #fff;
   position: relative;
-  /* 手は左から入ってくる */
-  /* --- OFF用 hand（左→右→フェードアウト） --- */
   /* --- OFF用 text-img マスク --- */
 }
 #top .off_screen .title-item-img {
@@ -1063,7 +1061,7 @@ footer.pos-left {
     /* scroll-down は動画の直下 15dvh（左右中央） */
     /* タイトルコンテナ：
        TB/SP では「scroll → h1」の順に見えるように column-reverse */
-    /* OFF：hand / text の位置補正（TB） */
+    /* OFF： text の位置補正（TB） */
     /* フォーム幅 */
   }
   #top #wrapper {

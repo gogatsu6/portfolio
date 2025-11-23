@@ -584,7 +584,7 @@
   }
 
   /* ---------------------------------------------
-     1-8. OFF MODE コンテンツ（hand / text / about）
+     1-8. OFF MODE コンテンツ（ text / about ）
   --------------------------------------------- */
 
   .off_screen {
@@ -606,37 +606,6 @@
       clip-path: inset(0 100% 0 0);
       animation: revealMask 4s ease forwards 0.5s;
     }
-
-    /* 手は左から入ってくる */
-    // .hand-img {
-    //   position: absolute;
-    //   top: 12%;
-    //   left: -30vw;
-    //   width: 45vmin;
-    //   opacity: 0;
-    //   animation: handMove 5s ease forwards;
-    // }
-
-    /* --- OFF用 hand（左→右→フェードアウト） --- */
-    // @keyframes handMove {
-    //   0% {
-    //     transform: translateX(26vw);
-    //     opacity: 0;
-    //   }
-    //   10% {
-    //     opacity: 1;
-    //   }
-    //   60% {
-    //     transform: translateX(50vw);
-    //   }
-    //   80% {
-    //     opacity: 0.9;
-    //   }
-    //   100% {
-    //     transform: translateX(75vw);
-    //     opacity: 0;
-    //   }
-    // }
 
     /* --- OFF用 text-img マスク --- */
     @keyframes revealMask {
@@ -840,7 +809,7 @@
       margin-top: 0px;
     }
 
-    /* OFF：hand / text の位置補正（TB） */
+    /* OFF： text の位置補正（TB） */
     .off_screen {
       h1 {
         transform: translateY(-20vh);
@@ -852,11 +821,6 @@
         width: 35vmin;
         bottom: -6%;
       }
-
-      // .hand-img {
-      //   width: 60vmin;
-      //   top: 18%;
-      // }
     }
 
     .profile-item {
@@ -905,11 +869,6 @@
         width: 46vmin;
         bottom: 4%;
       }
-
-      // .hand-img {
-      //   width: 70vmin;
-      //   top: 25%;
-      // }
     }
 
     #container {
@@ -1001,11 +960,6 @@
         width: 55vmin;
         bottom: 2%;
       }
-
-      // .hand-img {
-      //   width: 80vmin;
-      //   top: 28%;
-      // }
     }
   }
 }
