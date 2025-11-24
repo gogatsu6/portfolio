@@ -927,9 +927,8 @@ footer.pos-left {
   /* --- OFF用 text-img マスク --- */
 }
 #top .off_screen .title-item-img {
-  height: 36%;
+  height: 43%;
   position: absolute;
-  z-index: 10;
   width: 24vmin;
 }
 #top .off_screen .text-img {
