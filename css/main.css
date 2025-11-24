@@ -927,13 +927,15 @@ footer.pos-left {
   /* --- OFF用 text-img マスク --- */
 }
 #top .off_screen .title-item-img {
-  height: 48%;
+  height: 36%;
+  position: absolute;
+  z-index: 10;
+  width: 24vmin;
 }
 #top .off_screen .text-img {
   position: absolute;
-  left: 55%;
+  left: 43%;
   bottom: 8%;
-  width: 28vmin;
   opacity: 1;
   clip-path: inset(0 100% 0 0);
   animation: revealMask 4s ease forwards 0.5s;
@@ -1106,11 +1108,12 @@ footer.pos-left {
   #top .off_screen h1 {
     transform: translateY(-20vh);
   }
-  #top .off_screen .text-img {
+  #top .off_screen .title-item-img {
     position: static;
-    transform: translate(13vw, 39vh);
     width: 35vmin;
-    bottom: -6%;
+  }
+  #top .off_screen .text-img {
+    transform: translate(-6vw, 3vh);
   }
   #top .profile-item {
     flex-direction: column;
@@ -1143,11 +1146,12 @@ footer.pos-left {
   #top .off_screen h1 {
     transform: translateY(-20vh);
   }
-  #top .off_screen .text-img {
+  #top .off_screen .title-item-img {
     position: static;
-    transform: translate(13vw, 35vh);
-    width: 46vmin;
-    bottom: 4%;
+    width: 38vmin;
+  }
+  #top .off_screen .text-img {
+    transform: translate(-5vw, 1vh);
   }
   #top #container {
     padding: 0 5vw;
@@ -1210,9 +1214,12 @@ footer.pos-left {
   #top .innerWrap {
     width: 100%;
   }
+  #top .off_screen .title-item-img {
+    position: static;
+    width: 52vmin;
+  }
   #top .off_screen .text-img {
-    width: 55vmin;
-    bottom: 2%;
+    transform: translate(-11vw, -2vh);
   }
 }
 

@@ -593,16 +593,16 @@
     position: relative;
 
     .title-item-img {
-      // right: -50%;
-      height: 48%;
+      height: 36%;
+      position: absolute;
+      z-index: 10;
+      width: 24vmin;
     }
 
     .text-img {
       position: absolute;
-      left: 55%;
+      left: 43%;
       bottom: 8%;
-      // transform: translateX(-50%);
-      width: 28vmin;
       opacity: 1;
       clip-path: inset(0 100% 0 0);
       animation: revealMask 4s ease forwards 0.5s;
@@ -816,11 +816,13 @@
         transform: translateY(-20vh);
       }
 
-      .text-img {
+      .title-item-img {
         position: static;
-        transform: translate(13vw, 39vh);
         width: 35vmin;
-        bottom: -6%;
+      }
+
+      .text-img {
+        transform: translate(-6vw, 3vh);
       }
     }
 
@@ -864,11 +866,14 @@
       h1 {
         transform: translateY(-20vh);
       }
-      .text-img {
+
+      .title-item-img {
         position: static;
-        transform: translate(13vw, 35vh);
-        width: 46vmin;
-        bottom: 4%;
+        width: 38vmin;
+      }
+
+      .text-img {
+        transform: translate(-5vw, 1vh);
       }
     }
 
@@ -957,9 +962,13 @@
     }
 
     .off_screen {
+      .title-item-img {
+        position: static;
+        width: 52vmin;
+      }
+
       .text-img {
-        width: 55vmin;
-        bottom: 2%;
+        transform: translate(-11vw, -2vh);
       }
     }
   }
