@@ -1218,7 +1218,7 @@ footer.pos-left {
     width: 52vmin;
   }
   #top .off_screen .text-img {
-    transform: translate(-11vw, -2vh);
+    transform: translate(-11vw, 3vh);
   }
 }
 
