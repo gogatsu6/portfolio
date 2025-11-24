@@ -1081,14 +1081,14 @@ footer.pos-left {
   #top .scroll-container {
     position: absolute;
     left: 0;
-    transform: translateY(60px);
+    transform: translateY(70px);
     width: 100%;
     opacity: 1;
     animation: none;
     align-items: center;
   }
   #top .mode-off .scroll-container {
-    top: -3dvh;
+    top: -6dvh;
   }
   #top .title-container {
     flex-direction: column-reverse;

@@ -780,7 +780,7 @@
     .scroll-container {
       position: absolute;
       left: 0;
-      transform: translateY(60px);
+      transform: translateY(70px);
       width: 100%;
       opacity: 1;
       animation: none;
@@ -788,7 +788,7 @@
     }
 
     .mode-off .scroll-container {
-      top: -3dvh;
+      top: -6dvh;
     }
 
     /* タイトルコンテナ：
