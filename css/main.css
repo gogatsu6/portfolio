@@ -1089,7 +1089,7 @@ footer.pos-left {
     align-items: center;
   }
   #top .mode-off .scroll-container {
-    top: -6dvh;
+    top: -4dvh;
   }
   #top .title-container {
     flex-direction: column-reverse;
@@ -1108,7 +1108,7 @@ footer.pos-left {
   }
   #top .off_screen .text-img {
     position: static;
-    transform: translate(13vw, 35vh);
+    transform: translate(13vw, 39vh);
     width: 35vmin;
     bottom: -6%;
   }
