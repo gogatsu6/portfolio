@@ -25,53 +25,84 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    // =====================================================
-    // JSONを元にDOM生成
-    // =====================================================
-    works.forEach((work, index) => {
-      const imgDiv = document.createElement("div");
-      imgDiv.classList.add("work-image");
-      if (index === 0) imgDiv.classList.add("active");
-      imgDiv.id = work.id;
-      imgDiv.innerHTML = `<img src="${work.mainImage}" alt="${work.title}">`;
-      gallery.appendChild(imgDiv);
+// =====================================================
+// JSONを元にDOM生成
+// =====================================================
+works.forEach((work, index) => {
+  const imgDiv = document.createElement("div");
+  imgDiv.classList.add("work-image");
+  if (index === 0) imgDiv.classList.add("active");
+  imgDiv.id = work.id;
+  imgDiv.innerHTML = `<img src="${work.mainImage}" alt="${work.title}">`;
+  gallery.appendChild(imgDiv);
 
-      const li = document.createElement("li");
-      li.classList.add("item", `sort-${work.category}`);
-      if (index === 0) li.classList.add("active");
-      li.dataset.target = work.id;
-      li.innerHTML = `<img src="${work.thumbnail}" alt="${work.title}" class="thumb-img">`;
-      gridEl.appendChild(li);
+  const li = document.createElement("li");
+  li.classList.add("item", `sort-${work.category}`);
+  if (index === 0) li.classList.add("active");
+  li.dataset.target = work.id;
+  li.innerHTML = `<img src="${work.thumbnail}" alt="${work.title}" class="thumb-img">`;
+  gridEl.appendChild(li);
 
-      const textDiv = document.createElement("div");
-      textDiv.classList.add("text-content");
-      if (index === 0) textDiv.classList.add("active");
-      textDiv.dataset.id = work.id;
+  const textDiv = document.createElement("div");
+  textDiv.classList.add("text-content");
+  if (index === 0) textDiv.classList.add("active");
+  textDiv.dataset.id = work.id;
 
-      const descHTML = work.descriptions
-        .map(
-          (desc) => `
-            <div class="description_container">
-              <p class="description_sub-title">${desc.label}</p>
-              <p>${desc.text.replace(/\n/g, '<br>')}</p>
-            </div>
-          `
-        )
-        .join("");
-
-      const linkHtml = work.link
-        ? `<a href="${work.link}" target="_blank" rel="noopener noreferrer"><img src="../work/img/link.png" alt="リンク"></a>`
-        : "";
-
-      textDiv.innerHTML = `
-        <div class="description_title">
-          <h3>${work.title.replace(/\n/g, '<br>')}</h3>
-          ${linkHtml}
+  // --- descriptions（label/text 前提） ---
+  const descHTML = (work.descriptions || [])
+    .filter((desc) => desc && desc.label) // labelがないものは弾く（保険）
+    .map((desc) => {
+      const text = typeof desc.text === "string" ? desc.text : ""; // 保険
+      return `
+        <div class="description_container">
+          <p class="description_sub-title">${desc.label}</p>
+          <p>${text.replace(/\n/g, "<br>")}</p>
         </div>
-        ${descHTML}
       `;
-      detail.appendChild(textDiv);
-    });
+    })
+    .join("");
+
+  // --- PDF補足（work直下の pdfUrl/pdfNote を使う） ---
+let pdfHTML = "";
+
+if (work.pdfNote && work.pdfUrl) {
+  const noteText =
+    typeof work.pdfNote === "string"
+      ? work.pdfNote.replace(/\n/g, "<br>")
+      : "";
+
+  pdfHTML = `
+    <div class="description_container">
+      <p class="description_sub-title">補足資料</p>
+      <p>
+        ${noteText}<br>
+        <a href="${work.pdfUrl}" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           class="pdf-link">
+          商品一覧ページ イメージボード（PDF）
+        </a>
+      </p>
+    </div>
+  `;
+}
+
+  const linkHtml = work.link
+    ? `<a href="${work.link}" target="_blank" rel="noopener noreferrer"><img src="../work/img/link.png" alt="リンク"></a>`
+    : "";
+
+  textDiv.innerHTML = `
+    <div class="description_title">
+      <h3>${work.title.replace(/\n/g, "<br>")}</h3>
+      ${linkHtml}
+    </div>
+    ${descHTML}
+    ${pdfHTML}
+  `;
+
+  detail.appendChild(textDiv);
+});
+
 
     // =====================================================
     // Muuri 初期化／破棄関数

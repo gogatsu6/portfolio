@@ -1663,6 +1663,26 @@ footer.pos-left {
     pointer-events: auto;
   }
 }
+/* -------------------------------------
+        補足資料リンク
+    ------------------------------------- */
+.pdf-link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  color: inherit;
+  transition: opacity 0.2s ease;
+}
+
+.pdf-link:hover {
+  opacity: 0.7;
+}
+
+.pdf-link::after {
+  content: " ↗";
+  font-size: 0.85em;
+}
+
 /* ------------------------------
    4. グローバルレイアウト補助（共通の余白・body制御など）
 ------------------------------ */
