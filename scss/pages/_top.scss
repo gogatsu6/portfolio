@@ -974,12 +974,10 @@
 }
 
 /* ==================================================
-     4. 最少（〜320px）さらに微調整したい場合
+     4. 最少（〜360px）さらに微調整したい場合
   ================================================== */
-@media screen and (max-width: 320px) {
-  .off_screen {
-    .text-img {
-      transform: translate(-11vw, 11vh);
-    }
+@media screen and (max-width: 360px) {
+  #top .off_screen .text-img {
+    transform: translate(-11vw, 12vh);
   }
 }
