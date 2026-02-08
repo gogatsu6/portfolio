@@ -761,8 +761,14 @@ footer.pos-left {
 }
 #top .work-item-right a {
   display: block;
+  margin-inline-end: -32px;
+  padding-inline-end: 32px;
 }
-#top .work-item-right::after {
+#top .more-link {
+  text-align: right;
+  padding-right: 32px;
+}
+#top .more-link a::after {
   content: "＋";
   display: inline-block;
   width: 24px;
@@ -774,12 +780,8 @@ footer.pos-left {
   line-height: 1.55;
   position: absolute;
   right: 0;
-  transform: translateY(-20px);
+  transform: translateY(-3px);
   z-index: -1;
-}
-#top .more-link {
-  text-align: right;
-  padding-right: 32px;
 }
 #top .view-all {
   font-size: clamp(1.4rem, 1.2rem + 0.625vw, 1.6rem);

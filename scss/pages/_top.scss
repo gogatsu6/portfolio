@@ -393,9 +393,16 @@
 
     a {
       display: block;
+      margin-inline-end: -32px;
+      padding-inline-end: 32px;
     }
+  }
 
-    &::after {
+  .more-link {
+    text-align: right;
+    padding-right: 32px;
+
+    a::after {
       content: "＋";
       display: inline-block;
       width: 24px;
@@ -407,14 +414,9 @@
       line-height: 1.55;
       position: absolute;
       right: 0;
-      transform: translateY(-20px);
+      transform: translateY(-3px);
       z-index: -1;
     }
-  }
-
-  .more-link {
-    text-align: right;
-    padding-right: 32px;
   }
 
   .view-all {
