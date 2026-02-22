@@ -1,0 +1,590 @@
+/* _worktop.scss */
+/* Work Top（成長ページ）だけに効かせる：#work + .worktop のスコープで固定 */
+#work {
+    /* ====== 1カラム土台（top.html専用） ====== */
+    .worktop {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 56px 20px 80px;
+    }
+
+    /* innerWrap-work は既存余白がある前提なので、必要ならここで微調整 */
+    .worktop .innerWrap-work {
+        /* padding: 0; */ /* 余白が過剰ならON */
+    }
+
+    /* 主要アンカー：ヘッダーに隠れないように */
+    #overview,
+    #artifacts,
+    #challenges,
+    #initiatives,
+    #outcomes {
+        scroll-margin-top: 80px;
+    }
+
+    /* ====== Breadcrumb ====== */
+    .worktop .breadcrumb ol {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        font-size: 12px;
+        opacity: 0.8;
+        margin-bottom: 50px;
+    }
+
+    .worktop .breadcrumb li::after {
+        content: "›";
+        margin-left: 8px;
+        opacity: 0.6;
+    }
+
+    .worktop .breadcrumb li:last-child::after {
+        content: "";
+    }
+
+    /* ====== Hero Wrap（テキスト + 画像） ====== */
+    .worktop .work-top-hero-wrap {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin: 10px 0 22px; /* 旧 .work-top-hero のmarginをwrap側へ */
+    }
+
+    .worktop .work-top-hero-media {
+        order: -1; // ← これで上に来る
+    }
+
+    /* 左：Hero（テキスト） */
+    .worktop .work-top-hero {
+        margin: 0; /* wrapで管理するのでゼロ */
+    }
+
+    .worktop .work-top-eyebrow {
+        letter-spacing: 0.12em;
+        font-size: 12px;
+        opacity: 0.7;
+        margin-bottom: 6px;
+    }
+
+    .worktop .work-top-title {
+        font-size: 26px;
+        line-height: 1.35;
+        margin-bottom: 20px;
+    }
+
+    .worktop .work-top-lead {
+        line-height: 1.9;
+        margin-bottom: 14px;
+        max-width: 100%;
+    }
+
+    .worktop .work-top-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 36px;
+    }
+
+    .worktop .work-top-tags li {
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+    }
+
+    .worktop .work-top-note {
+        font-size: 12px;
+        opacity: 0.8;
+        margin-top: 8px;
+        line-height: 1.8;
+    }
+
+    /* 右：Hero（画像） */
+    .worktop .work-top-hero-media {
+        margin: 0;
+    }
+
+    .worktop .work-top-hero-media img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 12px; /* 今のカードと合わせる */
+    }
+
+    /* ====== Actions（ボタン） ====== */
+    .worktop .work-top-actions,
+    .worktop .work-top-cta-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+
+    .worktop .work-top-cta-actions02 {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .worktop .work-top-cta-actions03 {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        width: 50%;
+        margin-inline: auto;
+        justify-content: center;
+    }
+
+    .worktop .bottom-line {
+        margin-block-start: 80px;
+    }
+
+    /* 既存workページへの影響を避けるため .worktop 内だけ */
+    .worktop .btn {
+        display: inline-block;
+        padding: 10px 14px;
+        border: 1px solid #3a374d;
+        border-radius: 999px;
+        font-size: 14px;
+        line-height: 1;
+        text-decoration: none;
+        background: #3a374d;
+        color: #fff;
+        cursor: pointer;
+        width: 48%;
+        height: 46px;
+        text-align: center;
+        display: flex;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .worktop .btn:hover {
+        opacity: 0.75;
+    }
+
+    .worktop .btn-sub {
+        opacity: 0.88;
+    }
+
+    .worktop .btn-top {
+        border: 1px solid #3a374d;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: #e5e0da;
+        color: #3a374d;
+    }
+
+    .worktop .btn-works {
+        margin-top: 10px;
+    }
+
+    /* ====== How to Read（丁寧さブロック） ====== */
+    .worktop .work-top-right {
+        margin: 40px 0 60px;
+        padding: 14px 14px;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        border-radius: 12px;
+    }
+
+    .worktop .work-top-right h2 {
+        font-size: 14px;
+        margin-bottom: 8px;
+
+        &::before {
+            content: "▶";
+            margin-inline-end: 10px;
+        }
+    }
+
+    .worktop .work-top-right p {
+        line-height: 1.85;
+        font-size: 13px;
+    }
+
+    .worktop .work-top-right hr {
+        border: none;
+        border-top: 1px solid rgba(0, 0, 0, 0.12);
+        margin: 12px 0;
+    }
+
+    .worktop .work-top-right h3 {
+        font-size: 13px;
+        margin: 0 0 6px;
+    }
+
+    .worktop .work-top-quick {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .worktop .work-top-quick a {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+
+    .worktop .work-top-right-note {
+        font-size: 12px;
+        opacity: 0.85;
+        line-height: 1.8;
+    }
+
+    /* ====== Sections ====== */
+    .worktop .work-top-section {
+        margin: 48px 0;
+    }
+
+    .worktop .work-top-section > h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .worktop .work-top-list {
+        margin-left: 10px;
+        padding-inline: 20px;
+    }
+
+    .worktop .work-top-list li {
+        font-size: 18px;
+        line-height: 1.6;
+        margin-inline: 10px;
+        margin-bottom: 16px;
+        list-style-type: auto;
+    }
+
+    /* ====== Summary ====== */
+    .worktop .work-top-summary {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px 10px;
+        padding: 26px;
+        border: 3px solid rgba(0, 0, 0, 0.12);
+        border-radius: 12px;
+    }
+
+    .worktop .work-top-summary dt {
+        font-size: 12px;
+        opacity: 0.75;
+    }
+
+    .sumary02,
+    .sumary03,
+    .sumary04 {
+        border-top: 1px dotted #424040;
+        padding: 10px;
+        width: 98%;
+    }
+
+    .worktop .work-top-summary dd {
+        margin-top: 2px;
+        line-height: 1.8;
+        margin-left: 20px;
+
+        li:before {
+            content: "●";
+            font-size: 10px;
+            margin-right: 10px;
+            vertical-align: 3px;
+        }
+    }
+
+    // hospital-case用
+
+    .worktop .overview .section-title {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .overview-box {
+        border: 3px solid rgba(0, 0, 0, 0.12);
+        border-radius: 12px;
+        overflow: hidden; // 罫線はみ出し防止
+        background: transparent;
+        margin-top: 10px;
+    }
+
+    .ov-row {
+        position: relative;
+        padding: 22px 26px;
+
+        // 横罫（段の区切り）
+        & + & {
+            border-top: 1px solid rgba(66, 64, 64, 0.25);
+        }
+    }
+
+    // 2列比率を「全段」で揃える（ここがズレると読みにくい）
+    .ov-row--two {
+        display: grid;
+        grid-template-columns: 50% 50%; // 好みで 50/50 でもOK
+        // column-gap: 28px;
+    }
+
+    .ov-row--last {
+        position: relative;
+        padding-top: 28px;
+        padding-bottom: 28px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            height: 1px;
+            background: rgba(66, 64, 64, 0.18);
+        }
+    }
+
+    // 各セル
+    .ov-cell {
+        min-width: 0;
+    }
+
+    .ov-label {
+        font-size: 0.88rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        margin-bottom: 10px;
+        opacity: 0.85;
+    }
+
+    .ov-value {
+        padding-inline: 20px;
+    }
+
+    .ov-list {
+        margin: 0;
+        padding-inline: 10px;
+        line-height: 1.6;
+
+        li:before {
+            content: "●";
+            font-size: 10px;
+            margin-right: 10px;
+            vertical-align: 3px;
+        }
+
+        li + li {
+            margin-top: 2px;
+        }
+    }
+
+    .ov-list-small-circle {
+        margin: 0;
+        padding-inline: 10px;
+        line-height: 1.6;
+
+        li:before {
+            content: "●";
+            font-size: 5px;
+            margin-right: 10px;
+            vertical-align: 3px;
+        }
+    }
+
+    // 3段目右を空にしても“枠の2列感”は維持
+    .ov-cell--empty {
+        // 何も入れない場合の高さ崩れを防ぐなら最小高さだけ
+        min-height: 1px;
+    }
+
+    /* -------------------------
+   2段目だけ：左右が独立じゃなく「続いて見える」工夫
+   ・縦仕切りは入れるが、上下に余白（切れ目）を作って“完全分離”に見せない
+   ------------------------- */
+    .ov-row--connected {
+        // うっすら縦仕切り（上下に余白を残す＝繋がってる感）
+        &::before {
+            content: "";
+            position: absolute;
+            top: 18px; // ←上を少し空ける
+            bottom: 18px; // ←下も少し空ける
+            left: 47%; // ←gridの左カラム比率と合わせる
+            transform: translateX(14px); // column-gapの半分くらいに合わせて微調整
+            width: 1px;
+            background: rgba(66, 64, 64, 0.12);
+            pointer-events: none;
+        }
+
+        // 「続き」を感じるために、仕切りの上部に“ブリッジ”を置く（任意）
+        // 文字でも線でもOK。これは線の例。
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            height: 1px;
+            background: rgba(66, 64, 64, 0.18);
+            pointer-events: none;
+        }
+    }
+
+    /* SP：1列にして自然に流す（比率ズレ問題も消える） */
+    @media (max-width: 768px) {
+        .ov-row {
+            padding: 18px 16px;
+        }
+
+        .ov-row--two {
+            grid-template-columns: 1fr;
+            row-gap: 18px;
+        }
+
+        .ov-row--connected::before {
+            display: none;
+        }
+
+        .worktop .btn {
+            width: 80%;
+        }
+
+        .worktop .work-top-actions,
+        .worktop .work-top-cta-actions03 {
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            gap: 20px;
+        }
+    }
+
+    /* ====== Cards（施策） ====== */
+    .worktop .work-top-cards {
+        display: grid;
+        gap: 12px;
+    }
+
+    .worktop .work-top-card {
+        padding: 16px;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        border-radius: 12px;
+    }
+
+    .worktop .work-top-card h4 {
+        font-size: 15px;
+        margin-bottom: 8px;
+        text-align: center;
+        border-bottom: 1px dotted #424040;
+        padding-bottom: 10px;
+    }
+
+    .worktop .card-in {
+        margin-top: 30px;
+
+        &:last-child {
+            margin-bottom: 20px;
+        }
+    }
+
+    .worktop .card-in h5 {
+        margin-bottom: 10px;
+    }
+
+    .worktop .work-top-card li {
+        line-height: 1.6;
+        margin-bottom: 4px;
+        padding-inline: 10px;
+
+        &:before {
+            content: "●";
+            font-size: 10px;
+            margin-right: 10px;
+            vertical-align: 3px;
+        }
+    }
+
+    /* ====== Two columns（成果と学び） ====== */
+    .worktop .work-top-two-col {
+        display: grid;
+        gap: 12px;
+    }
+
+    .work-result {
+        line-height: 2;
+        padding-inline: 10px;
+        margin-top: 20px;
+    }
+
+    .worktop .work-top-box {
+        padding: 16px;
+        border: 1px solid #3a374d;
+        border-radius: 12px;
+
+        ul {
+            margin-top: 20px;
+        }
+
+        li {
+            line-height: 1.6;
+            margin-bottom: 4px;
+            padding-inline: 10px;
+        }
+
+        li:before {
+            content: "●";
+            font-size: 10px;
+            margin-right: 10px;
+            vertical-align: 3px;
+        }
+    }
+
+    .worktop .work-top-box h4 {
+        font-size: 15px;
+        margin-bottom: 8px;
+        text-align: center;
+        border-bottom: 1px dotted #424040;
+        padding-bottom: 10px;
+    }
+
+    /* ====== Responsive ====== */
+    @media (min-width: 900px) {
+        .worktop {
+            padding: 64px 20px 90px;
+        }
+
+        /* PCは左右2カラム */
+        .worktop .work-top-hero-wrap {
+            grid-template-columns: 1.05fr 0.95fr; /* 左を少し広め（文章多い想定） */
+            gap: 28px;
+            align-items: start;
+        }
+
+        .worktop .work-top-lead {
+            max-width: 62ch;
+        }
+
+        .worktop .work-top-hero-media {
+            order: 0;
+        }
+
+        /* 画像を少し下げて“黄色枠感”の位置に寄せたいなら */
+        .worktop .work-top-hero-media {
+            margin-top: 6px;
+        }
+
+        .worktop .work-top-summary {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .sumary02 {
+            display: none;
+        }
+
+        .worktop .work-top-cards {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .worktop .work-top-two-col {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}

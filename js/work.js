@@ -1,5 +1,6 @@
-// ===================================================== 
+// =====================================================
 //  work.js — Muuri＋スマホ横スクロール＋暴走防止＋高さリセット＋スマホソート対応版（停止後ゆっくりループ）＋ハッシュ自動オープン
+//  ✅ 追加：data-case によるケース別フィルタ（hospital / ecommerce）
 // =====================================================
 
 $(window).off('scroll');
@@ -10,9 +11,25 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     const response = await fetch("../work/data/works.json");
     const jsonData = await response.json();
-    const works = jsonData.works;
 
-    console.log("✅ JSON 読み込み成功", works);
+    // =====================================================
+    // ✅ ここが今回の要：ページに応じて works を絞り込む
+    // - body[data-case="hospital"] → hospital だけ
+    // - body[data-case="ecommerce"] → ecommerce だけ
+    // - data-case が無い → 全件表示（/work/index.html 想定）
+    // =====================================================
+    const allWorks = Array.isArray(jsonData.works) ? jsonData.works : [];
+
+    const caseKeyRaw = document.body?.dataset?.case || "";
+    const caseKey = String(caseKeyRaw).trim(); // "hospital" | "ecommerce" | ""（全体）
+
+    const works = caseKey
+      ? allWorks.filter(w => w && w.case === caseKey)
+      : allWorks;
+
+    console.log("✅ JSON 読み込み成功（allWorks）", allWorks);
+    console.log("✅ caseKey:", caseKey || "(all)");
+    console.log("✅ 表示対象 works:", works);
 
     const gallery = document.getElementById("work-gallery");
     const detail = document.getElementById("work-detail");
@@ -25,84 +42,92 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-// =====================================================
-// JSONを元にDOM生成
-// =====================================================
-works.forEach((work, index) => {
-  const imgDiv = document.createElement("div");
-  imgDiv.classList.add("work-image");
-  if (index === 0) imgDiv.classList.add("active");
-  imgDiv.id = work.id;
-  imgDiv.innerHTML = `<img src="${work.mainImage}" alt="${work.title}">`;
-  gallery.appendChild(imgDiv);
+    // =====================================================
+    // ✅ 0件のときの保険（caseKeyが間違ってる等）
+    // =====================================================
+    if (works.length === 0) {
+      console.warn("⚠ 表示対象の作品が0件です。data-case と JSON の case を確認してね。");
+      // 0件でも落ちないようにここで終了（必要ならメッセージ表示に置換OK）
+      return;
+    }
 
-  const li = document.createElement("li");
-  li.classList.add("item", `sort-${work.category}`);
-  if (index === 0) li.classList.add("active");
-  li.dataset.target = work.id;
-  li.innerHTML = `<img src="${work.thumbnail}" alt="${work.title}" class="thumb-img">`;
-  gridEl.appendChild(li);
+    // =====================================================
+    // JSONを元にDOM生成（※ここからは「フィルタ済み works」を使う）
+    // =====================================================
+    works.forEach((work, index) => {
+      const imgDiv = document.createElement("div");
+      imgDiv.classList.add("work-image");
+      if (index === 0) imgDiv.classList.add("active");
+      imgDiv.id = work.id;
+      imgDiv.innerHTML = `<img src="${work.mainImage}" alt="${work.title}">`;
+      gallery.appendChild(imgDiv);
 
-  const textDiv = document.createElement("div");
-  textDiv.classList.add("text-content");
-  if (index === 0) textDiv.classList.add("active");
-  textDiv.dataset.id = work.id;
+      const li = document.createElement("li");
+      li.classList.add("item", `sort-${work.category}`);
+      if (index === 0) li.classList.add("active");
+      li.dataset.target = work.id;
+      li.innerHTML = `<img src="${work.thumbnail}" alt="${work.title}" class="thumb-img">`;
+      gridEl.appendChild(li);
 
-  // --- descriptions（label/text 前提） ---
-  const descHTML = (work.descriptions || [])
-    .filter((desc) => desc && desc.label) // labelがないものは弾く（保険）
-    .map((desc) => {
-      const text = typeof desc.text === "string" ? desc.text : ""; // 保険
-      return `
-        <div class="description_container">
-          <p class="description_sub-title">${desc.label}</p>
-          <p>${text.replace(/\n/g, "<br>")}</p>
+      const textDiv = document.createElement("div");
+      textDiv.classList.add("text-content");
+      if (index === 0) textDiv.classList.add("active");
+      textDiv.dataset.id = work.id;
+
+      // --- descriptions（label/text 前提） ---
+      const descHTML = (work.descriptions || [])
+        .filter((desc) => desc && desc.label) // labelがないものは弾く（保険）
+        .map((desc) => {
+          const text = typeof desc.text === "string" ? desc.text : ""; // 保険
+          return `
+            <div class="description_container">
+              <p class="description_sub-title">${desc.label}</p>
+              <p>${text.replace(/\n/g, "<br>")}</p>
+            </div>
+          `;
+        })
+        .join("");
+
+      // --- PDF補足（work直下の pdfUrl/pdfNote を使う） ---
+      let pdfHTML = "";
+
+      if (work.pdfNote && work.pdfUrl) {
+        const noteText =
+          typeof work.pdfNote === "string"
+            ? work.pdfNote.replace(/\n/g, "<br>")
+            : "";
+
+        pdfHTML = `
+          <div class="description_container">
+            <p class="description_sub-title">補足資料</p>
+            <p>
+              ${noteText}<br>
+              <a href="${work.pdfUrl}" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 class="pdf-link">
+                商品一覧ページ イメージボード（PDF）
+              </a>
+            </p>
+          </div>
+        `;
+      }
+
+      const linkHtml = work.link
+        ? `<a href="${work.link}" target="_blank" rel="noopener noreferrer"><img src="../work/img/link.png" alt="リンク"></a>`
+        : "";
+
+      textDiv.innerHTML = `
+        <div class="description_title">
+          <h3>${String(work.title || "").replace(/\n/g, "<br>")}</h3>
+          ${linkHtml}
         </div>
+        ${descHTML}
+        ${pdfHTML}
       `;
-    })
-    .join("");
 
-  // --- PDF補足（work直下の pdfUrl/pdfNote を使う） ---
-let pdfHTML = "";
-
-if (work.pdfNote && work.pdfUrl) {
-  const noteText =
-    typeof work.pdfNote === "string"
-      ? work.pdfNote.replace(/\n/g, "<br>")
-      : "";
-
-  pdfHTML = `
-    <div class="description_container">
-      <p class="description_sub-title">補足資料</p>
-      <p>
-        ${noteText}<br>
-        <a href="${work.pdfUrl}" 
-           target="_blank" 
-           rel="noopener noreferrer"
-           class="pdf-link">
-          商品一覧ページ イメージボード（PDF）
-        </a>
-      </p>
-    </div>
-  `;
-}
-
-  const linkHtml = work.link
-    ? `<a href="${work.link}" target="_blank" rel="noopener noreferrer"><img src="../work/img/link.png" alt="リンク"></a>`
-    : "";
-
-  textDiv.innerHTML = `
-    <div class="description_title">
-      <h3>${work.title.replace(/\n/g, "<br>")}</h3>
-      ${linkHtml}
-    </div>
-    ${descHTML}
-    ${pdfHTML}
-  `;
-
-  detail.appendChild(textDiv);
-});
-
+      detail.appendChild(textDiv);
+    });
 
     // =====================================================
     // Muuri 初期化／破棄関数
@@ -136,6 +161,12 @@ if (work.pdfNote && work.pdfUrl) {
     // =====================================================
     const allImages = gridEl.querySelectorAll("img");
     let loadedCount = 0;
+
+    // 画像が0枚の時の保険
+    if (allImages.length === 0) {
+      console.warn("⚠ grid 内に画像がありません。");
+    }
+
     allImages.forEach((img) => {
       img.addEventListener("load", () => {
         loadedCount++;
@@ -196,6 +227,7 @@ if (work.pdfNote && work.pdfUrl) {
 
     // =====================================================
     //  ハッシュから該当作品を自動オープン！
+    //  ※ caseKeyで絞り込んだ結果、そのIDが存在しない場合は何もしない
     // =====================================================
     const handleHashOpen = () => {
       const hash = window.location.hash.replace("#", "");
@@ -204,7 +236,7 @@ if (work.pdfNote && work.pdfUrl) {
       setTimeout(() => {
         const targetThumb = document.querySelector(`.item[data-target="${hash}"]`);
         if (!targetThumb) {
-          console.warn("⚠ 該当作品が見つかない:", hash);
+          console.warn("⚠ 該当作品が見つかない（このページのフィルタ範囲外かも）:", hash);
           return;
         }
 

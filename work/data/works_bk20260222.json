@@ -5,7 +5,6 @@
       "id": "work1",
       "category": "web",
       "title": "大西皮フ科形成外科医院 様 \nドクターズコスメ公式サイト 改修（複数ページ）",
-      "case": "ecommerce",
       "thumbnail": "./img/32.png",
       "mainImage": "./img/32.png",
       "link": "https://www.onishiskinclinic.com/drs_cosme/index.html",
@@ -16,7 +15,7 @@
       "descriptions": [
         {
       "label": "※補足※",
-      "text": "作成が出来次第、随時公開する体制をとっており、一部のページでは旧デザインが残っています。本ページでは、改修方針と設計内容を中心に掲載しています。"
+      "text": "現在、実サイトへの反映はCMS側作業進行中のため、公開中のページは旧デザインとなっています。本ページでは、改修方針と設計内容を中心に掲載しています。"
     },
         {
           "label": "制作目的",
@@ -50,7 +49,6 @@
       "id": "work2",
       "category": "web",
       "title": "自主制作 \nポートフォリオサイト",
-      "case": "other",
       "thumbnail": "./img/31.png",
       "mainImage": "./img/31.png",
       "link": "https://gogatsu6.github.io/portfolio/index.html",
@@ -86,7 +84,6 @@
       "id": "work3",
       "category": "web",
       "title": "大西皮フ科形成外科医院 様 \n採用サイトTOPのみ",
-      "case": "other",
       "thumbnail": "./img/01.png",
       "mainImage": "./img/01.png",
       "link": "https://onishiskinclinic-recruit.com/index.html",
@@ -122,7 +119,6 @@
       "id": "work4",
       "category": "web",
       "title": "自主制作 \nバレンタイン 特集LP（製作途中）",
-      "case": "other",
       "thumbnail": "./img/33.png",
       "mainImage": "./img/33.png",
       "link": "https://gogatsu6.github.io/portfolio/work/img/valentine.pdf",
@@ -154,266 +150,10 @@
       ]
     },
 
-    {
-  "id": "work5",
-  "category": "web",
-  "title": "大西皮フ科形成外科医院 様 \n各院ごとのTOP・配下ページ作成",
-  "case": "hospital",
-  "thumbnail": "./img/34.jpg",
-  "mainImage": "./img/34.jpg",
-  "link": "https://www.onishiskinclinic.com/kawaramachi/index.html",
-  "descriptions": [
-    {
-      "label": "制作目的",
-      "text": "分院展開（河原町院OPEN）に伴い、各院ごとに独立した情報設計を行い、地域検索流入の拡張と来院導線の明確化を目的に制作。新店舗告知も兼ね、既存サイト構造を再整理しました。"
-    },
-    {
-      "label": "担当範囲",
-      "text": "各院TOP構成設計 / 配下ページ設計（院紹介・アクセス・施術一覧など）/ ライティング / デザイン / コーディング"
-    },
-    {
-      "label": "意識した点 / 工夫した点",
-      "text": "・地域×施術キーワードを意識した構造設計\n・本院との関係性を整理しつつ、各院の特徴が伝わる情報配置\n・OPEN告知としての役割も担うため、視認性と信頼感を重視\n・検索流入後に迷わず予約・アクセス情報へ辿り着ける導線設計"
-    },
-    {
-      "label": "使用ツール・技術",
-      "text": "HTML / CSS / Photoshop / VS Code"
-    },
-    {
-      "label": "成果",
-      "text": "各院単位での検索流入に対応できる基盤を構築。特に京都エリアでの地域検索流入拡張に寄与し、分院展開後の来院導線を整備しました。"
-    },
-    {
-      "label": "制作期間",
-      "text": "約1か月（各院TOPおよび配下ページ一式）"
-    }
-  ]
-},
-
-{
-  "id": "work6",
-  "category": "web",
-  "title": "大西皮フ科形成外科医院 様 \nネット予約説明ページ整備・UI実装",
-  "case": "hospital",
-  "thumbnail": "./img/35.jpg",
-  "mainImage": "./img/35.jpg",
-  "link": "",
-  "descriptions": [
-    {
-      "label": "制作目的",
-      "text": "ネット予約導入に伴い、初回利用者が迷わず手続きを進められるよう、説明ページの整備とUI実装を目的に制作。既存方針に基づき、予約導線の視認性と理解促進を担う役割を担当。"
-    },
-    {
-      "label": "担当範囲",
-      "text": "情報整理 / UIデザイン / コーディング / ページ整備"
-    },
-    {
-      "label": "意識した点 / 工夫した点",
-      "text": "・スマホ閲覧を前提に、固定表示される予約ボタンとの整合性を意識。\n・初回利用時の手順をステップ形式で整理し、視覚的に理解しやすい構成に。\n・既存導線方針を踏まえ、UIの可読性・操作性を改善。\n・院内掲示や紙案内との内容差異が出ないよう情報を統一。"
-    },
-    {
-      "label": "使用ツール・技術",
-      "text": "HTML / CSS / Photoshop / VS Code"
-    },
-    {
-      "label": "成果",
-      "text": "ネット予約利用者が初回手順を理解しやすいページを整備し、導入時の混乱を抑制。オンライン予約への移行を支えるUI基盤を構築。"
-    },
-    {
-      "label": "制作期間",
-      "text": "約2週間"
-    }
-  ]
-},
-
-{
-  "id": "work7",
-  "category": "web",
-  "title": "大西皮フ科形成外科医院 様 \n施術ページの新規作成（京都配下）",
-  "case": "hospital",
-  "thumbnail": "./img/29.png",
-  "mainImage": "./img/29.png",
-  "link": "https://www.onishiskinclinic.com/kyoto/nikibi_treatment/potenza/index.html",
-  "descriptions": [
-    {
-      "label": "制作目的",
-      "text": "京都エリアで検索ボリュームの高い新導入施術について、地域×施術キーワードでの流入獲得を目的に、京都ページ配下で新規作成。検索ニーズに合わせた構造設計を行いました。"
-    },
-    {
-      "label": "担当範囲",
-      "text": "構成設計 / 情報設計 / デザイン / コーディング"
-    },
-    {
-      "label": "意識した点 / 工夫した点",
-      "text": "・地域検索を意識し、京都配下に階層設計\n・治療の流れ・効果・適応症例を優先配置し、初見でも理解できる構成\n・薬剤や施術バリエーションは視覚的に整理\n・類似施術との比較表を設け、検討段階の不安を解消"
-    },
-    {
-      "label": "使用ツール・技術",
-      "text": "HTML / CSS / Photoshop / VS Code"
-    },
-    {
-      "label": "成果",
-      "text": "京都×施術キーワードでの検索流入獲得に寄与。地域別流入拡張の施策の一部として継続的なアクセス基盤を構築しました。"
-    },
-    {
-      "label": "制作期間",
-      "text": "約2週間"
-    }
-  ]
-},
-
-            {
-      "id": "work8",
-      "category": "web",
-      "title": "大西皮フ科形成外科医院 様 \n施術ページの新規作成(病院サイト・エステサイト)＆POP作成",
-      "case": "hospital",
-      "thumbnail": "./img/27.png",
-      "mainImage": "./img/27.png",
-      "link": "https://www.onishiskinclinic.com/menu_list/antiaging/pink_peel/index.html",
-      "descriptions": [
-        {
-          "label": "制作目的",
-          "text": "新規施術導入にあたり、Webと紙媒体を横断して 情報の統一・理解促進 を行うための制作。"
-        },
-        {
-          "label": "担当範囲",
-          "text": "情報整理 / Webページ構成 / デザイン / コーディング / POP制作"
-        },
-        {
-          "label": "意識した点 / 工夫した点",
-          "text": "・施術内容が直感的に理解できるよう、専門用語の出し方と情報量を調整。\n・Webと紙で役割を分け、同じ情報でも伝え方を最適化。\n・運用更新を想定し、デザインの属人化を避けた構成を意識。"
-        },
-        {
-          "label": "使用ツール・技術",
-          "text": "HTML / CSS / Photoshop / VS Code"
-        },
-        {
-          "label": "成果",
-          "text": "Web・紙を一気通貫で設計することで、施術理解と院内外での施術のイメージを統一。"
-        },
-        {
-          "label": "制作期間",
-          "text": "1か月"
-        }
-      ]
-    },
-
-
-                 {
-      "id": "work9",
-      "category": "web",
-      "title": "大西皮フ科形成外科医院 様 \nバナー＆POPUP設定コーディング",
-      "case": "other",
-      "thumbnail": "./img/17.png",
-      "mainImage": "./img/17.png",
-      "link": "https://onishiskinclinic-recruit.com/recruit/therapist.html",
-      "descriptions": [
-        {
-          "label": "制作目的",
-          "text": "既存サイトの構成を崩さず、キャンペーン訴求を強化するためのUI改善施策として実施。"
-        },
-        {
-          "label": "担当範囲",
-          "text": "バナーデザイン / POPUP設計 / コーディング"
-        },
-        {
-          "label": "意識した点 / 工夫した点",
-          "text": "・既存JSとの干渉を避けた実装。\n・表示タイミング・頻度を考慮し、UXを損なわない導線設計。\n・一時的な施策でも再利用しやすい構造を意識"
-        },
-        {
-          "label": "使用ツール・技術",
-          "text": "HTML / CSS / JavaScript / Photoshop / VS Code"
-        },
-        {
-          "label": "成果",
-          "text": "サイト全体のUXを損なわずに訴求導線を追加し、運用側で調整しやすい実装を実現。"
-        },
-        {
-          "label": "制作期間",
-          "text": "1日"
-        }
-      ]
-    },
-
-            {
-      "id": "work10",
-      "category": "web",
-      "title": "自主制作 電子マンガのLP",
-      "case": "other",
-      "thumbnail": "./img/06.png",
-      "mainImage": "./img/06.png",
-      "link": "https://gogatsu6.github.io/lp-manga01.2025_07/index.html",
-      "descriptions": [
-        {
-          "label": "制作目的",
-          "text": "エンタメ系サービスを想定し、コンテンツ訴求型LPのUI設計を学習目的で自主制作。"
-        },
-        {
-          "label": "担当範囲",
-          "text": "構成設計 / 画像選定 / デザイン / コーディング"
-        },
-        {
-          "label": "意識した点 / 工夫した点",
-          "text": "・視線誘導を意識したレイアウトとCTA配置。\n・原作の雰囲気や話の流れを壊さないように画像を配置。\n・スマホ閲覧時の操作性を重視。"
-        },
-        {
-          "label": "使用ツール・技術",
-          "text": "HTML / CSS / JavaScript / Photoshop / VS Code"
-        },
-        {
-          "label": "狙いたい成果",
-          "text": "読者層の拡大と、コンテンツへの関心を高めること。"
-        },
-        {
-          "label": "制作期間",
-          "text": "1か月"
-        }
-      ]
-    },
-
-{
-  "id": "work11",
-  "category": "oh",
-  "title": "大西皮フ科形成外科医院 様 \nモール販路の整備（楽天市場）",
-  "case": "ecommerce",
-  "thumbnail": "./img/36.jpg",
-  "mainImage": "./img/36.jpg",
-  "link": "https://www.rakuten.co.jp/onishicosme/",
-  "descriptions": [
-    {
-      "label": "制作目的",
-      "text": "自社ECサイトに加え、新規顧客接点の拡大を目的として楽天市場へ出店。ブランドイメージを維持しながら、モール特有の構造に最適化したショップ設計・ビジュアル整備を行った。"
-    },
-    {
-      "label": "担当範囲",
-      "text": "情報設計 / 店舗基本設定 / 商品登録 / ショップページデザイン / バナー制作"
-    },
-    {
-      "label": "意識した点 / 工夫した点",
-      "text": "・楽天市場のUI構造を前提とし、第一印象で信頼感が伝わるビジュアル設計\n・スマートフォン閲覧を最優先に、文字量・余白・視認性を最適化\n・公式サイトとのブランドトーン統一"
-    },
-    {
-      "label": "使用ツール・技術",
-      "text": "Photoshop / 既存CMS（楽天RMS）"
-    },
-    {
-      "label": "成果",
-      "text": "モール経由の新規流入チャネルを確立。自社ECとの併用により販路を拡張し、EC全体の売上成長基盤の一端を構築。ブランドイメージを維持したままモール展開を実現した。"
-    },
-    {
-      "label": "制作期間",
-      "text": "1週間"
-    }
-  ]
-},
-
-
-
                 {
-      "id": "work12",
+      "id": "work5",
       "category": "web",
       "title": "大西皮フ科形成外科医院 様 \n施術ページのTOP修正と下層の新規作成\n(当院人気の部位の4ページ分)",
-      "case": "hospital",
       "thumbnail": "./img/28.png",
       "mainImage": "./img/28.png",
       "link": "https://www.onishiskinclinic.com/menu_list/diet/index.html",
@@ -446,11 +186,221 @@
     },
 
 
+            {
+      "id": "work6",
+      "category": "web",
+      "title": "大西皮フ科形成外科医院 様 \n施術ページの新規作成(2サイト分)＆POP作成",
+      "thumbnail": "./img/27.png",
+      "mainImage": "./img/27.png",
+      "link": "https://www.onishiskinclinic.com/menu_list/antiaging/pink_peel/index.html",
+      "descriptions": [
+        {
+          "label": "制作目的",
+          "text": "新規施術導入にあたり、Webと紙媒体を横断して 情報の統一・理解促進 を行うための制作。"
+        },
+        {
+          "label": "担当範囲",
+          "text": "情報整理 / Webページ構成 / デザイン / コーディング / POP制作"
+        },
+        {
+          "label": "意識した点 / 工夫した点",
+          "text": "・施術内容が直感的に理解できるよう、専門用語の出し方と情報量を調整。\n・Webと紙で役割を分け、同じ情報でも伝え方を最適化。\n・運用更新を想定し、デザインの属人化を避けた構成を意識。"
+        },
+        {
+          "label": "使用ツール・技術",
+          "text": "HTML / CSS / Photoshop / VS Code"
+        },
+        {
+          "label": "成果",
+          "text": "Web・紙を一気通貫で設計することで、施術理解と院内外での施術のイメージを統一。"
+        },
+        {
+          "label": "制作期間",
+          "text": "1か月"
+        }
+      ]
+    },
+
+            {
+      "id": "work7",
+      "category": "web",
+      "title": "大西皮フ科形成外科医院 様 \n施術ページの新規作成(2サイト分)",
+      "thumbnail": "./img/29.png",
+      "mainImage": "./img/29.png",
+      "link": "https://www.onishiskinclinic.com/kyoto/nikibi_treatment/potenza/index.html",
+      "descriptions": [
+        {
+          "label": "制作目的",
+          "text": "キーワードボリュームが多い新導入施術について、SEOを意識した情報整理とページ新規作成を目的に制作。"
+        },
+        {
+          "label": "担当範囲",
+          "text": "構成設計 / デザイン / コーディング"
+        },
+        {
+          "label": "意識した点 / 工夫した点",
+          "text": "・新施術のため治療詳細を優先的に配置。\n・ユーザーが気になる薬剤についても、効果を視認しやすいように配置。\n・似ている別治療との違いが一目でわかるように比較表を作成。"
+        },
+        {
+          "label": "使用ツール・技術",
+          "text": "HTML / CSS / JavaScript / Photoshop / VS Code"
+        },
+        {
+          "label": "成果",
+          "text": "新規ページとして継続的な流入を獲得。"
+        },
+        {
+          "label": "制作期間",
+          "text": "2週間"
+        }
+      ]
+    },
+
+                 {
+      "id": "work8",
+      "category": "web",
+      "title": "大西皮フ科形成外科医院 様 \nバナー＆POPUP設定コーディング",
+      "thumbnail": "./img/17.png",
+      "mainImage": "./img/17.png",
+      "link": "https://onishiskinclinic-recruit.com/recruit/therapist.html",
+      "descriptions": [
+        {
+          "label": "制作目的",
+          "text": "既存サイトの構成を崩さず、キャンペーン訴求を強化するためのUI改善施策として実施。"
+        },
+        {
+          "label": "担当範囲",
+          "text": "バナーデザイン / POPUP設計 / コーディング"
+        },
+        {
+          "label": "意識した点 / 工夫した点",
+          "text": "・既存JSとの干渉を避けた実装。\n・表示タイミング・頻度を考慮し、UXを損なわない導線設計。\n・一時的な施策でも再利用しやすい構造を意識"
+        },
+        {
+          "label": "使用ツール・技術",
+          "text": "HTML / CSS / JavaScript / Photoshop / VS Code"
+        },
+        {
+          "label": "成果",
+          "text": "サイト全体のUXを損なわずに訴求導線を追加し、運用側で調整しやすい実装を実現。"
+        },
+        {
+          "label": "制作期間",
+          "text": "1日"
+        }
+      ]
+    },
+
+            {
+      "id": "work9",
+      "category": "web",
+      "title": "自主制作 電子マンガのLP",
+      "thumbnail": "./img/06.png",
+      "mainImage": "./img/06.png",
+      "link": "https://gogatsu6.github.io/lp-manga01.2025_07/index.html",
+      "descriptions": [
+        {
+          "label": "制作目的",
+          "text": "エンタメ系サービスを想定し、コンテンツ訴求型LPのUI設計を学習目的で自主制作。"
+        },
+        {
+          "label": "担当範囲",
+          "text": "構成設計 / 画像選定 / デザイン / コーディング"
+        },
+        {
+          "label": "意識した点 / 工夫した点",
+          "text": "・視線誘導を意識したレイアウトとCTA配置。\n・原作の雰囲気や話の流れを壊さないように画像を配置。\n・スマホ閲覧時の操作性を重視。"
+        },
+        {
+          "label": "使用ツール・技術",
+          "text": "HTML / CSS / JavaScript / Photoshop / VS Code"
+        },
+        {
+          "label": "狙いたい成果",
+          "text": "読者層の拡大と、コンテンツへの関心を高めること。"
+        },
+        {
+          "label": "制作期間",
+          "text": "1か月"
+        }
+      ]
+    },
+
+            {
+      "id": "work10",
+      "category": "oh",
+      "title": "大西皮フ科形成外科医院 様 \n採用サイトのバナー",
+      "thumbnail": "./img/05.jpg",
+      "mainImage": "./img/05.jpg",
+      "link": "",
+      "descriptions": [
+        {
+          "label": "制作目的",
+          "text": "病院ページ内での注目度向上と、求職者の行動喚起を目的としたバナー制作。"
+        },
+        {
+          "label": "担当範囲",
+          "text": "バナーデザイン / コーディング"
+        },
+        {
+          "label": "意識した点 / 工夫した点",
+          "text": "・求職者視点で「気になる情報」が瞬時に伝わる文言設計。\n・サイト全体のトーンを崩さない色使い・レイアウト。\n・求人だけでなく開院情報も告知。"
+        },
+        {
+          "label": "使用ツール・技術",
+          "text": "html / css / Photoshop / VS Code"
+        },
+        {
+          "label": "成果",
+          "text": "採用導線の視認性を高め、既存ページ構成を変えずに訴求力を補強。"
+        },
+        {
+          "label": "制作期間",
+          "text": "1週間"
+        }
+      ]
+    },
+
+                            {
+      "id": "work11",
+      "category": "oh",
+      "title": "大西皮フ科形成外科医院 様 \n施術バナー",
+      "thumbnail": "./img/15.jpg",
+      "mainImage": "./img/15.jpg",
+      "link": "",
+      "descriptions": [
+        {
+          "label": "制作目的",
+          "text": "新施術への導線強化として、別ページに誘導するバナーを制作。"
+        },
+        {
+          "label": "担当範囲",
+          "text": "バナーデザイン / コーディング"
+        },
+        {
+          "label": "意識した点 / 工夫した点",
+          "text": "・施術名・効果・金額を明快に表示。\n・施術の特性をバナーに反映させて“水”感を演出。\n・写真をメインにして“施術の雰囲気”を瞬時に伝える。"
+        },
+        {
+          "label": "使用ツール・技術",
+          "text": "Photoshop / VS Code"
+        },
+        {
+          "label": "成果",
+          "text": "施術ページへの誘導を強化し、認知拡大と理解促進に寄与。"
+        },
+        {
+          "label": "制作期間",
+          "text": "1日"
+        }
+      ]
+    },
+
+
                       {
-      "id": "work13",
+      "id": "work12",
       "category": "oh",
       "title": "大西皮フ科形成外科医院 様 \nLINE用の商品紹介バナー",
-      "case": "ecommerce",
       "thumbnail": "./img/18.png",
       "mainImage": "./img/18.png",
       "link": "",
@@ -482,12 +432,10 @@
       ]
     },
 
-
                 {
-      "id": "work14",
+      "id": "work13",
       "category": "oh",
       "title": "大西皮フ科形成外科医院 様 \n隔週のメールマガジン",
-      "case": "ecommerce",
       "thumbnail": "./img/26.png",
       "mainImage": "./img/26.png",
       "link": "https://gogatsu6.github.io/portfolio/work/img/lotion.pdf",
@@ -520,10 +468,9 @@
     },
 
             {
-      "id": "work15",
+      "id": "work14",
       "category": "oh",
       "title": "大西皮フ科形成外科医院 様 \n隔週のメールマガジン",
-      "case": "ecommerce",
       "thumbnail": "./img/25.png",
       "mainImage": "./img/25.png",
       "link": "https://gogatsu6.github.io/portfolio/work/img/supplement.pdf",
@@ -555,11 +502,45 @@
       ]
     },
 
+            {
+      "id": "work15",
+      "category": "pa",
+      "title": "大西皮フ科形成外科医院 様 \n治療用の資料作成",
+      "thumbnail": "./img/30.jpg",
+      "mainImage": "./img/30.jpg",
+      "link": "",
+      "descriptions": [
+        {
+          "label": "制作目的",
+          "text": "患者説明や院内共有を目的とした、視覚的に理解しやすい治療資料の作成。"
+        },
+        {
+          "label": "担当範囲",
+          "text": "情報整理 / ライティング / デザイン / 印刷入稿"
+        },
+        {
+          "label": "意識した点 / 工夫した点",
+          "text": "・専門知識がない人でも理解できる構成。\n・説明時に使いやすい情報量とレイアウト。\n・更新・差し替えを前提としたデザイン設計。"
+        },
+        {
+          "label": "使用ツール・技術",
+          "text": "Photoshop / Illustrator"
+        },
+        {
+          "label": "成果",
+          "text": "説明補助として活用しやすい資料を整備し、スタッフ間での情報共有を円滑化。"
+        },
+        {
+          "label": "制作期間",
+          "text": "2週間"
+        }
+      ]
+    },
+
         {
       "id": "work16",
       "category": "pa",
       "title": "大西皮フ科形成外科医院 様 \nオリジナルコスメの同梱物［表裏］",
-      "case": "ecommerce",
       "thumbnail": "./img/07.png",
       "mainImage": "./img/07.png",
       "link": "",
@@ -596,7 +577,6 @@
       "id": "work17",
       "category": "pa",
       "title": "大西皮フ科形成外科医院 様 \nオリジナルコスメの同梱物",
-      "case": "ecommerce",
       "thumbnail": "./img/21.png",
       "mainImage": "./img/21.png",
       "link": "",
@@ -632,7 +612,6 @@
       "id": "work18",
       "category": "pa",
       "title": "大西皮フ科形成外科医院 様 \nオリジナルコスメの同梱物",
-      "case": "ecommerce",
       "thumbnail": "./img/22.png",
       "mainImage": "./img/22.png",
       "link": "",
@@ -668,7 +647,6 @@
       "id": "work19",
       "category": "pa",
       "title": "大西皮フ科形成外科医院 様 \nオリジナルコスメの同梱物",
-      "case": "ecommerce",
       "thumbnail": "./img/23.png",
       "mainImage": "./img/23.png",
       "link": "",
@@ -705,7 +683,6 @@
       "id": "work20",
       "category": "pa",
       "title": "大西皮フ科形成外科医院 様 \nキャンペーンPOP",
-      "case": "hospital",
       "thumbnail": "./img/03.jpg",
       "mainImage": "./img/03.jpg",
       "link": "",
@@ -741,7 +718,6 @@
       "id": "work21",
       "category": "pa",
       "title": "大西皮フ科形成外科医院 様 \nキャンペーンPOP",
-      "case": "hospital",
       "thumbnail": "./img/04.jpg",
       "mainImage": "./img/04.jpg",
       "link": "",
@@ -777,7 +753,6 @@
       "id": "work22",
       "category": "pa",
       "title": "大西皮フ科形成外科医院 様 \nキャンペーンPOP",
-      "case": "hospital",
       "thumbnail": "./img/10.jpg",
       "mainImage": "./img/10.jpg",
       "link": "",
@@ -813,7 +788,6 @@
       "id": "work23",
       "category": "pa",
       "title": "大西皮フ科形成外科医院 様 \nキャンペーンPOP",
-      "case": "hospital",
       "thumbnail": "./img/11.jpg",
       "mainImage": "./img/11.jpg",
       "link": "",
@@ -849,7 +823,6 @@
       "id": "work24",
       "category": "pa",
       "title": "大西皮フ科形成外科医院 様 \nキャンペーンPOP",
-      "case": "hospital",
       "thumbnail": "./img/02.jpg",
       "mainImage": "./img/02.jpg",
       "link": "https://onishiskinclinic-recruit.com/index.html",
@@ -885,7 +858,6 @@
       "id": "work25",
       "category": "pa",
       "title": "大西皮フ科形成外科医院 様 \nキャンペーンPOP",
-      "case": "hospital",
       "thumbnail": "./img/12.jpg",
       "mainImage": "./img/12.jpg",
       "link": "",
@@ -921,7 +893,6 @@
       "id": "work26",
       "category": "pa",
       "title": "大西皮フ科形成外科医院 様 \nキャンペーンPOP",
-      "case": "hospital",
       "thumbnail": "./img/16.jpg",
       "mainImage": "./img/16.jpg",
       "link": "",
@@ -957,7 +928,6 @@
       "id": "work27",
       "category": "pa",
       "title": "大西皮フ科形成外科医院 様 \nキャンペーンPOP",
-      "case": "hospital",
       "thumbnail": "./img/20.jpg",
       "mainImage": "./img/20.jpg",
       "link": "",
@@ -994,7 +964,6 @@
       "id": "work28",
       "category": "pa",
       "title": "大西皮フ科形成外科医院 様 \nキャンペーンPOP",
-      "case": "hospital",
       "thumbnail": "./img/09.jpg",
       "mainImage": "./img/09.jpg",
       "link": "",
@@ -1024,119 +993,7 @@
           "text": "2日～3日"
         }
       ]
-    },
-
-
-                            {
-      "id": "work29",
-      "category": "oh",
-      "title": "大西皮フ科形成外科医院 様 \n施術バナー",
-      "case": "hospital",
-      "thumbnail": "./img/15.jpg",
-      "mainImage": "./img/15.jpg",
-      "link": "",
-      "descriptions": [
-        {
-          "label": "制作目的",
-          "text": "新施術への導線強化として、別ページに誘導するバナーを制作。"
-        },
-        {
-          "label": "担当範囲",
-          "text": "バナーデザイン / コーディング"
-        },
-        {
-          "label": "意識した点 / 工夫した点",
-          "text": "・施術名・効果・金額を明快に表示。\n・施術の特性をバナーに反映させて“水”感を演出。\n・写真をメインにして“施術の雰囲気”を瞬時に伝える。"
-        },
-        {
-          "label": "使用ツール・技術",
-          "text": "Photoshop / VS Code"
-        },
-        {
-          "label": "成果",
-          "text": "施術ページへの誘導を強化し、認知拡大と理解促進に寄与。"
-        },
-        {
-          "label": "制作期間",
-          "text": "1日"
-        }
-      ]
-    },
-
-                {
-      "id": "work30",
-      "category": "pa",
-      "title": "大西皮フ科形成外科医院 様 \n治療用の資料作成",
-      "case": "hospital",
-      "thumbnail": "./img/30.jpg",
-      "mainImage": "./img/30.jpg",
-      "link": "",
-      "descriptions": [
-        {
-          "label": "制作目的",
-          "text": "患者説明や院内共有を目的とした、視覚的に理解しやすい治療資料の作成。"
-        },
-        {
-          "label": "担当範囲",
-          "text": "情報整理 / ライティング / デザイン / 印刷入稿"
-        },
-        {
-          "label": "意識した点 / 工夫した点",
-          "text": "・専門知識がない人でも理解できる構成。\n・説明時に使いやすい情報量とレイアウト。\n・更新・差し替えを前提としたデザイン設計。"
-        },
-        {
-          "label": "使用ツール・技術",
-          "text": "Photoshop / Illustrator"
-        },
-        {
-          "label": "成果",
-          "text": "説明補助として活用しやすい資料を整備し、スタッフ間での情報共有を円滑化。"
-        },
-        {
-          "label": "制作期間",
-          "text": "2週間"
-        }
-      ]
-    },
-
-                {
-      "id": "work31",
-      "category": "oh",
-      "title": "大西皮フ科形成外科医院 様 \n採用サイトのバナー",
-      "case": "other",
-      "thumbnail": "./img/05.jpg",
-      "mainImage": "./img/05.jpg",
-      "link": "",
-      "descriptions": [
-        {
-          "label": "制作目的",
-          "text": "病院ページ内での注目度向上と、求職者の行動喚起を目的としたバナー制作。"
-        },
-        {
-          "label": "担当範囲",
-          "text": "バナーデザイン / コーディング"
-        },
-        {
-          "label": "意識した点 / 工夫した点",
-          "text": "・求職者視点で「気になる情報」が瞬時に伝わる文言設計。\n・サイト全体のトーンを崩さない色使い・レイアウト。\n・求人だけでなく開院情報も告知。"
-        },
-        {
-          "label": "使用ツール・技術",
-          "text": "html / css / Photoshop / VS Code"
-        },
-        {
-          "label": "成果",
-          "text": "採用導線の視認性を高め、既存ページ構成を変えずに訴求力を補強。"
-        },
-        {
-          "label": "制作期間",
-          "text": "1週間"
-        }
-      ]
     }
-
-
-
 
   ]
 }

@@ -426,48 +426,6 @@ footer.pos-left {
   /* ---------------------------------------------
      1-1. wrapper：左右2カラム（PC基準）
   --------------------------------------------- */
-  /* ---------------------------------------------
-     1-2. 左：動画エリア（PC 固定 50%）
-  --------------------------------------------- */
-  /* ---------------------------------------------
-     1-3. 右：コンテンツエリア（PC 固定 50%）
-  --------------------------------------------- */
-  /* ---------------------------------------------
-     1-4. タイトル & Scroll-down（PC）
-  --------------------------------------------- */
-  /* Scroll-down */
-  /* ON/OFF 色切り替え */
-  /* ---------------------------------------------
-     1-5. ON / OFF 切替表示
-  --------------------------------------------- */
-  /* ---------------------------------------------
-     1-6. モード切替ボタン
-  --------------------------------------------- */
-  /* ====== アニメーション（共通） ====== */
-  /* ---------------------------------------------
-     1-7. ON MODE 共通コンテンツ
-     （greeting / work / profile / contact）
-  --------------------------------------------- */
-  /* ---- work ---- */
-  /* ---- profile ---- */
-  /* ---- Contact ---- */
-  /* ---------------------------------------------
-     1-8. OFF MODE コンテンツ（ text / about ）
-  --------------------------------------------- */
-  /* ---------------------------------------------
-     1-10. Header & page-top（PC 基準位置）
-  --------------------------------------------- */
-  /* ==================================================
-     2. Tablet 以下（〜tb：1024px）
-     動画 85dvh → scroll 15dvh → タイトル → 本文
-  ================================================== */
-  /* ==================================================
-     3. Smartphone 以下（〜sp：768px）
-     さらに余白・サイズ微調整
-  ================================================== */
-  /* ==================================================
-     4. mini（〜480px）さらに微調整したい場合
-  ================================================== */
 }
 #top #wrapper {
   display: flex;
@@ -484,6 +442,11 @@ footer.pos-left {
 #top #wrapper.mode-off {
   background-color: #7a788a;
   color: #fff;
+}
+#top {
+  /* ---------------------------------------------
+     1-2. 左：動画エリア（PC 固定 50%）
+  --------------------------------------------- */
 }
 #top #fixed-area {
   position: sticky;
@@ -504,6 +467,11 @@ footer.pos-left {
   border-radius: 10px;
   display: block;
 }
+#top {
+  /* ---------------------------------------------
+     1-3. 右：コンテンツエリア（PC 固定 50%）
+  --------------------------------------------- */
+}
 #top #container {
   width: 50%;
   background-color: inherit;
@@ -514,6 +482,11 @@ footer.pos-left {
 #top .innerWrap {
   width: 100%;
   padding: 0 4vw;
+}
+#top {
+  /* ---------------------------------------------
+     1-4. タイトル & Scroll-down（PC）
+  --------------------------------------------- */
 }
 #top .title-container {
   height: 100vh;
@@ -533,6 +506,9 @@ footer.pos-left {
   z-index: 5;
   transform: translateY(20px);
   transition: 0.8s ease, transform 0.8s ease;
+}
+#top {
+  /* Scroll-down */
 }
 #top .scroll-container {
   opacity: 0;
@@ -557,6 +533,9 @@ footer.pos-left {
 }
 #top .scroll-down p {
   margin-top: 15px;
+}
+#top {
+  /* ON/OFF 色切り替え */
 }
 #top .on_screen .circle-arrow {
   width: 40px;
@@ -609,6 +588,11 @@ footer.pos-left {
     transform: scale(1);
   }
 }
+#top {
+  /* ---------------------------------------------
+     1-5. ON / OFF 切替表示
+  --------------------------------------------- */
+}
 #top .on_screen,
 #top .off_screen {
   display: none;
@@ -625,6 +609,11 @@ footer.pos-left {
   opacity: 1;
   pointer-events: auto;
 }
+#top {
+  /* ---------------------------------------------
+     1-6. モード切替ボタン
+  --------------------------------------------- */
+}
 #top #mode-toggle {
   position: relative;
   width: 120px;
@@ -638,7 +627,6 @@ footer.pos-left {
   top: -15px;
   transition: background-color 0.3s ease, color 0.3s ease;
   /* ====== アニメーション背景（共通） ====== */
-  /* ====== ON / OFF 色だけ切替 ====== */
 }
 #top #mode-toggle::before, #top #mode-toggle::after {
   content: "";
@@ -653,6 +641,9 @@ footer.pos-left {
 }
 #top #mode-toggle::after {
   animation: anime 2s ease-out 1s infinite;
+}
+#top #mode-toggle {
+  /* ====== ON / OFF 色だけ切替 ====== */
 }
 #top #mode-toggle.mode-on {
   color: #fff;
@@ -671,6 +662,9 @@ footer.pos-left {
   background: #5a576b;
   border: 1px solid #5a576b;
 }
+#top {
+  /* ====== アニメーション（共通） ====== */
+}
 @keyframes anime {
   0% {
     transform: scale(0.75);
@@ -683,6 +677,12 @@ footer.pos-left {
     transform: scale(1.2, 1.5);
     opacity: 0;
   }
+}
+#top {
+  /* ---------------------------------------------
+     1-7. ON MODE 共通コンテンツ
+     （greeting / work / profile / contact）
+  --------------------------------------------- */
 }
 #top .on_screen h2 {
   font-size: clamp(1.8rem, 1.6rem + 0.625vw, 2.4rem);
@@ -723,12 +723,16 @@ footer.pos-left {
     width: 40vmin;
   }
 }
+#top {
+  /* ---- work ---- */
+}
 #top h3 {
   border-bottom: 1px solid #424040;
   font-size: clamp(1.4rem, 1.2rem + 0.625vw, 1.6rem);
   width: 100%;
   padding-bottom: 10px;
   font-weight: bold;
+  line-height: 1.8;
 }
 #top .work-container {
   position: relative;
@@ -806,6 +810,9 @@ footer.pos-left {
   text-decoration: none;
   transition: all 0.3s ease;
 }
+#top {
+  /* ---- profile ---- */
+}
 #top h4 {
   display: flex;
   border: 1px solid #424040;
@@ -869,6 +876,9 @@ footer.pos-left {
   line-height: 1.4;
   margin-bottom: 8px;
 }
+#top {
+  /* ---- Contact ---- */
+}
 #top .contact-container {
   position: relative;
   margin-top: 300px;
@@ -928,10 +938,14 @@ footer.pos-left {
   letter-spacing: 5.2px;
   color: #fff;
 }
+#top {
+  /* ---------------------------------------------
+     1-8. OFF MODE コンテンツ（ text / about ）
+  --------------------------------------------- */
+}
 #top .off_screen {
   color: #fff;
   position: relative;
-  /* --- OFF用 text-img マスク --- */
 }
 #top .off_screen .title-item-img {
   height: 43%;
@@ -945,6 +959,9 @@ footer.pos-left {
   opacity: 1;
   clip-path: inset(0 100% 0 0);
   animation: revealMask 4s ease forwards 0.5s;
+}
+#top .off_screen {
+  /* --- OFF用 text-img マスク --- */
 }
 @keyframes revealMask {
   0% {
@@ -1043,6 +1060,11 @@ footer.pos-left {
   transform: translateY(20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
+#top {
+  /* ---------------------------------------------
+     1-10. Header & page-top（PC 基準位置）
+  --------------------------------------------- */
+}
 #top #header.mode-off nav,
 #top #header.mode-off #g-navi {
   visibility: hidden;
@@ -1063,19 +1085,22 @@ footer.pos-left {
   pointer-events: auto;
   z-index: 2000;
 }
+#top {
+  /* ==================================================
+     2. Tablet 以下（〜tb：1024px）
+     動画 85dvh → scroll 15dvh → タイトル → 本文
+  ================================================== */
+}
 @media screen and (max-width: 1024px) {
   #top {
     /* wrapper を縦並びに */
-    /* 動画は 85dvh */
-    /* scroll-down は動画の直下 15dvh（左右中央） */
-    /* タイトルコンテナ：
-       TB/SP では「scroll → h1」の順に見えるように column-reverse */
-    /* OFF： text の位置補正（TB） */
-    /* フォーム幅 */
   }
   #top #wrapper {
     flex-direction: column;
     width: 100%;
+  }
+  #top {
+    /* 動画は 85dvh */
   }
   #top #fixed-area {
     width: 100%;
@@ -1086,6 +1111,9 @@ footer.pos-left {
     border-radius: 0;
     -o-object-position: 41%;
        object-position: 41%;
+  }
+  #top {
+    /* scroll-down は動画の直下 15dvh（左右中央） */
   }
   #top .scroll-container {
     position: absolute;
@@ -1099,6 +1127,10 @@ footer.pos-left {
   #top .mode-off .scroll-container {
     top: -4dvh;
   }
+  #top {
+    /* タイトルコンテナ：
+       TB/SP では「scroll → h1」の順に見えるように column-reverse */
+  }
   #top .title-container {
     flex-direction: column-reverse;
   }
@@ -1110,6 +1142,9 @@ footer.pos-left {
   }
   #top .greeting-container {
     margin-top: 0px;
+  }
+  #top {
+    /* OFF： text の位置補正（TB） */
   }
   #top .off_screen h1 {
     transform: translateY(-20vh);
@@ -1137,10 +1172,19 @@ footer.pos-left {
     width: 100%;
     padding: 0;
   }
+  #top {
+    /* フォーム幅 */
+  }
   #top input,
   #top textarea {
     width: 67vw;
   }
+}
+#top {
+  /* ==================================================
+     3. Smartphone 以下（〜sp：768px）
+     さらに余白・サイズ微調整
+  ================================================== */
 }
 @media screen and (max-width: 768px) {
   #top {
@@ -1213,6 +1257,11 @@ footer.pos-left {
     width: 100%;
   }
 }
+#top {
+  /* ==================================================
+     4. mini（〜480px）さらに微調整したい場合
+  ================================================== */
+}
 @media screen and (max-width: 480px) {
   #top .innerWrap {
     width: 100%;
@@ -1252,24 +1301,35 @@ footer.pos-left {
   background: #e5e0da;
   color: #424040;
   font-family: "Zen Kaku Gothic New", sans-serif;
-  /*-----------------------------------------------
-    ページ全体（左右レイアウト）
-  -----------------------------------------------*/
-  /*-----------------------------------------------
-    左カラム（ギャラリー）
-  -----------------------------------------------*/
-  /*-----------------------------------------------
-    右カラム（説明エリア）
-  -----------------------------------------------*/
-  /*-----------------------------------------------
-    アニメーション
-  -----------------------------------------------*/
 }
 @media screen and (max-width: 1024px) {
   #work #header {
     width: 95%;
-    transform: translateX(50vw);
   }
+}
+#work {
+  /* ====== Breadcrumb ====== */
+}
+#work .breadcrumb ol {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  opacity: 0.8;
+  margin-bottom: 50px;
+}
+#work .breadcrumb li::after {
+  content: "›";
+  margin-left: 8px;
+  opacity: 0.6;
+}
+#work .breadcrumb li:last-child::after {
+  content: "";
+}
+#work {
+  /*-----------------------------------------------
+    ページ全体（左右レイアウト）
+  -----------------------------------------------*/
 }
 #work .work-wrapper {
   display: flex;
@@ -1289,6 +1349,11 @@ footer.pos-left {
     gap: 40px;
   }
 }
+#work {
+  /*-----------------------------------------------
+    左カラム（ギャラリー）
+  -----------------------------------------------*/
+}
 #work .work-left {
   width: 60%;
 }
@@ -1304,12 +1369,6 @@ footer.pos-left {
   flex-direction: column;
   flex-wrap: nowrap;
   margin: 0 auto;
-  /*-----------------------------------------------
-    メインビジュアル
-  -----------------------------------------------*/
-  /*-----------------------------------------------
-    サムネイル + ソートエリア
-  -----------------------------------------------*/
 }
 #work .work-left .innerWrap-work h1 {
   font-family: "Baskervville", serif;
@@ -1326,6 +1385,11 @@ footer.pos-left {
     transform: translateY(10px);
     margin-top: 10px;
   }
+}
+#work .work-left .innerWrap-work {
+  /*-----------------------------------------------
+    メインビジュアル
+  -----------------------------------------------*/
 }
 #work .work-left .innerWrap-work .work-left-gallery {
   position: relative;
@@ -1351,13 +1415,16 @@ footer.pos-left {
      object-fit: cover;
   display: block;
 }
+#work .work-left .innerWrap-work {
+  /*-----------------------------------------------
+    サムネイル + ソートエリア
+  -----------------------------------------------*/
+}
 #work .work-left .innerWrap-work .thumbnail-area {
   margin-top: 10px;
   text-align: left;
   position: relative;
   /* --- ソートボタン --- */
-  /* --- Muuri本体 --- */
-  /* --- Muuriアイテム --- */
 }
 #work .work-left .innerWrap-work .thumbnail-area .sort-btn {
   display: flex;
@@ -1394,6 +1461,9 @@ footer.pos-left {
 #work .work-left .innerWrap-work .thumbnail-area .sort-btn li:last-child::after {
   display: none;
 }
+#work .work-left .innerWrap-work .thumbnail-area {
+  /* --- Muuri本体 --- */
+}
 #work .work-left .innerWrap-work .thumbnail-area .grid {
   position: relative;
   display: block;
@@ -1402,6 +1472,9 @@ footer.pos-left {
   padding: 0;
   list-style: none;
   min-height: 100px;
+}
+#work .work-left .innerWrap-work .thumbnail-area {
+  /* --- Muuriアイテム --- */
 }
 #work .work-left .innerWrap-work .thumbnail-area .item {
   position: absolute;
@@ -1440,6 +1513,11 @@ footer.pos-left {
   opacity: 0 !important;
   pointer-events: none;
   transform: scale(0.8) !important;
+}
+#work {
+  /*-----------------------------------------------
+    右カラム（説明エリア）
+  -----------------------------------------------*/
 }
 #work .work-right {
   width: 40%;
@@ -1520,6 +1598,11 @@ footer.pos-left {
   width: 75%;
   line-height: 1.8;
   letter-spacing: 1.6px;
+}
+#work {
+  /*-----------------------------------------------
+    アニメーション
+  -----------------------------------------------*/
 }
 @keyframes fadeIn {
   from {
@@ -1693,6 +1776,530 @@ footer.pos-left {
 .pdf-link::after {
   content: " ↗";
   font-size: 0.85em;
+}
+
+/* _worktop.scss */
+/* Work Top（成長ページ）だけに効かせる：#work + .worktop のスコープで固定 */
+#work {
+  /* ====== 1カラム土台（top.html専用） ====== */
+}
+#work .worktop {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 56px 20px 80px;
+}
+#work {
+  /* innerWrap-work は既存余白がある前提なので、必要ならここで微調整 */
+}
+#work .worktop .innerWrap-work {
+  /* padding: 0; */ /* 余白が過剰ならON */
+}
+#work {
+  /* 主要アンカー：ヘッダーに隠れないように */
+}
+#work #overview,
+#work #artifacts,
+#work #challenges,
+#work #initiatives,
+#work #outcomes {
+  scroll-margin-top: 80px;
+}
+#work {
+  /* ====== Breadcrumb ====== */
+}
+#work .worktop .breadcrumb ol {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  opacity: 0.8;
+  margin-bottom: 50px;
+}
+#work .worktop .breadcrumb li::after {
+  content: "›";
+  margin-left: 8px;
+  opacity: 0.6;
+}
+#work .worktop .breadcrumb li:last-child::after {
+  content: "";
+}
+#work {
+  /* ====== Hero Wrap（テキスト + 画像） ====== */
+}
+#work .worktop .work-top-hero-wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 10px 0 22px; /* 旧 .work-top-hero のmarginをwrap側へ */
+}
+#work .worktop .work-top-hero-media {
+  order: -1;
+}
+#work {
+  /* 左：Hero（テキスト） */
+}
+#work .worktop .work-top-hero {
+  margin: 0; /* wrapで管理するのでゼロ */
+}
+#work .worktop .work-top-eyebrow {
+  letter-spacing: 0.12em;
+  font-size: 12px;
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+#work .worktop .work-top-title {
+  font-size: 26px;
+  line-height: 1.35;
+  margin-bottom: 20px;
+}
+#work .worktop .work-top-lead {
+  line-height: 1.9;
+  margin-bottom: 14px;
+  max-width: 100%;
+}
+#work .worktop .work-top-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 36px;
+}
+#work .worktop .work-top-tags li {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+#work .worktop .work-top-note {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 8px;
+  line-height: 1.8;
+}
+#work {
+  /* 右：Hero（画像） */
+}
+#work .worktop .work-top-hero-media {
+  margin: 0;
+}
+#work .worktop .work-top-hero-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px; /* 今のカードと合わせる */
+}
+#work {
+  /* ====== Actions（ボタン） ====== */
+}
+#work .worktop .work-top-actions,
+#work .worktop .work-top-cta-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+#work .worktop .work-top-cta-actions02 {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  flex-direction: column;
+  align-items: center;
+}
+#work .worktop .work-top-cta-actions03 {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  width: 50%;
+  margin-inline: auto;
+  justify-content: center;
+}
+#work .worktop .bottom-line {
+  margin-block-start: 80px;
+}
+#work {
+  /* 既存workページへの影響を避けるため .worktop 内だけ */
+}
+#work .worktop .btn {
+  display: inline-block;
+  padding: 10px 14px;
+  border: 1px solid #3a374d;
+  border-radius: 999px;
+  font-size: 14px;
+  line-height: 1;
+  text-decoration: none;
+  background: #3a374d;
+  color: #fff;
+  cursor: pointer;
+  width: 48%;
+  height: 46px;
+  text-align: center;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+#work .worktop .btn:hover {
+  opacity: 0.75;
+}
+#work .worktop .btn-sub {
+  opacity: 0.88;
+}
+#work .worktop .btn-top {
+  border: 1px solid #3a374d;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #e5e0da;
+  color: #3a374d;
+}
+#work .worktop .btn-works {
+  margin-top: 10px;
+}
+#work {
+  /* ====== How to Read（丁寧さブロック） ====== */
+}
+#work .worktop .work-top-right {
+  margin: 40px 0 60px;
+  padding: 14px 14px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+}
+#work .worktop .work-top-right h2 {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+#work .worktop .work-top-right h2::before {
+  content: "▶";
+  margin-inline-end: 10px;
+}
+#work .worktop .work-top-right p {
+  line-height: 1.85;
+  font-size: 13px;
+}
+#work .worktop .work-top-right hr {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  margin: 12px 0;
+}
+#work .worktop .work-top-right h3 {
+  font-size: 13px;
+  margin: 0 0 6px;
+}
+#work .worktop .work-top-quick {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+#work .worktop .work-top-quick a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+#work .worktop .work-top-right-note {
+  font-size: 12px;
+  opacity: 0.85;
+  line-height: 1.8;
+}
+#work {
+  /* ====== Sections ====== */
+}
+#work .worktop .work-top-section {
+  margin: 48px 0;
+}
+#work .worktop .work-top-section > h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+#work .worktop .work-top-list {
+  margin-left: 10px;
+  padding-inline: 20px;
+}
+#work .worktop .work-top-list li {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-inline: 10px;
+  margin-bottom: 16px;
+  list-style-type: auto;
+}
+#work {
+  /* ====== Summary ====== */
+}
+#work .worktop .work-top-summary {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px 10px;
+  padding: 26px;
+  border: 3px solid rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+}
+#work .worktop .work-top-summary dt {
+  font-size: 12px;
+  opacity: 0.75;
+}
+#work .sumary02,
+#work .sumary03,
+#work .sumary04 {
+  border-top: 1px dotted #424040;
+  padding: 10px;
+  width: 98%;
+}
+#work .worktop .work-top-summary dd {
+  margin-top: 2px;
+  line-height: 1.8;
+  margin-left: 20px;
+}
+#work .worktop .work-top-summary dd li:before {
+  content: "●";
+  font-size: 10px;
+  margin-right: 10px;
+  vertical-align: 3px;
+}
+#work .worktop .overview .section-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+#work .overview-box {
+  border: 3px solid rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  background: transparent;
+  margin-top: 10px;
+}
+#work .ov-row {
+  position: relative;
+  padding: 22px 26px;
+}
+#work .ov-row + #work .ov-row {
+  border-top: 1px solid rgba(66, 64, 64, 0.25);
+}
+#work .ov-row--two {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+#work .ov-row--last {
+  position: relative;
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+#work .ov-row--last::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 1px;
+  background: rgba(66, 64, 64, 0.18);
+}
+#work .ov-cell {
+  min-width: 0;
+}
+#work .ov-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+  opacity: 0.85;
+}
+#work .ov-value {
+  padding-inline: 20px;
+}
+#work .ov-list {
+  margin: 0;
+  padding-inline: 10px;
+  line-height: 1.6;
+}
+#work .ov-list li:before {
+  content: "●";
+  font-size: 10px;
+  margin-right: 10px;
+  vertical-align: 3px;
+}
+#work .ov-list li + li {
+  margin-top: 2px;
+}
+#work .ov-list-small-circle {
+  margin: 0;
+  padding-inline: 10px;
+  line-height: 1.6;
+}
+#work .ov-list-small-circle li:before {
+  content: "●";
+  font-size: 5px;
+  margin-right: 10px;
+  vertical-align: 3px;
+}
+#work .ov-cell--empty {
+  min-height: 1px;
+}
+#work {
+  /* -------------------------
+  2段目だけ：左右が独立じゃなく「続いて見える」工夫
+  ・縦仕切りは入れるが、上下に余白（切れ目）を作って“完全分離”に見せない
+  ------------------------- */
+}
+#work .ov-row--connected::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  left: 47%;
+  transform: translateX(14px);
+  width: 1px;
+  background: rgba(66, 64, 64, 0.12);
+  pointer-events: none;
+}
+#work .ov-row--connected::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 1px;
+  background: rgba(66, 64, 64, 0.18);
+  pointer-events: none;
+}
+#work {
+  /* SP：1列にして自然に流す（比率ズレ問題も消える） */
+}
+@media (max-width: 768px) {
+  #work .ov-row {
+    padding: 18px 16px;
+  }
+  #work .ov-row--two {
+    grid-template-columns: 1fr;
+    row-gap: 18px;
+  }
+  #work .ov-row--connected::before {
+    display: none;
+  }
+  #work .worktop .btn {
+    width: 80%;
+  }
+  #work .worktop .work-top-actions,
+  #work .worktop .work-top-cta-actions03 {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 20px;
+  }
+}
+#work {
+  /* ====== Cards（施策） ====== */
+}
+#work .worktop .work-top-cards {
+  display: grid;
+  gap: 12px;
+}
+#work .worktop .work-top-card {
+  padding: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+}
+#work .worktop .work-top-card h4 {
+  font-size: 15px;
+  margin-bottom: 8px;
+  text-align: center;
+  border-bottom: 1px dotted #424040;
+  padding-bottom: 10px;
+}
+#work .worktop .card-in {
+  margin-top: 30px;
+}
+#work .worktop .card-in:last-child {
+  margin-bottom: 20px;
+}
+#work .worktop .card-in h5 {
+  margin-bottom: 10px;
+}
+#work .worktop .work-top-card li {
+  line-height: 1.6;
+  margin-bottom: 4px;
+  padding-inline: 10px;
+}
+#work .worktop .work-top-card li:before {
+  content: "●";
+  font-size: 10px;
+  margin-right: 10px;
+  vertical-align: 3px;
+}
+#work {
+  /* ====== Two columns（成果と学び） ====== */
+}
+#work .worktop .work-top-two-col {
+  display: grid;
+  gap: 12px;
+}
+#work .work-result {
+  line-height: 2;
+  padding-inline: 10px;
+  margin-top: 20px;
+}
+#work .worktop .work-top-box {
+  padding: 16px;
+  border: 1px solid #3a374d;
+  border-radius: 12px;
+}
+#work .worktop .work-top-box ul {
+  margin-top: 20px;
+}
+#work .worktop .work-top-box li {
+  line-height: 1.6;
+  margin-bottom: 4px;
+  padding-inline: 10px;
+}
+#work .worktop .work-top-box li:before {
+  content: "●";
+  font-size: 10px;
+  margin-right: 10px;
+  vertical-align: 3px;
+}
+#work .worktop .work-top-box h4 {
+  font-size: 15px;
+  margin-bottom: 8px;
+  text-align: center;
+  border-bottom: 1px dotted #424040;
+  padding-bottom: 10px;
+}
+#work {
+  /* ====== Responsive ====== */
+}
+@media (min-width: 900px) {
+  #work .worktop {
+    padding: 64px 20px 90px;
+  }
+  #work {
+    /* PCは左右2カラム */
+  }
+  #work .worktop .work-top-hero-wrap {
+    grid-template-columns: 1.05fr 0.95fr; /* 左を少し広め（文章多い想定） */
+    gap: 28px;
+    align-items: start;
+  }
+  #work .worktop .work-top-lead {
+    max-width: 62ch;
+  }
+  #work .worktop .work-top-hero-media {
+    order: 0;
+  }
+  #work {
+    /* 画像を少し下げて“黄色枠感”の位置に寄せたいなら */
+  }
+  #work .worktop .work-top-hero-media {
+    margin-top: 6px;
+  }
+  #work .worktop .work-top-summary {
+    grid-template-columns: 1fr 1fr;
+  }
+  #work .sumary02 {
+    display: none;
+  }
+  #work .worktop .work-top-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  #work .worktop .work-top-two-col {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /* ------------------------------

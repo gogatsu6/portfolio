@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="keywords" content="ポートフォリオ">
     <meta name="description" content="このサイトは山本さつきのポートフォリオです。">
-    <title>Works｜Yamamoto-Portfolio</title>
+    <title>Case EC Site - Works｜Yamamoto-Portfolio</title>
 
     <!--============= Google Analytics ===============-->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -33,7 +33,7 @@
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
 </head>
 
-<body id="work">
+<body id="work" data-case="ecommerce">
     <!--============= Header =============-->
     <header id="header">
         <nav id="g-navi">
@@ -49,6 +49,8 @@
 
     <main>
         <div class="work-wrapper">
+
+
             <!--============= list-area =============-->
             <div class="work-left">
                 <div class="innerWrap-work">
@@ -56,11 +58,12 @@
                     <nav class="breadcrumb" aria-label="breadcrumb">
                         <ol>
                             <li><a href="https://gogatsu6.github.io/portfolio/index.html">TOP</a></li>
-                            <li><span aria-current="page">Works</span></li>
+                            <li><a href="https://gogatsu6.github.io/portfolio/case-ecommerce.html">Case EC Site</a></li>
+                            <li><span aria-current="page">Case EC Site - Works</span></li>
                         </ol>
                     </nav>
 
-                    <h1>Works</h1>
+                    <h1>Case EC Site - Works</h1>
                     <!----------- main-img  ----------->
                     <div class="work-left-gallery" id="work-gallery">
                         <!-- 🔽 ここにJSONの内容をJSで自動挿入する -->
@@ -115,7 +118,6 @@
     <script src="../js/common.js"></script>
     <script src="../js/work.js"></script>
 
-
     <!--============= JSONの表示切替 =============-->
     <script>
         fetch("../data/works.json")  // JSONのパスに合わせて変更
@@ -123,7 +125,7 @@
             .then(works => {
 
                 // hospitalだけ抽出
-                const filtered = works.filter(work => work.case === "hospital");
+                const filtered = works.filter(work => work.case === "ecommerce");
 
                 const container = document.getElementById("works-list");
 
@@ -141,6 +143,7 @@
 
             });
     </script>
+
 </body>
 
 </html>
