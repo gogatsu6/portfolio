@@ -143,6 +143,18 @@ section {
   }
 }
 
+#header.dnone.panelactive {
+  z-index: 3000;
+}
+
+#header.dnone.panelactive #g-navi {
+  z-index: 3001;
+}
+
+#header.dnone.panelactive ~ .openbtn {
+  z-index: 4000;
+}
+
 #g-navi {
   display: flex;
   align-items: center;

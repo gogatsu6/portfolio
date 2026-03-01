@@ -160,6 +160,18 @@ section {
   }
 }
 
+#header.dnone.panelactive {
+  z-index: 3000;
+}
+
+#header.dnone.panelactive #g-navi {
+  z-index: 3001;
+}
+
+#header.dnone.panelactive ~ .openbtn {
+  z-index: 4000;
+}
+
 #g-navi {
   display: flex;
   align-items: center;
@@ -1552,6 +1564,31 @@ footer.pos-left {
     padding: 0;
   }
 }
+#work .work-right .ux-cta {
+  margin-block: 16px 25px;
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+}
+#work .work-right .ux-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 2px solid currentColor;
+  text-decoration: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  font-weight: 700;
+}
+#work .work-right .ux-cta__btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+#work .work-right .ux-cta__btn:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
 #work .work-right .text-content {
   display: none;
   opacity: 0;
@@ -2299,6 +2336,816 @@ footer.pos-left {
   }
   #work .worktop .work-top-two-col {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* =========================================
+  _workux.scss
+  UXページ（work_ux.html）専用スタイル
+  - case-ecommerce / works と同一トーンの「ファミリー感」
+  - ただし “資料ページ” と瞬時にわかる差分（現在地）を追加
+========================================= */
+#work.ux-page {
+  /* ------------------------------
+    Base / Tokens
+  ------------------------------ */
+  --ux-max: 980px;
+  --ux-text: #2b2b2b;
+  --ux-accent: #3a374d;
+  --ux-border: rgba(0, 0, 0, 0.12);
+  --ux-border-strong: rgba(66, 64, 64, 0.25);
+  --ux-bg: #e5e0da;
+  --ux-card: rgba(255, 255, 255, 0.75);
+  background: var(--ux-bg);
+  /* ------------------------------
+    Layout: 1 column
+  ------------------------------ */
+}
+#work.ux-page #ux.ux {
+  max-width: var(--ux-max);
+  margin: 0 auto;
+  padding: 56px 20px 80px;
+  color: var(--ux-text);
+}
+#work.ux-page .innerWrap-work {
+  max-width: var(--ux-max);
+  margin: 0 auto;
+  padding: 0;
+}
+#work.ux-page {
+  /* Anchor offset (header overlap) */
+}
+#work.ux-page #top,
+#work.ux-page #sec-01,
+#work.ux-page #sec-02,
+#work.ux-page #sec-03,
+#work.ux-page #sec-04,
+#work.ux-page #sec-05,
+#work.ux-page #sec-06 {
+  scroll-margin-top: 80px;
+}
+#work.ux-page {
+  /* ------------------------------
+    Common: Buttons
+  ------------------------------ */
+}
+#work.ux-page .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border: 1px solid var(--ux-accent);
+  border-radius: 999px;
+  font-size: 14px;
+  line-height: 1;
+  text-decoration: none;
+  background: var(--ux-accent);
+  color: #fff;
+  height: 46px;
+  text-align: center;
+  cursor: pointer;
+}
+#work.ux-page .btn:hover {
+  opacity: 0.75;
+}
+#work.ux-page {
+  /* ------------------------------
+    HERO (資料ページとしての表紙感)
+  ------------------------------ */
+}
+#work.ux-page .ux-hero {
+  padding: 0; /* #ux paddingで管理 */
+}
+#work.ux-page .ux-hero .breadcrumb {
+  font-size: 12px;
+  opacity: 0.85;
+  margin-bottom: 18px;
+  line-height: 1.8;
+}
+#work.ux-page .ux-hero .breadcrumb a {
+  text-decoration: none;
+  text-underline-offset: 3px;
+}
+#work.ux-page .ux-hero .breadcrumb .sp {
+  display: none;
+}
+#work.ux-page .ux-hero {
+  /* optional: Worksへ戻る（HTMLに入れたら効く） */
+}
+#work.ux-page .ux-hero .ux-backlink {
+  margin: 8px 0 18px;
+  font-size: 13px;
+}
+#work.ux-page .ux-hero .ux-backlink a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  opacity: 0.85;
+}
+#work.ux-page .ux-hero .ux-backlink a:hover {
+  opacity: 0.65;
+}
+#work.ux-page .ux-hero {
+  /* “資料ページ”ラベル（現在地） */
+}
+#work.ux-page .ux-hero .ux-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.12em;
+  font-size: 12px;
+  opacity: 0.9;
+  text-transform: uppercase;
+}
+#work.ux-page .ux-hero .ux-title {
+  font-size: 26px;
+  line-height: 1.35;
+  margin-block: 14px 40px;
+}
+#work.ux-page .ux-hero .ux-title .ux-title-span {
+  font-size: 18px;
+}
+#work.ux-page .ux-hero .ux-lead {
+  line-height: 1.9;
+  margin-bottom: 40px;
+  max-width: 100%;
+}
+#work.ux-page .ux-hero .ux-lead strong {
+  font-weight: 700;
+}
+#work.ux-page .ux-hero .ux-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+#work.ux-page .ux-hero .ux-meta .ux-tag {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  background: transparent;
+}
+#work.ux-page .ux-hero .ux-heroCtas {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+  margin-inline: auto;
+  justify-content: center;
+}
+#work.ux-page .ux-hero .ux-heroCtas .btn {
+  width: 48%;
+}
+#work.ux-page {
+  /* ------------------------------
+    Sections: common typography
+  ------------------------------ */
+}
+#work.ux-page .ux-h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+#work.ux-page .text-center {
+  text-align: center;
+}
+#work.ux-page .ux-text {
+  font-size: 16px;
+  line-height: 1.9;
+  margin-bottom: 14px;
+}
+#work.ux-page .ux-text strong {
+  font-weight: 700;
+}
+#work.ux-page .supplement {
+  font-size: 14px;
+  line-height: 1.8;
+  opacity: 0.85;
+  margin: 10px;
+}
+#work.ux-page .ux-list {
+  margin-left: 10px;
+  padding-inline: 20px;
+}
+#work.ux-page .ux-list li {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 10px;
+  list-style: disc;
+}
+#work.ux-page .ux-sec {
+  margin: 48px 0;
+}
+#work.ux-page {
+  /* =========================
+     How to Read
+  ========================= */
+}
+#work.ux-page .ux-note {
+  margin: 40px 0 60px;
+}
+#work.ux-page .ux-note .innerWrap-work {
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.45);
+  padding: 18px 20px 16px;
+}
+#work.ux-page .ux-note .ux-h2 {
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+#work.ux-page {
+  /* ▶ を疑似要素で追加 */
+}
+#work.ux-page .ux-note .ux-h2::before {
+  content: "▶";
+  font-size: 12px;
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+#work.ux-page .ux-note .ux-text {
+  font-size: 15px;
+  line-height: 1.9;
+  margin-bottom: 12px;
+}
+#work.ux-page .ux-note .ux-caption {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  padding-top: 12px;
+  margin-top: 12px;
+  font-size: 12px;
+  line-height: 1.8;
+  opacity: 0.85;
+}
+#work.ux-page {
+  /* =========================
+     Quick Links：3×2維持 + 横線2本（完成版）
+     - PC（769+）：6列 + 横線1本
+     - 768以下：3列×2段 + 横線2本（上段/下段とも円中心を通す）
+     - 480以下：3列×2段維持（円を縮小）
+     - 360以下：保険で1列 + 縦線（任意）
+  ========================= */
+}
+#work.ux-page .ux-toc {
+  margin-top: 40px;
+}
+#work.ux-page .ux-toc .ux-h2 {
+  font-size: 16px;
+  margin-bottom: 18px;
+  letter-spacing: 0.06em;
+}
+#work.ux-page {
+  /* -------------------------
+     UL（共通土台）
+  ------------------------- */
+}
+#work.ux-page .ux-toc .ux-flow {
+  /* ベースサイズ（PC） */
+  --circle: 96px;
+  --icon: 56px;
+  /* gapを変数で統一（線位置計算に使う） */
+  --col-gap: 12px;
+  --row-gap: 28px;
+  /* ライン */
+  --line: rgba(0, 0, 0, 0.14);
+  --line-inset: 6%;
+  display: grid !important;
+  grid-template-columns: repeat(6, 1fr) !important;
+  gap: var(--row-gap) var(--col-gap) !important;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+#work.ux-page .ux-toc .ux-flow__item {
+  list-style: none;
+}
+#work.ux-page {
+  /* -------------------------
+     横線：PCは1本、3×2の時は2本
+     ※ top は “円の中心” に固定
+  ------------------------- */
+}
+#work.ux-page .ux-toc .ux-flow::before,
+#work.ux-page .ux-toc .ux-flow::after {
+  content: "";
+  position: absolute;
+  left: var(--line-inset);
+  right: var(--line-inset);
+  height: 2px;
+  background: var(--line);
+  z-index: 0;
+  transform: translateY(-1px);
+}
+#work.ux-page {
+  /* 上段（＝1段目） */
+}
+#work.ux-page .ux-toc .ux-flow::before {
+  top: calc(var(--circle) / 2);
+  display: block;
+}
+#work.ux-page {
+  /* 下段（＝2段目）※PCでは非表示 */
+}
+#work.ux-page .ux-toc .ux-flow::after {
+  display: none;
+  top: calc(var(--circle) + var(--row-gap) + var(--circle) / 2);
+}
+#work.ux-page {
+  /* -------------------------
+     Link / Circle / Icon
+  ------------------------- */
+}
+#work.ux-page .ux-toc .ux-flow__link {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  text-decoration: none;
+  color: var(--ux-text);
+}
+#work.ux-page .ux-toc .ux-flow__circle {
+  width: var(--circle);
+  height: var(--circle);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  border: 3px solid rgba(58, 55, 77, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+#work.ux-page .ux-toc .ux-flow__icon {
+  display: block;
+  width: var(--icon);
+  height: var(--icon);
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+  transform: translateY(-1px);
+}
+#work.ux-page .ux-toc .ux-flow__title {
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+#work.ux-page .ux-toc .ux-flow__desc {
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.6;
+  opacity: 0.85;
+  text-align: center;
+  max-width: 16em;
+}
+#work.ux-page .ux-toc .ux-flow__link:hover .ux-flow__circle {
+  border-color: var(--ux-accent);
+  background: rgba(255, 255, 255, 0.92);
+}
+#work.ux-page {
+  /* =========================
+     769px以上：6列（PC）
+     - 下段線は不要なので非表示のまま
+  ========================= */
+}
+@media (min-width: 769px) {
+  #work.ux-page .ux-toc .ux-flow {
+    grid-template-columns: repeat(6, 1fr) !important;
+    --circle: 96px;
+    --icon: 56px;
+    --row-gap: 28px;
+  }
+  #work.ux-page .ux-toc .ux-flow::after {
+    display: none !important;
+  }
+}
+#work.ux-page {
+  /* =========================
+     768px以下：3列×2段（←ここが本命）
+     - 横線2本を表示（上段/下段）
+  ========================= */
+}
+@media (max-width: 768px) {
+  #work.ux-page .ux-toc .ux-flow {
+    grid-template-columns: repeat(3, 1fr) !important;
+    --circle: 86px;
+    --icon: 48px;
+    --row-gap: 28px;
+    --col-gap: 12px;
+  }
+  #work.ux-page {
+    /* 下段線を表示して、2段目の円中心に合わせる */
+  }
+  #work.ux-page .ux-toc .ux-flow::after {
+    display: block !important;
+    top: calc(var(--circle) + var(--row-gap) + var(--circle) / 2);
+  }
+  #work.ux-page {
+    /* 2段時は説明を非表示（詰まり防止） */
+  }
+  #work.ux-page .ux-toc .ux-flow__desc {
+    display: none;
+  }
+}
+#work.ux-page {
+  /* =========================
+     480px以下でも 3×2維持（縮小）
+  ========================= */
+}
+@media (max-width: 480px) {
+  #work.ux-page .ux-toc .ux-flow {
+    grid-template-columns: repeat(3, 1fr) !important;
+    --circle: 78px;
+    --icon: 44px;
+    --row-gap: 22px;
+    --col-gap: 10px;
+  }
+  #work.ux-page .ux-toc .ux-flow::after {
+    top: calc(var(--circle) + var(--row-gap) + var(--circle) / 2);
+  }
+  #work.ux-page .ux-toc .ux-flow__title {
+    font-size: 13px;
+  }
+}
+#work.ux-page {
+  /* =========================
+     360px未満だけは保険（縦1列 + 縦線）
+     ※不要なら、このブロックは削除OK
+  ========================= */
+}
+@media (max-width: 359px) {
+  #work.ux-page .ux-toc .ux-flow {
+    grid-template-columns: 1fr !important;
+    --row-gap: 16px;
+  }
+  #work.ux-page {
+    /* 横線2本は消す */
+  }
+  #work.ux-page .ux-toc .ux-flow::after {
+    display: none !important;
+  }
+  #work.ux-page {
+    /* ::before を縦線として使う */
+  }
+  #work.ux-page .ux-toc .ux-flow::before {
+    left: 50%;
+    right: auto;
+    width: 2px;
+    height: auto;
+    top: calc(var(--circle) / 2);
+    bottom: calc(var(--circle) / 2);
+    transform: translateX(-1px);
+  }
+}
+#work.ux-page {
+  /* =========================
+     目次ナンバリング（ux-flow）
+  ========================= */
+  /* ul or 親ラッパーに付ける */
+}
+#work.ux-page .ux-flow {
+  counter-reset: uxStep;
+}
+#work.ux-page {
+  /* 各liでカウントアップ */
+}
+#work.ux-page .ux-flow__item {
+  counter-increment: uxStep;
+}
+#work.ux-page {
+  /* タイトルの前に番号表示 */
+}
+#work.ux-page .ux-flow__title::before {
+  content: counter(uxStep, decimal-leading-zero) " ";
+  font-weight: 600;
+  margin-right: 6px;
+}
+#work.ux-page {
+  /* ------------------------------
+    Divider
+  ------------------------------ */
+}
+#work.ux-page .ux-divider {
+  border: none;
+  border-top: 1px solid rgba(66, 64, 64, 0.18);
+  margin: 40px 0;
+}
+#work.ux-page {
+  /* ------------------------------
+    Overview DL (カード化)
+  ------------------------------ */
+}
+#work.ux-page .ux-dl {
+  border: 3px solid var(--ux-border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: transparent;
+  margin-top: 10px;
+}
+#work.ux-page .ux-dl .ux-dlRow {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 10px;
+  padding: 18px 16px;
+}
+#work.ux-page .ux-dl .ux-dlRow + .ux-dlRow {
+  border-top: 1px solid var(--ux-border-strong);
+}
+#work.ux-page .ux-dl .ux-dlRow dt {
+  font-size: 12px;
+  opacity: 0.75;
+  display: flex;
+  align-items: center;
+}
+#work.ux-page .ux-dl .ux-dlRow dd {
+  font-size: 15px;
+  line-height: 1.8;
+}
+#work.ux-page {
+  /* =========================
+     文章＋図：左右並び（PC）
+     Tablet以下は縦
+  ========================= */
+}
+#work.ux-page .ux-split {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr; /* 図を少し広く */
+  gap: 24px;
+  align-items: start;
+  margin-top: 12px;
+}
+@media (max-width: 768px) {
+  #work.ux-page .ux-split {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+#work.ux-page {
+  /* =========================
+     Figure（図）
+  ========================= */
+}
+#work.ux-page .ux-figure {
+  margin-top: 0;
+}
+#work.ux-page .ux-figureBox {
+  border: 3px solid rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  background: #fff;
+  padding: 10px;
+}
+#work.ux-page .ux-figureBox img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 100%;
+}
+#work.ux-page {
+  /* zoom-in */
+}
+#work.ux-page .ux-zoomable {
+  cursor: zoom-in;
+}
+#work.ux-page .ux-zoomable:hover {
+  opacity: 0.92;
+}
+#work.ux-page .ux-figcap {
+  font-size: 12px;
+  opacity: 0.9;
+  line-height: 1.8;
+  margin-top: 8px;
+}
+#work.ux-page .ux-zoomHint {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 11px;
+  opacity: 0.65;
+  letter-spacing: 0.02em;
+}
+@media (max-width: 480px) {
+  #work.ux-page .ux-figureBox {
+    padding: 6px;
+  }
+  #work.ux-page .ux-zoomHint {
+    display: block;
+    margin-left: 0;
+    margin-top: 2px;
+  }
+}
+#work.ux-page {
+  /* =========================
+     Modal（縦長対応：スクロールできる版）
+  ========================= */
+}
+#work.ux-page .ux-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+}
+#work.ux-page .ux-modal.is-open {
+  display: block;
+}
+#work.ux-page .ux-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.58);
+}
+#work.ux-page {
+  /* ダイアログは “枠” 。中身が縦長なら中でスクロール */
+}
+#work.ux-page .ux-modal__dialog {
+  position: relative;
+  width: min(92vw, 1100px);
+  max-height: 86vh; /* 高さは “上限” だけ */
+  margin: 6vh auto 0;
+  background: #fff;
+  border-radius: 14px;
+  /* ここが重要：中身をスクロール可能にする */
+  overflow: auto;
+  /* iOSスクロールの体感改善 */
+  -webkit-overflow-scrolling: touch;
+}
+#work.ux-page {
+  /* 画像は自然サイズで縦に伸びる → dialogがスクロールを持つ */
+}
+#work.ux-page .ux-modal__img {
+  display: block;
+  width: 100%;
+  height: auto; /* ← 100%禁止 */
+  max-width: 100%;
+}
+#work.ux-page {
+  /* 閉じるボタン：右上固定 */
+}
+#work.ux-page .ux-modal__close {
+  position: sticky; /* スクロールしても上に残る */
+  top: 10px;
+  margin-left: auto;
+  right: 10px; /* stickyだと効かないブラウザがあるので保険 */
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.92);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+#work.ux-page .ux-modal__close:hover {
+  opacity: 0.85;
+}
+#work.ux-page {
+  /* ボタンを dialog の右上に寄せるための小技 */
+}
+#work.ux-page .ux-modal__dialog {
+  padding: 10px 10px 14px;
+}
+#work.ux-page .ux-modal__img {
+  /* ボタン分の余白 */
+  margin-top: -44px;
+  padding-top: 44px;
+}
+#work.ux-page {
+  /* 画面が小さい時は余白少なめ */
+}
+@media (max-width: 480px) {
+  #work.ux-page .ux-modal__dialog {
+    width: 94vw;
+    max-height: 88vh;
+    margin: 5vh auto 0;
+    padding: 8px 8px 10px;
+  }
+  #work.ux-page .ux-modal__img {
+    margin-top: -44px;
+    padding-top: 44px;
+  }
+}
+@media (max-width: 480px) {
+  #work.ux-page .ux-modal {
+    /* overlay上でdialogを中央に配置 */
+    display: none; /* 既存と整合 */
+  }
+  #work.ux-page .ux-modal.is-open {
+    display: grid;
+    place-items: center;
+    padding: 16px; /* 画面端にくっつかない */
+  }
+  #work.ux-page .ux-modal__dialog {
+    margin: 0; /* 6vh auto を無効化 */
+    width: 100%;
+    max-height: 88vh; /* 既存のままでOK */
+  }
+}
+#work.ux-page {
+  /* ------------------------------
+    Bottom actions
+  ------------------------------ */
+}
+#work.ux-page .ux-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+#work.ux-page .ux-actions .btn {
+  width: 48%;
+}
+#work.ux-page {
+  /* ------------------------------
+    学びと次の改善 左右並び
+  ------------------------------ */
+}
+#work.ux-page .ux-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+#work.ux-page .ux-result {
+  line-height: 2;
+  padding-inline: 10px;
+  margin-top: 20px;
+}
+#work.ux-page .ux-box {
+  padding: 16px;
+  border: 1px solid #3a374d;
+  border-radius: 12px;
+}
+#work.ux-page .ux-box ul {
+  margin-top: 20px;
+}
+#work.ux-page .ux-box li {
+  line-height: 1.6;
+  margin-bottom: 4px;
+  padding-inline: 10px;
+}
+#work.ux-page .ux-box li:before {
+  content: "●";
+  font-size: 10px;
+  margin-right: 10px;
+  vertical-align: 3px;
+}
+#work.ux-page .ux-box h3 {
+  font-size: 15px;
+  margin-bottom: 8px;
+  text-align: center;
+  border-bottom: 1px dotted #424040;
+  padding-bottom: 10px;
+}
+#work.ux-page {
+  /* ------------------------------
+    Responsive
+  ------------------------------ */
+}
+@media (max-width: 768px) {
+  #work.ux-page #ux.ux {
+    padding: 42px 20px 70px;
+  }
+  #work.ux-page .ux-hero .breadcrumb {
+    margin-bottom: 14px;
+  }
+  #work.ux-page .ux-hero .breadcrumb .sp {
+    display: inline;
+  }
+  #work.ux-page .ux-hero .ux-heroCtas {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+  #work.ux-page .ux-hero .ux-heroCtas .btn {
+    width: 80%;
+  }
+  #work.ux-page .ux-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+  #work.ux-page .ux-actions .btn {
+    width: 80%;
+  }
+  #work.ux-page .ux-toc .ux-tocList {
+    grid-template-columns: 1fr;
+  }
+  #work.ux-page .ux-dl .ux-dlRow {
+    grid-template-columns: 1fr;
+  }
+  #work.ux-page .ux-dl .ux-dlRow dt {
+    margin-bottom: -2px;
+  }
+  #work.ux-page .ux-two-col {
+    grid-template-columns: 1fr;
   }
 }
 

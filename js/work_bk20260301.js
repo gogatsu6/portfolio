@@ -1,9 +1,6 @@
 // =====================================================
 //  work.js — Muuri＋スマホ横スクロール＋暴走防止＋高さリセット＋スマホソート対応版（停止後ゆっくりループ）＋ハッシュ自動オープン
 //  ✅ 追加：data-case によるケース別フィルタ（hospital / ecommerce）
-//  ✅ 追加：UX図のモーダル（uxModal があるページだけ）
-//  ✅ 修正：overflow競合を防ぐ（元のoverflowを復元）
-//  ✅ 修正：モーダルopen時はハンバーガーを閉じる（衝突防止）
 // =====================================================
 
 $(window).off('scroll');
@@ -40,9 +37,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const thumbPrev = document.querySelector(".thumb-prev");
     const thumbNext = document.querySelector(".thumb-next");
 
-    // ✅ UXページ等、workギャラリーが無いページではここで終了（他機能に影響させない）
     if (!gallery || !detail || !gridEl) {
-      console.warn("ℹ️ workギャラリー要素が無いページなので、Muuri/ギャラリー処理はスキップします。");
+      console.error("❌ 必要な要素が見つかりません。");
       return;
     }
 
@@ -51,6 +47,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // =====================================================
     if (works.length === 0) {
       console.warn("⚠ 表示対象の作品が0件です。data-case と JSON の case を確認してね。");
+      // 0件でも落ちないようにここで終了（必要ならメッセージ表示に置換OK）
       return;
     }
 
@@ -79,9 +76,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       // --- descriptions（label/text 前提） ---
       const descHTML = (work.descriptions || [])
-        .filter((desc) => desc && desc.label)
+        .filter((desc) => desc && desc.label) // labelがないものは弾く（保険）
         .map((desc) => {
-          const text = typeof desc.text === "string" ? desc.text : "";
+          const text = typeof desc.text === "string" ? desc.text : ""; // 保険
           return `
             <div class="description_container">
               <p class="description_sub-title">${desc.label}</p>
@@ -105,8 +102,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             <p class="description_sub-title">補足資料</p>
             <p>
               ${noteText}<br>
-              <a href="${work.pdfUrl}"
-                 target="_blank"
+              <a href="${work.pdfUrl}" 
+                 target="_blank" 
                  rel="noopener noreferrer"
                  class="pdf-link">
                 商品一覧ページ イメージボード（PDF）
@@ -120,26 +117,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         ? `<a href="${work.link}" target="_blank" rel="noopener noreferrer"><img src="../work/img/link.png" alt="リンク"></a>`
         : "";
 
-const uxBtnHtml = work.uxUrl
-  ? `
-    <div class="ux-cta">
-      <a href="${work.uxUrl}"
-         class="ux-cta__btn"
-         target="_blank"
-         rel="noopener noreferrer">
-        ${work.uxLabel || "UX設計の詳細を見る"}
-      </a>
-    </div>
-  `
-  : "";
       textDiv.innerHTML = `
         <div class="description_title">
           <h3>${String(work.title || "").replace(/\n/g, "<br>")}</h3>
           ${linkHtml}
         </div>
-
-        ${uxBtnHtml}
-
         ${descHTML}
         ${pdfHTML}
       `;
@@ -180,6 +162,7 @@ const uxBtnHtml = work.uxUrl
     const allImages = gridEl.querySelectorAll("img");
     let loadedCount = 0;
 
+    // 画像が0枚の時の保険
     if (allImages.length === 0) {
       console.warn("⚠ grid 内に画像がありません。");
     }
@@ -244,6 +227,7 @@ const uxBtnHtml = work.uxUrl
 
     // =====================================================
     //  ハッシュから該当作品を自動オープン！
+    //  ※ caseKeyで絞り込んだ結果、そのIDが存在しない場合は何もしない
     // =====================================================
     const handleHashOpen = () => {
       const hash = window.location.hash.replace("#", "");
@@ -256,6 +240,7 @@ const uxBtnHtml = work.uxUrl
           return;
         }
 
+        // サムネクリックと同じ動き
         targetThumb.click();
 
         const targetImg = document.getElementById(hash);
@@ -267,6 +252,7 @@ const uxBtnHtml = work.uxUrl
       }, 200);
     };
 
+    // 実行！
     handleHashOpen();
 
     // =====================================================
@@ -338,108 +324,21 @@ const uxBtnHtml = work.uxUrl
 });
 
 // =====================================================
-// ハンバーガーメニュー制御（ここは共通挙動のまま）
+// ハンバーガーメニュー制御
 // =====================================================
-const closeHamburger = () => {
-  $(".openbtn").removeClass("active").attr("aria-expanded", "false");
-  $("#header").removeClass("panelactive");
-};
-
 $(function () {
   $("#header").addClass("dnone");
   $(".openbtn").addClass("fadeDown");
   $(window).off("scroll");
 
   $(".openbtn").on("click", function () {
-    const isActive = $(this).toggleClass("active").hasClass("active");
-    $(this).attr("aria-expanded", String(isActive));
+    $(this).toggleClass("active");
     $("#header").toggleClass("panelactive");
   });
 
   $("#g-navi a").on("click", function () {
-    closeHamburger();
+    $(".openbtn").removeClass("active");
+    $("#header").removeClass("panelactive");
   });
 });
 
-// =====================================================
-// UX 図モーダル（uxModal があるページだけ）
-// =====================================================
-(() => {
-  const modal = document.getElementById("uxModal");
-  const modalImg = document.getElementById("uxModalImg");
-  const zoomables = document.querySelectorAll(".ux-zoomable");
-
-  // ✅ UXページ以外は何もしない（最重要の安全ガード）
-  if (!modal || !modalImg || zoomables.length === 0) return;
-
-  let lastFocused = null;
-
-  const lockScroll = () => {
-    const html = document.documentElement;
-
-    // すでにロック済みなら上書きしない（保険）
-    if (!html.dataset.prevOverflow) {
-      html.dataset.prevOverflow = html.style.overflow || "";
-    }
-    html.style.overflow = "hidden";
-  };
-
-  const unlockScroll = () => {
-    const html = document.documentElement;
-    const prev = html.dataset.prevOverflow;
-
-    html.style.overflow = typeof prev === "string" ? prev : "";
-    delete html.dataset.prevOverflow;
-  };
-
-  const openModal = (imgEl) => {
-    lastFocused = document.activeElement;
-
-    // ✅ 競合回避：モーダル開くときはハンバーガーを閉じる
-    closeHamburger();
-
-    // 開いた瞬間、前回スクロール位置が残らないように先頭へ
-    const dialog = modal.querySelector(".ux-modal__dialog");
-    if (dialog) dialog.scrollTop = 0;
-
-    modal.classList.add("is-open");
-    modal.setAttribute("aria-hidden", "false");
-
-    modalImg.src = imgEl.src;
-    modalImg.alt = imgEl.alt || "";
-
-    lockScroll();
-  };
-
-  const closeModal = () => {
-    modal.classList.remove("is-open");
-    modal.setAttribute("aria-hidden", "true");
-
-    modalImg.src = "";
-    modalImg.alt = "";
-
-    unlockScroll();
-
-    if (lastFocused && typeof lastFocused.focus === "function") {
-      lastFocused.focus();
-    }
-  };
-
-  zoomables.forEach((img) => {
-    img.addEventListener("click", () => openModal(img));
-  });
-
-  // × or overlay
-  modal.addEventListener("click", (e) => {
-    if (e.target.matches("[data-modal-close]")) {
-      closeModal();
-    }
-  });
-
-  // Esc
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal.classList.contains("is-open")) {
-      closeModal();
-    }
-  });
-})();

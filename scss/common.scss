@@ -39,6 +39,20 @@
   }
 }
 
+// ✅ メニュー展開時は最前面に固定（本文が乗ってくるのを防ぐ）
+#header.dnone.panelactive {
+  z-index: 3000;
+}
+
+#header.dnone.panelactive #g-navi {
+  z-index: 3001; // headerより前でもOK
+}
+
+// ✅ メニュー展開中は「×」を最前面にする
+#header.dnone.panelactive ~ .openbtn {
+  z-index: 4000;
+}
+
 // --------------------------------------------------
 // Navigation
 // --------------------------------------------------

@@ -20,26 +20,25 @@
     }
   }
 
+  /* ====== Breadcrumb ====== */
+  .breadcrumb ol {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    opacity: 0.8;
+    margin-bottom: 50px;
+  }
 
-      /* ====== Breadcrumb ====== */
-    .breadcrumb ol {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-        font-size: 12px;
-        opacity: 0.8;
-        margin-bottom: 50px;
-    }
+  .breadcrumb li::after {
+    content: "›";
+    margin-left: 8px;
+    opacity: 0.6;
+  }
 
-    .breadcrumb li::after {
-        content: "›";
-        margin-left: 8px;
-        opacity: 0.6;
-    }
-
-    .breadcrumb li:last-child::after {
-        content: "";
-    }
+  .breadcrumb li:last-child::after {
+    content: "";
+  }
 
   /*-----------------------------------------------
     ページ全体（左右レイアウト）
@@ -270,6 +269,37 @@
       max-height: none;
       margin: 0 auto;
       padding: 0;
+    }
+
+    .ux-cta {
+      margin-block: 16px 25px;
+      margin-inline: auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    .ux-cta__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 2px solid currentColor;
+      text-decoration: none;
+      transition:
+        opacity 0.15s ease,
+        transform 0.15s ease;
+      font-weight: 700;
+    }
+
+    .ux-cta__btn:hover {
+      opacity: 0.85;
+      transform: translateY(-1px);
+    }
+
+    .ux-cta__btn:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 3px;
     }
 
     .text-content {

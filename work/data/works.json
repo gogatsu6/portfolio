@@ -4,11 +4,13 @@
             {
       "id": "work1",
       "category": "web",
-      "title": "大西皮フ科形成外科医院 様 \nドクターズコスメ公式サイト 改修（複数ページ）",
+      "title": "大西皮フ科形成外科医院 様 \nドクターズコスメ専門サイト改修",
       "case": "ecommerce",
       "thumbnail": "./img/32.png",
       "mainImage": "./img/32.png",
       "link": "https://www.onishiskinclinic.com/drs_cosme/index.html",
+      "uxUrl": "https://gogatsu6.github.io/portfolio/work/work-ux.html",
+  "uxLabel": "UX設計の詳細を見る",
 
       "pdfNote": "［商品一覧ページ｜イメージボード（PDF）］",
       "pdfUrl": "https://gogatsu6.github.io/portfolio/work/img/lineup.pdf",
@@ -373,7 +375,7 @@
 
 {
   "id": "work11",
-  "category": "oh",
+  "category": "web",
   "title": "大西皮フ科形成外科医院 様 \nモール販路の整備（楽天市場）",
   "case": "ecommerce",
   "thumbnail": "./img/36.jpg",
