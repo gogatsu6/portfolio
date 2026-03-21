@@ -92,29 +92,67 @@ document.addEventListener("DOMContentLoaded", async () => {
         .join("");
 
       // --- PDF補足（work直下の pdfUrl/pdfNote を使う） ---
-      let pdfHTML = "";
+let pdfHTML = "";
 
-      if (work.pdfNote && work.pdfUrl) {
-        const noteText =
-          typeof work.pdfNote === "string"
-            ? work.pdfNote.replace(/\n/g, "<br>")
-            : "";
+if (
+  (work.pdfNote1 && work.pdfUrl1) ||
+  (work.pdfNote2 && work.pdfUrl2) ||
+  (work.pdfNote3 && work.pdfUrl3) ||
+  (work.pdfNote4 && work.pdfUrl4)
+) {
+  let pdfLinksHTML = "";
 
-        pdfHTML = `
-          <div class="description_container">
-            <p class="description_sub-title">補足資料</p>
-            <p>
-              ${noteText}<br>
-              <a href="${work.pdfUrl}"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 class="pdf-link">
-                商品一覧ページ イメージボード（PDF）
-              </a>
-            </p>
-          </div>
-        `;
-      }
+  if (work.pdfNote1 && work.pdfUrl1) {
+    pdfLinksHTML += `
+      <a href="${work.pdfUrl1}"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="pdf-link">
+         ${work.pdfNote1}
+      </a><br>
+    `;
+  }
+
+  if (work.pdfNote2 && work.pdfUrl2) {
+    pdfLinksHTML += `
+      <a href="${work.pdfUrl2}"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="pdf-link">
+         ${work.pdfNote2}
+      </a><br>
+    `;
+  }
+
+  if (work.pdfNote3 && work.pdfUrl3) {
+    pdfLinksHTML += `
+      <a href="${work.pdfUrl3}"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="pdf-link">
+         ${work.pdfNote3}
+      </a><br>
+    `;
+  }
+
+  if (work.pdfNote4 && work.pdfUrl4) {
+    pdfLinksHTML += `
+      <a href="${work.pdfUrl4}"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="pdf-link">
+         ${work.pdfNote4}
+      </a>
+    `;
+  }
+
+  pdfHTML = `
+    <div class="description_container">
+      <p class="description_sub-title">補足資料（PDF）</p>
+      <p>${pdfLinksHTML}</p>
+    </div>
+  `;
+}
 
       const linkHtml = work.link
         ? `<a href="${work.link}" target="_blank" rel="noopener noreferrer"><img src="../work/img/link.png" alt="リンク"></a>`

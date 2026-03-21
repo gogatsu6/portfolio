@@ -12,8 +12,17 @@
       "uxUrl": "https://gogatsu6.github.io/portfolio/work/work_ux.html",
   "uxLabel": "UX設計の詳細を見る",
 
-      "pdfNote": "［商品一覧ページ｜イメージボード（PDF）］",
-      "pdfUrl": "https://gogatsu6.github.io/portfolio/work/img/lineup.pdf",
+"pdfNote1": "【about】イメージボード",
+"pdfUrl1": "https://gogatsu6.github.io/portfolio/work/img/about.pdf",
+
+"pdfNote2": "【dr.s-cosme】イメージボード",
+"pdfUrl2": "https://gogatsu6.github.io/portfolio/work/img/dr.s-cosme.pdf",
+
+"pdfNote3": "【birth】イメージボード",
+"pdfUrl3": "https://gogatsu6.github.io/portfolio/work/img/birth.pdf",
+
+"pdfNote4": "【lineup】イメージボード",
+"pdfUrl4": "https://gogatsu6.github.io/portfolio/work/img/lineup.pdf",
 
       "descriptions": [
         {
