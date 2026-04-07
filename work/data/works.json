@@ -9,20 +9,18 @@
       "thumbnail": "./img/32.png",
       "mainImage": "./img/32.png",
       "link": "https://www.onishiskinclinic.com/drs_cosme/index.html",
-      "uxUrl": "https://gogatsu6.github.io/portfolio/work/work_ux.html",
-  "uxLabel": "UX設計の詳細を見る",
 
 "pdfNote1": "【about】イメージボード",
-"pdfUrl1": "https://gogatsu6.github.io/portfolio/work/img/about.pdf",
+"pdfUrl1": "./img/about.pdf",
 
 "pdfNote2": "【dr.s-cosme】イメージボード",
-"pdfUrl2": "https://gogatsu6.github.io/portfolio/work/img/dr.s-cosme.pdf",
+"pdfUrl2": "./img/dr.s-cosme.pdf",
 
 "pdfNote3": "【birth】イメージボード",
-"pdfUrl3": "https://gogatsu6.github.io/portfolio/work/img/birth.pdf",
+"pdfUrl3": "./img/birth.pdf",
 
 "pdfNote4": "【lineup】イメージボード",
-"pdfUrl4": "https://gogatsu6.github.io/portfolio/work/img/lineup.pdf",
+"pdfUrl4": "./img/lineup.pdf",
 
       "descriptions": [
         {

@@ -1,132 +1,75 @@
+document.addEventListener("DOMContentLoaded", () => {
+  // =====================================================
+  // Featured Projects: カード全体クリック
+  // =====================================================
+  const featuredProjects = document.querySelectorAll("[data-featured-project]");
 
-// =====================================================
-//  Stickyfill（動画固定）
-// =====================================================
-$(window).on('load resize', function () {
-  const elements = $('#fixed-area');
-  if (typeof Stickyfill !== 'undefined') {
-    if (window.innerWidth >= 768) {
-      Stickyfill.add(elements);
-    } else {
-      Stickyfill.remove(elements);
-    }
-  }
-});
+  featuredProjects.forEach((project) => {
+    const targetUrl = project.dataset.projectLink;
+    if (!targetUrl) return;
 
+    project.style.cursor = "pointer";
 
-// =====================================================
-//  ON / OFF モード切替（ヘッダー／ページトップ位置制御含む）
-// =====================================================
-const wrapper = $('#wrapper');
-const toggleBtn = $('#mode-toggle');
-const videoOn = $('.video-on');
-const videoOff = $('.video-off');
-const onScreen = $('.on_screen');
-const offScreen = $('.off_screen');
-const header = $('#header');
-const pageTop = $('.page-top');
-const openbtn = $('.openbtn')
-const scroll = $('.scroll-container');
-const footer = $('#footer')
+    project.addEventListener("click", (event) => {
+      // すでにaタグをクリックした場合は標準リンクを優先
+      const clickedLink = event.target.closest("a");
+      if (clickedLink) return;
 
-wrapper.addClass('mode-on');
-videoOn.show();
-videoOff.hide();
-offScreen.hide();
+      window.location.href = targetUrl;
+    });
 
-toggleBtn.on('click', function () {
-  const isOn = wrapper.hasClass('mode-on');
-
-  if (isOn) {
-    // ---- ON → OFF ----
-    wrapper.removeClass('mode-on').addClass('mode-off');
-    header.removeClass('mode-on').addClass('mode-off');
-    openbtn.removeClass('mode-on').addClass('mode-off');
-    scroll.removeClass('mode-on').addClass('mode-off');
-    toggleBtn
-      .removeClass('mode-on')
-      .addClass('mode-off')
-      .text('Working');
-    videoOn.hide();
-    videoOff.show();
-    onScreen.fadeOut(400, () => offScreen.fadeIn(400));
-    
-  } else {
-    // ---- OFF → ON ----
-    wrapper.removeClass('mode-off').addClass('mode-on');
-    header.removeClass('mode-off').addClass('mode-on');
-    openbtn.removeClass('mode-off').addClass('mode-on');
-    toggleBtn
-      .removeClass('mode-off')
-      .addClass('mode-on')
-      .text('Private');
-    videoOff.hide();
-    videoOn.show();
-    offScreen.fadeOut(400, () => onScreen.fadeIn(400));
-
-  }
-
-  wrapper.addClass('is-switching');
-  setTimeout(() => wrapper.removeClass('is-switching'), 400);
-});
-
-
-// =====================================================
-//  hand animation
-// =====================================================
-const hand = document.getElementById("hand");
-const text = document.getElementById("text");
-if (hand && text) {
-  hand.addEventListener("animationend", () => {
-    text.style.opacity = 1;
+    project.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        window.location.href = targetUrl;
+      }
+    });
   });
-}
 
+  // =====================================================
+  // Other Works Slider
+  // =====================================================
+  const viewport = document.querySelector(".top-grid__viewport");
+  const track = document.querySelector(".top-grid__track");
+  const prevBtn = document.querySelector(".top-grid__nav--prev");
+  const nextBtn = document.querySelector(".top-grid__nav--next");
 
-document.addEventListener("DOMContentLoaded", () => {
+  if (viewport && track && prevBtn && nextBtn) {
+    const getScrollAmount = () => {
+      const firstCard = track.querySelector(".project-card");
+      if (!firstCard) return viewport.clientWidth * 0.8;
 
-  /* PCだけで実行 */
-  if (window.innerWidth >= 1025) {
+      const cardStyle = window.getComputedStyle(firstCard);
+      const cardWidth = firstCard.getBoundingClientRect().width;
+      const marginRight = parseFloat(cardStyle.marginRight) || 0;
 
-    const title = document.querySelector("#top h1.on-title");
-
-    if (title) {
-      title.classList.add("pc-title-init");
-
-      /* 2秒後にフェードイン */
-      setTimeout(() => {
-        title.classList.add("pc-title-show");
-      }, 2000);
-    }
-  }
-
-});
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  /* PC のみ実行 */
-  if (window.innerWidth >= 1025) {
-
-    const options = {
-      root: null,
-      threshold: 0.2, // 20%見えたら発火
+      return cardWidth + marginRight;
     };
 
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("pc-section-show");
-        }
+    const updateNavState = () => {
+      const maxScrollLeft = viewport.scrollWidth - viewport.clientWidth;
+
+      prevBtn.disabled = viewport.scrollLeft <= 0;
+      nextBtn.disabled = viewport.scrollLeft >= maxScrollLeft - 1;
+    };
+
+    prevBtn.addEventListener("click", () => {
+      viewport.scrollBy({
+        left: -getScrollAmount(),
+        behavior: "smooth",
       });
-    }, options);
-
-    /* フェード対象を登録 */
-    document.querySelectorAll(".fade-section").forEach(section => {
-      section.classList.add("pc-section-init");
-      io.observe(section);
     });
-  }
 
+    nextBtn.addEventListener("click", () => {
+      viewport.scrollBy({
+        left: getScrollAmount(),
+        behavior: "smooth",
+      });
+    });
+
+    viewport.addEventListener("scroll", updateNavState);
+    window.addEventListener("resize", updateNavState);
+
+    updateNavState();
+  }
 });

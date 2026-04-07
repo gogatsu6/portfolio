@@ -3,344 +3,387 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="keywords" content="ポートフォリオ">
-    <meta name="description" content="このサイトは山本さつきのポートフォリオです。">
-    <title>Project Gallery｜Yamamoto-Portfolio</title>
-
-    <!--============= Google Analytics ===============-->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
-
-    <!--============= Google Font ===============-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&family=Zen+Kaku+Gothic+New&display=swap"
-        rel="stylesheet">
-
-    <!--============= CSS ===============-->
-    <link rel="stylesheet" href="css/destyle.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-    <link rel="stylesheet" href="css/main.css">
-
-    <!--============= Favicon =============-->
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-    <!--============= password =============-->
-    <!-- <script>
-        // ===============================
-        // 簡易パスワード認証（Cookieで24時間保持）
-        // ===============================
-        const PASSWORD = "0000";
-        const VALID_HOURS = 24;
-
-        function setAuthCookie() {
-            const expireDate = new Date();
-            expireDate.setHours(expireDate.getHours() + VALID_HOURS);
-            document.cookie = `auth=1; expires=${expireDate.toUTCString()}; path=/`;
-        }
-
-        function isAuthorized() {
-            return document.cookie.split(";").some((item) => item.trim().startsWith("auth="));
-        }
-
-        function askPassword() {
-            if (isAuthorized()) {
-                document.body.style.display = "block";
-                return;
-            }
-
-            document.body.style.display = "none";
-            const input = prompt("パスワードを入力してください：");
-            if (input === PASSWORD) {
-                setAuthCookie();
-                document.body.style.display = "block";
-            } else {
-                document.body.innerHTML =
-                    "<h2 style='text-align:center;margin-top:20vh;'>アクセスできません。</h2>";
-                document.body.style.display = "block";
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", askPassword);
-    </script> -->
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - TOP</title>
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 
-<body id="top"><!-- パスワード付きにする際は、 style="display:none;"を追加 -->
-    <!--============= Header =============-->
-    <header id="header">
-        <nav id="g-navi">
-            <div class="mode-btn-area">
-                <button id="mode-toggle" class="mode-on">Private</button>
-            </div>
-            <ul>
-                <li><a href="#area-1">work</a></li>
-                <li><a href="#area-2">profile</a></li>
-                <li><a href="#area-3">contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div class="openbtn"><span></span><span></span><span></span></div>
+<body>
+    <header class="l-header">
+        <div class="l-header__inner l-container">
+            <a href="./index.html" class="l-header__logo">THE PORTFOLIO OF SATSUKI</a>
 
+            <nav class="l-header__nav" aria-label="Main navigation">
+                <ul class="l-header__list">
+                    <li>
+                        <a href="./index.html#products" class="l-header__link">Products</a>
+                    </li>
+                    <li>
+                        <a href="./index.html#other-works" class="l-header__link">Other Works</a>
+                    </li>
+                    <li>
+                        <a href="./index.html#contact" class="l-header__link">Contact</a>
+                    </li>
+                </ul>
+            </nav>
 
-    <main>
-        <!--============= Wrapper（全体） =============-->
-        <div id="wrapper" class="mode-on">
-            <button class="page-top"><span></span>
-                <p>PAGE TOP</p>
+            <button class="l-header__profile" type="button" aria-expanded="false" aria-controls="profileModal"
+                aria-label="Open profile">
+                PROFILE
             </button>
-
-            <!--============= Fixed-area（動画ON/OFF） =============-->
-            <section class="mode-area" id="fixed-area">
-                <video class="video-on" autoplay muted loop playsinline>
-                    <source src="video/On-Video-mini.mp4" type="video/mp4">
-                </video>
-
-                <video class="video-off" autoplay muted loop playsinline>
-                    <source src="video/On-Video-mini.mp4" type="video/mp4">
-                </video>
-            </section>
-
-            <!--============= Scroll-area（コンテンツ） =============-->
-            <div id="container">
-                <div class="innerWrap">
-                    <!-- === ONモード === -->
-                    <div class="on_screen">
-                        <section>
-                            <div class="title-container fadeUpTrigger">
-                                <h1 class="on-title">Yamamoto<br>Portfolio</h1>
-                            </div>
-                            <div class="scroll-container fadeUp">
-                                <a href="#" class="scroll-down">
-                                    <div class="circle-arrow"></div>
-                                    <p>Scroll Down</p>
-                                </a>
-                            </div>
-                        </section>
-
-                        <!------------- greeting ------------->
-                        <section>
-                            <div class="greeting-container fadeUpTrigger">
-                                <div class="greeting-box">
-                                    <p>
-                                        日々、頭を悩ませ、心をふるわせ<br class="dp">
-                                        誰かの目にとまるものを作っています。<br><br>
-                                        見てくれた人の生活が<br class="dp">
-                                        豊かに、幸せにつながることを願って。<br>
-                                        その”縁”を届けられるような<br class="dp">
-                                        デザインを心がけています。
-                                    </p>
-                                    <div class="greeting-image fadeUpTrigger">
-                                        <ul>
-                                            <li><img src="img/pc-img.png" alt="PCイラスト"></li>
-                                            <li>
-                                                <p>&</p>
-                                            </li>
-                                            <li><img src="img/sp-img.png" alt="SPイラスト"></li>
-                                            <li>
-                                                <p>or</p>
-                                            </li>
-                                            <li><img src="img/pop-img.png" alt="POPイラスト"></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!------------- work ------------->
-                        <section id="area-1">
-                            <div class="work-container">
-                                <h2 class="fadeUpTrigger">work</h2>
-                                <div class="fadeUpTrigger">
-                                    <div class="work-item">
-                                        <div class="work-item-left">
-                                            <a href="https://gogatsu6.github.io/portfolio/work/case-hospital.html"><img
-                                                    src="img/work03.png" alt="検索流入の拡張と予約導線整備による病院サイト改善"
-                                                    class="work-img"></a>
-                                        </div>
-                                        <div class="work-item-right">
-                                            <a href="https://gogatsu6.github.io/portfolio/work/case-hospital.html">
-                                                <h3>Case Hospital <br>検索流入の拡張と予約導線整備による病院サイト改善</h3>
-                                            </a>
-                                            <p class="work-item-text">
-                                                方針決定後の実装フェーズを担当。地域×施術ページの強化と予約導線整備、口コミ運用の定着を通じて検索流入を拡張し、主要キーワードで検索結果1ページ目上位表示を実現。（当初は3〜5ページ目付近）
-                                            </p>
-                                            <p class="more-link"><a
-                                                    href="https://gogatsu6.github.io/portfolio/work/case-hospital.html">詳しく見る</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="work-item">
-                                        <div class="work-item-left">
-                                            <a href="https://gogatsu6.github.io/portfolio/work/case-ecommerce.html"><img
-                                                    src="img/work01.png" alt="通販事業の成長を牽引したプロダクト改善" class="work-img"></a>
-                                        </div>
-                                        <div class="work-item-right">
-                                            <a href="https://gogatsu6.github.io/portfolio/work/case-ecommerce.html">
-                                                <h3>Case EC Site<br>通販事業の成長を牽引したプロダクト改善</h3>
-                                            </a>
-                                            <p class="work-item-text">
-                                                ECサイトの改善・コンテンツ制作・販路運用・顧客理解・売上分析までを一貫して担当。その結果、参画前と比較して約4倍規模へと成長した通販事業の改善プロジェクト。
-                                            </p>
-                                            <p class="more-link"><a
-                                                    href="https://gogatsu6.github.io/portfolio/work/case-ecommerce.html">詳しく見る</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- <div class="view-all"><a
-                                            href="https://gogatsu6.github.io/portfolio/work/index.html">View
-                                            All</a></div> -->
-                                </div>
-                            </div>
-                        </section>
-
-                        <!------------- profile ------------->
-                        <section id="area-2">
-                            <div class="profile-container">
-                                <h2 class="fadeUpTrigger">profile</h2>
-                                <div class="profile-item fadeUpTrigger">
-                                    <div class="profile-item-left">
-                                        <img src="img/profile.jpg" alt="プロフィール写真">
-                                    </div>
-                                    <div class="profile-item-right">
-                                        <p class="profile-item-text">
-                                            紙・Web双方の制作経験を背景に、現在はWebを中心に、企業サイト・ECサイトの情報設計、UI改善、実装までを一気通貫で担当しています。<br>
-                                            ユーザーが迷わず理解・検討できる構造設計を軸に考えながら、デザインや施策を考えることを大切にしています。<br>
-                                            限られた体制や制約のある環境下でも、優先度を整理しながら着実に前進＆継続的に関わる“推進型”のデザインスタイルが強みです。<br>
-                                            今後もユーザー視点と事業視点を両立しながら、プロダクトの構造設計から考えられる最適な改善の実行まで、幅広く携わっていきたいと考えています。
-                                        </p>
-                                        <h4>できること</h4>
-                                        <h5>仕事内容</h5>
-                                        <p class="profile-item-skills_text">
-                                        <ul class="profile-item-skills_list">
-                                            <li>・情報設計（構造整理、導線設計、要件整理）</li>
-                                            <li>・UIデザイン（情報整理を踏まえたトーン設計・UI設計）</li>
-                                            <li>・既存サイトの改善・運用（環境や制約を踏まえた設計・改修）</li>
-                                            <li>・新規ページ / LPの立ち上げ（目的整理〜構成設計）</li>
-                                            <li>・Webと紙を横断した制作（POP、同梱物、院内資料）</li>
-                                        </ul>
-                                        </p>
-                                        <h5>使用ツール / 技術</h5>
-                                        <p class="profile-item-skills_text">
-                                            Figma / HTML / CSS（SCSS） / JavaScript / GitHub / Photoshop / Illustrator など
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!------------- contact ------------->
-                        <section id="area-3">
-                            <div class="contact-container">
-                                <h2 class="fadeUpTrigger">contact</h2>
-                                <p class="contact-message fadeUpTrigger">
-                                    当サイトをご覧いただき、<br class="sp">ありがとうございます。<br>
-                                    ご質問やご相談など、<br class="sp">お気軽にご連絡ください。
-                                </p>
-                                <form action="https://formspree.io/f/xjkjklqj" method="POST" class="fadeUpTrigger">
-                                    <input type="hidden" name="_captcha" value="true">
-                                    <label for="name">お名前</label>
-                                    <input type="text" id="name" name="name" placeholder="例｜山田 太郎" required>
-
-                                    <label for="email">メールアドレス</label>
-                                    <input type="email" id="email" name="email" placeholder="例｜0000000000@mail.com"
-                                        required>
-
-                                    <label for="message">お問い合わせ内容</label>
-                                    <textarea id="message" name="user-message" rows="8"
-                                        placeholder="例｜〇〇〇の内容について問い合わせたい。" required></textarea>
-
-                                    <p class="contact-warning">※送信内容の確認画面はありません。<br class="PC">送信前に、内容にお間違えがないか<br
-                                            class="sp">ご確認ください。
-                                    </p>
-                                    <button class="contact-button" type="submit">送信</button>
-                                </form>
-                            </div>
-                        </section>
-                    </div>
-
-                    <!-- === OFFモード === -->
-                    <div class="off_screen" style="display: none;">
-                        <section>
-                            <div class="title-container fadeUpTrigger">
-                                <h1>Yamamoto<br>private</h1>
-                                <div class="title-item-img fadeUpTrigger">
-                                    <img src="img/Who are you_.png" alt="Who are you?" class="text-img" id="text">
-                                </div>
-                            </div>
-                            <div class="scroll-container fadeUp">
-                                <a href="#" class="scroll-down">
-                                    <div class="circle-arrow"></div>
-                                    <p>Scroll Down</p>
-                                </a>
-                            </div>
-                        </section>
-
-                        <!------------- about ------------->
-                        <section id="about">
-                            <div class="about-container fadeUpTrigger">
-                                <h2>about</h2>
-                                <div class="about-item-01 fadeUpTrigger">
-                                    <div class="about-item-left">
-                                        <img src="img/profile_img01.png" alt="profileイラスト">
-                                    </div>
-                                    <div class="about-item-right">
-                                        <p>子どもの頃はイラスト描き一筋で、毎日毎日飽きずに絵を描いていました。好きなことにはとことん没頭するタイプです。<br>
-                                            その後、心を揺り動かされる「表現する」こと自体に可能性や奥深さを感じ、大学では舞台表現を専攻しました。<br>
-                                            絵から始まった【作ること・表現すること】は、私の人生のベースになっています。
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div class="about-item-02 fadeUpTrigger">
-                                    <div class="about-item-left">
-                                        <p>現在、2人の女の子のママとして、京都で仕事をしながら毎日大変ですが育児を楽しんでいます。<br>
-                                            「月が八宝菜みたいな雲に隠れてる」「たこさんウインナーの木(ザクロの木)」など娘が教えてくれる大発見を一緒にクスッと笑っています。
-                                        </p>
-                                    </div>
-                                    <div class="about-item-right">
-                                        <img src="img/profile_img02.png" alt="profileイラスト" class="about-img">
-                                    </div>
-                                </div>
-
-                                <div class="about-like-container fadeUpTrigger">
-                                    <p class="about-like-title">わたしのすきなもの</p>
-                                    <p class="about-like-text">
-                                        <span>宇多田ヒカル / 坂本真綾 / CLAMP / 小野不由美 / 三津田信三 / 安住紳一郎 / 土井半助 / ジェシーおいたん /
-                                            チキン南蛮 / 甘いもの / 紅茶</span>
-                                    </p>
-                                </div>
-
-                                <div class="about-img-container fadeUpTrigger">
-                                    <img src="img/about-img01.png" class="about-item-image" alt="profileイメージ">
-                                    <img src="img/about-img02.png" class="about-item-image" alt="profileイメージ">
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-                <footer id="footer">
-                    <small>&copy; Yamamoto Satsuki All Rights Reserved.</small>
-                </footer>
-            </div>
         </div>
+    </header>
+
+    <main class="top-page">
+        <!-- Hero Section -->
+        <section class="top-hero l-section--lg" id="top">
+            <div class="top-hero__inner l-container--wide">
+                <div class="top-hero__content">
+                    <p class="u-eyebrow">ユーザー視点の最適な形を考える。</p>
+
+                    <h1 class="top-hero__title u-title-xl">
+                        構造から設計、<br>
+                        体験に落とし込み、<br>
+                        実装するデザイナー
+                    </h1>
+
+                    <p class="top-hero__lead">
+                        SATSUKI YAMAMOTO<br>
+                        UX Designer
+                    </p>
+                </div>
+
+                <div class="top-hero__visual">
+                    <img src="./img/top/hero.png" alt="" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects -->
+        <section class="top-featured l-section" id="products">
+            <div class="top-featured__inner l-container--wide">
+                <div class="top-featured__line" aria-hidden="true">
+                    <span class="top-featured__line-inner"></span>
+                </div>
+
+                <article class="featured-project featured-project--01 is-active" data-featured-project
+                    data-project-link="./pages/case-doctors.html" tabindex="0" aria-label="ドクターズコスメ専門サイト改修の事例を見る">
+                    <div class="featured-project__marker" aria-hidden="true">
+                        <span class="featured-project__dot"></span>
+                    </div>
+
+                    <div class="featured-project__text">
+                        <p class="featured-project__label">WEB DESIGN</p>
+                        <p class="featured-project__label">Client Work</p>
+                        <h2 class="featured-project__title">美容コスメ専門サイト 改善設計</h2>
+
+                        <dl class="featured-project__meta">
+                            <div class="featured-project__meta-item">
+                                <dt>IMPACT</dt>
+                                <dd>専門サイトの役割再定義</dd>
+                            </div>
+                            <div class="featured-project__meta-item">
+                                <dt>ROLE</dt>
+                                <dd>UX設計 / 情報設計 / UI設計 / 実装</dd>
+                            </div>
+                        </dl>
+
+                        <p class="featured-project__desc">
+                            専門サイトとECサイトの役割が曖昧だった状態を整理し、
+                            「理解は専門サイト、購入はECサイト」と役割を明確化。
+                            ユーザーが迷わず次の行動に進めるよう、
+                            情報設計と導線を構造から見直した事例です。
+                        </p>
+
+                        <a href="./pages/case-doctors.html" class="featured-project__link">
+                            事例を見る
+                        </a>
+                    </div>
+
+                    <figure class="featured-project__image">
+                        <img src="./img/top/product01-img.png" alt="ドクターズコスメ専門サイト改修のイメージ" />
+                    </figure>
+                </article>
+
+                <article class="featured-project featured-project--02" data-featured-project
+                    data-project-link="./pages/case-saas.html" tabindex="0" aria-label="多店舗運用の商品管理SaaSの事例を見る">
+                    <div class="featured-project__marker" aria-hidden="true">
+                        <span class="featured-project__dot"></span>
+                    </div>
+
+                    <figure class="featured-project__image">
+                        <img src="./img/top/product02-img.png" alt="自主制作SaaSプロダクトのイメージ" />
+                    </figure>
+
+                    <div class="featured-project__text">
+                        <p class="featured-project__label">PRODUCT DESIGN</p>
+                        <p class="featured-project__label">SELF-INITIATED PROJECT</p>
+                        <h2 class="featured-project__title">多店舗運用の商品管理SaaS</h2>
+
+                        <dl class="featured-project__meta">
+                            <div class="featured-project__meta-item">
+                                <dt>IMPACT</dt>
+                                <dd>多店舗運用における商品を軸にした管理構造の再設計</dd>
+                            </div>
+                            <div class="featured-project__meta-item">
+                                <dt>ROLE</dt>
+                                <dd>UX設計 / 情報設計 / UI設計</dd>
+                            </div>
+                        </dl>
+
+                        <p class="featured-project__desc">
+                            実務での多店舗運用経験をもとに、
+                            商品管理の分断や運用負荷といった課題を整理し、
+                            構造を仮説設計した自主制作の事例です。
+                        </p>
+
+                        <a href="./pages/case-saas.html" class="featured-project__link">
+                            事例を見る
+                        </a>
+                    </div>
+                </article>
+
+                <article class="featured-project featured-project--03" data-featured-project
+                    data-project-link="./pages/case-portfolio.html" tabindex="0" aria-label="思考を伝えるための情報設計の事例を見る">
+                    <div class="featured-project__marker" aria-hidden="true">
+                        <span class="featured-project__dot"></span>
+                    </div>
+
+                    <div class="featured-project__text">
+                        <p class="featured-project__label">INFORMATION DESIGN</p>
+                        <p class="featured-project__label">SELF-INITIATED PROJECT</p>
+                        <h2 class="featured-project__title">制作事例集の情報設計</h2>
+
+                        <dl class="featured-project__meta">
+                            <div class="featured-project__meta-item">
+                                <dt>IMPACT</dt>
+                                <dd>ポートフォリオの情報設計を思想が伝わるように再構築</dd>
+                            </div>
+                            <div class="featured-project__meta-item">
+                                <dt>ROLE</dt>
+                                <dd>情報設計 / UX設計 / UI設計</dd>
+                            </div>
+                        </dl>
+
+                        <p class="featured-project__desc">
+                            制作物が並ぶだけでは思考が伝わらないという課題に対し、
+                            「課題 → 仮説 → 判断 → 構造」の流れが追えるよう、
+                            ポートフォリオ全体の情報設計を再構築。<br>
+                            採用要件の傾向を分析し、求められる思考とスキルが伝わる構造へ再設計。
+                            制作工程ではAIツールを活用し、効率化と品質担保を両立することで、設計と意思決定に集中できる体制を整えた事例です。
+                        </p>
+
+                        <a href="./pages/case-portfolio.html" class="featured-project__link">
+                            事例を見る
+                        </a>
+                    </div>
+
+                    <figure class="featured-project__image">
+                        <img src="./img/top/product03-img.png" alt="ポートフォリオ改善のイメージ" />
+                    </figure>
+                </article>
+            </div>
+        </section>
+
+        <!-- Project Grid -->
+        <section class="top-grid l-section" id="other-works">
+            <div class="top-grid__inner l-container--wide">
+                <div class="top-grid__heading">
+                    <h2 class="top-grid__title">List of other works.</h2>
+                    <p class="top-grid__lead">
+                        実務の中で継続的に行ってきた改善の一部をまとめています。
+                    </p>
+                </div>
+
+                <div class="top-grid__slider">
+                    <button class="top-grid__nav top-grid__nav--prev" type="button" aria-label="前へ">
+                        ←
+                    </button>
+
+                    <div class="top-grid__viewport" id="workSlider">
+                        <div class="top-grid__track">
+                            <article class="project-card">
+                                <a href="./pages/case-hospital.html" class="project-card__link">
+                                    <figure class="project-card__image">
+                                        <img src="./img/top/34.jpg" alt="病院サイト各院TOP改善のイメージ" />
+                                    </figure>
+                                    <div class="project-card__body">
+                                        <h3 class="project-card__title">病院WEBサイト改善</h3>
+                                        <p class="project-card__tag">WEB DESIGN</p>
+                                        <p class="project-card__tag">SEO</p>
+                                        <p class="project-card__tag">UX/UI</p>
+                                    </div>
+                                </a>
+                            </article>
+
+                            <article class="project-card">
+                                <a href="./pages/case-rakuten.html" class="project-card__link">
+                                    <figure class="project-card__image">
+                                        <img src="./img/top/36.jpg" alt="楽天運用改善のイメージ" />
+                                    </figure>
+                                    <div class="project-card__body">
+                                        <h3 class="project-card__title">モール運用の改善</h3>
+                                        <p class="project-card__tag">Mall operation UX</p>
+                                        <p class="project-card__tag">UX/UI</p>
+                                        <p class="project-card__tag">BRANDING</p>
+                                    </div>
+                                </a>
+                            </article>
+
+                            <article class="project-card">
+                                <a href="./pages/case-recruitment.html" class="project-card__link">
+                                    <figure class="project-card__image">
+                                        <img src="./img/top/01.png" alt="採用サイトTOP改善のイメージ" />
+                                    </figure>
+                                    <div class="project-card__body">
+                                        <h3 class="project-card__title">採用サイトTOP改善</h3>
+                                        <p class="project-card__tag">WEB DESIGN UX/UI</p>
+                                        <p class="project-card__tag">UX/UI</p>
+                                    </div>
+                                </a>
+                            </article>
+
+                            <article class="project-card">
+                                <a href="./pages/case-packaging.html" class="project-card__link">
+                                    <figure class="project-card__image">
+                                        <img src="./img/top/26.png" alt="配信メールマガジンのイメージ" />
+                                    </figure>
+                                    <div class="project-card__body">
+                                        <h3 class="project-card__title">売上向上メールマガジンの配信</h3>
+                                        <p class="project-card__tag">EMAIL MARKETING</p>
+                                        <p class="project-card__tag">UX/UI</p>
+                                        <p class="project-card__tag">BRANDING</p>
+                                    </div>
+                                </a>
+                            </article>
+
+                            <article class="project-card">
+                                <a href="./pages/case-others.html" class="project-card__link">
+                                    <figure class="project-card__image">
+                                        <img src="./img/top/30.jpg" alt="病院内資料のイメージ" />
+                                    </figure>
+                                    <div class="project-card__body">
+                                        <h3 class="project-card__title">院内配布用の資料</h3>
+                                        <p class="project-card__tag">PAPER</p>
+                                        <p class="project-card__tag">POP</p>
+                                        <p class="project-card__tag">UX/UI</p>
+                                        <p class="project-card__tag">BRANDING</p>
+                                    </div>
+                                </a>
+                            </article>
+                        </div>
+                    </div>
+
+                    <button class="top-grid__nav top-grid__nav--next" type="button" aria-label="次へ">
+                        →
+                    </button>
+                </div>
+
+                <div class="top-grid__action">
+                    <a href="./work/index.html" class="c-button c-button--ghost">制作物一覧を見る</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="top-contact l-section" id="contact">
+            <div class="top-contact__inner l-container--wide">
+                <div class="top-contact__content">
+                    <h2 class="top-contact__title">I hope this leads to a good encounter.</h2>
+                    <p class="top-contact__lead">
+                        ポートフォリオをご覧いただきありがとうございます。<br />
+                        お仕事のご相談やご連絡は、以下のフォームよりお願いいたします。
+                    </p>
+                </div>
+
+                <form class="top-contact__form" action="https://formspree.io/f/xjkjklqj" method="POST">
+                    <div class="top-contact__field">
+                        <label for="name">FULL NAME</label>
+                        <input id="name" name="name" type="text" placeholder="例｜山田 太郎" required />
+                    </div>
+
+                    <div class="top-contact__field">
+                        <label for="email">EMAIL ADDRESS</label>
+                        <input id="email" name="email" type="email" placeholder="例｜example@example.com" required />
+                    </div>
+
+                    <div class="top-contact__field">
+                        <label for="message">MESSAGE</label>
+                        <textarea id="message" name="message" placeholder="例｜〇〇〇の内容について問い合わせたい。" required></textarea>
+                    </div>
+
+                    <button type="submit" class="top-contact__submit c-button">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </section>
     </main>
 
+    <footer class="l-footer">
+        <div class="l-footer__inner l-container">
+            <p class="l-footer__copy">© THE PORTFOLIO OF SATSUKI</p>
+        </div>
+    </footer>
 
+    <div class="c-profileModal" id="profileModal" aria-hidden="true">
+        <div class="c-profileModal__overlay" data-profile-close></div>
 
-    <!--============= script.js =============-->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/stickyfill/2.1.0/stickyfill.min.js"></script>
-    <script src="js/common.js"></script>
-    <script src="js/top.js"></script>
+        <div class="c-profileModal__panel" role="dialog" aria-modal="true" aria-labelledby="profileModalTitle"
+            tabindex="-1">
+            <button class="c-profileModal__close" type="button" aria-label="Close profile" data-profile-close>
+                CLOSE
+            </button>
 
+            <div class="c-profileModal__body">
+                <p class="c-profileModal__eyebrow">PROFILE</p>
+
+                <div class="c-profileModal__media">
+                    <img src="./img/profile/profile.jpg" alt="Satsukiのプロフィール写真" class="c-profileModal__image">
+                </div>
+
+                <h2 class="c-profileModal__title" id="profileModalTitle">山本 さつき</h2>
+
+                <p class="c-profileModal__lead">
+                    制約の中でも最適解を見つけ、課題の整理から実装、改善までを一貫して回し続けるデザイナー
+                </p>
+
+                <div class="c-profileModal__content">
+                    <p>
+                        現職では、院内掲示物や同梱物など紙媒体の制作と並行して、公式サイト・ECサイトの運用改善などのWeb領域を中心に情報設計・UI改善・実装まで対応してきました。
+                        検索流入や売上データ、ユーザー行動をもとに構造や導線を見直し、予約導線整備やEC売上改善、モール販路整備などを推進してきました。<br>
+                        現状を多角的に捉えて課題を整理し「なぜ行うのか」「効果につながるのか」を確認しながら、優先順位をつけて着実に改善を進めることを大切にしています。
+                    </p>
+                </div>
+
+                <div class="c-profileModal__section">
+                    <p class="c-profileModal__label">できること</p>
+                    <ul class="c-profileModal__list">
+                        <li>情報設計（構造整理、導線設計、要件整理）</li>
+                        <li>UIデザイン（情報整理を踏まえた画面設計・UI設計）</li>
+                        <li>既存サイトの改善・運用（制約を踏まえた設計・改修）</li>
+                        <li>新規ページ / LPの立ち上げ（目的整理〜構成設計）</li>
+                        <li>Webと紙を横断した制作</li>
+                    </ul>
+                </div>
+
+                <div class="c-profileModal__section">
+                    <p class="c-profileModal__label">使用ツール / 技術</p>
+                    <p class="c-profileModal__tools">
+                        Figma / HTML / CSS（SCSS） / JavaScript / GitHub / Photoshop / Illustrator
+                    </p>
+                </div>
+
+                <div class="c-profileModal__actions">
+                    <a href="./index.html#contact" class="c-profileModal__contact" data-profile-contact> Contact
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/common.js"></script>
+    <script src="./js/top.js"></script>
 </body>
 
 </html>

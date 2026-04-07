@@ -1,0 +1,1270 @@
+@charset "UTF-8";
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: #f3f0eb;
+  color: #2b2926;
+  font-family: "Zen Kaku Gothic New", "Noto Sans JP", sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  letter-spacing: 0.02em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+svg {
+  display: block;
+}
+
+picture {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+a:hover {
+  color: #5d544c;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+p,
+figure,
+dl,
+dd {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  color: #141414;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.l-container {
+  width: min(1200px, 100% - 64px);
+  margin-inline: auto;
+}
+
+.l-container--wide {
+  width: min(1280px, 100% - 64px);
+  margin-inline: auto;
+}
+
+.l-container--narrow {
+  width: min(960px, 100% - 64px);
+  margin-inline: auto;
+}
+
+.l-section {
+  padding-block: clamp(72px, 10vw, 140px);
+}
+
+.l-section--sm {
+  padding-block: clamp(48px, 6vw, 88px);
+}
+
+.l-section--lg {
+  padding-block: clamp(70px, 12vw, 86px);
+}
+
+.u-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #525252;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.u-section-label {
+  display: inline-block;
+  color: #525252;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.u-title-xl {
+  font-size: clamp(42px, 9vw, 75px);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.u-title-lg {
+  font-size: clamp(32px, 5vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+
+.u-title-md {
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.u-text-sm {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #525252;
+}
+
+.u-text-xs {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #525252;
+}
+
+.c-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid #111111;
+  background: #111111;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.c-button:hover {
+  background: #5d544c;
+  border-color: #5d544c;
+  color: #ffffff;
+}
+
+.c-button--ghost {
+  background: transparent;
+  border-color: #d9d2ca;
+  color: #141414;
+}
+
+.c-button--ghost:hover {
+  background: #ece4dc;
+  border-color: #8d8176;
+  color: #141414;
+}
+
+.c-link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.c-link-arrow::after {
+  content: "→";
+  font-size: 13px;
+  line-height: 1;
+}
+
+.c-card {
+  background: #fcfbf8;
+  border: 1px solid #e8e2db;
+  box-shadow: 0 10px 30px rgba(20, 20, 20, 0.06);
+}
+
+.c-divider {
+  width: 100%;
+  height: 1px;
+  background: #e8e2db;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  border: 1px solid #d9d2ca;
+  background: rgba(255, 255, 255, 0.45);
+  padding: 14px 16px;
+  outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #8d8176;
+}
+
+textarea {
+  min-height: 132px;
+  resize: vertical;
+}
+
+@media (max-width: 767px) {
+  body {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .l-container,
+  .l-container--wide,
+  .l-container--narrow {
+    width: min(100%, 100% - 32px);
+  }
+  .u-title-xl {
+    font-size: clamp(40px, 12vw, 56px);
+    line-height: 1;
+  }
+  .u-title-lg {
+    font-size: clamp(28px, 8vw, 40px);
+  }
+  .u-title-md {
+    font-size: clamp(22px, 6vw, 28px);
+  }
+  .c-button {
+    min-height: 42px;
+    padding-inline: 16px;
+  }
+}
+.case-saas-page {
+  overflow: clip;
+}
+
+/* ---------------------------------
+   shared
+--------------------------------- */
+.case-saas__eyebrow,
+.case-saas-overview__head,
+.case-saas-problem__eyebrow,
+.case-saas-insight__eyebrow,
+.case-saas-decision__eyebrow,
+.case-saas-structure__eyebrow,
+.case-saas-uiux__eyebrow,
+.case-saas-implemented__eyebrow,
+.case-saas-effects__eyebrow,
+.case-saas-learning__eyebrow {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #525252;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ---------------------------------
+   hero
+--------------------------------- */
+.case-saas-hero {
+  padding-top: clamp(56px, 10vw, 100px);
+}
+
+.case-saas-hero__inner {
+  display: grid;
+  gap: 32px;
+}
+
+.case-saas-hero__head {
+  text-align: center;
+}
+
+.case-saas-hero__title {
+  margin-top: 14px;
+  color: #141414;
+  font-size: clamp(48px, 6vw, 88px);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.case-saas-hero__meta {
+  display: flex;
+  justify-content: center;
+  gap: 18px 28px;
+  flex-wrap: wrap;
+  margin-top: 36px;
+}
+.case-saas-hero__meta p {
+  color: #525252;
+  font-size: 12px;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.case-saas-hero__visual {
+  overflow: hidden;
+  border: 1px solid #e8e2db;
+  background: #fcfbf8;
+  box-shadow: 0 10px 30px rgba(20, 20, 20, 0.06);
+}
+.case-saas-hero__visual img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16/5.8;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* ---------------------------------
+   key summary
+--------------------------------- */
+.case-saas-summary {
+  padding-top: clamp(28px, 4vw, 44px);
+  padding-bottom: clamp(56px, 8vw, 88px);
+}
+
+.case-saas-summary__wrap {
+  width: 100%;
+  max-width: 820px;
+  margin-inline: auto;
+  text-align: left;
+}
+
+.case-saas-summary__eyebrow {
+  display: block;
+  color: #141414;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.case-saas-summary__lead {
+  margin-top: 14px;
+  color: #525252;
+  font-size: 16px;
+  line-height: 2;
+  letter-spacing: 1.2px;
+}
+
+/* ---------------------------------
+   overview
+--------------------------------- */
+.case-saas-overview {
+  background: #f8f8f8;
+}
+
+.case-saas-overview__wrap {
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.case-saas-overview__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 54px 56px;
+  margin-top: 56px;
+  max-width: 820px;
+  margin-inline: auto;
+}
+
+.case-saas-overview__item {
+  min-width: 0;
+}
+
+.case-saas-overview__item h2 {
+  color: #141414;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.case-saas-overview__item p {
+  margin-top: 14px;
+  color: #525252;
+  font-size: 16px;
+  line-height: 2;
+  letter-spacing: 1.2px;
+}
+
+.case-saas-overview__item--wide {
+  grid-column: 1/-1;
+  max-width: 820px;
+}
+
+/* ---------------------------------
+   problem
+--------------------------------- */
+.case-saas-problem {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.case-saas-problem__wrap {
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.case-saas-problem__body {
+  width: 100%;
+  max-width: 820px;
+  margin-inline: auto;
+  display: grid;
+  gap: 40px;
+  margin-top: 36px;
+  text-align: left;
+}
+
+.case-saas-problem__block h2 {
+  color: #141414;
+  font-size: 20px;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+
+.case-saas-problem__block p {
+  margin-top: 12px;
+  color: #525252;
+  font-size: 16px;
+  line-height: 1.95;
+  letter-spacing: 1.2px;
+}
+
+/* ---------------------------------
+   insight
+--------------------------------- */
+.case-saas-insight {
+  background: #f8f8f8;
+}
+
+.case-saas-insight__wrap {
+  max-width: 980px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.case-saas-insight__lead,
+.case-saas-insight__lead * {
+  color: #141414;
+}
+
+.case-saas-insight__lead {
+  margin-top: 18px;
+  font-size: clamp(26px, 3.3vw, 38px);
+  line-height: 1.55;
+  letter-spacing: -0.03em;
+}
+.case-saas-insight__lead span {
+  color: #4b72a9;
+}
+
+.case-saas-insight__sub {
+  margin-top: 18px;
+  color: #525252;
+  font-size: 16px;
+  line-height: 1.9;
+  letter-spacing: 1.2px;
+  text-align: left;
+  max-width: 820px;
+  margin-inline: auto;
+}
+
+/* ---------------------------------
+   04 strategic decision
+--------------------------------- */
+.case-saas-decision__wrap {
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.case-saas-decision__timeline {
+  position: relative;
+  margin-top: 34px;
+  padding-left: 22px;
+  max-width: 860px;
+  margin-inline: auto;
+}
+.case-saas-decision__timeline::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 5px;
+  width: 1px;
+  background: #e8e2db;
+}
+
+.case-saas-step {
+  position: relative;
+  padding-bottom: 44px;
+}
+
+.case-saas-step:last-child {
+  padding-bottom: 0;
+}
+
+.case-saas-step__marker {
+  position: absolute;
+  top: 2px;
+  left: -22px;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #b7c2cf;
+  border-radius: 50%;
+  background: #eff3f8;
+  z-index: 1;
+  transition: background-color 0.28s ease, border-color 0.28s ease, transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.case-saas-step__content {
+  min-width: 0;
+  width: 100%;
+  max-width: 820px;
+}
+
+.case-saas-step__label {
+  color: #525252;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.72;
+  transition: opacity 0.28s ease, transform 0.28s ease, color 0.28s ease;
+}
+
+.case-saas-step__title {
+  margin-top: 12px;
+  color: #141414;
+  font-size: clamp(24px, 2.2vw, 34px);
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  opacity: 0.72;
+  transform: translateX(0);
+  transition: opacity 0.32s ease, transform 0.32s ease, color 0.32s ease;
+}
+
+.case-saas-step__text {
+  margin-top: 12px;
+  width: 100%;
+  max-width: 820px;
+  color: #525252;
+  font-size: 16px;
+  line-height: 1.95;
+  letter-spacing: 1.2px;
+}
+
+.case-saas-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+  width: 100%;
+  max-width: 820px;
+}
+
+.case-saas-option {
+  padding: 18px 16px;
+  border: 1px solid #e8e2db;
+  background: #f6f8fb;
+  min-width: 0;
+}
+
+.case-saas-option--active {
+  border: 2px solid #4b72a9;
+  background: #f2f7fd;
+}
+
+.case-saas-option h3 {
+  color: #141414;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 1px;
+}
+
+.case-saas-option p {
+  margin-top: 8px;
+  color: #525252;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.case-saas-step__note {
+  margin-top: 14px;
+  width: 100%;
+  max-width: 820px;
+  border-left: 2px solid transparent;
+  color: #525252;
+  font-size: 16px;
+  line-height: 1.95;
+  transition: border-color 0.28s ease, padding-left 0.28s ease;
+}
+
+.case-saas-step.is-active .case-saas-step__marker {
+  background: #35598a;
+  border-color: #35598a;
+  transform: scale(1.08);
+  box-shadow: 0 0 0 4px rgba(53, 89, 138, 0.12);
+}
+.case-saas-step.is-active .case-saas-step__label {
+  opacity: 1;
+  transform: translateX(4px);
+  color: #141414;
+}
+.case-saas-step.is-active .case-saas-step__title {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+/* ---------------------------------
+   05 design structure
+--------------------------------- */
+.case-saas-structure {
+  background: #f8f8f8;
+}
+
+.case-saas-structure__wrap {
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.case-saas-structure__intro {
+  margin-top: 42px;
+  max-width: 820px;
+  margin-inline: auto;
+  text-align: left;
+}
+
+.case-saas-structure__title {
+  color: #141414;
+  font-size: clamp(28px, 2.8vw, 40px);
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
+.case-saas-structure__lead {
+  margin-top: 18px;
+  color: #525252;
+  font-size: 16px;
+  line-height: 1.95;
+  letter-spacing: 1.2px;
+}
+
+.case-saas-structure__diagram-head {
+  margin-top: 56px;
+  text-align: center;
+  color: #525252;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.case-saas-diagram {
+  margin-top: 26px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.case-saas-diagram__box {
+  min-height: 124px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 24px 18px;
+  background: #fff;
+  border: 1px solid #dfe6ee;
+}
+.case-saas-diagram__box strong {
+  display: block;
+  margin-top: 6px;
+  color: #141414;
+  font-size: 22px;
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+.case-saas-diagram__box--plain {
+  background: #fff;
+  border: 1px solid #dfe6ee;
+}
+.case-saas-diagram__box--plain strong {
+  color: #141414;
+}
+
+.case-saas-diagram__box--focus {
+  background: #f2f7fd;
+  border: 2px solid #4b72a9;
+}
+.case-saas-diagram__box--focus strong {
+  color: #35598a;
+}
+
+.case-saas-diagram__small {
+  display: block;
+  color: #8ca0b5;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.case-saas-diagram__small--focus {
+  color: #4b72a9;
+}
+
+.case-saas-diagram__small--accent {
+  color: #4b72a9;
+}
+
+.case-saas-diagram__arrow {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.case-saas-diagram__arrow--muted {
+  color: #cad5e2;
+}
+
+.case-saas-diagram__arrow--accent {
+  color: #4b72a9;
+}
+
+.case-saas-diagram__center-wrap {
+  display: grid;
+  gap: 10px;
+}
+
+.case-saas-diagram__transition {
+  text-align: center;
+  color: #4b72a9;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.case-saas-diagram__action {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.case-saas-diagram__action-icon {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #4b72a9;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1;
+}
+
+/* ---------------------------------
+   06 ui design
+--------------------------------- */
+.case-saas-uiux {
+  background: #16212f;
+}
+
+.case-saas-uiux__wrap {
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.case-saas-uiux__intro {
+  margin-top: 18px;
+  max-width: 820px;
+  margin-inline: auto;
+  text-align: left;
+}
+
+.case-saas-uiux__title {
+  color: #fff;
+  font-size: clamp(28px, 2.8vw, 40px);
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
+.case-saas-uiux__lead {
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 16px;
+  line-height: 1.95;
+  letter-spacing: 1.2px;
+}
+
+.case-saas-uiux__points {
+  margin-top: 42px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px 48px;
+  max-width: 820px;
+  margin-inline: auto;
+  text-align: left;
+}
+
+.case-saas-uiux__point h3 {
+  color: #8ab4f8;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.case-saas-uiux__point p {
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 16px;
+  line-height: 1.9;
+  letter-spacing: 1.2px;
+}
+
+.case-saas-uiux__visual-row {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: end;
+  width: 100%;
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.case-saas-uiux__tradeoff {
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.case-saas-uiux__tradeoff-label {
+  color: #8ab4f8;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.case-saas-uiux__tradeoff-list {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 32px;
+}
+
+.case-saas-uiux__tradeoff-item h3 {
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.case-saas-uiux__tradeoff-item p {
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 16px;
+  line-height: 1.9;
+  letter-spacing: 1.2px;
+}
+
+.case-saas-flow {
+  margin-top: 80px;
+}
+
+.case-saas-flow__note {
+  text-align: center;
+  font-size: 13px;
+  color: #8ca0b5;
+  margin-bottom: 32px;
+}
+
+.case-saas-flow__step {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #4b72a9;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.case-saas-flow__item.is-key {
+  transform: scale(1.02);
+}
+.case-saas-flow__item.is-key img {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+.case-saas-flow__item.is-key .case-saas-flow__step {
+  color: #4b72a9;
+  font-weight: 600;
+}
+
+.case-saas-flow__item img {
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.case-saas-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+}
+
+.case-saas-modal.is-active {
+  display: block;
+}
+
+.case-saas-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.case-saas-modal__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.case-saas-modal__content img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 6px;
+}
+
+.case-saas-modal__close {
+  position: absolute;
+  top: -36px;
+  right: 0;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.case-saas-flow__caption {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #8ca0b5;
+  text-align: center;
+}
+
+.case-saas-flow__arrow {
+  text-align: center;
+  margin: 20px 0;
+  color: #4b72a9;
+}
+
+/* ---------------------------------
+   07 product scope
+--------------------------------- */
+.case-saas-implemented {
+  background: #f8f8f8;
+}
+
+.case-saas-implemented__wrap {
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.case-saas-implemented__grid {
+  margin-top: 26px;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 42px;
+  align-items: start;
+  width: 100%;
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.case-saas-implemented__visual {
+  overflow: hidden;
+  border-radius: 4px;
+  background: #e8eef5;
+}
+.case-saas-implemented__visual img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.55/1;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.case-saas-implemented__text p {
+  color: #525252;
+  font-size: 16px;
+  line-height: 1.95;
+  letter-spacing: 1.2px;
+}
+.case-saas-implemented__text p + p {
+  margin-top: 16px;
+}
+
+/* ---------------------------------
+   08 expected impact
+--------------------------------- */
+.case-saas-effects {
+  background: #f3f0eb;
+}
+
+.case-saas-effects__wrap {
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.case-saas-effects__block {
+  margin-top: 24px;
+  max-width: 820px;
+  margin-inline: auto;
+  text-align: left;
+}
+
+.case-saas-effects__block h2 {
+  color: #141414;
+  font-size: clamp(24px, 2.2vw, 32px);
+  line-height: 1.45;
+}
+
+.case-saas-effects__block p {
+  margin-top: 14px;
+  color: #525252;
+  font-size: 16px;
+  line-height: 1.95;
+  letter-spacing: 1.2px;
+}
+
+.case-saas-effects__divider {
+  width: 100%;
+  max-width: 820px;
+  height: 1px;
+  background: #cad6e2;
+  margin: 36px auto 28px;
+}
+
+.case-saas-effects__block--sub h3 {
+  color: #525252;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.case-saas-value-list {
+  margin-top: 24px;
+  display: grid;
+  gap: 20px;
+}
+
+.case-saas-value-item h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.case-saas-value-item p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* ---------------------------------
+   09 learning
+--------------------------------- */
+.case-saas-learning {
+  background: #f8f8f8;
+}
+
+.case-saas-learning__wrap {
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.case-saas-learning__block {
+  margin-top: 24px;
+  max-width: 820px;
+  margin-inline: auto;
+  text-align: left;
+}
+
+.case-saas-learning__block h2 {
+  color: #141414;
+  font-size: clamp(28px, 2.6vw, 38px);
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
+.case-saas-learning__block p {
+  margin-top: 14px;
+  color: #525252;
+  font-size: 16px;
+  line-height: 1.95;
+  letter-spacing: 1.2px;
+}
+
+/* ---------------------------------
+   10 next
+--------------------------------- */
+.case-saas-next__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 28px;
+  max-width: 980px;
+  margin-inline: auto;
+  padding-top: 14px;
+  border-top: 1px solid #e8e2db;
+}
+
+.case-saas-next__content {
+  max-width: 820px;
+}
+
+.case-saas-next__title {
+  margin-top: 14px;
+  color: #141414;
+  font-size: clamp(18px, 2vw, 28px);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.case-saas-next__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ---------------------------------
+   tablet
+--------------------------------- */
+@media (max-width: 1024px) {
+  .case-saas-overview__grid,
+  .case-saas-options,
+  .case-saas-implemented__grid,
+  .case-saas-uiux__visual-row,
+  .case-saas-diagram {
+    grid-template-columns: 1fr;
+  }
+  .case-saas-uiux__points {
+    grid-template-columns: 1fr;
+  }
+  .case-saas-diagram__action {
+    justify-content: center;
+  }
+  .case-saas-diagram__arrow {
+    justify-self: center;
+    transform: rotate(90deg);
+  }
+  .case-saas-next__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .case-saas-next__content {
+    max-width: 100%;
+  }
+}
+/* ---------------------------------
+   mobile
+--------------------------------- */
+@media (max-width: 767px) {
+  .case-saas-hero__title {
+    font-size: clamp(36px, 12vw, 52px);
+    line-height: 1.02;
+  }
+  .case-saas-hero__meta {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .case-saas-hero__visual img {
+    aspect-ratio: 4/5;
+  }
+  .case-saas-insight__lead {
+    font-size: clamp(24px, 8vw, 34px);
+    line-height: 1.6;
+  }
+  .case-saas-structure__title,
+  .case-saas-uiux__title,
+  .case-saas-learning__block h2,
+  .case-saas-step__title {
+    line-height: 1.45;
+  }
+  .case-saas-step__text,
+  .case-saas-step__note,
+  .case-saas-effects__block,
+  .case-saas-learning__block,
+  .case-saas-problem__body,
+  .case-saas-structure__intro,
+  .case-saas-uiux__intro,
+  .case-saas-uiux__points,
+  .case-saas-overview__grid {
+    max-width: 100%;
+  }
+  .case-saas-decision__timeline {
+    padding-left: 18px;
+    max-width: 100%;
+  }
+  .case-saas-overview__item--wide {
+    grid-column: auto;
+    max-width: 100%;
+  }
+  .case-saas-uiux__tradeoff-list {
+    grid-template-columns: 1fr;
+  }
+  .case-saas-step__marker {
+    left: -18px;
+  }
+  .case-saas-diagram__box strong {
+    font-size: 18px;
+  }
+  .case-saas-next__actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
