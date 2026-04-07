@@ -1,146 +1,146 @@
 <!DOCTYPE html>
-<html lang="jp">
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="keywords" content="ポートフォリオ">
-    <meta name="description" content="このサイトは山本さつきのポートフォリオです。">
-    <title>Works｜Yamamoto-Portfolio</title>
+    <title>Works</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--============= Google Analytics ===============-->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
-
-    <!--============= Google Font ===============-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&family=Zen+Kaku+Gothic+New&display=swap"
-        rel="stylesheet">
-
-    <!--============= CSS ===============-->
-    <link rel="stylesheet" href="../css/destyle.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="stylesheet" href="../css/main.css">
-
-    <!--============= Favicon =============-->
-    <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
 </head>
 
-<body id="work">
-    <!--============= Header =============-->
-    <header id="header">
-        <nav id="g-navi">
-            <ul>
-                <li><a href="https://gogatsu6.github.io/portfolio/index.html">TOP</a></li>
-                <li><a href="https://gogatsu6.github.io/portfolio/index.html#area-2">profile</a></li>
-                <li><a href="https://gogatsu6.github.io/portfolio/index.html#area-3">contact</a></li>
-            </ul>
-        </nav>
+<body>
+    <header class="l-header">
+        <div class="l-header__inner l-container">
+            <a href="../pages/index.html" class="l-header__logo">THE PORTFOLIO OF SATSUKI</a>
+
+            <nav class="l-header__nav" aria-label="Main navigation">
+                <ul class="l-header__list">
+                    <li>
+                        <a href="../pages/index.html#products" class="l-header__link">Products</a>
+                    </li>
+                    <li>
+                        <a href="../pages/index.html#other-works" class="l-header__link">Other Works</a>
+                    </li>
+                    <li>
+                        <a href="../pages/index.html#contact" class="l-header__link">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <button class="l-header__profile" type="button" aria-expanded="false" aria-controls="profileModal"
+                aria-label="Open profile">
+                PROFILE
+            </button>
+        </div>
     </header>
-    <div class="openbtn"><span></span><span></span><span></span></div>
 
 
-    <main>
-        <div class="work-wrapper">
-            <!--============= list-area =============-->
-            <div class="work-left">
-                <div class="innerWrap-work">
-                    <!-- パンくず（最小追加） -->
-                    <nav class="breadcrumb" aria-label="breadcrumb">
-                        <ol>
-                            <li><a href="https://gogatsu6.github.io/portfolio/index.html">TOP</a></li>
-                            <li><span aria-current="page">Works</span></li>
-                        </ol>
-                    </nav>
+    <main class="work">
+        <h1 class="work__title">List of other works.</h1>
 
-                    <h1>Works</h1>
-                    <!----------- main-img  ----------->
-                    <div class="work-left-gallery" id="work-gallery">
-                        <!-- 🔽 ここにJSONの内容をJSで自動挿入する -->
-                    </div>
+        <div class="work__container">
 
-                    <div class="thumbnail-area" id="thumbnail-area">
-                        <!----------- sort-list  ----------->
-                        <ul class="sort-btn">
-                            <li class="sort00 active">all</li>
-                            <li class="sort-web">web</li>
-                            <li class="sort-pa">paper</li>
-                            <li class="sort-oh">other</li>
-                        </ul>
+            <!-- LEFT -->
+            <div class="work__left">
 
-                        <!----------- thumbnail-img  ----------->
-                        <ul class="grid"></ul>
 
-                        <button class="thumb-prev">‹</button>
-                        <button class="thumb-next">›</button>
-                        <div class="thumb-indicator">
-                            <span class="active"></span>
-                            <span></span>
-                            <span></span>
-                        </div>
+                <div id="work-gallery" class="work__gallery"></div>
+
+                <div class="work__thumbs">
+                    <ul class="work__filter">
+                        <li data-filter="all" class="active">ALL</li>
+                        <li data-filter="web">WEB</li>
+                        <li data-filter="pa">PAPER</li>
+                        <li data-filter="oh">OTHER</li>
+                    </ul>
+
+                    <div class="work__slider">
+                        <button class="work__slider-btn work__slider-btn--prev" type="button" aria-label="前へ">‹</button>
+                        <ul id="work-grid" class="work__grid"></ul>
+                        <button class="work__slider-btn work__slider-btn--next" type="button" aria-label="次へ">›</button>
                     </div>
                 </div>
             </div>
 
-            <!--============= description-area =============-->
-            <div class="work-right">
-                <button class="page-top"><span></span>
-                    <p>PAGE TOP</p>
-                </button>
-
-                <div class="innerWrap-work">
-                    <div class="work-detail" id="work-detail">
-                        <!-- 🔽 ここにもJSONの説明欄などをJSで自動挿入 -->
-                    </div>
-                </div>
+            <!-- RIGHT -->
+            <div class="work__right">
+                <div id="work-detail"></div>
             </div>
-        </div><!-- work-wrapper end -->
+
+        </div>
+
     </main>
+    <footer class="l-footer">
+        <div class="l-footer__inner l-container">
+            <p class="l-footer__copy">© THE PORTFOLIO OF SATSUKI</p>
+        </div>
+    </footer>
 
-    <div id="works-list"></div>
+    <div class="c-profileModal" id="profileModal" aria-hidden="true">
+        <div class="c-profileModal__overlay" data-profile-close></div>
 
-    <!--============= script.js =============-->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="https://unpkg.com/web-animations-js@2.3.2/web-animations.min.js"></script>
-    <script src="https://unpkg.com/muuri@0.8.0/dist/muuri.min.js"></script>
+        <div class="c-profileModal__panel" role="dialog" aria-modal="true" aria-labelledby="profileModalTitle"
+            tabindex="-1">
+            <button class="c-profileModal__close" type="button" aria-label="Close profile" data-profile-close>
+                CLOSE
+            </button>
+
+            <div class="c-profileModal__body">
+                <p class="c-profileModal__eyebrow">PROFILE</p>
+
+                <div class="c-profileModal__media">
+                    <img src="../img/profile/profile.jpg" alt="Satsukiのプロフィール写真" class="c-profileModal__image">
+                </div>
+
+                <h2 class="c-profileModal__title" id="profileModalTitle">山本 さつき</h2>
+
+                <p class="c-profileModal__lead">
+                    制約の中でも最適解を見つけ、課題の整理から実装、改善までを一貫して回し続けるデザイナー
+                </p>
+
+                <div class="c-profileModal__content">
+                    <p>
+                        現職では、院内掲示物や同梱物など紙媒体の制作と並行して、公式サイト・ECサイトの運用改善などのWeb領域を中心に情報設計・UI改善・実装まで対応してきました。
+                        検索流入や売上データ、ユーザー行動をもとに構造や導線を見直し、予約導線整備やEC売上改善、モール販路整備などを推進してきました。<br>
+                        現状を多角的に捉えて課題を整理し「なぜ行うのか」「効果につながるのか」を確認しながら、優先順位をつけて着実に改善を進めることを大切にしています。
+                    </p>
+                </div>
+
+                <div class="c-profileModal__section">
+                    <p class="c-profileModal__label">できること</p>
+                    <ul class="c-profileModal__list">
+                        <li>情報設計（構造整理、導線設計、要件整理）</li>
+                        <li>UIデザイン（情報整理を踏まえた画面設計・UI設計）</li>
+                        <li>既存サイトの改善・運用（制約を踏まえた設計・改修）</li>
+                        <li>新規ページ / LPの立ち上げ（目的整理〜構成設計）</li>
+                        <li>Webと紙を横断した制作</li>
+                    </ul>
+                </div>
+
+                <div class="c-profileModal__section">
+                    <p class="c-profileModal__label">使用ツール / 技術</p>
+                    <p class="c-profileModal__tools">
+                        Figma / HTML / CSS（SCSS） / JavaScript / GitHub / Photoshop / Illustrator
+                    </p>
+                </div>
+
+                <div class="c-profileModal__actions">
+                    <a href="../pages/index.html#contact" class="c-profileModal__contact" data-profile-contact> Contact
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="back-to-top" id="backToTop" aria-label="ページ上部へ戻る">
+        ↑
+    </button>
+
     <script src="../js/common.js"></script>
     <script src="../js/work.js"></script>
+    <script src="../js/case-study.js"></script>
 
-
-    <!--============= JSONの表示切替 =============-->
-    <script>
-        fetch("../data/works.json")  // JSONのパスに合わせて変更
-            .then(response => response.json())
-            .then(works => {
-
-                // hospitalだけ抽出
-                const filtered = works.filter(work => work.case === "hospital");
-
-                const container = document.getElementById("works-list");
-
-                filtered.forEach(work => {
-                    const item = document.createElement("div");
-                    item.className = "work-item";
-
-                    item.innerHTML = `
-        <img src="${work.thumbnail}" alt="${work.title}">
-        <p>${work.title}</p>
-      `;
-
-                    container.appendChild(item);
-                });
-
-            });
-    </script>
 </body>
 
 </html>

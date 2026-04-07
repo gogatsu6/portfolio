@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EC Product Management SaaS | Portfolio</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+    <header class="l-header">
+        <div class="l-header__inner l-container">
+            <a href="../pages/index.html" class="l-header__logo">THE PORTFOLIO OF SATSUKI</a>
+
+            <nav class="l-header__nav" aria-label="Main navigation">
+                <ul class="l-header__list">
+                    <li>
+                        <a href="../pages/index.html#products" class="l-header__link is-current">Products</a>
+                    </li>
+                    <li>
+                        <a href="../pages/index.html#other-works" class="l-header__link">Other Works</a>
+                    </li>
+                    <li>
+                        <a href="../pages/index.html#contact" class="l-header__link">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <button class="l-header__profile" type="button" aria-expanded="false" aria-controls="profileModal"
+                aria-label="Open profile">
+                PROFILE
+            </button>
+        </div>
+    </header>
+
+    <main class="case-saas-page">
+        <!-- hero -->
+        <section class="case-saas-hero l-section--lg">
+            <div class="case-saas-hero__inner l-container--wide">
+                <div class="case-saas-hero__head">
+                    <p class="case-saas__eyebrow">02. CASE STUDY</p>
+                    <h1 class="case-saas-hero__title">EC Product<br>Management SaaS.</h1>
+
+                    <div class="case-saas-hero__meta">
+                        <p>PROJECT : 多店舗EC向け 商品一元管理SaaS 自主制作</p>
+                        <p>ROLE : 課題整理 / UX設計 / 情報設計 / UI設計</p>
+                    </div>
+                </div>
+
+                <figure class="case-saas-hero__visual">
+                    <img src="../img/case-saas/hero.png" alt="多店舗EC向け商品一元管理SaaSのメインビジュアル">
+                </figure>
+            </div>
+        </section>
+
+        <!-- key conclusion -->
+        <section class="case-saas-summary l-section">
+            <div class="case-saas-summary__inner l-container--wide">
+                <div class="case-saas-summary__wrap">
+                    <p class="case-saas-summary__eyebrow">KEY POINT</p>
+                    <p class="case-saas-summary__lead">
+                        自社ECと複数モールを少人数で運用する現場では、商品変更のたびに各チャネルで同じ作業を繰り返す必要があり、
+                        更新漏れや価格不一致も起きやすい。<br>
+                        この負担を単なる画面改善ではなく、商品を中心に情報を持ち直すべきプロダクト課題として捉え直し、
+                        店舗単位ではなく商品単位で管理する構造へ切り替えた。<br>
+                        一覧 → 編集 → 反映 の導線、変更履歴、確認モーダルを通して、
+                        操作効率と安全性の両立を目指した自主制作である。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- overview -->
+        <section class="case-saas-overview l-section">
+            <div class="case-saas-overview__inner l-container--wide">
+                <div class="case-saas-overview__wrap">
+                    <div class="case-saas-overview__head">01. OVERVIEW</div>
+
+                    <div class="case-saas-overview__grid">
+                        <div class="case-saas-overview__item">
+                            <h2>USER & CONTEXT</h2>
+                            <p>
+                                自社ECとモールを横断して商品管理を行うEC運用担当者を主対象とした。
+                                少人数運用（1〜3名）で、各チャネル専任が明確に分かれておらず、
+                                商品登録・価格変更・SKU管理・在庫管理・販売チャネル管理などを並行して担う現場を想定している。
+                            </p>
+                        </div>
+
+                        <div class="case-saas-overview__item">
+                            <h2>USER PAIN</h2>
+                            <p>
+                                商品情報が店舗ごとに分断されているため、
+                                商品変更のたびに各管理画面で同様の更新作業を繰り返す必要がある。
+                                その結果、更新漏れや価格不一致が発生しやすく、
+                                変更反映前の確認にも心理的な負荷がかかる状態だった。
+                            </p>
+                        </div>
+
+                        <div class="case-saas-overview__item">
+                            <h2>CORE GOAL</h2>
+                            <p>
+                                商品情報を店舗単位ではなく商品単位で管理できるようにし、
+                                複数チャネルにまたがる更新作業の負担を減らすこと。
+                                あわせて、変更の影響範囲や未反映状態を見える化し、
+                                スピードと安全性の両立を目指した。
+                            </p>
+                        </div>
+
+                        <div class="case-saas-overview__item">
+                            <h2>SCOPE</h2>
+                            <p>
+                                対象は、商品情報 / SKU / 在庫 / 販売チャネル同期 / 商品変更履歴管理。
+                                一方で、受注管理 / 発送管理 / 顧客管理 / 売上分析 / 権限管理は対象外とし、
+                                小規模〜中規模EC事業者が扱いやすい範囲に絞って設計した。
+                            </p>
+                        </div>
+
+                        <div class="case-saas-overview__item case-saas-overview__item--wide">
+                            <h2>MY APPROACH</h2>
+                            <p>
+                                実務で感じていた運用課題を起点に、
+                                「何の機能を増やすか」ではなく「何を中心に情報を持つべきか」から再設計した。
+                                UIの見た目だけではなく、対象ユーザー、情報構造、操作導線、対象外スコープまで含めて
+                                プロダクトとして成立する骨格を考えている。
+                                本プロダクトでは、課題整理・情報設計・UI設計まで一貫して担当した。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- problem -->
+        <section class="case-saas-problem l-section">
+            <div class="case-saas-problem__inner l-container--wide">
+                <div class="case-saas-problem__wrap">
+                    <p class="case-saas-problem__eyebrow">02. PROBLEM</p>
+
+                    <div class="case-saas-problem__body">
+                        <article class="case-saas-problem__block">
+                            <h2>■ 商品変更のたびに、各チャネルで同じ作業を繰り返す必要があった</h2>
+                            <p>
+                                多店舗EC運用では、自社EC・楽天・Amazon・Yahooなど複数チャネルで販売することが多い。
+                                しかし価格変更、商品説明変更、画像差し替え、在庫変更、販売終了、商品パターン追加などが発生するたびに、
+                                各店舗管理画面で同様の更新作業を繰り返す必要があり、運用担当者の大きな負担になっていた。
+                            </p>
+                        </article>
+
+                        <article class="case-saas-problem__block">
+                            <h2>■ 管理画面が店舗単位で分かれており、運用者の思考とずれていた</h2>
+                            <p>
+                                既存のEC管理画面は、楽天管理、Amazon管理、自社EC管理といった店舗単位の構造が多い。
+                                ただ実際の運用者は「この商品をどう管理するか」を基準に考えるため、
+                                操作対象と思考対象が一致せず、画面遷移や確認負荷が大きくなりやすい状態だった。
+                            </p>
+                        </article>
+
+                        <article class="case-saas-problem__block">
+                            <h2>■ 更新漏れや価格不一致など、運用リスクが起きやすかった</h2>
+                            <p>
+                                複数チャネルへ同じ変更を反映する運用では、価格不一致、更新漏れ、情報差異といった小さなズレが発生しやすい。
+                                これらは現場の確認コストを増やすだけでなく、販売機会損失や顧客体験の低下にもつながりうる。
+                            </p>
+                        </article>
+
+                        <article class="case-saas-problem__block">
+                            <h2>■ 少人数運用では、重い権限設計より「後から追えること」が重要だった</h2>
+                            <p>
+                                想定ユーザーは1〜3名規模の運用であり、厳密な権限管理を先に作り込むよりも、
+                                誰が何を変更したかを履歴で追える状態の方が現実的だと判断した。
+                                そのため、対象範囲を絞りながら、成立するプロダクトにする必要があった。
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- insight -->
+        <section class="case-saas-insight l-section">
+            <div class="case-saas-insight__inner l-container--wide">
+                <div class="case-saas-insight__wrap">
+                    <p class="case-saas-insight__eyebrow">03. THE INSIGHT</p>
+
+                    <p class="case-saas-insight__lead">
+                        「店舗ごとの操作」ではなく、<br>
+                        <span>「商品をどう管理するか」を中心に構造を組み直す。</span>
+                    </p>
+
+                    <p class="case-saas-insight__sub">
+                        問題は単に作業量が多いことだけではなく、運用者の思考と管理画面の構造がずれていたことだった。
+                        そのため、操作を少し便利にするのではなく、まず主オブジェクトを「商品」として再定義し、情報の持ち方から見直す必要があると判断した。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- strategic decision -->
+        <section class="case-saas-decision l-section">
+            <div class="case-saas-decision__inner l-container--wide">
+                <div class="case-saas-decision__wrap">
+                    <p class="case-saas-decision__eyebrow">04. STRATEGIC DECISION</p>
+
+                    <div class="case-saas-decision__timeline" id="decisionTimeline">
+                        <article class="case-saas-step is-active" data-step="1">
+                            <div class="case-saas-step__marker"></div>
+                            <div class="case-saas-step__content">
+                                <span class="case-saas-step__active-bar" aria-hidden="true"></span>
+                                <p class="case-saas-step__label">01. PROJECT START</p>
+                                <h2 class="case-saas-step__title">出発点は、EC運用の実務で感じていた反復作業の負担</h2>
+                                <p class="case-saas-step__text">
+                                    商品変更は日常的に発生する一方で、各チャネルの管理画面で同じような作業を繰り返す必要がある。
+                                    まずはこの負担を、単発の改善ではなく、構造的な問題として捉え直した。
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="case-saas-step" data-step="2">
+                            <div class="case-saas-step__marker"></div>
+                            <div class="case-saas-step__content">
+                                <span class="case-saas-step__active-bar" aria-hidden="true"></span>
+                                <p class="case-saas-step__label">02. REFRAMING THE ISSUE</p>
+                                <h2 class="case-saas-step__title">運用課題を「商品中心UI」の課題へ置き換えた</h2>
+                                <p class="case-saas-step__text">
+                                    店舗単位で管理する既存構造は、運用者の思考と一致していない。
+                                    そのため、「どの店舗を触るか」ではなく「どの商品をどう管理するか」を中心に据えるOOUIの考え方を採用した。
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="case-saas-step" data-step="3">
+                            <div class="case-saas-step__marker"></div>
+                            <div class="case-saas-step__content">
+                                <span class="case-saas-step__active-bar" aria-hidden="true"></span>
+                                <p class="case-saas-step__label">03. DECISION MAKING</p>
+
+                                <div class="case-saas-options">
+                                    <div class="case-saas-option">
+                                        <h3>店舗単位案：チャネルごとに更新し続ける</h3>
+                                        <p>Pros: 既存の運用構造に近い</p>
+                                        <p>Cons: 画面遷移と重複作業が減らない</p>
+                                    </div>
+
+                                    <div class="case-saas-option case-saas-option--active">
+                                        <h3>商品中心案：商品を主オブジェクトにして横断管理する</h3>
+                                        <p>Pros: 思考と操作が一致しやすく、反復作業を減らせる</p>
+                                        <p>Cons: 差分管理や反映設計まで整理が必要</p>
+                                    </div>
+
+                                    <div class="case-saas-option">
+                                        <h3>多機能統合案：受注や顧客管理まで広げる</h3>
+                                        <p>Pros: 大きなプロダクトに見せやすい</p>
+                                        <p>Cons: スコープが広がり、軸がぼやける</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="case-saas-step" data-step="4">
+                            <div class="case-saas-step__marker"></div>
+                            <div class="case-saas-step__content">
+                                <span class="case-saas-step__active-bar" aria-hidden="true"></span>
+                                <p class="case-saas-step__label">04. REASONING</p>
+                                <h2 class="case-saas-step__title">スコープを絞り、少人数運用でも成立する構造を優先した</h2>
+                                <p class="case-saas-step__text">
+                                    この自主制作では、商品情報 / SKU / 在庫 / 販売チャネル同期 / 商品変更履歴管理に絞り、
+                                    受注管理や顧客管理などは対象外とした。
+                                    これは、プロダクトの焦点を明確にし、実務で最も負荷の高い領域に対して解像度高く向き合うためである。
+                                </p>
+                                <p class="case-saas-step__text">
+                                    また、権限管理もあえて持たず、
+                                    小規模〜中規模EC事業者の少人数運用を前提に、変更履歴による管理を採用した。
+                                    理想的な多機能化よりも、実際に使える現実性を優先している。
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="case-saas-step case-saas-step--final" data-step="5">
+                            <div class="case-saas-step__marker"></div>
+                            <div class="case-saas-step__content">
+                                <span class="case-saas-step__active-bar" aria-hidden="true"></span>
+                                <p class="case-saas-step__label">05. FINAL DECISION</p>
+                                <h2 class="case-saas-step__title">商品を主オブジェクトとし、「一覧 → 編集 → 反映」のシンプルな導線へ整理</h2>
+
+                                <div class="case-saas-step__note">
+                                    主オブジェクトを商品に置き、
+                                    一覧で状態を横断確認し、右スライドインで詳細編集し、確認モーダルを挟んで反映する構造を設計。
+                                    操作効率だけでなく、安全性と認知負荷のバランスも重視した。
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- design structure -->
+        <section class="case-saas-structure l-section">
+            <div class="case-saas-structure__inner l-container--wide">
+                <div class="case-saas-structure__wrap">
+                    <p class="case-saas-structure__eyebrow">05. DESIGN STRUCTURE</p>
+
+                    <div class="case-saas-structure__intro">
+                        <h2 class="case-saas-structure__title">
+                            商品単位で管理することで、運用者の思考と操作を一致させる
+                        </h2>
+                        <p class="case-saas-structure__lead">
+                            本プロダクトでは、主オブジェクトを「商品」とし、
+                            商品が持つ情報、販売チャネル、商品状態、主要機能、変更履歴を整理した。
+                            これにより、店舗ごとではなく商品ごとに状態を把握しながら更新できる構造を目指している。
+                        </p>
+                        <p class="case-saas-structure__lead">
+                            商品一覧では、各チャネルの価格・在庫・販売状態を横断的に確認できるようにし、
+                            従来の「店舗ごとに画面を行き来する」負担を減らすことを意図した。
+                            商品単位での管理において、最も頻度が高く、判断の起点となるのが一覧画面であるため、
+                            一覧をプロダクトの中心に据えている。
+                        </p>
+                        <p class="case-saas-structure__lead">
+                            一方で、編集では詳細な商品情報やチャネル差分を整理できるようにし、
+                            一覧の文脈を保ったまま深く編集へ入れる構造にした。
+                            さらに、反映前には確認モーダルを挟み、反映対象チャネルと変更内容を可視化することで、
+                            一括更新時の不安やミスを減らせるようにしている。
+                        </p>
+                    </div>
+
+                    <div class="case-saas-structure__diagram-head">
+                        DIAGRAM: PRODUCT-CENTERED MANAGEMENT FLOW
+                    </div>
+
+                    <div class="case-saas-diagram">
+                        <div class="case-saas-diagram__center-wrap">
+                            <div class="case-saas-diagram__box case-saas-diagram__box--focus">
+                                <span class="case-saas-diagram__small case-saas-diagram__small--focus">一覧</span>
+                                <strong>横断確認 / 比較</strong>
+                            </div>
+                            <div class="case-saas-diagram__transition">KEY SCREEN</div>
+                        </div>
+
+                        <div class="case-saas-diagram__arrow case-saas-diagram__arrow--muted">→</div>
+
+                        <div class="case-saas-diagram__box case-saas-diagram__box--plain">
+                            <span class="case-saas-diagram__small">編集</span>
+                            <strong>詳細整理 / 差分確認</strong>
+                        </div>
+
+                        <div class="case-saas-diagram__arrow case-saas-diagram__arrow--muted">→</div>
+
+                        <div class="case-saas-diagram__box case-saas-diagram__box--plain">
+                            <span class="case-saas-diagram__small">反映</span>
+                            <strong>確認 / 同期</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ui design -->
+        <section class="case-saas-uiux l-section--lg">
+            <div class="case-saas-uiux__inner l-container--wide">
+                <div class="case-saas-uiux__wrap">
+                    <p class="case-saas-uiux__eyebrow">06. UI DESIGN</p>
+
+                    <div class="case-saas-uiux__intro">
+                        <h2 class="case-saas-uiux__title">操作効率だけでなく、安全に更新できる体験まで設計する</h2>
+                        <p class="case-saas-uiux__lead">
+                            この自主制作では、管理画面らしい見た目を整えることではなく、
+                            「何を一覧で把握し、どこで編集し、どの時点で慎重さを求めるか」を整理することを重視した。
+                            特に複数チャネルへの反映は、効率と安全性の両方が求められる領域として扱っている。
+                        </p>
+                    </div>
+
+                    <div class="case-saas-uiux__points">
+                        <article class="case-saas-uiux__point">
+                            <h3>PRODUCT-CENTERED LIST</h3>
+                            <p>
+                                商品一覧では、価格・在庫・販売状態など、よく使う項目をその場で確認・編集できる構成とした。
+                                商品単位で管理することで、チャネルごとの画面遷移を減らし、日常的な更新作業の効率化を目指している。
+                            </p>
+                        </article>
+
+                        <article class="case-saas-uiux__point">
+                            <h3>SLIDE-IN EDITING</h3>
+                            <p>
+                                商品編集は右スライドイン形式を採用し、
+                                一覧の文脈を維持したまま詳細編集へ入れるようにした。
+                                これにより、複数商品の比較や修正を途切れさせずに行える構造にしている。
+                            </p>
+                        </article>
+
+                        <article class="case-saas-uiux__point">
+                            <h3>DIFFERENCE AWARENESS</h3>
+                            <p>
+                                各チャネルごとの差分を確認しつつ編集できることで、
+                                更新漏れや設定ミスを防ぎながら安全に変更を進められるようにした。
+                                一元管理でありながら、チャネル差異を見失わないことを重視している。
+                            </p>
+                        </article>
+
+                        <article class="case-saas-uiux__point">
+                            <h3>CONFIRMATION BEFORE REFLECT</h3>
+                            <p>
+                                変更内容は即時反映せず、事前確認のフローを採用した。
+                                反映対象チャネルと変更内容を可視化することで、
+                                誤操作リスクと心理的不安を軽減し、安全な一括反映を支えている。
+                            </p>
+                        </article>
+
+                        <article class="case-saas-uiux__point">
+                            <h3>OPERATION SCOPE DESIGN</h3>
+                            <p>
+                                一覧画面で操作を完結できる構成も検討したが、本設計ではあえて編集操作の一部を制限している。<br>
+                                特に複数チャネルへ影響が及ぶ変更については、誤操作のリスクを考慮し、詳細編集画面および確認フローを経由する構造とした。<br>
+                                操作性だけでなく、「どの操作をどこで行うべきか」を整理することで、安全に運用できる体験を重視している。
+                            </p>
+                        </article>
+
+                        <article class="case-saas-uiux__point">
+                            <h3>CONTROLLED REFLECTION</h3>
+                            <p>
+                                変更内容は即時反映だけでなく、日時を指定した予約反映にも対応している。
+                                運用のタイミングをコントロールできるようにすることで、業務フローに合わせた更新を可能にした。<br>
+                                また、公開対象の店舗を個別に設定できるようにすることで、チャネルごとの戦略や状況に応じた柔軟な運用を支えている。
+                            </p>
+                        </article>
+
+                        <article class="case-saas-uiux__point">
+                            <h3>CHANGE HISTORY AS CONTROL</h3>
+                            <p>
+                                権限管理を重く持たない代わりに、変更履歴によって
+                                「何が」「誰によって」「どのように」変わったかを追える設計を採用した。
+                                少人数運用でも管理責任を持ちやすい状態を意識している。
+                            </p>
+                        </article>
+                    </div>
+
+                    <div class="case-saas-uiux__tradeoff">
+                        <p class="case-saas-uiux__tradeoff-label">TRADE-OFFS</p>
+
+                        <div class="case-saas-uiux__tradeoff-list">
+                            <div class="case-saas-uiux__tradeoff-item">
+                                <h3>操作性 vs 安全性</h3>
+                                <p>
+                                    一覧画面で複製・削除まで完結できれば操作性は上がるが、
+                                    複数チャネルへ影響する変更では誤操作リスクも大きくなる。
+                                    そのため本設計では、重要な変更は編集画面と確認フローを経由させ、安全性を優先した。
+                                </p>
+                            </div>
+
+                            <div class="case-saas-uiux__tradeoff-item">
+                                <h3>一覧の情報量 vs 視認性</h3>
+                                <p>
+                                    一覧に多くの情報を載せるほど一画面で把握できる情報量は増えるが、
+                                    その分、判断のしやすさは下がりやすい。
+                                    そのため価格・在庫・販売状態など優先度の高い情報を中心に表示し、
+                                    詳細は編集画面側に分ける構造とした。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-saas-flow">
+                        <p class="case-saas-flow__note">※画像をクリックすると拡大できます</p>
+
+                        <div class="case-saas-flow__item is-key">
+                            <p class="case-saas-flow__step">STEP 01 / KEY SCREEN</p>
+                            <img src="../img/case-saas/ui-list.png" alt="商品一覧画面" class="js-modal-open">
+                            <p class="case-saas-flow__caption">
+                                商品一覧で全体を横断的に把握し、構造の起点となる画面
+                            </p>
+                        </div>
+
+                        <div class="case-saas-flow__arrow">↓</div>
+
+                        <div class="case-saas-flow__item">
+                            <p class="case-saas-flow__step">STEP 02</p>
+                            <img src="../img/case-saas/ui-edit.png" alt="編集画面" class="js-modal-open">
+                            <p class="case-saas-flow__caption">
+                                文脈を維持したまま詳細編集へ入り、商品単位で情報を整理
+                            </p>
+                        </div>
+
+                        <div class="case-saas-flow__arrow">↓</div>
+
+                        <div class="case-saas-flow__item">
+                            <p class="case-saas-flow__step">STEP 03</p>
+                            <img src="../img/case-saas/ui-confirm.png" alt="確認画面" class="js-modal-open">
+                            <p class="case-saas-flow__caption">
+                                変更内容と影響範囲を確認し、安全に各チャネルへ反映
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="case-saas-modal" id="modal">
+                        <div class="case-saas-modal__overlay"></div>
+                        <div class="case-saas-modal__content">
+                            <button class="case-saas-modal__close">×</button>
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- product scope -->
+        <section class="case-saas-implemented l-section">
+            <div class="case-saas-implemented__inner l-container--wide">
+                <div class="case-saas-implemented__wrap">
+                    <p class="case-saas-implemented__eyebrow">07. PRODUCT SCOPE</p>
+
+                    <div class="case-saas-implemented__grid">
+                        <figure class="case-saas-implemented__visual">
+                            <img src="../img/case-saas/visual-03.png" alt="情報設計とスコープ整理の補足図">
+                        </figure>
+
+                        <div class="case-saas-implemented__text">
+                            <p>
+                                この自主制作では、主オブジェクトを商品とし、
+                                商品名、説明、画像、SKU、価格、在庫、販売状態、販売終了日、担当者情報など
+                                商品が持つ情報を整理した。
+                            </p>
+                            <p>
+                                一方で、受注管理や顧客管理まで広げるのではなく、商品情報の一元管理に焦点を当てた。
+                                これは「大きなプロダクトに見せること」よりも、
+                                何を解決するプロダクトなのかを明確にすることを優先したためである。
+                            </p>
+                            <p>
+                                また、利用シナリオも
+                                「商品一覧から対象商品を選択 → 商品設定画面で価格変更 → 変更履歴を保存 → 同期チャネルを選択 →
+                                各チャネルへ反映」という流れに整理し、日常業務の中で実際に起きる操作を基準に構成している。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- expected impact -->
+        <!-- expected impact -->
+        <section class="case-saas-effects l-section">
+            <div class="case-saas-effects__inner l-container--wide">
+                <div class="case-saas-effects__wrap">
+                    <p class="case-saas-effects__eyebrow">08. EXPECTED IMPACT</p>
+
+                    <div class="case-saas-effects__block">
+                        <h2>商品単位で管理することで、運用負荷とリスクの両方を減らす</h2>
+                        <p>
+                            本プロダクトでは、商品変更を店舗ごとではなく商品単位で管理することにより、
+                            作業時間削減と運用負担軽減を期待している。
+                            あわせて、商品情報一元管理により、価格不一致、更新漏れ、情報差異といった
+                            運用リスクの低減も目指している。
+                        </p>
+                        <p>
+                            単に効率化するだけでなく、
+                            運用担当者が商品企画、売上戦略、顧客体験改善など、
+                            より価値の高い業務に集中できる状態をつくることもこのプロダクトの価値として位置づけている。
+                        </p>
+                    </div>
+
+                    <div class="case-saas-effects__divider"></div>
+
+                    <div class="case-saas-effects__block case-saas-effects__block--sub">
+                        <h3>EXPECTED BEHAVIORAL CHANGE</h3>
+                        <p>
+                            商品一覧を起点に横断的に状態を把握できることで、
+                            更新対象の判断にかかる時間を短縮しやすくなる。
+                        </p>
+                        <p>
+                            また、右スライドインで文脈を保ったまま編集に入れることで、
+                            商品比較と個別修正を往復しながら進めやすくなり、
+                            操作回数の削減が期待できる。
+                        </p>
+                        <p>
+                            さらに、反映前確認と未反映管理により、
+                            変更内容を確かめてから反映する行動が定着しやすくなり、
+                            誤反映や確認漏れの抑制につながると考えている。
+                        </p>
+                    </div>
+
+                    <div class="case-saas-effects__divider"></div>
+
+                    <div class="case-saas-effects__block case-saas-effects__block--sub">
+                        <h3>VALUE HYPOTHESIS</h3>
+                        <p class="case-saas-effects__note">
+                            ※実務導入前のため、想定される価値として整理している
+                        </p>
+                        <div class="case-saas-value-list">
+                            <div class="case-saas-value-item">
+                                <h4>① 作業コスト削減</h4>
+                                <p>
+                                    商品単位で管理することで、作業時間削減と運用負担軽減が期待できる。
+                                </p>
+                            </div>
+
+                            <div class="case-saas-value-item">
+                                <h4>② 管理リスク削減</h4>
+                                <p>
+                                    商品情報一元管理により、価格不一致・更新漏れ・情報差異といった運用リスクを抑えられる。
+                                </p>
+                            </div>
+
+                            <div class="case-saas-value-item">
+                                <h4>③ 人的リソースの最適化</h4>
+                                <p>
+                                    運用担当者が商品企画・売上戦略・顧客体験改善など、より価値の高い業務に集中しやすくなる。
+                                </p>
+                            </div>
+
+                            <div class="case-saas-value-item">
+                                <h4>④ 顧客体験の安定化</h4>
+                                <p>
+                                    各チャネルへの適切な反映により、販売機会損失の防止や顧客体験の安定につながる。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-saas-effects__divider"></div>
+
+                    <div class="case-saas-effects__block case-saas-effects__block--sub">
+                        <h3>PRODUCT VALUE</h3>
+                        <p>
+                            この事例で示したかったのは、UIの完成度だけではない。
+                            実務で見えていた課題を、
+                            「誰の」「どの業務負荷を」「どの構造で解くか」という視点で整理し、
+                            対象ユーザー、スコープ、情報構造、操作導線まで一貫して考えられることを表現した。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- learning -->
+        <section class="case-saas-learning l-section">
+            <div class="case-saas-learning__inner l-container--wide">
+                <div class="case-saas-learning__wrap">
+                    <p class="case-saas-learning__eyebrow">09. LEARNING</p>
+
+                    <div class="case-saas-learning__block">
+                        <h2>実務課題を、プロダクトの論点に翻訳することが重要だった。</h2>
+                        <p>
+                            この自主制作を通して学んだのは、
+                            現場の不便さをそのまま並べるだけでは、プロダクトにはならないということだった。
+                            何を主オブジェクトにするのか、どこまでを対象にし、どこからを対象外にするのか、
+                            どの操作を速くし、どの操作を慎重にするのか。
+                            そうした判断を重ねることで、はじめて体験の骨格が見えてくると実感した。
+                        </p>
+                        <p>
+                            また、実務経験をもとにした自主制作だからこそ、
+                            現場で成立するかという視点を最後まで持てたことも大きかった。
+                            今後は、こうした「実務起点の課題発見」と「構造から考える設計」を、
+                            プロダクトデザインの領域でさらに深めていきたい。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- next -->
+        <section class="case-saas-next l-section">
+            <div class="case-saas-next__inner l-container--wide">
+                <div class="case-saas-next__content">
+                    <p class="case-saas__eyebrow">10. NEXT ACTION</p>
+                    <h2 class="case-saas-next__title">他の事例や関連ページもご覧いただけます。</h2>
+                </div>
+
+                <div class="case-saas-next__actions">
+                    <a href="./index.html#projects" class="c-button">Back to Works</a>
+                    <a href="./index.html#contact" class="c-button c-button--ghost">Contact</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="l-footer">
+        <div class="l-footer__inner l-container">
+            <p class="l-footer__copy">© THE PORTFOLIO OF SATSUKI</p>
+        </div>
+    </footer>
+
+    <div class="c-profileModal" id="profileModal" aria-hidden="true">
+        <div class="c-profileModal__overlay" data-profile-close></div>
+
+        <div class="c-profileModal__panel" role="dialog" aria-modal="true" aria-labelledby="profileModalTitle"
+            tabindex="-1">
+            <button class="c-profileModal__close" type="button" aria-label="Close profile" data-profile-close>
+                CLOSE
+            </button>
+
+            <div class="c-profileModal__body">
+                <p class="c-profileModal__eyebrow">PROFILE</p>
+
+                <div class="c-profileModal__media">
+                    <img src="../img/profile/profile.jpg" alt="Satsukiのプロフィール写真" class="c-profileModal__image">
+                </div>
+
+                <h2 class="c-profileModal__title" id="profileModalTitle">山本 さつき</h2>
+
+                <p class="c-profileModal__lead">
+                    制約の中でも最適解を見つけ、課題の整理から実装、改善までを一貫して回し続けるデザイナー
+                </p>
+
+                <div class="c-profileModal__content">
+                    <p>
+                        現職では、院内掲示物や同梱物など紙媒体の制作と並行して、公式サイト・ECサイトの運用改善などのWeb領域を中心に情報設計・UI改善・実装まで対応してきました。
+                        検索流入や売上データ、ユーザー行動をもとに構造や導線を見直し、予約導線整備やEC売上改善、モール販路整備などを推進してきました。<br>
+                        現状を多角的に捉えて課題を整理し「なぜ行うのか」「効果につながるのか」を確認しながら、優先順位をつけて着実に改善を進めることを大切にしています。
+                    </p>
+                </div>
+
+                <div class="c-profileModal__section">
+                    <p class="c-profileModal__label">できること</p>
+                    <ul class="c-profileModal__list">
+                        <li>情報設計（構造整理、導線設計、要件整理）</li>
+                        <li>UIデザイン（情報整理を踏まえた画面設計・UI設計）</li>
+                        <li>既存サイトの改善・運用（制約を踏まえた設計・改修）</li>
+                        <li>新規ページ / LPの立ち上げ（目的整理〜構成設計）</li>
+                        <li>Webと紙を横断した制作</li>
+                    </ul>
+                </div>
+
+                <div class="c-profileModal__section">
+                    <p class="c-profileModal__label">使用ツール / 技術</p>
+                    <p class="c-profileModal__tools">
+                        Figma / HTML / CSS（SCSS） / JavaScript / GitHub / Photoshop / Illustrator
+                    </p>
+                </div>
+
+                <div class="c-profileModal__actions">
+                    <a href="../pages/index.html#contact" class="c-profileModal__contact" data-profile-contact> Contact
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/case-study.js"></script>
+</body>
+
+</html>

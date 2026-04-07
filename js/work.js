@@ -1,483 +1,244 @@
-// =====================================================
-//  work.js — Muuri＋スマホ横スクロール＋暴走防止＋高さリセット＋スマホソート対応版（停止後ゆっくりループ）＋ハッシュ自動オープン
-//  ✅ 追加：data-case によるケース別フィルタ（hospital / ecommerce）
-//  ✅ 追加：UX図のモーダル（uxModal があるページだけ）
-//  ✅ 修正：overflow競合を防ぐ（元のoverflowを復元）
-//  ✅ 修正：モーダルopen時はハンバーガーを閉じる（衝突防止）
-// =====================================================
-
-$(window).off('scroll');
-$('.openbtn').off('click');
-$('#g-navi a').off('click');
-
 document.addEventListener("DOMContentLoaded", async () => {
+  const gallery = document.getElementById("work-gallery");
+  const grid = document.getElementById("work-grid");
+  const detail = document.getElementById("work-detail");
+  const filterButtons = document.querySelectorAll(".work__filter li");
+
+  if (!gallery || !grid || !detail) return;
+
+  let works = [];
+
   try {
-    const response = await fetch("../work/data/works.json");
-    const jsonData = await response.json();
-
-    // =====================================================
-    // ✅ ここが今回の要：ページに応じて works を絞り込む
-    // - body[data-case="hospital"] → hospital だけ
-    // - body[data-case="ecommerce"] → ecommerce だけ
-    // - data-case が無い → 全件表示（/work/index.html 想定）
-    // =====================================================
-    const allWorks = Array.isArray(jsonData.works) ? jsonData.works : [];
-
-    const caseKeyRaw = document.body?.dataset?.case || "";
-    const caseKey = String(caseKeyRaw).trim(); // "hospital" | "ecommerce" | ""（全体）
-
-    const works = caseKey
-      ? allWorks.filter(w => w && w.case === caseKey)
-      : allWorks;
-
-    console.log("✅ JSON 読み込み成功（allWorks）", allWorks);
-    console.log("✅ caseKey:", caseKey || "(all)");
-    console.log("✅ 表示対象 works:", works);
-
-    const gallery = document.getElementById("work-gallery");
-    const detail = document.getElementById("work-detail");
-    const gridEl = document.querySelector(".grid");
-    const thumbPrev = document.querySelector(".thumb-prev");
-    const thumbNext = document.querySelector(".thumb-next");
-
-    // ✅ UXページ等、workギャラリーが無いページではここで終了（他機能に影響させない）
-    if (!gallery || !detail || !gridEl) {
-      console.warn("ℹ️ workギャラリー要素が無いページなので、Muuri/ギャラリー処理はスキップします。");
-      return;
-    }
-
-    // =====================================================
-    // ✅ 0件のときの保険（caseKeyが間違ってる等）
-    // =====================================================
-    if (works.length === 0) {
-      console.warn("⚠ 表示対象の作品が0件です。data-case と JSON の case を確認してね。");
-      return;
-    }
-
-    // =====================================================
-    // JSONを元にDOM生成（※ここからは「フィルタ済み works」を使う）
-    // =====================================================
-    works.forEach((work, index) => {
-      const imgDiv = document.createElement("div");
-      imgDiv.classList.add("work-image");
-      if (index === 0) imgDiv.classList.add("active");
-      imgDiv.id = work.id;
-      imgDiv.innerHTML = `<img src="${work.mainImage}" alt="${work.title}">`;
-      gallery.appendChild(imgDiv);
-
-      const li = document.createElement("li");
-      li.classList.add("item", `sort-${work.category}`);
-      if (index === 0) li.classList.add("active");
-      li.dataset.target = work.id;
-      li.innerHTML = `<img src="${work.thumbnail}" alt="${work.title}" class="thumb-img">`;
-      gridEl.appendChild(li);
-
-      const textDiv = document.createElement("div");
-      textDiv.classList.add("text-content");
-      if (index === 0) textDiv.classList.add("active");
-      textDiv.dataset.id = work.id;
-
-      // --- descriptions（label/text 前提） ---
-      const descHTML = (work.descriptions || [])
-        .filter((desc) => desc && desc.label)
-        .map((desc) => {
-          const text = typeof desc.text === "string" ? desc.text : "";
-          return `
-            <div class="description_container">
-              <p class="description_sub-title">${desc.label}</p>
-              <p>${text.replace(/\n/g, "<br>")}</p>
-            </div>
-          `;
-        })
-        .join("");
-
-      // --- PDF補足（work直下の pdfUrl/pdfNote を使う） ---
-let pdfHTML = "";
-
-if (
-  (work.pdfNote1 && work.pdfUrl1) ||
-  (work.pdfNote2 && work.pdfUrl2) ||
-  (work.pdfNote3 && work.pdfUrl3) ||
-  (work.pdfNote4 && work.pdfUrl4)
-) {
-  let pdfLinksHTML = "";
-
-  if (work.pdfNote1 && work.pdfUrl1) {
-    pdfLinksHTML += `
-      <a href="${work.pdfUrl1}"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="pdf-link">
-         ${work.pdfNote1}
-      </a><br>
-    `;
+    const res = await fetch("./data/works.json");
+    if (!res.ok) throw new Error(`works.json の読み込みに失敗: ${res.status}`);
+    const data = await res.json();
+    works = Array.isArray(data.works) ? data.works : [];
+  } catch (error) {
+    console.error(error);
+    return;
   }
 
-  if (work.pdfNote2 && work.pdfUrl2) {
-    pdfLinksHTML += `
-      <a href="${work.pdfUrl2}"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="pdf-link">
-         ${work.pdfNote2}
-      </a><br>
-    `;
-  }
+  if (!works.length) return;
 
-  if (work.pdfNote3 && work.pdfUrl3) {
-    pdfLinksHTML += `
-      <a href="${work.pdfUrl3}"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="pdf-link">
-         ${work.pdfNote3}
-      </a><br>
-    `;
-  }
+  works.forEach((work, index) => {
+    const isActive = index === 0;
 
-  if (work.pdfNote4 && work.pdfUrl4) {
-    pdfLinksHTML += `
-      <a href="${work.pdfUrl4}"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="pdf-link">
-         ${work.pdfNote4}
-      </a>
-    `;
-  }
+    // ===== メイン画像 =====
+    const img = document.createElement("div");
+    img.className = `work__image${isActive ? " active" : ""}`;
+    img.dataset.id = work.id;
+    img.innerHTML = `<img src="${escapeHtml(work.mainImage || "")}" alt="${escapeHtml(work.title || "")}">`;
+    gallery.appendChild(img);
 
-  pdfHTML = `
-    <div class="description_container">
-      <p class="description_sub-title">補足資料（PDF）</p>
-      <p>${pdfLinksHTML}</p>
-    </div>
-  `;
-}
+    // ===== サムネ =====
+    const li = document.createElement("li");
+    li.className = `work__item${isActive ? " active" : ""}`;
+    li.dataset.id = work.id;
+    li.dataset.category = work.category || "";
+    li.setAttribute("tabindex", "0");
+    li.innerHTML = `<img src="${escapeHtml(work.thumbnail || "")}" alt="${escapeHtml(work.title || "")}">`;
+    grid.appendChild(li);
 
-      const linkHtml = work.link
-        ? `<a href="${work.link}" target="_blank" rel="noopener noreferrer"><img src="../work/img/link.png" alt="リンク"></a>`
-        : "";
+    // ===== 詳細 =====
+    const text = document.createElement("div");
+    text.className = `work__detail${isActive ? " active" : ""}`;
+    text.dataset.id = work.id;
 
-const uxBtnHtml = work.uxUrl
-  ? `
-    <div class="ux-cta">
-      <a href="${work.uxUrl}"
-         class="ux-cta__btn"
-         target="_blank"
-         rel="noopener noreferrer">
-        ${work.uxLabel || "UX設計の詳細を見る"}
-      </a>
-    </div>
-  `
-  : "";
-      textDiv.innerHTML = `
-        <div class="description_title">
-          <h3>${String(work.title || "").replace(/\n/g, "<br>")}</h3>
-          ${linkHtml}
+    const desc = (work.descriptions || []).map(d => `
+      <div class="work__block">
+        <p class="work__label">${escapeHtml(d.label || "")}</p>
+        <p>${nl2br(escapeHtml(d.text || ""))}</p>
+      </div>
+    `).join("");
+
+    const linkHtml = work.link
+      ? `
+        <a href="${escapeHtml(work.link)}" class="work__title-link" target="_blank" rel="noopener noreferrer" aria-label="外部リンクを開く">
+          ↗
+        </a>
+      `
+      : "";
+
+    const uxHtml = work.uxUrl
+      ? `
+        <div class="work__ux">
+          <a href="${escapeHtml(work.uxUrl)}" target="_blank" rel="noopener noreferrer" class="work__ux-btn">
+            ${escapeHtml(work.uxLabel || "UX設計の詳細を見る")}
+          </a>
         </div>
+      `
+      : "";
 
-        ${uxBtnHtml}
+    const pdfLinks = [
+      { note: work.pdfNote1, url: work.pdfUrl1 },
+      { note: work.pdfNote2, url: work.pdfUrl2 },
+      { note: work.pdfNote3, url: work.pdfUrl3 },
+      { note: work.pdfNote4, url: work.pdfUrl4 }
+    ]
+      .filter(item => item.note && item.url)
+      .map(item => `
+        <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" class="work__pdf-link">
+          ${escapeHtml(item.note)}
+        </a>
+      `)
+      .join("");
 
-        ${descHTML}
-        ${pdfHTML}
-      `;
+    const pdfHtml = pdfLinks
+      ? `
+        <div class="work__block">
+          <p class="work__label">補足資料（PDF）</p>
+          <p class="work__pdf-list">${pdfLinks}</p>
+        </div>
+      `
+      : "";
 
-      detail.appendChild(textDiv);
+    text.innerHTML = `
+      <div class="work__detail-head">
+        <h2>${nl2br(escapeHtml(work.title || ""))}</h2>
+        ${linkHtml}
+      </div>
+      ${uxHtml}
+      ${desc}
+      ${pdfHtml}
+    `;
+
+    detail.appendChild(text);
+  });
+
+  function activateWork(id) {
+    document.querySelectorAll(".work__item").forEach(el => {
+      el.classList.toggle("active", el.dataset.id === id);
     });
 
-    // =====================================================
-    // Muuri 初期化／破棄関数
-    // =====================================================
-    let grid = null;
+    document.querySelectorAll(".work__image").forEach(el => {
+      el.classList.toggle("active", el.dataset.id === id);
+    });
 
-    const initMuuri = () => {
-      grid = new Muuri(".grid", {
-        layout: { fillGaps: true, horizontal: false },
-        layoutDuration: 400,
-        layoutEasing: "ease",
-        dragEnabled: false,
-      });
-      console.log("Muuri 初期化");
-    };
+    document.querySelectorAll(".work__detail").forEach(el => {
+      el.classList.toggle("active", el.dataset.id === id);
+    });
+  }
 
-    const destroyMuuri = () => {
-      if (grid) {
-        grid.destroy();
-        grid = null;
+  document.querySelectorAll(".work__item").forEach(item => {
+    item.addEventListener("click", () => {
+      activateWork(item.dataset.id);
+    });
+
+    item.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        activateWork(item.dataset.id);
       }
-      gridEl.style.display = "flex";
-      gridEl.style.flexWrap = "nowrap";
-      gridEl.style.overflowX = "auto";
-      gridEl.parentElement.style.height = "auto";
-      console.log("📱 Muuri 停止＆高さリセット");
-    };
-
-    // =====================================================
-    // 画像読込完了 → Muuri再配置
-    // =====================================================
-    const allImages = gridEl.querySelectorAll("img");
-    let loadedCount = 0;
-
-    if (allImages.length === 0) {
-      console.warn("⚠ grid 内に画像がありません。");
-    }
-
-    allImages.forEach((img) => {
-      img.addEventListener("load", () => {
-        loadedCount++;
-        if (loadedCount === allImages.length && grid) {
-          console.log("画像読込完了 → Muuriレイアウト更新");
-          grid.refreshItems().layout();
-        }
-      });
     });
+  });
 
-    // =====================================================
-    // ソートボタン
-    // =====================================================
-    $(".sort-btn li").on("click", function () {
-      $(".sort-btn .active").removeClass("active");
-      const className = $(this).attr("class").split(" ")[0];
-      $("." + className).addClass("active");
+  filterButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const filter = btn.dataset.filter;
 
-      const isMobile = window.innerWidth <= 768;
+      filterButtons.forEach(el => el.classList.remove("active"));
+      btn.classList.add("active");
 
-      if (isMobile) {
-        if (className === "sort00") {
-          $(".item").show();
-        } else {
-          $(".item").hide();
-          $(".item." + className).show();
-        }
-        return;
+      const items = [...document.querySelectorAll(".work__item")];
+
+      items.forEach(item => {
+        const show = filter === "all" || item.dataset.category === filter;
+        item.style.display = show ? "" : "none";
+      });
+
+      const visibleItems = items.filter(item => item.style.display !== "none");
+      if (visibleItems.length) {
+        activateWork(visibleItems[0].dataset.id);
       }
-
-      if (!grid) return;
-      if (className === "sort00") grid.show("");
-      else grid.filter("." + className);
-
-      setTimeout(() => {
-        grid.refreshItems().layout();
-        const parent = gridEl.parentElement;
-        if (parent) parent.style.height = gridEl.scrollHeight + "px";
-      }, 600);
     });
+  });
 
-    // =====================================================
-    // サムネイルクリックで切替
-    // =====================================================
-    const thumbs = document.querySelectorAll(".item");
-    const images = document.querySelectorAll(".work-image");
-    const texts = document.querySelectorAll(".text-content");
-
-    thumbs.forEach((thumb) => {
-      thumb.addEventListener("click", () => {
-        const targetId = thumb.dataset.target;
-        thumbs.forEach((t) => t.classList.remove("active"));
-        thumb.classList.add("active");
-        images.forEach((img) => img.classList.toggle("active", img.id === targetId));
-        texts.forEach((text) => text.classList.toggle("active", text.dataset.id === targetId));
-      });
-    });
-
-    // =====================================================
-    //  ハッシュから該当作品を自動オープン！
-    // =====================================================
-    const handleHashOpen = () => {
-      const hash = window.location.hash.replace("#", "");
-      if (!hash) return;
-
-      setTimeout(() => {
-        const targetThumb = document.querySelector(`.item[data-target="${hash}"]`);
-        if (!targetThumb) {
-          console.warn("⚠ 該当作品が見つかない（このページのフィルタ範囲外かも）:", hash);
-          return;
-        }
-
-        targetThumb.click();
-
-        const targetImg = document.getElementById(hash);
-        if (targetImg) {
-          targetImg.scrollIntoView({ behavior: "smooth" });
-        }
-
-        console.log("ハッシュ作品自動オープン:", hash);
-      }, 200);
-    };
-
-    handleHashOpen();
-
-    // =====================================================
-    // PC／スマホ切替処理
-    // =====================================================
-    const checkMode = () => {
-      const isMobile = window.innerWidth <= 768;
-      if (isMobile) destroyMuuri();
-      else if (!grid) initMuuri();
-    };
-
-    window.addEventListener("resize", checkMode);
-    checkMode();
-
-    // =====================================================
-    // 📱 スマホ専用：横スクロールループ
-    // =====================================================
-    const gridContainer = document.querySelector(".grid");
-
-    if (thumbPrev && thumbNext && gridContainer) {
-      const scrollAmount = 150;
-      let isJumping = false;
-      let scrollTimeout = null;
-
-      gridContainer.addEventListener("scroll", () => {
-        if (isJumping) return;
-
-        const maxScroll = gridContainer.scrollWidth - gridContainer.clientWidth;
-        const current = gridContainer.scrollLeft;
-
-        if (scrollTimeout) clearTimeout(scrollTimeout);
-
-        scrollTimeout = setTimeout(() => {
-          if (current >= maxScroll - 20) {
-            isJumping = true;
-            gridContainer.scrollTo({ left: 5, behavior: "smooth" });
-            setTimeout(() => (isJumping = false), 600);
-          } else if (current <= 0) {
-            isJumping = true;
-            gridContainer.scrollTo({ left: maxScroll - 5, behavior: "smooth" });
-            setTimeout(() => (isJumping = false), 600);
-          }
-        }, 2000);
-      });
-
-      thumbPrev.addEventListener("click", () => {
-        const maxScroll = gridContainer.scrollWidth - gridContainer.clientWidth;
-        const newLeft = gridContainer.scrollLeft - scrollAmount;
-        if (newLeft <= 0) {
-          gridContainer.scrollTo({ left: maxScroll - 5, behavior: "smooth" });
-        } else {
-          gridContainer.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-        }
-      });
-
-      thumbNext.addEventListener("click", () => {
-        const maxScroll = gridContainer.scrollWidth - gridContainer.clientWidth;
-        const newLeft = gridContainer.scrollLeft + scrollAmount;
-        if (newLeft >= maxScroll - 10) {
-          gridContainer.scrollTo({ left: 5, behavior: "smooth" });
-        } else {
-          gridContainer.scrollBy({ left: scrollAmount, behavior: "smooth" });
-        }
-      });
+  const hash = window.location.hash.replace("#", "");
+  if (hash) {
+    const target = document.querySelector(`.work__item[data-id="${cssEscape(hash)}"]`);
+    if (target) {
+      const category = target.dataset.category;
+      const filterBtn = document.querySelector(`.work__filter li[data-filter="${cssEscape(category)}"]`);
+      if (filterBtn) filterBtn.click();
+      activateWork(hash);
     }
-  } catch (err) {
-    console.error("❌ JSON読み込み失敗:", err);
+  }
+
+  function nl2br(str) {
+    return String(str).replace(/\n/g, "<br>");
+  }
+
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function cssEscape(str) {
+    if (window.CSS && typeof window.CSS.escape === "function") {
+      return window.CSS.escape(str);
+    }
+    return String(str).replace(/"/g, '\\"');
   }
 });
 
-// =====================================================
-// ハンバーガーメニュー制御（ここは共通挙動のまま）
-// =====================================================
-const closeHamburger = () => {
-  $(".openbtn").removeClass("active").attr("aria-expanded", "false");
-  $("#header").removeClass("panelactive");
-};
+  // ===== モバイル時サムネイルスライダー =====
+  const slider = document.querySelector(".work__grid");
+  const prevBtn = document.querySelector(".work__slider-btn--prev");
+  const nextBtn = document.querySelector(".work__slider-btn--next");
 
-$(function () {
-  $("#header").addClass("dnone");
-  $(".openbtn").addClass("fadeDown");
-  $(window).off("scroll");
+  if (slider && prevBtn && nextBtn) {
+    const getScrollAmount = () => {
+      const firstItem = slider.querySelector(".work__item");
+      if (!firstItem) return 140;
 
-  $(".openbtn").on("click", function () {
-    const isActive = $(this).toggleClass("active").hasClass("active");
-    $(this).attr("aria-expanded", String(isActive));
-    $("#header").toggleClass("panelactive");
-  });
+      const itemWidth = firstItem.getBoundingClientRect().width;
+      return itemWidth + 10; // gap分込み
+    };
 
-  $("#g-navi a").on("click", function () {
-    closeHamburger();
-  });
-});
+    prevBtn.addEventListener("click", () => {
+      slider.scrollBy({
+        left: -getScrollAmount() * 2,
+        behavior: "smooth"
+      });
+    });
 
-// =====================================================
-// UX 図モーダル（uxModal があるページだけ）
-// =====================================================
-(() => {
-  const modal = document.getElementById("uxModal");
-  const modalImg = document.getElementById("uxModalImg");
-  const zoomables = document.querySelectorAll(".ux-zoomable");
+    nextBtn.addEventListener("click", () => {
+      slider.scrollBy({
+        left: getScrollAmount() * 2,
+        behavior: "smooth"
+      });
+    });
+  }
 
-  // ✅ UXページ以外は何もしない（最重要の安全ガード）
-  if (!modal || !modalImg || zoomables.length === 0) return;
+// =========================
+// Back to Top
+// =========================
+const backToTop = document.getElementById("backToTop");
 
-  let lastFocused = null;
-
-  const lockScroll = () => {
-    const html = document.documentElement;
-
-    // すでにロック済みなら上書きしない（保険）
-    if (!html.dataset.prevOverflow) {
-      html.dataset.prevOverflow = html.style.overflow || "";
-    }
-    html.style.overflow = "hidden";
-  };
-
-  const unlockScroll = () => {
-    const html = document.documentElement;
-    const prev = html.dataset.prevOverflow;
-
-    html.style.overflow = typeof prev === "string" ? prev : "";
-    delete html.dataset.prevOverflow;
-  };
-
-  const openModal = (imgEl) => {
-    lastFocused = document.activeElement;
-
-    // ✅ 競合回避：モーダル開くときはハンバーガーを閉じる
-    closeHamburger();
-
-    // 開いた瞬間、前回スクロール位置が残らないように先頭へ
-    const dialog = modal.querySelector(".ux-modal__dialog");
-    if (dialog) dialog.scrollTop = 0;
-
-    modal.classList.add("is-open");
-    modal.setAttribute("aria-hidden", "false");
-
-    modalImg.src = imgEl.src;
-    modalImg.alt = imgEl.alt || "";
-
-    lockScroll();
-  };
-
-  const closeModal = () => {
-    modal.classList.remove("is-open");
-    modal.setAttribute("aria-hidden", "true");
-
-    modalImg.src = "";
-    modalImg.alt = "";
-
-    unlockScroll();
-
-    if (lastFocused && typeof lastFocused.focus === "function") {
-      lastFocused.focus();
+if (backToTop) {
+  const toggleBackToTop = () => {
+const showOffset = 100;
+    if (window.scrollY > showOffset) {
+      backToTop.classList.add("is-visible");
+    } else {
+      backToTop.classList.remove("is-visible");
     }
   };
 
-  zoomables.forEach((img) => {
-    img.addEventListener("click", () => openModal(img));
+  window.addEventListener("scroll", toggleBackToTop, { passive: true });
+  window.addEventListener("resize", toggleBackToTop);
+
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   });
 
-  // × or overlay
-  modal.addEventListener("click", (e) => {
-    if (e.target.matches("[data-modal-close]")) {
-      closeModal();
-    }
-  });
-
-  // Esc
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal.classList.contains("is-open")) {
-      closeModal();
-    }
-  });
-})();
+  // 初期状態も判定
+  toggleBackToTop();
+}
