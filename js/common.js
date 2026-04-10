@@ -293,3 +293,42 @@ document.addEventListener('DOMContentLoaded', () => {
     updateNavThemeByViewport();
   }
 });
+
+
+
+//---------------------------------------------
+// Page Top Button
+//---------------------------------------------
+
+document.addEventListener('DOMContentLoaded', () => {
+  const pageTopButton = document.querySelector('.page-top');
+  if (!pageTopButton) return;
+
+  const mediaQuery = window.matchMedia('(max-width: 1280px)');
+  const showOffset = 300;
+
+  const updatePageTopVisibility = () => {
+    if (!mediaQuery.matches) {
+      pageTopButton.classList.remove('is-visible');
+      return;
+    }
+
+    if (window.scrollY > showOffset) {
+      pageTopButton.classList.add('is-visible');
+    } else {
+      pageTopButton.classList.remove('is-visible');
+    }
+  };
+
+  window.addEventListener('scroll', updatePageTopVisibility);
+  window.addEventListener('resize', updatePageTopVisibility);
+
+  pageTopButton.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  updatePageTopVisibility();
+});
