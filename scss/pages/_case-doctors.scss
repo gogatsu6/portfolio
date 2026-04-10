@@ -62,9 +62,9 @@
 .case-doctors-hero__title {
     margin-top: 14px;
     color: $color-text-strong;
-    font-size: clamp(48px, 6vw, 88px);
-    line-height: 0.95;
-    letter-spacing: -0.05em;
+    font-size: clamp(48px, 6vw, 72px);
+    line-height: 1.2;
+    letter-spacing: 0.04em;
 }
 
 .case-doctors-hero__meta {
@@ -76,7 +76,7 @@
 
     p {
         color: $color-text-soft;
-        font-size: 12px;
+        font-size: 16px;
         line-height: 1.6;
         letter-spacing: 0.08em;
         text-transform: uppercase;
@@ -115,7 +115,7 @@
 .case-doctors-summary__eyebrow {
     display: block;
     color: $color-text-strong;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.4;
     letter-spacing: 0.12em;
     text-transform: uppercase;
