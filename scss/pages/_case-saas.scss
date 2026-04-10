@@ -27,6 +27,10 @@
     text-transform: uppercase;
 }
 
+.case-saas-uiux__eyebrow {
+    color: rgba(255, 255, 255, 0.68);
+}
+
 /* ---------------------------------
    hero
 --------------------------------- */
@@ -54,7 +58,7 @@
 .case-saas-hero__meta {
     display: flex;
     justify-content: center;
-    gap: 18px 28px;
+    gap: 8px 28px;
     flex-wrap: wrap;
     margin-top: 36px;
 

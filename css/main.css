@@ -180,6 +180,15 @@ h6 {
   color: #525252;
 }
 
+.underline {
+  text-decoration: underline;
+  text-decoration-thickness: 0.5em;
+  text-decoration-color: rgba(255, 228, 0, 0.4);
+  text-underline-offset: -0.2em;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+}
+
 .c-button {
   display: inline-flex;
   align-items: center;
@@ -1050,7 +1059,6 @@ textarea {
 
 .top-grid__viewport {
   --card-gap: 20px;
-  --peek: 12%;
   overflow: hidden;
   width: 100%;
 }
@@ -1059,19 +1067,23 @@ textarea {
   display: flex;
   gap: var(--card-gap);
   align-items: stretch;
-  transition: transform 0.45s ease;
   will-change: transform;
-  padding-inline: var(--peek);
-  box-sizing: border-box;
+  padding-inline: 0;
+  transform: translate3d(0, 0, 0);
 }
 
 .project-card {
-  flex: 0 0 calc((100% - var(--card-gap) * 2) / 3);
+  flex: 0 0 auto;
+  width: var(--card-width, 320px);
   min-width: 0;
   background: #fcfbf8;
   border: 1px solid #e8e2db;
   box-shadow: 0 10px 30px rgba(20, 20, 20, 0.06);
   overflow: hidden;
+}
+
+.project-card.is-clone {
+  pointer-events: none;
 }
 
 .project-card__link {
@@ -1119,7 +1131,7 @@ textarea {
 .top-grid__nav {
   position: absolute;
   top: 50%;
-  z-index: 2;
+  z-index: 3;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1131,7 +1143,7 @@ textarea {
   color: #141414;
   font-size: 18px;
   transform: translateY(-50%);
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
 }
 
 .top-grid__nav:hover {
@@ -1620,6 +1632,10 @@ textarea {
   text-transform: uppercase;
 }
 
+.case-doctors-uiux__eyebrow {
+  color: rgba(255, 255, 255, 0.68);
+}
+
 .case-doctors-section-heading {
   margin-bottom: clamp(28px, 4vw, 48px);
 }
@@ -1662,7 +1678,7 @@ textarea {
 .case-doctors-hero__meta {
   display: flex;
   justify-content: center;
-  gap: 18px 28px;
+  gap: 8px 28px;
   flex-wrap: wrap;
   margin-top: 18px;
 }
@@ -1937,13 +1953,13 @@ textarea {
 .case-doctors-option {
   padding: 18px 16px;
   border: 1px solid #e8e2db;
-  background: #f8f7f4;
+  background: #fffdfe;
   min-width: 0;
 }
 
 .case-doctors-option--active {
-  border: 2px solid #56514a;
-  background: #f7f5f1;
+  border: 2px solid #ef4f84;
+  background: #fff6f6;
 }
 
 .case-doctors-option h3 {
@@ -1951,6 +1967,15 @@ textarea {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 1px;
+}
+
+.case-doctors-option__caption {
+  margin-top: 6px;
+  color: #141414;
+  font-size: 14px;
+  line-height: 1.65;
+  letter-spacing: 0.04em;
+  font-weight: 500;
 }
 
 .case-doctors-option p {
@@ -1973,10 +1998,10 @@ textarea {
 
 /* active state */
 .case-doctors-step.is-active .case-doctors-step__marker {
-  background: #1d1d1d;
-  border-color: #1d1d1d;
+  background: #ef4f84;
+  border-color: #ef4f84;
   transform: scale(1.08);
-  box-shadow: 0 0 0 4px rgba(29, 29, 29, 0.08);
+  box-shadow: 0 0 0 4px rgba(239, 79, 132, 0.2);
 }
 .case-doctors-step.is-active .case-doctors-step__active-bar {
   opacity: 1;
@@ -2524,6 +2549,10 @@ textarea {
   text-transform: uppercase;
 }
 
+.case-saas-uiux__eyebrow {
+  color: rgba(255, 255, 255, 0.68);
+}
+
 /* ---------------------------------
    hero
 --------------------------------- */
@@ -2551,7 +2580,7 @@ textarea {
 .case-saas-hero__meta {
   display: flex;
   justify-content: center;
-  gap: 18px 28px;
+  gap: 8px 28px;
   flex-wrap: wrap;
   margin-top: 36px;
 }
@@ -3588,7 +3617,7 @@ textarea {
 .case-portfolio-hero__meta {
   display: flex;
   justify-content: center;
-  gap: 16px 26px;
+  gap: 8px 26px;
   flex-wrap: wrap;
   margin-top: 30px;
 }

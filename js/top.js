@@ -147,41 +147,121 @@ document.addEventListener("DOMContentLoaded", () => {
   const nextBtn = document.querySelector(".top-grid__nav--next");
 
   if (viewport && track && prevBtn && nextBtn) {
-    const getScrollAmount = () => {
-      const firstCard = track.querySelector(".project-card");
-      if (!firstCard) return viewport.clientWidth * 0.8;
+    const originalCards = Array.from(track.querySelectorAll(".project-card"));
+    const CARD_COUNT = originalCards.length;
 
-      const cardStyle = window.getComputedStyle(firstCard);
-      const cardWidth = firstCard.getBoundingClientRect().width;
-      const marginRight = parseFloat(cardStyle.marginRight) || 0;
+    // 中央3枚表示なので、左右に3枚ずつクローンを持つ
+    const CLONE_COUNT = Math.min(3, CARD_COUNT);
 
-      return cardWidth + marginRight;
+    let logicalIndex = 0; // 0 = 左に1枚目半分、中央2〜4枚、右に5枚目半分
+    let isAnimating = false;
+
+    const createClones = () => {
+      track.querySelectorAll(".project-card.is-clone").forEach((card) => card.remove());
+
+      if (CARD_COUNT <= 1) return;
+
+      const headClones = originalCards
+        .slice(-CLONE_COUNT)
+        .map((card) => card.cloneNode(true));
+
+      const tailClones = originalCards
+        .slice(0, CLONE_COUNT)
+        .map((card) => card.cloneNode(true));
+
+      headClones.forEach((clone) => {
+        clone.classList.add("is-clone");
+        track.prepend(clone);
+      });
+
+      tailClones.forEach((clone) => {
+        clone.classList.add("is-clone");
+        track.append(clone);
+      });
     };
 
-    const updateNavState = () => {
-      const maxScrollLeft = viewport.scrollWidth - viewport.clientWidth;
+    const getGap = () => {
+      const styles = window.getComputedStyle(track);
+      return parseFloat(styles.columnGap || styles.gap || 0);
+    };
 
-      prevBtn.disabled = viewport.scrollLeft <= 0;
-      nextBtn.disabled = viewport.scrollLeft >= maxScrollLeft - 1;
+    const getLayout = () => {
+      const gap = getGap();
+      const viewportWidth = viewport.clientWidth;
+
+      // 中央3枚 + 左右半分ずつ = 4枚分の幅
+      const cardWidth = (viewportWidth - gap * 4) / 4;
+      const step = cardWidth + gap;
+
+      track.style.setProperty("--card-width", `${cardWidth}px`);
+
+      return { cardWidth, step };
+    };
+
+    const getPhysicalIndex = (index) => index + CLONE_COUNT;
+
+    const applyPosition = (index, withTransition = true) => {
+      const { cardWidth, step } = getLayout();
+      if (!cardWidth || !step) return;
+
+      const physicalIndex = getPhysicalIndex(index);
+
+      // 「左半分カード」位置に合わせる
+      const offset = step * physicalIndex + cardWidth / 2;
+
+      track.style.transition = withTransition ? "transform 0.45s ease" : "none";
+      track.style.transform = `translate3d(${-offset}px, 0, 0)`;
+    };
+
+    const snapToLogicalIndex = () => {
+      if (logicalIndex >= CARD_COUNT) {
+        logicalIndex = 0;
+        applyPosition(logicalIndex, false);
+      }
+
+      if (logicalIndex < 0) {
+        logicalIndex = CARD_COUNT - 1;
+        applyPosition(logicalIndex, false);
+      }
+    };
+
+    const moveTo = (nextIndex) => {
+      if (isAnimating || CARD_COUNT <= 0) return;
+
+      isAnimating = true;
+      logicalIndex = nextIndex;
+      applyPosition(logicalIndex, true);
+    };
+
+    const handleTransitionEnd = () => {
+      snapToLogicalIndex();
+      isAnimating = false;
+    };
+
+    const setup = () => {
+      createClones();
+      logicalIndex = 0;
+      applyPosition(logicalIndex, false);
     };
 
     prevBtn.addEventListener("click", () => {
-      viewport.scrollBy({
-        left: -getScrollAmount(),
-        behavior: "smooth",
-      });
+      moveTo(logicalIndex - 1);
     });
 
     nextBtn.addEventListener("click", () => {
-      viewport.scrollBy({
-        left: getScrollAmount(),
-        behavior: "smooth",
-      });
+      moveTo(logicalIndex + 1);
     });
 
-    viewport.addEventListener("scroll", updateNavState);
-    window.addEventListener("resize", updateNavState);
+    track.addEventListener("transitionend", handleTransitionEnd);
 
-    updateNavState();
+    window.addEventListener("resize", () => {
+      applyPosition(logicalIndex, false);
+    });
+
+    window.addEventListener("load", () => {
+      applyPosition(logicalIndex, false);
+    });
+
+    setup();
   }
 });
