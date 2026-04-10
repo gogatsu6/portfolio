@@ -65,14 +65,25 @@
         </section>
 
         <!-- Featured Projects -->
+        <!-- Featured Projects -->
         <section class="top-featured l-section" id="products">
             <div class="top-featured__inner l-container--wide">
-                <div class="top-featured__line" aria-hidden="true">
-                    <span class="top-featured__line-inner"></span>
+                <div class="top-featured__progress" aria-label="代表プロダクトナビゲーション">
+                    <div class="top-featured__line" aria-hidden="true">
+                        <span class="top-featured__line-inner"></span>
+                        <span class="top-featured__active-dot"></span>
+                    </div>
+
+                    <div class="top-featured__steps" aria-hidden="true">
+                        <span class="top-featured__step is-active" data-progress-step="0"></span>
+                        <span class="top-featured__step" data-progress-step="1"></span>
+                        <span class="top-featured__step" data-progress-step="2"></span>
+                    </div>
                 </div>
 
-                <article class="featured-project featured-project--01 is-active" data-featured-project
-                    data-project-link="./pages/case-doctors.html" tabindex="0" aria-label="ドクターズコスメ専門サイト改修の事例を見る">
+                <article class="featured-project featured-project--01 is-active" id="featured-project-01"
+                    data-featured-project data-featured-index="0" data-project-link="./pages/case-doctors.html"
+                    tabindex="0" aria-label="ドクターズコスメ専門サイト改修の事例を見る">
                     <div class="featured-project__marker" aria-hidden="true">
                         <span class="featured-project__dot"></span>
                     </div>
@@ -110,8 +121,9 @@
                     </figure>
                 </article>
 
-                <article class="featured-project featured-project--02" data-featured-project
-                    data-project-link="./pages/case-saas.html" tabindex="0" aria-label="多店舗運用の商品管理SaaSの事例を見る">
+                <article class="featured-project featured-project--02" id="featured-project-02" data-featured-project
+                    data-featured-index="1" data-project-link="./pages/case-saas.html" tabindex="0"
+                    aria-label="多店舗運用の商品管理SaaSの事例を見る">
                     <div class="featured-project__marker" aria-hidden="true">
                         <span class="featured-project__dot"></span>
                     </div>
@@ -148,8 +160,9 @@
                     </div>
                 </article>
 
-                <article class="featured-project featured-project--03" data-featured-project
-                    data-project-link="./pages/case-portfolio.html" tabindex="0" aria-label="思考を伝えるための情報設計の事例を見る">
+                <article class="featured-project featured-project--03" id="featured-project-03" data-featured-project
+                    data-featured-index="2" data-project-link="./pages/case-portfolio.html" tabindex="0"
+                    aria-label="思考を伝えるための情報設計の事例を見る">
                     <div class="featured-project__marker" aria-hidden="true">
                         <span class="featured-project__dot"></span>
                     </div>
