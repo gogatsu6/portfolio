@@ -2471,7 +2471,7 @@ textarea {
 @media (max-width: 767px) {
   .case-doctors-hero__title {
     font-size: clamp(36px, 12vw, 52px);
-    line-height: 1.02;
+    line-height: 1.2;
   }
   .case-doctors-hero__meta {
     flex-direction: column;
@@ -3477,7 +3477,7 @@ textarea {
 @media (max-width: 767px) {
   .case-saas-hero__title {
     font-size: clamp(36px, 10vw, 52px);
-    line-height: 1.02;
+    line-height: 1.2;
   }
   .case-saas-hero__meta {
     flex-direction: column;
