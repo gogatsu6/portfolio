@@ -265,7 +265,7 @@
 
 .featured-project__meta-item dt {
   color: $color-text-soft;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.4;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -490,7 +490,7 @@
 
   &__intro {
     min-width: 0;
-    max-width: 420px;
+    // max-width: 420px;
   }
 
   &__eyebrow {

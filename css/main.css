@@ -953,7 +953,7 @@ textarea {
 
 .featured-project__meta-item dt {
   color: #525252;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.4;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1163,7 +1163,6 @@ textarea {
 }
 .top-experience__intro {
   min-width: 0;
-  max-width: 420px;
 }
 .top-experience__eyebrow {
   margin: 0 0 10px;
