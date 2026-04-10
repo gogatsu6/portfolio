@@ -180,6 +180,16 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     };
 
+    const warmCloneImages = () => {
+      track.querySelectorAll(".project-card img").forEach((img) => {
+        const src = img.currentSrc || img.src;
+        if (!src) return;
+
+        const preload = new Image();
+        preload.src = src;
+      });
+    };
+
     const getGap = () => {
       const styles = window.getComputedStyle(track);
       return parseFloat(styles.columnGap || styles.gap || 0);
@@ -235,11 +245,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const handleTransitionEnd = () => {
       snapToLogicalIndex();
-      isAnimating = false;
+
+      requestAnimationFrame(() => {
+        isAnimating = false;
+      });
     };
 
     const setup = () => {
       createClones();
+      warmCloneImages();
       logicalIndex = 0;
       applyPosition(logicalIndex, false);
     };
