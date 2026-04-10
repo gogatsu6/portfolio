@@ -45,6 +45,76 @@
     </header>
 
     <main class="case-doctors-page">
+        <nav class="section-dots" aria-label="ページ内セクションナビゲーション">
+            <ol class="section-dots__list">
+                <li class="section-dots__item">
+                    <a href="#summary" class="section-dots__link is-active" data-target="summary"
+                        aria-label="01. summary">
+                        <span class="section-dots__dot"></span>
+                        <span class="section-dots__label"> 概要</span>
+                    </a>
+                </li>
+                <li class="section-dots__item">
+                    <a href="#overview" class="section-dots__link" data-target="overview" aria-label="01. OVERVIEW">
+                        <span class="section-dots__dot"></span>
+                        <span class="section-dots__label">01. 要件</span>
+                    </a>
+                </li>
+                <li class="section-dots__item">
+                    <a href="#problem" class="section-dots__link" data-target="problem" aria-label="02. Problem">
+                        <span class="section-dots__dot"></span>
+                        <span class="section-dots__label">02. 課題</span>
+                    </a>
+                </li>
+                <li class="section-dots__item">
+                    <a href="#insight" class="section-dots__link" data-target="insight" aria-label="03. Insight">
+                        <span class="section-dots__dot"></span>
+                        <span class="section-dots__label">03. 気づき</span>
+                    </a>
+                </li>
+                <li class="section-dots__item">
+                    <a href="#decision" class="section-dots__link" data-target="decision"
+                        aria-label="04. Strategic Decision">
+                        <span class="section-dots__dot"></span>
+                        <span class="section-dots__label">04. 判断</span>
+                    </a>
+                </li>
+                <li class="section-dots__item">
+                    <a href="#structure" class="section-dots__link" data-target="structure"
+                        aria-label="05. Design Structure">
+                        <span class="section-dots__dot"></span>
+                        <span class="section-dots__label">05. 構造設計</span>
+                    </a>
+                </li>
+                <li class="section-dots__item">
+                    <a href="#uiux" class="section-dots__link" data-target="uiux" aria-label="06. UI Design">
+                        <span class="section-dots__dot"></span>
+                        <span class="section-dots__label">06. UI設計</span>
+                    </a>
+                </li>
+                <li class="section-dots__item">
+                    <a href="#07" class="section-dots__link" data-target="07" aria-label="07">
+                        <span class="section-dots__dot"></span>
+                        <span class="section-dots__label">07. 実装</span>
+                    </a>
+                </li>
+
+                <li class="section-dots__item">
+                    <a href="#effects" class="section-dots__link" data-target="effects"
+                        aria-label="08. Expected Impact">
+                        <span class="section-dots__dot"></span>
+                        <span class="section-dots__label">08. 効果</span>
+                    </a>
+                </li>
+                <li class="section-dots__item">
+                    <a href="#learning" class="section-dots__link" data-target="learning" aria-label="09. Learning">
+                        <span class="section-dots__dot"></span>
+                        <span class="section-dots__label">09. 学び</span>
+                    </a>
+                </li>
+            </ol>
+        </nav>
+
         <!-- hero -->
         <section class="case-doctors-hero l-section--lg">
             <div class="case-doctors-hero__inner l-container--wide">
@@ -65,7 +135,7 @@
         </section>
 
         <!-- key conclusion -->
-        <section class="case-doctors-summary l-section">
+        <section id="summary" class="case-doctors-summary l-section">
             <div class="case-doctors-summary__inner l-container--wide">
                 <div class="case-doctors-summary__wrap">
                     <p class="case-doctors-summary__eyebrow">概要</p>
@@ -78,7 +148,7 @@
         </section>
 
         <!-- overview -->
-        <section class="case-doctors-overview l-section">
+        <section id="overview" class="case-doctors-overview l-section">
             <div class="case-doctors-overview__inner l-container--wide">
                 <div class="case-doctors-overview__wrap">
                     <div class="case-doctors-overview__head">01. OVERVIEW</div>
@@ -128,7 +198,7 @@
         </section>
 
         <!-- problem -->
-        <section class="case-doctors-problem l-section">
+        <section id="problem" class="case-doctors-problem l-section">
             <div class="case-doctors-problem__inner l-container--wide">
                 <div class="case-doctors-problem__wrap">
                     <p class="case-doctors-problem__eyebrow">02. PROBLEM</p>
@@ -172,7 +242,7 @@
         </section>
 
         <!-- insight -->
-        <section class="case-doctors-insight l-section">
+        <section id="insight" class="case-doctors-insight l-section">
             <div class="case-doctors-insight__inner l-container--wide">
                 <div class="case-doctors-insight__wrap">
                     <p class="case-doctors-insight__eyebrow">03. THE INSIGHT</p>
@@ -194,7 +264,7 @@
         </section>
 
         <!-- strategic decision -->
-        <section class="case-doctors-decision l-section">
+        <section id="decision" class="case-doctors-decision l-section">
             <div class="case-doctors-decision__inner l-container--wide">
                 <div class="case-doctors-decision__wrap">
                     <p class="case-doctors-decision__eyebrow">04. STRATEGIC DECISION</p>
@@ -299,7 +369,7 @@
         </section>
 
         <!-- design structure -->
-        <section class="case-doctors-structure l-section">
+        <section id="structure" class="case-doctors-structure l-section">
             <div class="case-doctors-structure__inner l-container--wide">
                 <div class="case-doctors-structure__wrap">
                     <p class="case-doctors-structure__eyebrow">05. DESIGN STRUCTURE</p>
@@ -353,7 +423,7 @@
         </section>
 
         <!-- ui design -->
-        <section class="case-doctors-uiux l-section--lg">
+        <section id="uiux" class="case-doctors-uiux l-section--lg">
             <div class="case-doctors-uiux__inner l-container--wide">
                 <div class="case-doctors-uiux__wrap">
                     <p class="case-doctors-uiux__eyebrow">06. UI DESIGN</p>
@@ -420,10 +490,10 @@
         </section>
 
         <!-- implementation design -->
-        <section class="case-doctors-implemented l-section">
+        <section id="07" class="case-doctors-implemented l-section">
             <div class="case-doctors-implemented__inner l-container--wide">
                 <div class="case-doctors-implemented__wrap">
-                    <p class="case-doctors-implemented__eyebrow">07. IMPLEMENTATION DESIGN</p>
+                    <p class="case-doctors-implemented__eyebrow">07. IMPLEMENTATION</p>
 
                     <div class="case-doctors-implemented__grid">
                         <figure class="case-doctors-implemented__visual">
@@ -451,7 +521,7 @@
         </section>
 
         <!-- expected impact & results -->
-        <section class="case-doctors-effects l-section">
+        <section id="effects" class="case-doctors-effects l-section">
             <div class="case-doctors-effects__inner l-container--wide">
                 <div class="case-doctors-effects__wrap">
                     <p class="case-doctors-effects__eyebrow">08. EXPECTED IMPACT &amp; RESULTS</p>
@@ -492,7 +562,7 @@
         </section>
 
         <!-- learning -->
-        <section class="case-doctors-learning l-section">
+        <section id="learning" class="case-doctors-learning l-section">
             <div class="case-doctors-learning__inner l-container--wide">
                 <div class="case-doctors-learning__wrap">
                     <p class="case-doctors-learning__eyebrow">09. LEARNING</p>
