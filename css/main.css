@@ -1655,9 +1655,9 @@ textarea {
 .case-doctors-hero__title {
   margin-top: 14px;
   color: #141414;
-  font-size: clamp(48px, 6vw, 88px);
-  line-height: 0.95;
-  letter-spacing: -0.05em;
+  font-size: clamp(48px, 6vw, 72px);
+  line-height: 1.2;
+  letter-spacing: 0.04em;
 }
 
 .case-doctors-hero__meta {
@@ -1669,7 +1669,7 @@ textarea {
 }
 .case-doctors-hero__meta p {
   color: #525252;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.6;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1707,7 +1707,7 @@ textarea {
 .case-doctors-summary__eyebrow {
   display: block;
   color: #141414;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.4;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -2544,9 +2544,9 @@ textarea {
 .case-saas-hero__title {
   margin-top: 14px;
   color: #141414;
-  font-size: clamp(48px, 6vw, 88px);
-  line-height: 0.95;
-  letter-spacing: -0.05em;
+  font-size: clamp(48px, 6vw, 72px);
+  line-height: 1.2;
+  letter-spacing: 0.04em;
 }
 
 .case-saas-hero__meta {
@@ -2558,7 +2558,7 @@ textarea {
 }
 .case-saas-hero__meta p {
   color: #525252;
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.6;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -2596,7 +2596,7 @@ textarea {
 .case-saas-summary__eyebrow {
   display: block;
   color: #141414;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.4;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -3448,7 +3448,7 @@ textarea {
 --------------------------------- */
 @media (max-width: 767px) {
   .case-saas-hero__title {
-    font-size: clamp(36px, 12vw, 52px);
+    font-size: clamp(36px, 10vw, 52px);
     line-height: 1.02;
   }
   .case-saas-hero__meta {
@@ -3579,11 +3579,11 @@ textarea {
 }
 
 .case-portfolio-hero__title {
-  margin-top: 12px;
+  margin-top: 14px;
   color: #141414;
-  font-size: clamp(46px, 6vw, 82px);
-  line-height: 0.96;
-  letter-spacing: -0.045em;
+  font-size: clamp(38px, 6vw, 72px);
+  line-height: 1.2;
+  letter-spacing: 0.04em;
 }
 
 .case-portfolio-hero__meta {
@@ -3595,7 +3595,7 @@ textarea {
 }
 .case-portfolio-hero__meta p {
   color: #525252;
-  font-size: 11px;
+  font-size: 16px;
   line-height: 1.6;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -3631,7 +3631,7 @@ textarea {
 .case-portfolio-summary__eyebrow {
   display: block;
   color: #141414;
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.4;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -4387,6 +4387,9 @@ textarea {
 }
 
 @media (max-width: 767px) {
+  .case-portfolio-hero__visual img {
+    aspect-ratio: 4/5;
+  }
   .case-portfolio-implemented__body {
     margin-top: 20px;
   }

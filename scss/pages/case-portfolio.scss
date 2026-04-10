@@ -72,11 +72,11 @@
 }
 
 .case-portfolio-hero__title {
-    margin-top: 12px;
+    margin-top: 14px;
     color: $color-text-strong;
-    font-size: clamp(46px, 6vw, 82px);
-    line-height: 0.96;
-    letter-spacing: -0.045em;
+    font-size: clamp(38px, 6vw, 72px);
+    line-height: 1.2;
+    letter-spacing: 0.04em;
 }
 
 .case-portfolio-hero__meta {
@@ -88,7 +88,7 @@
 
     p {
         color: $color-text-soft;
-        font-size: 11px;
+        font-size: 16px;
         line-height: 1.6;
         letter-spacing: 0.08em;
         text-transform: uppercase;
@@ -125,7 +125,7 @@
 .case-portfolio-summary__eyebrow {
     display: block;
     color: $color-text-strong;
-    font-size: 11px;
+    font-size: 14px;
     line-height: 1.4;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -909,6 +909,10 @@
 }
 
 @media (max-width: 767px) {
+    .case-portfolio-hero__visual img {
+        aspect-ratio: 4 / 5;
+    }
+
     .case-portfolio-implemented__body {
         margin-top: 20px;
     }
