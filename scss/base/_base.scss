@@ -317,6 +317,149 @@ h6 {
     background: $color-border-soft;
 }
 
+/* ---------------------------------
+   Section dots navigation
+--------------------------------- */
+.section-dots {
+    position: fixed;
+    top: 50%;
+    right: 32px;
+    transform: translateY(-50%);
+    z-index: 40;
+
+    /* ← 初期は「表示しておく」が重要 */
+    opacity: 1;
+    pointer-events: auto;
+
+    transition: opacity 0.3s ease;
+
+    /* 少し狭いPC */
+    @media (max-width: 1366px) {
+        right: 20px;
+    }
+
+    /* ← ここが超重要：このUIが成立しない幅は完全に消す */
+    @media (max-width: 1280px) {
+        display: none;
+    }
+}
+
+/* JSで制御する状態 */
+.section-dots.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.section-dots.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ===== リスト ===== */
+.section-dots__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.section-dots__item {
+    position: relative;
+}
+
+.section-dots__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(17, 17, 17, 0.42);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.section-dots__dot {
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    border: 1px solid rgba(17, 17, 17, 0.28);
+    border-radius: 50%;
+    background: transparent;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.section-dots__label {
+    font-size: 18px;
+    line-height: 1.4;
+    letter-spacing: 0.03em;
+    color: inherit;
+}
+
+/* Dark theme styles : dots colors */
+
+.section-dots.is-on-dark .section-dots__link {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.section-dots.is-on-dark .section-dots__dot {
+    border-color: rgba(255, 255, 255, 0.45);
+    background: transparent;
+}
+
+.section-dots.is-on-dark .section-dots__link:hover {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.section-dots.is-on-dark .section-dots__link:hover .section-dots__dot {
+    border-color: rgba(255, 255, 255, 0.72);
+}
+
+.section-dots.is-on-dark .section-dots__link.is-active {
+    color: #fff;
+}
+
+.section-dots.is-on-dark .section-dots__link.is-active .section-dots__dot {
+    background: #fff;
+    border-color: #fff;
+}
+
+/* hover */
+.section-dots__link:hover {
+    color: rgba(17, 17, 17, 0.7);
+}
+
+.section-dots__link:hover .section-dots__dot {
+    border-color: rgba(17, 17, 17, 0.5);
+}
+
+/* active */
+.section-dots__link.is-active {
+    color: #111;
+    font-weight: 500;
+}
+
+.section-dots__link.is-active .section-dots__dot {
+    background: #111;
+    border-color: #111;
+    transform: scale(1.1);
+}
+
+/* アンカー位置調整 */
+#summary,
+#overview,
+#problem,
+#insight,
+#decision,
+#structure,
+#uiux,
+#effects,
+#learning {
+    scroll-margin-top: 120px;
+}
+
 // ========================================
 // Forms
 // ========================================
