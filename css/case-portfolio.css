@@ -180,6 +180,15 @@ h6 {
   color: #525252;
 }
 
+.underline {
+  text-decoration: underline;
+  text-decoration-thickness: 0.5em;
+  text-decoration-color: rgba(255, 228, 0, 0.4);
+  text-underline-offset: -0.2em;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+}
+
 .c-button {
   display: inline-flex;
   align-items: center;
@@ -370,7 +379,7 @@ textarea {
 .case-portfolio-hero__meta {
   display: flex;
   justify-content: center;
-  gap: 16px 26px;
+  gap: 8px 26px;
   flex-wrap: wrap;
   margin-top: 30px;
 }

@@ -27,6 +27,10 @@
     text-transform: uppercase;
 }
 
+.case-doctors-uiux__eyebrow {
+    color: rgba(255, 255, 255, 0.68);
+}
+
 .case-doctors-section-heading {
     margin-bottom: clamp(28px, 4vw, 48px);
 }
@@ -70,7 +74,7 @@
 .case-doctors-hero__meta {
     display: flex;
     justify-content: center;
-    gap: 18px 28px;
+    gap: 8px 28px;
     flex-wrap: wrap;
     margin-top: 18px;
 
@@ -358,13 +362,13 @@
 .case-doctors-option {
     padding: 18px 16px;
     border: 1px solid $color-border-soft;
-    background: #f8f7f4;
+    background: #fffdfe;
     min-width: 0;
 }
 
 .case-doctors-option--active {
-    border: 2px solid #56514a;
-    background: #f7f5f1;
+    border: 2px solid #ef4f84;
+    background: #fff6f6;
 }
 
 .case-doctors-option h3 {
@@ -372,6 +376,15 @@
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 1px;
+}
+
+.case-doctors-option__caption {
+    margin-top: 6px;
+    color: $color-text-strong;
+    font-size: 14px;
+    line-height: 1.65;
+    letter-spacing: 0.04em;
+    font-weight: 500;
 }
 
 .case-doctors-option p {
@@ -397,10 +410,10 @@
 /* active state */
 .case-doctors-step.is-active {
     .case-doctors-step__marker {
-        background: #1d1d1d;
-        border-color: #1d1d1d;
+        background: #ef4f84;
+        border-color: #ef4f84;
         transform: scale(1.08);
-        box-shadow: 0 0 0 4px rgba(29, 29, 29, 0.08);
+        box-shadow: 0 0 0 4px rgba(239, 79, 132, 0.2);
     }
 
     .case-doctors-step__active-bar {

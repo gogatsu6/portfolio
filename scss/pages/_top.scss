@@ -265,7 +265,7 @@
 
 .featured-project__meta-item dt {
   color: $color-text-soft;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.4;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -371,7 +371,6 @@
 
 .top-grid__viewport {
   --card-gap: 20px;
-  --peek: 12%;
   overflow: hidden;
   width: 100%;
 }
@@ -380,19 +379,23 @@
   display: flex;
   gap: var(--card-gap);
   align-items: stretch;
-  transition: transform 0.45s ease;
   will-change: transform;
-  padding-inline: var(--peek);
-  box-sizing: border-box;
+  padding-inline: 0;
+  transform: translate3d(0, 0, 0);
 }
 
 .project-card {
-  flex: 0 0 calc((100% - (var(--card-gap) * 2)) / 3);
+  flex: 0 0 auto;
+  width: var(--card-width, 320px);
   min-width: 0;
   background: $color-surface;
   border: 1px solid $color-border-soft;
   box-shadow: $shadow-soft;
   overflow: hidden;
+}
+
+.project-card.is-clone {
+  pointer-events: none;
 }
 
 .project-card__link {
@@ -439,7 +442,7 @@
 .top-grid__nav {
   position: absolute;
   top: 50%;
-  z-index: 2;
+  z-index: 3;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -453,7 +456,8 @@
   transform: translateY(-50%);
   transition:
     background-color 0.2s ease,
-    border-color 0.2s ease;
+    border-color 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .top-grid__nav:hover {
@@ -490,7 +494,7 @@
 
   &__intro {
     min-width: 0;
-    max-width: 420px;
+    // max-width: 420px;
   }
 
   &__eyebrow {
