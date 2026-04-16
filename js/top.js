@@ -145,137 +145,257 @@ document.addEventListener("DOMContentLoaded", () => {
   const track = document.querySelector(".top-grid__track");
   const prevBtn = document.querySelector(".top-grid__nav--prev");
   const nextBtn = document.querySelector(".top-grid__nav--next");
+  const dots = Array.from(document.querySelectorAll(".top-grid__dot"));
 
   if (viewport && track && prevBtn && nextBtn) {
     const originalCards = Array.from(track.querySelectorAll(".project-card"));
     const CARD_COUNT = originalCards.length;
 
-    // 中央3枚表示なので、左右に3枚ずつクローンを持つ
-    const CLONE_COUNT = Math.min(3, CARD_COUNT);
+    if (CARD_COUNT > 0) {
+      const CLONE_COUNT = Math.min(3, CARD_COUNT);
+      const AUTO_SLIDE_INTERVAL = 3200;
 
-    let logicalIndex = 0; // 0 = 左に1枚目半分、中央2〜4枚、右に5枚目半分
-    let isAnimating = false;
+      let logicalIndex = 0;
+      let isAnimating = false;
+      let autoSlideTimer = null;
+      let resizeTimer = null;
 
-    const createClones = () => {
-      track.querySelectorAll(".project-card.is-clone").forEach((card) => card.remove());
+      const createClones = () => {
+        track.querySelectorAll(".project-card.is-clone").forEach((card) => card.remove());
 
-      if (CARD_COUNT <= 1) return;
+        if (CARD_COUNT <= 1) return;
 
-      const headClones = originalCards
-        .slice(-CLONE_COUNT)
-        .map((card) => card.cloneNode(true));
+        const headClones = originalCards
+          .slice(-CLONE_COUNT)
+          .map((card) => card.cloneNode(true));
 
-      const tailClones = originalCards
-        .slice(0, CLONE_COUNT)
-        .map((card) => card.cloneNode(true));
+        const tailClones = originalCards
+          .slice(0, CLONE_COUNT)
+          .map((card) => card.cloneNode(true));
 
-      headClones.forEach((clone) => {
-        clone.classList.add("is-clone");
-        track.prepend(clone);
-      });
+        headClones.forEach((clone) => {
+          clone.classList.add("is-clone");
+          track.prepend(clone);
+        });
 
-      tailClones.forEach((clone) => {
-        clone.classList.add("is-clone");
-        track.append(clone);
-      });
-    };
+        tailClones.forEach((clone) => {
+          clone.classList.add("is-clone");
+          track.append(clone);
+        });
+      };
 
-    const warmCloneImages = () => {
-      track.querySelectorAll(".project-card img").forEach((img) => {
-        const src = img.currentSrc || img.src;
-        if (!src) return;
+      const warmCloneImages = () => {
+        track.querySelectorAll(".project-card img").forEach((img) => {
+          const src = img.currentSrc || img.src;
+          if (!src) return;
 
-        const preload = new Image();
-        preload.src = src;
-      });
-    };
+          const preload = new Image();
+          preload.src = src;
+        });
+      };
 
-    const getGap = () => {
-      const styles = window.getComputedStyle(track);
-      return parseFloat(styles.columnGap || styles.gap || 0);
-    };
+      const getGap = () => {
+        const styles = window.getComputedStyle(track);
+        return parseFloat(styles.columnGap || styles.gap || 0);
+      };
 
-    const getLayout = () => {
-      const gap = getGap();
-      const viewportWidth = viewport.clientWidth;
+      const getPerView = () => {
+        if (window.innerWidth <= 767) return 1;
+        if (window.innerWidth <= 1024) return 2;
+        return 3; // 中央3枚表示
+      };
 
-      // 中央3枚 + 左右半分ずつ = 4枚分の幅
-      const cardWidth = (viewportWidth - gap * 4) / 4;
-      const step = cardWidth + gap;
+      const getLayout = () => {
+        const gap = getGap();
+        const viewportWidth = viewport.clientWidth;
+        const perView = getPerView();
 
-      track.style.setProperty("--card-width", `${cardWidth}px`);
+        let cardWidth;
 
-      return { cardWidth, step };
-    };
+        if (perView === 3) {
+          // 左右に半分見切れを出す: 画面内には「4枚分」使う
+          cardWidth = (viewportWidth - gap * 4) / 4;
+        } else if (perView === 2) {
+          cardWidth = (viewportWidth - gap) / 2;
+        } else {
+          cardWidth = viewportWidth;
+        }
 
-    const getPhysicalIndex = (index) => index + CLONE_COUNT;
+        const step = cardWidth + gap;
 
-    const applyPosition = (index, withTransition = true) => {
-      const { cardWidth, step } = getLayout();
-      if (!cardWidth || !step) return;
+        track.style.setProperty("--card-width", `${cardWidth}px`);
 
-      const physicalIndex = getPhysicalIndex(index);
+        return { cardWidth, step, perView, gap };
+      };
 
-      // 「左半分カード」位置に合わせる
-      const offset = step * physicalIndex + cardWidth / 2;
+      const getPhysicalIndex = (index) => index + CLONE_COUNT;
 
-      track.style.transition = withTransition ? "transform 0.45s ease" : "none";
-      track.style.transform = `translate3d(${-offset}px, 0, 0)`;
-    };
+      const normalizeIndex = (index) => {
+        return ((index % CARD_COUNT) + CARD_COUNT) % CARD_COUNT;
+      };
 
-    const snapToLogicalIndex = () => {
-      if (logicalIndex >= CARD_COUNT) {
+const getCenterLogicalIndex = (index) => {
+  return normalizeIndex(index);
+};
+
+      const setActiveDot = (index) => {
+        if (!dots.length) return;
+
+        dots.forEach((dot, i) => {
+          const isActive = i === index;
+          dot.classList.toggle("is-active", isActive);
+
+          if (isActive) {
+            dot.setAttribute("aria-current", "true");
+          } else {
+            dot.removeAttribute("aria-current");
+          }
+        });
+      };
+
+      const updateActiveDotByLogicalIndex = (index) => {
+        const centerIndex = getCenterLogicalIndex(index);
+        setActiveDot(centerIndex);
+      };
+
+      const applyPosition = (index, withTransition = true) => {
+        const { cardWidth, step, perView } = getLayout();
+        if (!cardWidth || !step) return;
+
+        const physicalIndex = getPhysicalIndex(index);
+        let offset = 0;
+
+        if (perView === 3) {
+          // 左半分カード位置に合わせる
+          offset = step * physicalIndex + cardWidth / 2;
+        } else {
+          // 通常スライド
+          offset = step * physicalIndex;
+        }
+
+        track.style.transition = withTransition ? "transform 0.45s ease" : "none";
+        track.style.transform = `translate3d(${-offset}px, 0, 0)`;
+
+        updateActiveDotByLogicalIndex(index);
+      };
+
+      const jumpWithoutAnimation = (index) => {
+        logicalIndex = index;
+        applyPosition(logicalIndex, false);
+      };
+
+      const snapToLogicalIndex = () => {
+        if (logicalIndex >= CARD_COUNT) {
+          jumpWithoutAnimation(0);
+        } else if (logicalIndex < 0) {
+          jumpWithoutAnimation(CARD_COUNT - 1);
+        }
+      };
+
+      const moveTo = (nextIndex) => {
+        if (isAnimating || CARD_COUNT <= 0) return;
+
+        isAnimating = true;
+        logicalIndex = nextIndex;
+        applyPosition(logicalIndex, true);
+      };
+
+      const moveNext = () => {
+        moveTo(logicalIndex + 1);
+      };
+
+      const movePrev = () => {
+        moveTo(logicalIndex - 1);
+      };
+
+      const stopAutoSlide = () => {
+        if (autoSlideTimer) {
+          clearInterval(autoSlideTimer);
+          autoSlideTimer = null;
+        }
+      };
+
+      const startAutoSlide = () => {
+        stopAutoSlide();
+
+        if (CARD_COUNT <= 1) return;
+
+        autoSlideTimer = setInterval(() => {
+          if (!isAnimating) {
+            moveNext();
+          }
+        }, AUTO_SLIDE_INTERVAL);
+      };
+
+      const restartAutoSlide = () => {
+        stopAutoSlide();
+        startAutoSlide();
+      };
+
+      const handleTransitionEnd = () => {
+        snapToLogicalIndex();
+
+        requestAnimationFrame(() => {
+          isAnimating = false;
+        });
+      };
+
+      const setup = () => {
+        createClones();
+        warmCloneImages();
         logicalIndex = 0;
         applyPosition(logicalIndex, false);
-      }
+        updateActiveDotByLogicalIndex(logicalIndex);
+        startAutoSlide();
+      };
 
-      if (logicalIndex < 0) {
-        logicalIndex = CARD_COUNT - 1;
-        applyPosition(logicalIndex, false);
-      }
-    };
-
-    const moveTo = (nextIndex) => {
-      if (isAnimating || CARD_COUNT <= 0) return;
-
-      isAnimating = true;
-      logicalIndex = nextIndex;
-      applyPosition(logicalIndex, true);
-    };
-
-    const handleTransitionEnd = () => {
-      snapToLogicalIndex();
-
-      requestAnimationFrame(() => {
-        isAnimating = false;
+      prevBtn.addEventListener("click", () => {
+        movePrev();
+        restartAutoSlide();
       });
-    };
 
-    const setup = () => {
-      createClones();
-      warmCloneImages();
-      logicalIndex = 0;
-      applyPosition(logicalIndex, false);
-    };
+      nextBtn.addEventListener("click", () => {
+        moveNext();
+        restartAutoSlide();
+      });
 
-    prevBtn.addEventListener("click", () => {
-      moveTo(logicalIndex - 1);
-    });
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          const { perView } = getLayout();
 
-    nextBtn.addEventListener("click", () => {
-      moveTo(logicalIndex + 1);
-    });
+          let targetIndex = index;
 
-    track.addEventListener("transitionend", handleTransitionEnd);
+          if (perView === 3) {
+            // 中央カード基準なので、左端カード位置に変換
+            targetIndex = index - 1;
+          }
 
-    window.addEventListener("resize", () => {
-      applyPosition(logicalIndex, false);
-    });
+          moveTo(targetIndex);
+          restartAutoSlide();
+        });
+      });
 
-    window.addEventListener("load", () => {
-      applyPosition(logicalIndex, false);
-    });
+      track.addEventListener("transitionend", handleTransitionEnd);
 
-    setup();
+      viewport.addEventListener("mouseenter", stopAutoSlide);
+      viewport.addEventListener("mouseleave", startAutoSlide);
+      viewport.addEventListener("focusin", stopAutoSlide);
+      viewport.addEventListener("focusout", startAutoSlide);
+
+      window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          applyPosition(logicalIndex, false);
+          updateActiveDotByLogicalIndex(logicalIndex);
+        }, 80);
+      });
+
+      window.addEventListener("load", () => {
+        applyPosition(logicalIndex, false);
+        updateActiveDotByLogicalIndex(logicalIndex);
+      });
+
+      setup();
+    }
   }
 });
