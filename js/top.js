@@ -141,6 +141,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // =====================================================
   // Other Works Slider
   // =====================================================
+  // =====================================================
+  // Other Works Slider
+  // =====================================================
   const viewport = document.querySelector(".top-grid__viewport");
   const track = document.querySelector(".top-grid__track");
   const prevBtn = document.querySelector(".top-grid__nav--prev");
@@ -154,14 +157,23 @@ document.addEventListener("DOMContentLoaded", () => {
     if (CARD_COUNT > 0) {
       const CLONE_COUNT = Math.min(3, CARD_COUNT);
       const AUTO_SLIDE_INTERVAL = 3200;
+      const mobileMq = window.matchMedia("(max-width: 767px)");
 
       let logicalIndex = 0;
       let isAnimating = false;
       let autoSlideTimer = null;
       let resizeTimer = null;
+      let mobileScrollTimer = null;
+      let currentMode = null;
+
+      const isMobile = () => mobileMq.matches;
+
+      const removeClones = () => {
+        track.querySelectorAll(".project-card.is-clone").forEach((card) => card.remove());
+      };
 
       const createClones = () => {
-        track.querySelectorAll(".project-card.is-clone").forEach((card) => card.remove());
+        removeClones();
 
         if (CARD_COUNT <= 1) return;
 
@@ -202,7 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const getPerView = () => {
         if (window.innerWidth <= 767) return 1;
         if (window.innerWidth <= 1024) return 2;
-        return 3; // 中央3枚表示
+        return 3;
       };
 
       const getLayout = () => {
@@ -213,7 +225,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let cardWidth;
 
         if (perView === 3) {
-          // 左右に半分見切れを出す: 画面内には「4枚分」使う
           cardWidth = (viewportWidth - gap * 4) / 4;
         } else if (perView === 2) {
           cardWidth = (viewportWidth - gap) / 2;
@@ -228,15 +239,15 @@ document.addEventListener("DOMContentLoaded", () => {
         return { cardWidth, step, perView, gap };
       };
 
-      const getPhysicalIndex = (index) => index + CLONE_COUNT;
-
       const normalizeIndex = (index) => {
         return ((index % CARD_COUNT) + CARD_COUNT) % CARD_COUNT;
       };
 
-const getCenterLogicalIndex = (index) => {
-  return normalizeIndex(index);
-};
+      const getPhysicalIndex = (index) => index + CLONE_COUNT;
+
+      const getCenterLogicalIndex = (index) => {
+        return normalizeIndex(index);
+      };
 
       const setActiveDot = (index) => {
         if (!dots.length) return;
@@ -258,7 +269,12 @@ const getCenterLogicalIndex = (index) => {
         setActiveDot(centerIndex);
       };
 
+      // -----------------------------
+      // PC / tablet
+      // -----------------------------
       const applyPosition = (index, withTransition = true) => {
+        if (isMobile()) return;
+
         const { cardWidth, step, perView } = getLayout();
         if (!cardWidth || !step) return;
 
@@ -266,10 +282,8 @@ const getCenterLogicalIndex = (index) => {
         let offset = 0;
 
         if (perView === 3) {
-          // 左半分カード位置に合わせる
           offset = step * physicalIndex + cardWidth / 2;
         } else {
-          // 通常スライド
           offset = step * physicalIndex;
         }
 
@@ -285,6 +299,8 @@ const getCenterLogicalIndex = (index) => {
       };
 
       const snapToLogicalIndex = () => {
+        if (isMobile()) return;
+
         if (logicalIndex >= CARD_COUNT) {
           jumpWithoutAnimation(0);
         } else if (logicalIndex < 0) {
@@ -293,7 +309,7 @@ const getCenterLogicalIndex = (index) => {
       };
 
       const moveTo = (nextIndex) => {
-        if (isAnimating || CARD_COUNT <= 0) return;
+        if (isAnimating || CARD_COUNT <= 0 || isMobile()) return;
 
         isAnimating = true;
         logicalIndex = nextIndex;
@@ -318,7 +334,7 @@ const getCenterLogicalIndex = (index) => {
       const startAutoSlide = () => {
         stopAutoSlide();
 
-        if (CARD_COUNT <= 1) return;
+        if (CARD_COUNT <= 1 || isMobile()) return;
 
         autoSlideTimer = setInterval(() => {
           if (!isAnimating) {
@@ -333,6 +349,8 @@ const getCenterLogicalIndex = (index) => {
       };
 
       const handleTransitionEnd = () => {
+        if (isMobile()) return;
+
         snapToLogicalIndex();
 
         requestAnimationFrame(() => {
@@ -340,13 +358,129 @@ const getCenterLogicalIndex = (index) => {
         });
       };
 
-      const setup = () => {
+      // -----------------------------
+      // mobile
+      // -----------------------------
+      const getMobileOriginalCards = () => {
+        return Array.from(track.querySelectorAll(".project-card:not(.is-clone)"));
+      };
+
+      const getMobileAllCards = () => {
+        return Array.from(track.querySelectorAll(".project-card"));
+      };
+
+      const scrollToMobileCard = (card, behavior = "smooth") => {
+        if (!card) return;
+
+        viewport.scrollTo({
+          left: card.offsetLeft - (viewport.clientWidth - card.offsetWidth) / 2,
+          behavior,
+        });
+      };
+
+      const setMobileOriginalIndexes = () => {
+        const allCards = getMobileAllCards();
+
+        allCards.forEach((card, index) => {
+          const originalIndex = normalizeIndex(index - CLONE_COUNT);
+          card.dataset.originalIndex = originalIndex;
+        });
+      };
+
+      const updateMobileActiveDot = () => {
+        if (!isMobile()) return;
+
+        const allCards = getMobileAllCards();
+        const viewportCenter = viewport.scrollLeft + viewport.clientWidth / 2;
+
+        let activeCard = null;
+        let minDistance = Infinity;
+
+        allCards.forEach((card) => {
+          const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+          const distance = Math.abs(cardCenter - viewportCenter);
+
+          if (distance < minDistance) {
+            minDistance = distance;
+            activeCard = card;
+          }
+        });
+
+        if (!activeCard) return;
+
+        const originalIndex = Number(activeCard.dataset.originalIndex || 0);
+        logicalIndex = originalIndex;
+        setActiveDot(originalIndex);
+      };
+
+      const correctMobileLoopPosition = () => {
+        if (!isMobile()) return;
+
+        const originalCardsForMobile = getMobileOriginalCards();
+        if (!originalCardsForMobile.length) return;
+
+        const firstOriginal = originalCardsForMobile[0];
+        const lastOriginal = originalCardsForMobile[originalCardsForMobile.length - 1];
+
+        const firstOriginalLeft = firstOriginal.offsetLeft;
+        const lastOriginalLeft = lastOriginal.offsetLeft;
+        const currentLeft = viewport.scrollLeft;
+
+        // 先頭より前のクローン側まで戻ったら、末尾の本体へ移動
+        if (currentLeft < firstOriginalLeft - viewport.clientWidth * 0.5) {
+          scrollToMobileCard(lastOriginal, "auto");
+          setActiveDot(CARD_COUNT - 1);
+          logicalIndex = CARD_COUNT - 1;
+          return;
+        }
+
+        // 末尾より後ろのクローン側まで進んだら、先頭の本体へ移動
+        if (currentLeft > lastOriginalLeft + viewport.clientWidth * 0.5) {
+          scrollToMobileCard(firstOriginal, "auto");
+          setActiveDot(0);
+          logicalIndex = 0;
+        }
+      };
+
+      const setupMobile = () => {
+        currentMode = "mobile";
+        stopAutoSlide();
+
+        createClones();
+        setMobileOriginalIndexes();
+
+        track.style.transition = "none";
+        track.style.transform = "none";
+        track.style.removeProperty("--card-width");
+
+        const firstOriginal = getMobileOriginalCards()[0];
+
+        requestAnimationFrame(() => {
+          scrollToMobileCard(firstOriginal, "auto");
+          logicalIndex = 0;
+          setActiveDot(0);
+        });
+      };
+
+      const setupDesktop = () => {
+        currentMode = "desktop";
+        stopAutoSlide();
+
         createClones();
         warmCloneImages();
+
         logicalIndex = 0;
         applyPosition(logicalIndex, false);
         updateActiveDotByLogicalIndex(logicalIndex);
         startAutoSlide();
+      };
+
+      const setup = () => {
+        if (isMobile()) {
+          setupMobile();
+        } else {
+          setupDesktop();
+        }
       };
 
       prevBtn.addEventListener("click", () => {
@@ -361,12 +495,20 @@ const getCenterLogicalIndex = (index) => {
 
       dots.forEach((dot, index) => {
         dot.addEventListener("click", () => {
-          const { perView } = getLayout();
+          if (isMobile()) {
+            const targetCard = getMobileOriginalCards()[index];
+            if (!targetCard) return;
 
+            scrollToMobileCard(targetCard, "smooth");
+            logicalIndex = index;
+            setActiveDot(index);
+            return;
+          }
+
+          const { perView } = getLayout();
           let targetIndex = index;
 
           if (perView === 3) {
-            // 中央カード基準なので、左端カード位置に変換
             targetIndex = index - 1;
           }
 
@@ -377,6 +519,21 @@ const getCenterLogicalIndex = (index) => {
 
       track.addEventListener("transitionend", handleTransitionEnd);
 
+      viewport.addEventListener(
+        "scroll",
+        () => {
+          if (!isMobile()) return;
+
+          requestAnimationFrame(updateMobileActiveDot);
+
+          clearTimeout(mobileScrollTimer);
+          mobileScrollTimer = setTimeout(() => {
+            correctMobileLoopPosition();
+          }, 120);
+        },
+        { passive: true }
+      );
+
       viewport.addEventListener("mouseenter", stopAutoSlide);
       viewport.addEventListener("mouseleave", startAutoSlide);
       viewport.addEventListener("focusin", stopAutoSlide);
@@ -384,15 +541,27 @@ const getCenterLogicalIndex = (index) => {
 
       window.addEventListener("resize", () => {
         clearTimeout(resizeTimer);
+
         resizeTimer = setTimeout(() => {
+          const nextMode = isMobile() ? "mobile" : "desktop";
+
+          if (nextMode !== currentMode) {
+            setup();
+            return;
+          }
+
+          if (isMobile()) {
+            updateMobileActiveDot();
+            return;
+          }
+
           applyPosition(logicalIndex, false);
           updateActiveDotByLogicalIndex(logicalIndex);
         }, 80);
       });
 
       window.addEventListener("load", () => {
-        applyPosition(logicalIndex, false);
-        updateActiveDotByLogicalIndex(logicalIndex);
+        setup();
       });
 
       setup();
