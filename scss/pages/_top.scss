@@ -428,12 +428,16 @@
 }
 
 .project-card__tag {
+  display: inline-flex;
   margin-top: 8px;
   color: $color-text-soft;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.4;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+  border: 1px solid #d9d2ca;
+  border-radius: 8px;
+  padding: 5px;
 }
 
 .top-grid__nav {
@@ -955,8 +959,16 @@
 
   .top-grid__viewport {
     --card-gap: 12px;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
     padding-inline: 0;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .top-grid__viewport::-webkit-scrollbar {
+    display: none;
   }
 
   .top-grid__track {
@@ -976,8 +988,9 @@
   }
 
   .project-card {
-    width: var(--card-width, 100%);
+    width: min(82vw, 360px);
     flex: 0 0 auto;
+    scroll-snap-align: center;
   }
 
   .top-experience {
