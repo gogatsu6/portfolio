@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="ポートフォリオ">
+    <meta name="description" content="このサイトは山本さつきのポートフォリオです。">
+    <title>Case01-WEB_病院サイトの継続的な改善｜Yamamoto-Portfolio</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <!--============= Favicon =============-->
+    <link rel="icon" type="image/x-icon" href="../img/top/favicon.ico">
+
+</head>
+
+<body>
+    <header class="l-header">
+        <div class="l-header__inner l-container">
+            <a href="https://gogatsu6.github.io/portfolio/index.html" class="l-header__logo">THE PORTFOLIO OF
+                SATSUKI</a>
+
+            <nav class="l-header__nav" aria-label="Main navigation">
+                <ul class="l-header__list">
+                    <li>
+                        <a href="https://gogatsu6.github.io/portfolio/index.html#products"
+                            class="l-header__link is-current">Products</a>
+                    </li>
+                    <li>
+                        <a href="https://gogatsu6.github.io/portfolio/work/index.html" class="l-header__link">Other
+                            Works</a>
+                    </li>
+                    <li>
+                        <a href="https://gogatsu6.github.io/portfolio/index.html#contact"
+                            class="l-header__link">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <button class="l-header__profile" type="button" aria-expanded="false" aria-controls="profileModal"
+                aria-label="Open profile">
+                PROFILE
+            </button>
+        </div>
+    </header>
+
+    <main class="case-hospital-page">
+        <nav class="section-dots" aria-label="ページ内セクションナビゲーション">
+            <ol class="section-dots__list">
+                <li class="section-dots__item">
+                    <a href="#summary" class="section-dots__link is-active" data-target="summary" aria-label="概要">
+                        <span class="section-dots__dot"></span>
+                        <span class="section-dots__label">概要</span>
+                    </a>
+                </li>
+                <li class="section-dots__item">
+                    <a href="#overview" class="section-dots__link" data-target="overview" aria-label="01. OVERVIEW">
+                        <span class="section-dots__dot"></span>
+                        <span class="section-dots__label">01. 要件</span>
+                    </a>
+                </li>
+                <li class="section-dots__item">
+                    <a href="#problem" class="section-dots__link" data-target="problem" aria-label="02. PROBLEM">
+                        <span class="section-dots__dot"></span>
+                        <span class="section-dots__label">02. 課題</span>
+                    </a>
+                </li>
+                <li class="section-dots__item">
+                    <a href="#insight" class="section-dots__link" data-target="insight" aria-label="03. INSIGHT">
+                        <span class="section-dots__dot"></span>
+                        <span class="section-dots__label">03. 気づき</span>
+                    </a>
+                </li>
+                <li class="section-dots__item">
+                    <a href="#execution" class="section-dots__link" data-target="execution" aria-label="04. EXECUTION">
+                        <span class="section-dots__dot"></span>
+                        <span class="section-dots__label">04. 実施例</span>
+                    </a>
+                </li>
+                <li class="section-dots__item">
+                    <a href="#outcome" class="section-dots__link" data-target="outcome" aria-label="05. OUTCOME">
+                        <span class="section-dots__dot"></span>
+                        <span class="section-dots__label">05. 成果</span>
+                    </a>
+                </li>
+                <li class="section-dots__item">
+                    <a href="#learning" class="section-dots__link" data-target="learning" aria-label="06. LEARNING">
+                        <span class="section-dots__dot"></span>
+                        <span class="section-dots__label">06. 学び</span>
+                    </a>
+                </li>
+            </ol>
+        </nav>
+
+
+
+        <!-- hero -->
+        <section class="case-hospital-hero l-section--lg">
+            <div class="case-hospital-hero__inner l-container--wide">
+                <div class="case-hospital-hero__head">
+                    <p class="case-hospital__eyebrow">01. CASE STUDY</p>
+                    <h1 class="case-hospital-hero__title">病院サイトの<br>継続的な改善</h1>
+
+                    <div class="case-hospital-hero__meta">
+                        <p>PROJECT : 病院サイト改善 / 継続的な施策推進</p>
+                        <p>ROLE : 情報設計 / UX改善 / SEO改善 / 実装設計 / 運用推進</p>
+                    </div>
+                </div>
+
+                <figure class="case-hospital-hero__visual">
+                    <img src="../img/case-hospital/hero.png" alt="病院サイト改善のメインビジュアル">
+                </figure>
+            </div>
+        </section>
+
+        <!-- key conclusion -->
+        <section id="summary" class="case-hospital-summary l-section">
+            <div class="case-hospital-summary__inner l-container--wide">
+                <div class="case-hospital-summary__wrap">
+                    <p class="case-hospital-summary__eyebrow">概要</p>
+                    <p class="case-hospital-summary__lead">
+                        本院・分院・施術専門サイトをまたいで、検索流入の拡大・施術理解・予約導線・口コミ運用・ブランディングなど複数の施策を継続的に回し続けた実務ケース。<br>
+                        独自CMS（コンテンツ管理システム）や医療ガイドライン、少人数運用という制約の中で、各院のSEO強化、施術専門サイトの改修、地域×施術ページ、予約導線、チャットボット導入、LINE整備、口コミ返信などを優先順位をつけながら推進し、来院につながる接点を拡大した。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- overview -->
+        <section id="overview" class="case-hospital-overview l-section">
+            <div class="case-hospital-overview__inner l-container--wide">
+                <div class="case-hospital-overview__wrap">
+                    <div class="case-hospital-overview__head">01. OVERVIEW</div>
+
+                    <div class="case-hospital-overview__grid">
+                        <!-- <div class="case-hospital-overview__item">
+                            <h2>CONTEXT</h2>
+                            <p>
+                                滋賀・京都で複数院を運営する病院サイトにおいて、公式サイト、分院ページ、施術専門サイトを横断しながら改善を担当した。約6年にわたり、サイト制作・運用・改修・外部制作会社とのやりとりまで継続的に関わっている。
+                            </p>
+                        </div> -->
+                        <div class="case-hospital-overview__item">
+                            <h2>TARGET USER</h2>
+                            <p>
+                                滋賀県において知名度の高い皮膚科・美容皮膚科を運営する病院で、主に滋賀・京都エリアで施術を検討しているユーザーが対象。ただし、治療においては遠方からの来院もあるため、範囲としては関西広域。
+                            </p>
+                        </div>
+
+
+                        <div class="case-hospital-overview__item">
+                            <h2>CORE GOAL</h2>
+                            <p>
+                                自然検索の流入を促進し、新規ユーザーの獲得を目的とする。
+                                また、日々進歩する医療領域であるため、情報の正確性とスピード感、安心感、医療ガイドラインに従ったサイト作成・継続的な運用を重視。
+                            </p>
+                        </div>
+
+                        <div class="case-hospital-overview__item">
+                            <h2>SCOPE</h2>
+                            <p>
+                                WEB・紙・他社サービスを横断した新規施策の企画・実行に加え、既存サイトの改善やSEO運用などの継続施策も並行して担当。 </p>
+                        </div>
+
+                        <div class="case-hospital-overview__item">
+                            <h2>MY APPROACH</h2>
+                            <p>
+                                SEO会社や外部制作会社と連携しながら、施策の検討・実行、さらに外部指示まで担当。新規施策の実行だけでなく、継続的に運用できる体制の構築も進行した。
+                            </p>
+                        </div>
+
+                        <!-- <div class="case-hospital-overview__item case-hospital-overview__item--wide">
+                            <h2>CONSTRAINTS</h2>
+                            <p>
+                                独自CMSによる実装制約、医療ガイドラインによる表現制限、複数サイトの並行運用、2～3名の少人数体制という条件があった。在籍期間の間に病院の規模も拡大し、各院の紹介ページ、様々な施術ページそれぞれのSEO改善が必要であった。
+                            </p>
+                        </div> -->
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- problem -->
+        <section id="problem" class="case-hospital-problem l-section">
+            <div class="case-hospital-problem__inner l-container--wide">
+                <div class="case-hospital-problem__wrap">
+                    <p class="case-hospital-problem__eyebrow">02. PROBLEM</p>
+
+                    <div class="case-hospital-problem__body">
+                        <article class="case-hospital-problem__block">
+                            <h2>■ 検索ニーズの多様化と地域検索強化</h2>
+                            <p>
+                                施術名だけでなく「地域×施術」「悩み×施術」「部位×施術」など、ユーザーごとに施術検索の仕方が複数化していた。
+                                検索ニーズに合わせて入口ページを増やす必要がある一方で、コピーページ化の回避や情報の整合性への配慮、継続運用時の修正負荷も考慮した設計が必要だった。
+                                また京都エリアでは、各院ページや主要施術ページを整備し、院ごとの特徴や対応施術を反映した地域的な検索強化も求められた。 </p>
+                        </article>
+
+                        <article class="case-hospital-problem__block">
+                            <h2>■ 常に変化する検索エンジンのSEO評価への対応</h2>
+                            <p>
+                                Googleの評価基準やユーザーの検索意図は頻繁に変化しており、地域×施術ページや施術専門サイトなど、検索ニーズに合わせたページ構造への継続的な改善が求められた。
+                                一度制作して終わりではなく、検索評価やユーザーニーズの変化に合わせて、継続的に修正・運用を行う必要があった。 </p>
+                        </article>
+
+                        <article class="case-hospital-problem__block">
+                            <h2>■ コンテンツ増加による運用負荷と優先順位管理</h2>
+                            <p>
+                                公式サイト、専門サイト、ブログ、SNS、LINE、口コミ返信など、ユーザー接点は増加し続けていた。
+                                また、WEBだけでなく院内資料やPOP制作、通販事業運営なども並行して進行しており、2〜3名の少人数体制の中で、継続運用できる体制づくりや優先順位整理が必要だった。 </p>
+                        </article>
+
+                        <article class="case-hospital-problem__block">
+                            <h2>■ 医療・CMS・病院運営上の制約</h2>
+                            <p>
+                                医療ガイドラインや独自CMSの仕様に加え、病院の運営体制やそれぞれの医師・スタッフの対応できる施術にも考慮しながら改善を進行。
+                                自由に作り替えるのではなく、既存環境で実現可能な改善設計が求められた。 </p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- insight -->
+        <section id="insight" class="case-hospital-insight l-section">
+            <div class="case-hospital-insight__inner l-container--wide">
+                <div class="case-hospital-insight__wrap">
+                    <p class="case-hospital-insight__eyebrow">03. THE INSIGHT</p>
+
+                    <p class="case-hospital-insight__lead">
+                        <span>目的ごとに施策を考え分け</span><br>
+                        「改善を継続」することが重要
+                    </p>
+
+                    <p class="case-hospital-insight__sub">
+                        同じSEO改善施策であっても、検索需要への対応・地域検索の強化・施術理解や専門性訴求など、それぞれ目的や主軸が異なっていた。
+                        そのため、課題やユーザー心理を整理しながら、目的に合わせた施策設計を行うことが重要だった。
+                        また、効果だけでなく「病院運営として実現可能か」「ブランディングに沿っているか」といった現実的な視点も踏まえながら改善を進める必要があった。<br>
+
+                        <span
+                            class="underline">さらに、新規施策と継続施策のどちらにおいても、根幹には「改善を継続する」という考え方があった。そのため、制作して終わりではなく、改善を継続できる管理体制や運用負荷まで含めて設計することが、継続的なサイト改善には重要だった。</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- execution -->
+        <section id="execution" class="case-hospital-execution l-section">
+            <div class="case-hospital-execution__inner l-container--wide">
+                <div class="case-hospital-execution__wrap">
+                    <p class="case-hospital-execution__eyebrow">04. EXECUTION</p>
+
+                    <nav class="case-hospital-execution-nav" aria-label="実施例一覧">
+                        <a href="#execution-01" class="case-hospital-execution-nav__link"><span>01</span> 地域×施術ページ</a>
+                        <a href="#execution-02" class="case-hospital-execution-nav__link"><span>02</span> 各院ページ整備</a>
+                        <a href="#execution-03" class="case-hospital-execution-nav__link"><span>03</span> 施術専門サイト</a>
+                        <a href="#execution-04" class="case-hospital-execution-nav__link"><span>04</span> 口コミ・ブログ運用</a>
+                        <a href="#execution-05" class="case-hospital-execution-nav__link"><span>05</span> 予約導線・接点整備</a>
+                    </nav>
+
+                    <div class="case-hospital-execution__list">
+                        <article id="execution-01" class="case-hospital-execution-card">
+                            <p class="case-hospital-execution-card__label">EXECUTION 01</p>
+                            <h3 class="case-hospital-execution-card__title">検索の需要を分析した「地域×施術ページ」設計</h3>
+
+                            <div class="case-hospital-execution-card__scope">
+                                <div class="case-hospital-execution-card__scope-group">
+                                    <span class="case-hospital-execution-card__scope-label">自分担当</span>
+                                    <ul>
+                                        <li>施策の発案</li>
+                                        <li>ページ制作</li>
+                                        <li>実装</li>
+                                        <li>修正・運用（チーム）</li>
+                                    </ul>
+                                </div>
+
+                                <div class="case-hospital-execution-card__scope-group">
+                                    <span class="case-hospital-execution-card__scope-label">SEO会社との協業</span>
+                                    <ul>
+                                        <li>SEO設計</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <p class="case-hospital-execution-card__summary">
+                                京都・滋賀の検索ボリュームを比較し、より検索需要の強い地域・施術キーワードをもとに入口ページを設計。病院サイト以外の業種にも応用できる、検索の需要から逆算した流入強化を目的とした施策。
+                            </p>
+                            <figure class="case-hospital-execution-card__image">
+                                <img src="../work/img/29.png" alt="地域×施術ページの制作例">
+                            </figure>
+                            <div class="case-hospital-execution-card__flow" aria-label="施策の流れ">
+                                <div class="case-hospital-execution-card__block">
+                                    <h4>課題</h4>
+                                    <p>
+                                        新しく導入された施術に対して、京都でどのような検索需要があるかを確認したところ、「地域×施術名」での検索ニーズが強い状態だった。
+                                        一方で、病院名を知らないユーザーに対する検索入口は十分ではなかった。 </p>
+                                </div>
+                                <div class="case-hospital-execution-card__block">
+                                    <h4>判断・設計</h4>
+                                    <p>
+                                        SEO会社と検索ボリュームを確認し、京都ページの配下に新規施術ページを作成。病院名を知らないユーザーにも接点を作るため、検索需要をもとに入口ページを設計した。
+                                    </p>
+                                </div>
+                                <div class="case-hospital-execution-card__block">
+                                    <h4>効果</h4>
+                                    <p>
+                                        公開後は、比較的新しいページながら閲覧数を獲得しており、検索需要をもとにした入口施策として機能した。地域名と施術名を掛け合わせた検索入口を増やすことで、病院名を知らないユーザーにも接点を作りやすくなった。
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article id="execution-02" class="case-hospital-execution-card">
+                            <p class="case-hospital-execution-card__label">EXECUTION 02</p>
+                            <h3 class="case-hospital-execution-card__title">京都エリアでの検索強化を目的とした各院ページ整備</h3>
+
+                            <div class="case-hospital-execution-card__scope">
+                                <div class="case-hospital-execution-card__scope-group">
+                                    <span class="case-hospital-execution-card__scope-label">自分担当</span>
+                                    <ul>
+                                        <li>TOPページ制作</li>
+                                        <li>各院周辺ページ構築</li>
+                                        <li>実装</li>
+                                        <li>修正・運用（チーム）</li>
+                                    </ul>
+                                </div>
+
+                                <div class="case-hospital-execution-card__scope-group">
+                                    <span class="case-hospital-execution-card__scope-label">SEO会社との協業</span>
+                                    <ul>
+                                        <li>SEO設計</li>
+                                        <li>構成設計</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p class="case-hospital-execution-card__summary">
+                                新規開院に合わせて、京都エリアでの検索強化を目的に、京都専用ディレクトリを追加。<br>「京都×美容」「京都×施術」などの地域検索に対応するため、各院ごとの情報整理とページ整備を行った。
+                            <figure class="case-hospital-execution-card__image">
+                                <img src="../work/img/34.jpg" alt="各院TOPページの制作例">
+                            </figure>
+                            <div class="case-hospital-execution-card__flow" aria-label="施策の流れ">
+                                <div class="case-hospital-execution-card__block">
+                                    <h4>課題</h4>
+                                    <p>
+                                        新規開院に伴い、京都エリアでの検索接点を強化する必要があった。本院ドメインは滋賀を軸としていたため、「京都×美容」「京都×施術」などの地域検索では、各院ごとの情報や接点が不足していた。そのため、京都エリアに最適化した各院ごとの情報設計が必要だった。
+                                    </p>
+                                </div>
+                                <div class="case-hospital-execution-card__block">
+                                    <h4>判断・設計</h4>
+                                    <p>
+                                        SEO会社と構成方針を確認しながら、京都専用ディレクトリ配下に各院ページを新規構築。地域検索を意識し、TOPページだけでなく、アクセス・診療時間・FAQ・医師紹介・予約導線など、院ごとに必要な周辺ページも整理・整備した。
+                                    </p>
+                                </div>
+                                <div class="case-hospital-execution-card__block">
+                                    <h4>効果</h4>
+                                    <p>
+                                        京都専用のディレクトリを設けることで、各院ごとに京都エリアで検索されやすい状態を整備した。本院ドメインだけでは届きにくかった地域検索に対して、各院ごとの検索接点を強化する施策として機能した。
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article id="execution-03" class="case-hospital-execution-card">
+                            <p class="case-hospital-execution-card__label">EXECUTION 03</p>
+                            <h3 class="case-hospital-execution-card__title">検索評価の変化に対応した専門サイト改善</h3>
+
+                            <div class="case-hospital-execution-card__scope">
+                                <div class="case-hospital-execution-card__scope-group">
+                                    <span class="case-hospital-execution-card__scope-label">自分担当</span>
+                                    <ul>
+                                        <li>SEOテキストのリライト</li>
+                                        <li>下層ページ移設</li>
+                                        <li>コラム作成</li>
+                                        <li>院内導線整備</li>
+                                    </ul>
+                                </div>
+
+                                <div class="case-hospital-execution-card__scope-group">
+                                    <span class="case-hospital-execution-card__scope-label">SEO会社・外部制作会社との協業</span>
+                                    <ul>
+                                        <li>SEO設計</li>
+                                        <li>情報整理</li>
+                                        <li>ページ構成の見直し</li>
+                                        <li>改修実装</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p class="case-hospital-execution-card__summary">
+                                AGAサイトやミラドライサイトなど、すでに作成されていた専門サイトにおいて、Googleの検索評価の変化に合わせた情報の整理・改善運用を実施。
+                                SEO会社や外部制作会社と連携しながら、コラム追加やページ構成の見直し、病院サイトとの導線整理を行い、継続的な流入の改善と専門性のアピールにつなげた。 </p>
+                            <figure class="case-hospital-execution-card__image">
+                                <img src="../work/img/38.png" alt="施術専門サイトの制作例">
+                            </figure>
+                            <div class="case-hospital-execution-card__flow" aria-label="施策の流れ">
+                                <div class="case-hospital-execution-card__block">
+                                    <h4>課題</h4>
+                                    <p>
+                                        以前より複数の専門サイトを運営していた。しかし、検索エンジンの評価やユーザーニーズの変化によって、制作当時のままでは評価維持が難しくなり、継続的な情報整理や改善運用が必要な状態となっていた。また、施術理解を深めながら、病院としての専門性も伝える情報設計が求められた。
+                                    </p>
+                                </div>
+                                <div class="case-hospital-execution-card__block">
+                                    <h4>判断・設計</h4>
+                                    <p>
+                                        SEO会社や外部制作会社と連携し、目的・構成・掲載内容・表現方針を整理。コラム追加や情報整理、病院サイトとの導線の見直しなどを継続的に行いながら、検索評価の変化に対応した改善を進行した。<br>AGAサイトでは、SEO会社変更に伴う病院ドメインへの移設対応も行い、医療表現やCMS制約を踏まえながら運用を整理した。
+                                    </p>
+                                </div>
+                                <div class="case-hospital-execution-card__block">
+                                    <h4>効果</h4>
+                                    <p>
+                                        制作当時のままだった専門サイトは、コラム運用や情報整理を継続したことで流入改善につながった。あわせて、病院がその施術に注力している印象を伝えやすくなり、ユーザーに専門性のアピールを行う施策としても機能した。
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article id="execution-04" class="case-hospital-execution-card">
+                            <p class="case-hospital-execution-card__label">EXECUTION 04</p>
+                            <h3 class="case-hospital-execution-card__title">口コミ返信・ブログ運用の役割変化とAIO対策</h3>
+
+                            <div class="case-hospital-execution-card__scope">
+                                <div class="case-hospital-execution-card__scope-group">
+                                    <span class="case-hospital-execution-card__scope-label">自分担当</span>
+                                    <ul>
+                                        <li>施策の発案（返信）</li>
+                                        <li>口コミ返信文の作成・反映</li>
+                                        <li>ブログ作成</li>
+                                        <li>修正・運用（チーム）</li>
+                                        <li>口コミ促進（院内全体）</li>
+                                    </ul>
+                                </div>
+
+                                <div class="case-hospital-execution-card__scope-group">
+                                    <span class="case-hospital-execution-card__scope-label">SEO会社・外部制作との協業</span>
+                                    <ul>
+                                        <li>ブログ構成</li>
+                                        <li>ブログ作成（外部制作に依頼）</li>
+                                        <li>AIO対策</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p class="case-hospital-execution-card__summary">
+                                当初はブランディングやSEO目的だった施策が、ユーザーがよく見るコンテンツへ変化。現在ではAIO対策も含め、時代に合わせて役割が進化している運用施策。施策の重要度が上がるにつれ、口コミ運用は病院全体で活用する施策となり、ブログ記事は継続的に行うための外部制作に依頼する体制を整えた。
+                            </p>
+                            <figure class="case-hospital-execution-card__image">
+                                <img src="../work/img/40.png" alt="口コミ返信やブログ運用のイメージ">
+                            </figure>
+                            <div class="case-hospital-execution-card__flow" aria-label="施策の流れ">
+                                <div class="case-hospital-execution-card__block">
+                                    <h4>課題</h4>
+                                    <p>医療・美容医療では来院前の不安が大きく、公式サイト以外にも口コミや記事コンテンツを確認して判断するユーザーが増えていた。しかし、入社当時はそういったものへの対応は一切行っておらず、返信体制を作る必要があった。
+                                    </p>
+                                </div>
+                                <div class="case-hospital-execution-card__block">
+                                    <h4>判断・設計</h4>
+                                    <p>口コミ返信はブランディング施策として始まり、ブログはSEO記事として運用していた。検索行動やAI回答の変化といった時代のニーズに合わせ、信頼形成・情報補完・AIO対策を兼ねる接点として捉え直し、継続的な運用を行うため外部制作に依頼する体制を整えた。
+                                    </p>
+                                </div>
+                                <div class="case-hospital-execution-card__block">
+                                    <h4>効果</h4>
+                                    <p>口コミやブログが、来院前の判断材料としてだけでなく、検索やAI回答上で病院の情報を補足する接点にもなった。ひとつの施策が、信頼形成・SEO・AIO対策を兼ねる形へと役割を広げた。
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article id="execution-05" class="case-hospital-execution-card">
+                            <p class="case-hospital-execution-card__label">EXECUTION 05</p>
+                            <h3 class="case-hospital-execution-card__title">予約導線・外部プロフィール・院内接点の整備</h3>
+
+                            <div class="case-hospital-execution-card__scope">
+                                <div class="case-hospital-execution-card__scope-group">
+                                    <span class="case-hospital-execution-card__scope-label">自分担当</span>
+                                    <ul>
+                                        <li>導線実装</li>
+                                        <li>予約方法の案内設置</li>
+                                        <li>各媒体のプロフィール整備</li>
+                                        <li>紙媒体制作</li>
+                                    </ul>
+                                </div>
+
+                                <div class="case-hospital-execution-card__scope-group">
+                                    <span class="case-hospital-execution-card__scope-label">SEO会社・外部制作会社との協業</span>
+                                    <ul>
+                                        <li>導線提案</li>
+                                        <li>実装</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p class="case-hospital-execution-card__summary">
+                                予約方法の変化に合わせて、WebやLINEの導線整備・紙媒体や院内掲示での告知といった媒体を横断しての整備を実行。あわせてGoogleビジネスプロフィール、LINE、YouTubeなど外部接点のプロフィールも整え、ブランディング整備とSEO対策を実施。
+                            </p>
+                            <figure class="case-hospital-execution-card__image">
+                                <img src="../work/img/35.jpg" alt="予約導線や外部プロフィール整備の制作例">
+                            </figure>
+                            <div class="case-hospital-execution-card__flow" aria-label="施策の流れ">
+                                <div class="case-hospital-execution-card__block">
+                                    <h4>課題</h4>
+                                    <p>電話予約中心から、メール予約・オンライン予約・LINE予約へと予約方法が変化し、ユーザーが迷わず予約できる導線と説明が必要になった。</p>
+                                </div>
+                                <div class="case-hospital-execution-card__block">
+                                    <h4>判断・設計</h4>
+                                    <p>予約方法の変更案の発案自体は病院スタッフが行う前提で、SEO会社とも相談しながら、ユーザーが使いやすい導線を検討。Web上の説明、LINEリッチメニュー、HOWTO、院内POPなど複数接点で案内できる形にした。
+                                    </p>
+                                </div>
+                                <div class="case-hospital-execution-card__block">
+                                    <h4>効果</h4>
+                                    <p>予約方法の変更時にも、ユーザーが迷わず行動できる案内を複数接点で整備できた。Webだけで完結させず、LINEや院内掲示も含めることで、現場運用にも乗せやすい形にした。
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="case-hospital-execution-more">
+                        <p class="case-hospital-execution-more__eyebrow">OTHER IMPROVEMENTS</p>
+                        <h3 class="case-hospital-execution-more__title">その他の改善・制作事例</h3>
+                        <p class="case-hospital-execution-more__lead">代表的な施策以外にも、Web・紙・院内接点を横断して、必要に応じた制作・改善を継続して行いました。
+                        </p>
+
+                        <ul class="case-hospital-execution-more__list">
+                            <li>院内配布POP</li>
+                            <li>病院求人サイトの改修</li>
+                            <li>LINEリッチメニュー</li>
+                            <li>Googleビジネス投稿</li>
+                            <li>チャットボット設</li>
+                            <li>施術説明資料</li>
+                            <li>動画編集</li>
+                        </ul>
+
+                        <div class="case-hospital-execution-more__action">
+                            <a href="../work/index.html" class="c-button c-button--ghost">他の制作事例も見る</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- outcome -->
+        <section id="outcome" class="case-hospital-outcome l-section">
+            <div class="case-hospital-outcome__inner l-container--wide">
+                <div class="case-hospital-outcome__wrap">
+                    <p class="case-hospital-outcome__eyebrow">05. OUTCOME</p>
+                    <div class="case-hospital-outcome__block">
+                        <h2>複数事業・複数施策を並行して回しながら、継続的な改善運用を推進</h2>
+                        <p>
+                            病院サイト・専門サイト・通販事業を並行して運用する中で、地域検索の強化・専門サイトの改善・予約導線の整備など、目的の異なる施策を継続的に推進。検索ニーズやGoogle評価の変化に合わせて、修正・改善を回し続けた。
+                        </p>
+                        <p>
+                            病院サイトでは、各院ページや施術ページについても、検索ニーズやユーザー導線に合わせて整理・改善を継続。地域検索におけるエリア検索の強化だけでなく、施術理解から予約導線までをつなぐ構造の改善にもつながった。<br>
+                            また、制作当時のまま運用されていた専門サイトについても、SEO評価やページ情報の構造を見直し、サイト移管やページ整理を実施。流入改善だけでなく、専門性をアピールする接点としても再活用につながった。
+                        </p>
+                        <p>
+                            さらに、口コミ返信やブログ更新などの継続施策も並行して運用。ブランディングやSEO対策として始めた施策だったが、結果としてAIO対策にもつながる重要な接点となった。
+                        </p>
+                        <div class="case-hospital-outcome__divider"></div>
+                        <div class="case-hospital-effects__block--sub">
+                            <h3>数値としての成果</h3>
+                            <p>
+                                SEO設計とコンテンツ改善を通じて、セッション数は前年同月比5.9%増加。また「地域×施術」などの関連キーワードでは、継続して12ワードで検索上位表示を獲得している。 </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- learning -->
+        <section id="learning" class="case-hospital-learning l-section">
+            <div class="case-hospital-learning__inner l-container--wide">
+                <div class="case-hospital-learning__wrap">
+                    <p class="case-hospital-learning__eyebrow">06. LEARNING</p>
+                    <div class="case-hospital-learning__block">
+                        <h2>改善施策は「作ること」だけでは成立しない</h2>
+                        <p>
+                            病院サイト改善を通して、デザインやSEO施策は、単に制作を行うだけでは成立せず、病院運営・予約導線・医療表現・運用体制など、実際の現場運営まで含めて考える必要があると学んだ。
+                            特に医療領域では、「集客できるか」だけでなく、ユーザーに過度な期待を与えない表現設計や、実際の診療・運営体制と乖離しない情報設計も重要だった。 </p>
+                        <p>
+                            また、検索ニーズやGoogle評価は継続的に変化するため、制作して終わりではなく、優先順位を整理しながら改善を回し続けることが必要だった。<br>
+                            その中で、一人で抱え込むのではなく、チームで課題や改善案を共有しながら運用を続けることで、継続的な改善につながることを実感した。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- next -->
+        <section id="next" class="case-hospital-next l-section">
+            <div class="case-hospital-next__inner l-container--wide">
+                <div class="case-hospital-next__content">
+                    <p class="case-hospital__eyebrow">07. NEXT ACTION</p>
+                    <h2 class="case-hospital-next__title">他の事例や関連ページもご覧いただけます。</h2>
+                </div>
+
+                <div class="case-hospital-next__actions">
+                    <a href="https://gogatsu6.github.io/portfolio/index.html#projects" class="c-button">Back to
+                        Works</a>
+                    <a href="https://gogatsu6.github.io/portfolio/index.html#contact"
+                        class="c-button c-button--ghost">Contact</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="l-footer">
+        <div class="l-footer__inner l-container">
+            <p class="l-footer__copy">© THE PORTFOLIO OF SATSUKI</p>
+        </div>
+    </footer>
+
+    <div class="c-profileModal" id="profileModal" aria-hidden="true">
+        <div class="c-profileModal__overlay" data-profile-close></div>
+
+        <div class="c-profileModal__panel" role="dialog" aria-modal="true" aria-labelledby="profileModalTitle"
+            tabindex="-1">
+            <button class="c-profileModal__close" type="button" aria-label="Close profile" data-profile-close>
+                CLOSE
+            </button>
+
+            <div class="c-profileModal__body">
+                <p class="c-profileModal__eyebrow">PROFILE</p>
+
+                <div class="c-profileModal__media">
+                    <img src="../img/profile/profile.jpg" alt="Satsukiのプロフィール写真" class="c-profileModal__image">
+                </div>
+
+                <h2 class="c-profileModal__title" id="profileModalTitle">山本 さつき</h2>
+
+                <p class="c-profileModal__lead">
+                    制約の中でも最適解を見つけ、課題の整理から実装、改善までを一貫して回し続けるデザイナー
+                </p>
+
+                <div class="c-profileModal__content">
+                    <p>
+                        現職では、院内掲示物や同梱物など紙媒体の制作と並行して、公式サイト・ECサイトの運用改善などのWeb領域を中心に情報設計・UI改善・実装まで対応してきました。
+                        検索流入や売上データ、ユーザー行動をもとに構造や導線を見直し、予約導線整備やEC売上改善、モール販路整備などを推進してきました。<br>
+                        現状を多角的に捉えて課題を整理し「なぜ行うのか」「効果につながるのか」を確認しながら、優先順位をつけて着実に改善を進めることを大切にしています。
+                    </p>
+                </div>
+
+                <div class="c-profileModal__section">
+                    <p class="c-profileModal__label">できること</p>
+                    <ul class="c-profileModal__list">
+                        <li>情報設計（構造整理、導線設計、要件整理）</li>
+                        <li>UIデザイン（情報整理を踏まえた画面設計・UI設計）</li>
+                        <li>既存サイトの改善・運用（制約を踏まえた設計・改修）</li>
+                        <li>新規ページ / LPの立ち上げ（目的整理〜構成設計）</li>
+                        <li>Webと紙を横断した制作</li>
+                    </ul>
+                </div>
+
+                <div class="c-profileModal__section">
+                    <p class="c-profileModal__label">使用ツール / 技術</p>
+                    <p class="c-profileModal__tools">
+                        Figma / HTML / CSS（SCSS） / JavaScript / GitHub / Photoshop / Illustrator
+                    </p>
+                </div>
+
+                <div class="c-profileModal__actions">
+                    <a href="https://gogatsu6.github.io/portfolio/index.html#contact" class="c-profileModal__contact"
+                        data-profile-contact>
+                        Contact
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/top.js"></script>
+    <script src="../js/case-study.js"></script>
+</body>
+
+</html>
