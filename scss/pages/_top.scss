@@ -219,8 +219,9 @@
   }
 }
 
-.featured-project--02 {
-  grid-template-columns: minmax(420px, 1fr) minmax(280px, 360px);
+.featured-project--02,
+.featured-project--04 {
+  grid-template-columns: minmax(420px, 1fr) minmax(280px, 410px);
 }
 
 .featured-project__text {
@@ -776,7 +777,8 @@
   }
 
   .featured-project,
-  .featured-project--02 {
+  .featured-project--02,
+  .featured-project--04 {
     grid-template-columns: 1fr 1fr;
     gap: 32px;
   }
@@ -915,7 +917,8 @@
   }
 
   .featured-project,
-  .featured-project--02 {
+  .featured-project--02,
+  .featured-project--04 {
     grid-template-columns: 1fr;
     gap: 20px;
     transform: none !important;

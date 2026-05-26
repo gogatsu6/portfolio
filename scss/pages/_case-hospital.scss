@@ -1,0 +1,1780 @@
+@use "../base/base" as *;
+
+.case-hospital-page {
+    overflow: clip;
+}
+
+/* ---------------------------------
+   shared
+--------------------------------- */
+.case-hospital__eyebrow,
+.case-hospital-overview__head,
+.case-hospital-problem__eyebrow,
+.case-hospital-insight__eyebrow,
+.case-hospital-decision__eyebrow,
+.case-hospital-structure__eyebrow,
+.case-hospital-uiux__eyebrow,
+.case-hospital-implemented__eyebrow,
+.case-hospital-effects__eyebrow,
+.case-hospital-learning__eyebrow,
+.case-hospital-execution__eyebrow,
+.case-hospital-other__eyebrow,
+.case-hospital-outcome__eyebrow {
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: $color-text-soft;
+    font-size: 10px;
+    line-height: 1.4;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.case-hospital-uiux__eyebrow {
+    color: rgba(255, 255, 255, 0.68);
+}
+
+.case-hospital-section-heading {
+    margin-bottom: clamp(28px, 4vw, 48px);
+}
+
+.case-hospital-section-title {
+    margin-top: 14px;
+    color: $color-text-strong;
+    font-size: clamp(26px, 3vw, 42px);
+    line-height: 1.18;
+    letter-spacing: -0.03em;
+
+    &--light {
+        color: #fff;
+    }
+}
+
+/* ---------------------------------
+   hero
+--------------------------------- */
+.case-hospital-hero {
+    padding-top: clamp(56px, 10vw, 100px);
+}
+
+.case-hospital-hero__inner {
+    display: grid;
+    gap: 32px;
+}
+
+.case-hospital-hero__head {
+    text-align: center;
+}
+
+.case-hospital-hero__title {
+    margin-top: 14px;
+    color: $color-text-strong;
+    font-size: clamp(48px, 6vw, 72px);
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+}
+
+.case-hospital-hero__meta {
+    display: flex;
+    justify-content: center;
+    gap: 8px 28px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+
+    p {
+        color: $color-text-soft;
+        font-size: 16px;
+        line-height: 1.6;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+}
+
+.case-hospital-hero__visual {
+    overflow: hidden;
+    border: 1px solid $color-border-soft;
+    background: $color-surface;
+    box-shadow: $shadow-soft;
+
+    img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 5.8;
+        object-fit: cover;
+    }
+}
+
+/* ---------------------------------
+   key summary
+--------------------------------- */
+.case-hospital-summary {
+    padding-top: clamp(28px, 4vw, 44px);
+    padding-bottom: clamp(56px, 8vw, 88px);
+}
+
+.case-hospital-summary__wrap {
+    width: 100%;
+    max-width: 820px;
+    margin-inline: auto;
+    text-align: left;
+}
+
+.case-hospital-summary__eyebrow {
+    display: block;
+    color: $color-text-strong;
+    font-size: 14px;
+    line-height: 1.4;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.case-hospital-summary__lead {
+    margin-top: 14px;
+    color: $color-text-soft;
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 1.2px;
+}
+
+/* ---------------------------------
+   overview
+--------------------------------- */
+.case-hospital-overview {
+    background: #f8f7f4;
+}
+
+.case-hospital-overview__wrap {
+    max-width: 980px;
+    margin-inline: auto;
+}
+
+.case-hospital-overview__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 54px 56px;
+    margin-top: 56px;
+    max-width: 820px;
+    margin-inline: auto;
+}
+
+.case-hospital-overview__item {
+    min-width: 0;
+}
+
+.case-hospital-overview__item h2 {
+    color: $color-text-strong;
+    font-size: 12px;
+    line-height: 1.4;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.case-hospital-overview__item p {
+    margin-top: 14px;
+    color: $color-text-soft;
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 1.2px;
+}
+
+.case-hospital-overview__item--wide {
+    grid-column: 1 / -1;
+    max-width: 820px;
+}
+
+/* ---------------------------------
+   problem
+--------------------------------- */
+.case-hospital-problem {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.case-hospital-problem__wrap {
+    max-width: 980px;
+    margin-inline: auto;
+}
+
+.case-hospital-problem__body {
+    width: 100%;
+    max-width: 820px;
+    margin-inline: auto;
+    display: grid;
+    gap: 40px;
+    margin-top: 36px;
+    text-align: left;
+}
+
+.case-hospital-problem__block h2 {
+    color: $color-text-strong;
+    font-size: 20px;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+}
+
+.case-hospital-problem__block p {
+    margin-top: 12px;
+    color: $color-text-soft;
+    font-size: 16px;
+    line-height: 1.95;
+    letter-spacing: 1.2px;
+}
+
+/* ---------------------------------
+   insight
+--------------------------------- */
+.case-hospital-insight {
+    background: #f8f7f4;
+}
+
+.case-hospital-insight__wrap {
+    max-width: 980px;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.case-hospital-insight__lead,
+.case-hospital-insight__lead * {
+    color: $color-text-strong;
+}
+
+.case-hospital-insight__lead {
+    margin-top: 18px;
+    font-size: clamp(26px, 3.3vw, 38px);
+    line-height: 1.55;
+    letter-spacing: -0.03em;
+
+    span {
+        color: #3c7e5d;
+    }
+}
+
+.case-hospital-insight__sub {
+    margin-top: 18px;
+    color: $color-text-soft;
+    font-size: 16px;
+    line-height: 1.9;
+    letter-spacing: 1.2px;
+    text-align: left;
+}
+
+/* ---------------------------------
+   04 strategic decision
+--------------------------------- */
+.case-hospital-decision__wrap {
+    max-width: 980px;
+    margin-inline: auto;
+}
+
+.case-hospital-decision__timeline {
+    position: relative;
+    margin-top: 34px;
+    padding-left: 22px;
+    max-width: 860px;
+    margin-inline: auto;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 6px;
+        bottom: 6px;
+        left: 5px;
+        width: 1px;
+        background: $color-border-soft;
+    }
+}
+
+.case-hospital-step {
+    position: relative;
+    padding-bottom: 44px;
+}
+
+.case-hospital-step:last-child {
+    padding-bottom: 0;
+}
+
+.case-hospital-step__marker {
+    position: absolute;
+    top: 2px;
+    left: -22px;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #bdb8b0;
+    border-radius: 50%;
+    background: #f3f1ec;
+    z-index: 1;
+    transition:
+        background-color 0.28s ease,
+        border-color 0.28s ease,
+        transform 0.28s ease,
+        box-shadow 0.28s ease;
+}
+
+.case-hospital-step__marker--filled {
+    background: #1d1d1d;
+    border-color: #1d1d1d;
+}
+
+.case-hospital-step__content {
+    min-width: 0;
+    width: 100%;
+    max-width: 820px;
+}
+
+.case-hospital-step__label {
+    color: $color-text-soft;
+    font-size: 10px;
+    line-height: 1.4;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.72;
+    transition:
+        opacity 0.28s ease,
+        transform 0.28s ease,
+        color 0.28s ease;
+}
+
+.case-hospital-step__title {
+    margin-top: 12px;
+    color: $color-text-strong;
+    font-size: clamp(24px, 2.2vw, 34px);
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    opacity: 0.72;
+    transform: translateX(0);
+    transition:
+        opacity 0.32s ease,
+        transform 0.32s ease,
+        color 0.32s ease;
+}
+
+.case-hospital-step__text {
+    margin-top: 12px;
+    width: 100%;
+    max-width: 820px;
+    color: $color-text-soft;
+    font-size: 16px;
+    line-height: 1.95;
+    letter-spacing: 1.2px;
+}
+
+.case-hospital-options {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 18px;
+    width: 100%;
+    max-width: 820px;
+}
+
+.case-hospital-option {
+    padding: 18px 16px;
+    border: 1px solid $color-border-soft;
+    background: #fffdfe;
+    min-width: 0;
+}
+
+.case-hospital-option--active {
+    border: 2px solid #667a63;
+    background: #f7faf4;
+}
+
+.case-hospital-option h3 {
+    color: $color-text-strong;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 1px;
+}
+
+.case-hospital-option__caption {
+    margin-top: 6px;
+    color: $color-text-strong;
+    font-size: 14px;
+    line-height: 1.65;
+    letter-spacing: 0.04em;
+    font-weight: 500;
+}
+
+.case-hospital-option p {
+    margin-top: 8px;
+    color: $color-text-soft;
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.case-hospital-option-flow {
+    margin-top: 22px;
+    width: 100%;
+    max-width: 820px;
+    display: grid;
+    gap: 10px;
+}
+
+.case-hospital-option-flow__item {
+    padding: 16px 18px 15px;
+    border: 1px solid rgba(111, 106, 154, 0.14);
+    background: rgba(255, 255, 255, 0.32);
+}
+
+.case-hospital-option-flow__step {
+    color: rgba(111, 106, 154, 0.82);
+    font-size: 12px;
+    line-height: 1.4;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.case-hospital-option-flow__item h3 {
+    color: #141414;
+    font-size: 17px;
+    line-height: 1.48;
+    letter-spacing: 0.01em;
+    font-weight: 500;
+}
+
+.case-hospital-option-flow__head {
+    display: grid;
+    gap: 6px;
+}
+
+.case-hospital-option-flow__text {
+    margin-top: 10px;
+    color: #525252;
+    font-size: 16px;
+    line-height: 1.78;
+    letter-spacing: 0.04em;
+}
+
+.case-hospital-option-flow__arrow {
+    text-align: center;
+    color: rgba(111, 106, 154, 0.5);
+    font-size: 16px;
+    line-height: 1;
+}
+
+.case-hospital-step__note {
+    margin-top: 14px;
+    width: 100%;
+    max-width: 820px;
+    border-left: 2px solid transparent;
+    color: $color-text-soft;
+    font-size: 16px;
+    line-height: 1.95;
+    transition:
+        border-color 0.28s ease,
+        padding-left 0.28s ease;
+}
+
+/* active state */
+.case-hospital-step.is-active {
+    .case-hospital-step__marker {
+        background: #ef4f84;
+        border-color: #ef4f84;
+        transform: scale(1.08);
+        box-shadow: 0 0 0 4px rgba(239, 79, 132, 0.2);
+    }
+
+    .case-hospital-step__active-bar {
+        opacity: 1;
+    }
+
+    .case-hospital-step__label {
+        opacity: 1;
+        transform: translateX(4px);
+        color: $color-text-strong;
+    }
+
+    .case-hospital-step__title {
+        opacity: 1;
+        transform: translateX(4px);
+    }
+}
+
+/* ---------------------------------
+   05 design structure
+--------------------------------- */
+.case-hospital-structure {
+    background: #f8f8f8;
+}
+
+.case-hospital-structure__wrap {
+    max-width: 980px;
+    margin-inline: auto;
+}
+
+.case-hospital-structure__intro {
+    margin-top: 42px;
+    max-width: 820px;
+    margin-inline: auto;
+    text-align: left;
+}
+
+.case-hospital-structure__title {
+    color: $color-text-strong;
+    font-size: clamp(28px, 2.8vw, 40px);
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+}
+
+.case-hospital-structure__lead {
+    margin-top: 18px;
+    color: $color-text-soft;
+    font-size: 16px;
+    line-height: 1.95;
+    letter-spacing: 1.2px;
+}
+
+.case-hospital-structure__diagram-head {
+    margin-top: 56px;
+    text-align: center;
+    color: $color-text-soft;
+    font-size: 10px;
+    line-height: 1.4;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.case-hospital-diagram {
+    margin-top: 26px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    max-width: 980px;
+    margin-inline: auto;
+}
+
+.case-hospital-diagram__box {
+    min-height: 124px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 24px 18px;
+    background: #fff;
+
+    strong {
+        display: block;
+        margin-top: 6px;
+        color: $color-text-strong;
+        font-size: 22px;
+        line-height: 1.45;
+        font-weight: 500;
+    }
+}
+
+.case-hospital-diagram__box--left {
+    border: 1px solid #ece7e1;
+    color: #b9b1a8;
+
+    strong {
+        color: #8a837a;
+    }
+}
+
+.case-hospital-diagram__box--center {
+    border: 2px solid #56514a;
+    background: #f7f7f5;
+}
+
+.case-hospital-diagram__box--right {
+    border: 1px solid #f2d7df;
+    background: #fffafb;
+
+    strong {
+        color: #6b6761;
+    }
+}
+
+.case-hospital-diagram__small {
+    display: block;
+    color: #9b938b;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.case-hospital-diagram__small--accent {
+    color: #ef6b93;
+}
+
+.case-hospital-diagram__arrow {
+    font-size: 28px;
+    line-height: 1;
+}
+
+.case-hospital-diagram__arrow--muted {
+    color: #ddd7d0;
+}
+
+.case-hospital-diagram__arrow--accent {
+    color: #ef4f84;
+}
+
+.case-hospital-diagram__center-wrap {
+    display: grid;
+    gap: 10px;
+}
+
+.case-hospital-diagram__transition {
+    text-align: center;
+    color: #ef4f84;
+    font-size: 10px;
+    line-height: 1.4;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.case-hospital-diagram__action {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.case-hospital-diagram__action-icon {
+    width: 24px;
+    height: 24px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #ef4f84;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1;
+}
+
+/* ---------------------------------
+   06 ui design
+--------------------------------- */
+.case-hospital-uiux {
+    background: #18191d;
+}
+
+.case-hospital-uiux__wrap {
+    max-width: 980px;
+    margin-inline: auto;
+}
+
+.case-hospital-uiux__intro {
+    margin-top: 18px;
+    max-width: 820px;
+    margin-inline: auto;
+    text-align: left;
+}
+
+.case-hospital-uiux__title {
+    color: #fff;
+    font-size: clamp(28px, 2.8vw, 40px);
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+}
+
+.case-hospital-uiux__lead {
+    margin-top: 18px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 16px;
+    line-height: 1.95;
+    letter-spacing: 1.2px;
+}
+
+.case-hospital-uiux__points {
+    margin-top: 42px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 48px;
+    max-width: 820px;
+    margin-inline: auto;
+    text-align: left;
+}
+
+.case-hospital-uiux__point h3 {
+    color: #ef4f84;
+    font-size: 12px;
+    line-height: 1.4;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.case-hospital-uiux__point p {
+    margin-top: 12px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 16px;
+    line-height: 1.9;
+    letter-spacing: 1.2px;
+}
+
+.case-hospital-uiux__visual-row {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: end;
+    width: 100%;
+    max-width: 980px;
+    margin-inline: auto;
+}
+
+.case-hospital-uiux__visual {
+    overflow: hidden;
+    border-radius: 4px;
+
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+}
+
+.case-hospital-uiux__visual--ui img,
+.case-hospital-uiux__visual--map img {
+    aspect-ratio: 1 / 1;
+}
+
+/* ---------------------------------
+   07 implementation design
+--------------------------------- */
+.case-hospital-implemented {
+    background: #f8f8f8;
+}
+
+.case-hospital-implemented__wrap {
+    max-width: 980px;
+    margin-inline: auto;
+}
+
+.case-hospital-implemented__grid {
+    margin-top: 26px;
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 42px;
+    align-items: start;
+    width: 100%;
+    max-width: 980px;
+    margin-inline: auto;
+}
+
+.case-hospital-implemented__visual {
+    overflow: hidden;
+    border-radius: 4px;
+    background: #f1ece5;
+
+    img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1.55 / 1;
+        object-fit: cover;
+    }
+}
+
+.case-hospital-implemented__text {
+    p {
+        color: $color-text-soft;
+        font-size: 16px;
+        line-height: 1.95;
+        letter-spacing: 1.2px;
+    }
+
+    p + p {
+        margin-top: 16px;
+    }
+}
+
+.case-hospital-implemented__note {
+    margin-top: 20px;
+    color: #4f9b65;
+    font-size: 10px;
+    line-height: 1.4;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+/* ---------------------------------
+   08 expected impact & results
+--------------------------------- */
+.case-hospital-effects {
+    background: #ece8e1;
+}
+
+.case-hospital-effects__wrap {
+    max-width: 980px;
+    margin-inline: auto;
+}
+
+.case-hospital-effects__block {
+    margin-top: 24px;
+    max-width: 820px;
+    margin-inline: auto;
+    text-align: left;
+}
+
+.case-hospital-effects__block h2 {
+    color: $color-text-strong;
+    font-size: clamp(24px, 2.2vw, 32px);
+    line-height: 1.45;
+}
+
+.case-hospital-effects__block p {
+    margin-top: 14px;
+    color: $color-text-soft;
+    font-size: 16px;
+    line-height: 1.95;
+    letter-spacing: 1.2px;
+}
+
+.case-hospital-effects__divider {
+    width: 100%;
+    max-width: 820px;
+    height: 1px;
+    background: #d8d0c7;
+    margin: 36px auto 28px;
+}
+
+.case-hospital-effects__block--sub {
+    margin-inline: auto;
+}
+
+.case-hospital-effects__block--sub h3 {
+    color: $color-text-soft;
+    font-size: 10px;
+    line-height: 1.4;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+/* ---------------------------------
+   10 learning
+--------------------------------- */
+.case-hospital-learning {
+    background: #f8f8f8;
+}
+
+.case-hospital-learning__wrap {
+    max-width: 980px;
+    margin-inline: auto;
+}
+
+.case-hospital-learning__block {
+    margin-top: 24px;
+    max-width: 820px;
+    margin-inline: auto;
+    text-align: left;
+}
+
+.case-hospital-learning__block h2 {
+    color: $color-text-strong;
+    font-size: clamp(28px, 2.6vw, 38px);
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+}
+
+.case-hospital-learning__block p {
+    margin-top: 14px;
+    color: $color-text-soft;
+    font-size: 16px;
+    line-height: 1.95;
+    letter-spacing: 1.2px;
+}
+
+/* ---------------------------------
+   11 next
+--------------------------------- */
+.case-hospital-next__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 28px;
+    max-width: 980px;
+    margin-inline: auto;
+    padding-top: 14px;
+}
+
+.case-hospital-next__content {
+    max-width: 820px;
+}
+
+.case-hospital-next__title {
+    margin-top: 14px;
+    color: $color-text-strong;
+    font-size: clamp(18px, 2vw, 28px);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+}
+
+.case-hospital-next__actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* ---------------------------------
+   hospital improvement diagram
+--------------------------------- */
+.case-hospital-diagram {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    max-width: 920px;
+    margin: 28px auto 0;
+}
+
+.case-hospital-diagram__center-wrap {
+    display: grid;
+    gap: 10px;
+}
+
+.case-hospital-diagram__box {
+    min-height: 138px;
+    padding: 24px 22px;
+    border: 1px solid $color-border-soft;
+    background: $color-surface;
+    box-shadow: $shadow-soft;
+}
+
+.case-hospital-diagram__box--focus {
+    border-color: rgba(102, 122, 99, 0.45);
+    background: #f7faf4;
+}
+
+.case-hospital-diagram__box--plain {
+    background: #fffdf9;
+}
+
+.case-hospital-diagram__small {
+    display: block;
+    margin-bottom: 10px;
+    color: $color-text-soft;
+    font-size: 10px;
+    line-height: 1.4;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.case-hospital-diagram__small--focus {
+    color: #667a63;
+}
+
+.case-hospital-diagram__box strong {
+    display: block;
+    color: $color-text-strong;
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.45;
+    letter-spacing: -0.02em;
+}
+
+.case-hospital-diagram__transition {
+    justify-self: center;
+    width: fit-content;
+    padding: 6px 12px;
+    border: 1px solid $color-border-soft;
+    color: $color-text-soft;
+    font-size: 10px;
+    line-height: 1.4;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.55);
+}
+
+.case-hospital-diagram__arrow {
+    color: $color-text-light;
+    font-size: 24px;
+    line-height: 1;
+}
+
+.case-hospital-diagram__arrow--muted {
+    opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+    .case-hospital-diagram {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .case-hospital-diagram__arrow {
+        justify-self: center;
+        transform: rotate(90deg);
+    }
+}
+
+@media (max-width: 767px) {
+    .case-hospital-diagram__box {
+        min-height: auto;
+        padding: 20px 18px;
+    }
+}
+
+/* ---------------------------------
+   04 execution / practical examples
+--------------------------------- */
+.case-hospital-execution {
+    background: #fffdf9;
+}
+
+.case-hospital-execution__wrap {
+    max-width: 980px;
+    margin-inline: auto;
+}
+
+.case-hospital-execution__intro {
+    margin-top: 36px;
+    width: 100%;
+    max-width: 820px;
+    margin-inline: auto;
+    text-align: left;
+}
+
+.case-hospital-execution__title {
+    color: $color-text-strong;
+    font-size: clamp(28px, 2.8vw, 40px);
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+}
+
+.case-hospital-execution__lead {
+    margin-top: 18px;
+    color: $color-text-soft;
+    font-size: 16px;
+    line-height: 1.95;
+    letter-spacing: 1.2px;
+}
+
+.case-hospital-execution__list {
+    margin-top: clamp(36px, 5vw, 58px);
+    display: grid;
+    gap: 28px;
+    width: 100%;
+    max-width: 920px;
+    margin-inline: auto;
+}
+
+.case-hospital-execution-card {
+    position: relative;
+    padding: clamp(24px, 3.4vw, 38px);
+    border: 1px solid $color-border-soft;
+    background: #fff;
+    box-shadow: $shadow-soft;
+}
+
+.case-hospital-execution-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #667a63, rgba(102, 122, 99, 0));
+}
+
+.case-hospital-execution-card__label {
+    color: #667a63;
+    font-size: 10px;
+    line-height: 1.4;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.case-hospital-execution-card__title {
+    margin-top: 10px;
+    color: $color-text-strong;
+    font-size: clamp(22px, 2.1vw, 30px);
+    line-height: 1.45;
+    letter-spacing: -0.02em;
+}
+
+.case-hospital-execution-card__body {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.case-hospital-execution-card__block {
+    min-width: 0;
+    padding: 18px 18px 17px;
+    border: 1px solid rgba(216, 208, 199, 0.78);
+    background: #fbfaf7;
+}
+
+.case-hospital-execution-card__block h4 {
+    color: $color-text-strong;
+    font-size: 12px;
+    line-height: 1.4;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.case-hospital-execution-card__block p {
+    margin-top: 10px;
+    color: $color-text-soft;
+    font-size: 15px;
+    line-height: 1.85;
+    letter-spacing: 0.08em;
+}
+
+/* ---------------------------------
+   05 other execution slider
+--------------------------------- */
+.case-hospital-other {
+    background: #f8f7f4;
+}
+
+.case-hospital-other .top-grid__heading {
+    max-width: 820px;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.case-hospital-other .top-grid__title {
+    margin-top: 14px;
+    color: $color-text-strong;
+    font-size: clamp(28px, 3vw, 44px);
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+}
+
+.case-hospital-other .top-grid__lead {
+    margin-top: 16px;
+    color: $color-text-soft;
+    font-size: 16px;
+    line-height: 1.9;
+    letter-spacing: 1.2px;
+}
+
+.case-hospital-other .top-grid__slider {
+    margin-top: clamp(32px, 5vw, 56px);
+}
+
+.case-hospital-other .project-card {
+    background: #fff;
+}
+
+.case-hospital-other .project-card__body {
+    background: #fff;
+}
+
+/* ---------------------------------
+   06 outcome
+--------------------------------- */
+.case-hospital-outcome {
+    background: #ece8e1;
+}
+
+.case-hospital-outcome__wrap {
+    max-width: 980px;
+    margin-inline: auto;
+}
+
+.case-hospital-outcome__block {
+    margin-top: 24px;
+    max-width: 820px;
+    margin-inline: auto;
+    text-align: left;
+}
+
+.case-hospital-outcome__block h2 {
+    color: $color-text-strong;
+    font-size: clamp(24px, 2.2vw, 32px);
+    line-height: 1.45;
+    letter-spacing: -0.02em;
+    // text-align: center;
+}
+
+.case-hospital-outcome__block p {
+    margin-top: 14px;
+    color: $color-text-soft;
+    font-size: 16px;
+    line-height: 1.95;
+    letter-spacing: 1.2px;
+}
+
+.case-hospital-outcome__divider {
+    width: 100%;
+    max-width: 820px;
+    height: 1px;
+    background: #d8d0c7;
+    margin: 36px auto 28px;
+}
+
+.case-hospital-effects__block--sub {
+    margin-inline: auto;
+
+    &:nth-child(2) {
+        margin-top: 28px;
+    }
+}
+
+.case-hospital-effects__block--sub h3 {
+    color: #141414;
+    font-size: 12px;
+    line-height: 1.4;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.case-hospital-effects__block p {
+    margin-top: 14px;
+    color: #525252;
+    font-size: 16px;
+    line-height: 1.95;
+    letter-spacing: 1.2px;
+}
+
+@media (max-width: 900px) {
+    .case-hospital-execution-card__body {
+        grid-template-columns: 1fr;
+    }
+
+    .case-hospital-execution-card__block {
+        padding: 16px 18px;
+    }
+}
+
+@media (max-width: 767px) {
+    .case-hospital-execution__intro,
+    .case-hospital-execution__list,
+    .case-hospital-outcome__block,
+    .case-hospital-other .top-grid__heading {
+        max-width: 100%;
+    }
+
+    .case-hospital-execution-card {
+        padding: 24px 18px;
+    }
+
+    .case-hospital-execution-card__body {
+        margin-top: 20px;
+        gap: 14px;
+    }
+
+    .case-hospital-execution-card__title,
+    .case-hospital-outcome__block h2 {
+        line-height: 1.5;
+    }
+}
+
+/* ---------------------------------
+   tablet
+--------------------------------- */
+@media (max-width: 1024px) {
+    .case-hospital-uiux__points {
+        grid-template-columns: 1fr;
+    }
+
+    .case-hospital-next__inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .case-hospital-next__content {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    .case-hospital-overview__grid,
+    .case-hospital-options,
+    .case-hospital-implemented__grid,
+    .case-hospital-uiux__visual-row,
+    .case-hospital-diagram {
+        grid-template-columns: 1fr;
+    }
+
+    .case-hospital-uiux__tradeoff-list {
+        grid-template-columns: 1fr;
+    }
+
+    .case-hospital-diagram {
+        gap: 14px;
+    }
+
+    .case-hospital-diagram__action {
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .case-hospital-diagram__arrow {
+        justify-content: center;
+        transform: rotate(90deg);
+        margin-inline: auto;
+    }
+}
+
+/* ---------------------------------
+   mobile
+--------------------------------- */
+@media (max-width: 767px) {
+    .case-hospital-hero__title {
+        font-size: clamp(36px, 12vw, 52px);
+        line-height: 1.2;
+    }
+
+    .case-hospital-hero__meta {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .case-hospital-hero__visual img {
+        aspect-ratio: 4 / 5;
+    }
+
+    .case-hospital-insight__lead {
+        font-size: clamp(24px, 8vw, 34px);
+        line-height: 1.6;
+    }
+
+    .case-hospital-structure__title,
+    .case-hospital-uiux__title,
+    .case-hospital-learning__block h2,
+    .case-hospital-step__title {
+        line-height: 1.45;
+    }
+
+    .case-hospital-step__text,
+    .case-hospital-step__note,
+    .case-hospital-effects__block,
+    .case-hospital-learning__block,
+    .case-hospital-problem__body,
+    .case-hospital-structure__intro,
+    .case-hospital-uiux__intro,
+    .case-hospital-uiux__points,
+    .case-hospital-overview__grid {
+        max-width: 100%;
+    }
+
+    .case-hospital-decision__timeline {
+        padding-left: 20px;
+        max-width: 100%;
+    }
+
+    .case-hospital-step__marker {
+        left: -20px;
+    }
+
+    .case-hospital-diagram__box strong {
+        font-size: 18px;
+    }
+
+    .case-hospital-next__actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .case-hospital-next__actions .c-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ---------------------------------
+   Execution Section
+   画像 → 課題 → 判断・設計 → 効果 → 運用
+--------------------------------- */
+
+.case-hospital-execution__intro {
+    max-width: 920px;
+    margin: 0 auto 72px;
+}
+
+.case-hospital-execution__title {
+    margin-top: 18px;
+    text-align: center;
+}
+
+.case-hospital-execution__lead {
+    margin-top: 28px;
+    line-height: 2;
+}
+
+.case-hospital-execution__list {
+    display: grid;
+    gap: 40px;
+}
+
+.case-hospital-execution-card {
+    position: relative;
+    padding: clamp(32px, 4vw, 56px);
+    background: #fff;
+    border: 1px solid rgba(20, 20, 20, 0.12);
+    box-shadow: 0 18px 48px rgba(20, 20, 20, 0.06);
+    overflow: hidden;
+}
+
+.case-hospital-execution-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    height: 4px;
+    background: #799a79;
+}
+
+.case-hospital-execution-card__label {
+    margin-bottom: 16px;
+    color: #799a79;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+}
+
+.case-hospital-execution-card__title {
+    font-size: clamp(24px, 3vw, 28px);
+    line-height: 1.45;
+}
+
+.case-hospital-execution-card__summary {
+    max-width: 920px;
+    margin-top: 16px;
+    line-height: 2;
+}
+
+.case-hospital-execution-card__image {
+    margin-top: 24px;
+    overflow: hidden;
+    background: #f4f1ec;
+    border: 1px solid rgba(20, 20, 20, 0.1);
+    aspect-ratio: 16 / 6;
+}
+
+.case-hospital-execution-card__image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: 0 0;
+}
+
+.case-hospital-execution-card__flow {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 28px;
+}
+
+.case-hospital-execution-card__block {
+    position: relative;
+    padding: 24px;
+    background: #fbfaf7;
+    border: 1px solid rgba(20, 20, 20, 0.1);
+}
+
+.case-hospital-execution-card__block {
+    h4 {
+        margin-bottom: 14px;
+        font-size: 16px;
+        letter-spacing: 0.08em;
+    }
+    &:last-of-type {
+        h4 {
+            color: #3c7e5d;
+        }
+    }
+}
+
+.case-hospital-execution-card__block p {
+    line-height: 2;
+}
+
+.case-hospital-execution-card__flow .case-hospital-execution-card__block:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -19px;
+    width: 10px;
+    height: 10px;
+    border-top: 1px solid rgba(20, 20, 20, 0.45);
+    border-right: 1px solid rgba(20, 20, 20, 0.45);
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.case-hospital-execution-card__operation {
+    margin-top: 24px;
+    padding: 24px 28px;
+    background: #f4f1ec;
+    border-left: 4px solid #799a79;
+}
+
+.case-hospital-execution-card__operation h4 {
+    margin-bottom: 10px;
+    color: #799a79;
+    font-size: 16px;
+    letter-spacing: 0.12em;
+}
+
+.case-hospital-execution-card__operation p {
+    line-height: 2;
+    font-size: 15px;
+}
+
+@media (max-width: 767px) {
+    .case-hospital-execution__intro {
+        margin-bottom: 48px;
+    }
+
+    .case-hospital-execution__list {
+        gap: 28px;
+    }
+
+    .case-hospital-execution-card {
+        padding: 28px 20px;
+    }
+
+    .case-hospital-execution-card__image {
+        aspect-ratio: 1 / 0.63;
+    }
+
+    .case-hospital-execution-card__flow {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .case-hospital-execution-card__flow .case-hospital-execution-card__block:not(:last-child)::after {
+        top: auto;
+        right: auto;
+        left: 50%;
+        bottom: -12px;
+        transform: translateX(-50%) rotate(135deg);
+    }
+
+    .case-hospital-execution-card__block {
+        padding: 20px;
+    }
+
+    .case-hospital-execution-card__operation {
+        padding: 20px;
+    }
+}
+
+/* ---------------------------------
+execution nav
+--------------------------------- */
+
+.case-hospital-execution-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 22px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(20, 20, 20, 0.12);
+}
+
+.case-hospital-execution-nav__link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    color: #141414;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.case-hospital-execution-nav__link span {
+    color: #6f816f;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+}
+
+.case-hospital-execution-nav__link:hover {
+    opacity: 0.5;
+}
+
+/* ---------------------------------
+execution more
+--------------------------------- */
+
+.case-hospital-execution-more {
+    margin-top: 80px;
+    padding-top: 56px;
+    border-top: 1px solid rgba(20, 20, 20, 0.12);
+}
+
+.case-hospital-execution-more__eyebrow {
+    color: #6f816f;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+}
+
+.case-hospital-execution-more__title {
+    margin-top: 12px;
+}
+
+.case-hospital-execution-more__lead {
+    margin-top: 20px;
+    line-height: 2;
+}
+
+.case-hospital-execution-more__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.case-hospital-execution-more__list li {
+    padding: 10px 14px;
+    border: 1px solid rgba(20, 20, 20, 0.12);
+    background: #fff;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+}
+
+.case-hospital-execution-more__action {
+    margin-top: 36px;
+    display: flex;
+    justify-content: center;
+}
+
+/* ---------------------------------
+sp
+--------------------------------- */
+
+@media screen and (max-width: 767px) {
+    .case-hospital-execution-nav {
+        justify-content: flex-start;
+        gap: 10px 14px;
+        margin-top: 24px;
+        padding-top: 18px;
+    }
+
+    .case-hospital-execution-nav__link {
+        font-size: 11px;
+    }
+
+    .case-hospital-execution-more {
+        margin-top: 56px;
+        padding-top: 40px;
+    }
+
+    .case-hospital-execution-more__list {
+        gap: 8px;
+    }
+
+    .case-hospital-execution-more__list li {
+        padding: 8px 12px;
+    }
+}
+
+/* ---------------------------------
+execution scope tags
+--------------------------------- */
+
+.case-hospital-execution-card__scope {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    margin-top: 14px;
+}
+
+.case-hospital-execution-card__scope li {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    // gap: 6px;
+    padding: 4px 0;
+    color: #555;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+}
+
+// .case-hospital-execution-card__scope li::before {
+//     content: "";
+//     width: 6px;
+//     height: 6px;
+//     border-radius: 50%;
+//     background: rgba(20, 20, 20, 0.35);
+// }
+
+.case-hospital-execution-card__scope li[data-type="self"]::before {
+    background: #b7a77b;
+}
+
+.case-hospital-execution-card__scope li[data-type="partner"]::before {
+    background: #6f816f;
+}
+
+.case-hospital-execution-card__scope li[data-type="team"]::before {
+    background: #9a9a9a;
+}
+
+@media screen and (max-width: 767px) {
+    .case-hospital-execution-card__scope {
+        gap: 6px 9px;
+        margin-top: 12px;
+    }
+
+    .case-hospital-execution-card__scope li {
+        font-size: 10px;
+    }
+}
+
+/* ---------------------------------
+execution scope group
+--------------------------------- */
+
+.case-hospital-execution-card__scope {
+    display: grid;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.case-hospital-execution-card__scope-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 12px;
+}
+
+.case-hospital-execution-card__scope-label {
+    flex: 0 0 auto;
+    color: #6f816f;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+}
+
+.case-hospital-execution-card__scope-group ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0px 12px;
+}
+
+.case-hospital-execution-card__scope-group li {
+    position: relative;
+    color: #555;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    left: 10px;
+}
+
+.case-hospital-execution-card__scope-group li:not(:last-child)::after {
+    content: "｜";
+    margin-left: 12px;
+    color: rgba(20, 20, 20, 0.24);
+}
+
+@media screen and (max-width: 767px) {
+    .case-hospital-execution-card__scope {
+        gap: 8px;
+        margin-top: 12px;
+    }
+
+    .case-hospital-execution-card__scope-group {
+        gap: 6px 10px;
+    }
+
+    .case-hospital-execution-card__scope-label,
+    .case-hospital-execution-card__scope-group li {
+        font-size: 10px;
+    }
+
+    .case-hospital-execution-card__scope-group li:not(:last-child)::after {
+        margin-left: 10px;
+    }
+}
